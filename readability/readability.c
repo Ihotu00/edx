@@ -1,18 +1,18 @@
 #include <cs50.h>
 #include <stdio.h>
-#include <ctype.h>
+#include <string.h>
 
-int strlength(string text);
+// int strlength(string text);
 
 
 int main(void)
 {
     string text = get_string("Text: ");
-    int len = strlength(text);
+    int len = strlen(text);
     printf("%i\n", len);
 }
 
-int strlength(string text)
-{
-    for (int i = 0; )
-}
+// int strlength(string text)
+// {
+//     for (int i = 0; )
+// }

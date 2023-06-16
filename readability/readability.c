@@ -14,7 +14,8 @@ int main(void)
     int letters = count_letters(text);
     int word = count_words(text);
     int sentence = count_sentence(text);
-    printf("%iletters\n%iwords\n%isentences\n", letters, word, sentence);
+    int grade = (letters / word * 100) - (sentence / word * 100) - 15.8;
+    printf("%iletters\n%iwords\n%isentences\n%iGrade\n", letters, word, sentence, grade);
 }
 
 int count_letters(string text)

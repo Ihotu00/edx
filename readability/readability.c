@@ -27,7 +27,6 @@ int count_letters(string text)
         {
             letters++;
         }
-
    }
    return letters;
 
@@ -42,9 +41,9 @@ int count_words(string text)
         if isspace(text[i])
         {
             if isalpha(text[i + 1])
-                {
-                    word++;
-                }
+            {
+                word++;
+            }
         }
     }
     return word;

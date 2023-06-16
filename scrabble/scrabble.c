@@ -43,8 +43,15 @@ int compute_score(string word)
     for (int i = 0; i < len; i++)
     {
         word[i] = tolower(word[i]);
-        if word[i] in [',! "?.]
-        score += POINTS[word[i] - 'a'];
+        if (word[i] in [',! "?.@#$%^&*()])
+        {
+            score += 0;
+        }
+        else
+        {
+            score += POINTS[word[i] - 'a'];
+        }
+
     }
     return score;
 

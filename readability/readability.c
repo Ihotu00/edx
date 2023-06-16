@@ -33,15 +33,19 @@ int count_letters(string text)
 
 int count_words(string text)
 {
-    int word = 1;
+    int word = 0;
     int l = strlen(text);
     for (int i = 0; i < l; i++)
     {
         if isspace(text[i])
         {
             for (int j = 0; j < l; j++)
-            if isalpha(text[i + 1])
-            word++;
+            {
+                if isalpha(text[i + 1])
+                {
+                    word++;
+                }
+            }
         }
     }
     return word;

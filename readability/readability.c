@@ -44,12 +44,9 @@ int count_words(string text)
             {
                 word++;
             }
-            else if (text[i == l])
-            {
-                word++;
-            }
         }
     }
+    word++;
     return word;
 }
 

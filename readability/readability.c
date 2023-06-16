@@ -44,9 +44,12 @@ int count_words(string text)
             {
                 word++;
             }
+            else if (ispunct(text[i + 1]))
+            {
+                word++;
+            }
         }
     }
-    word++;
     return word;
 }
 

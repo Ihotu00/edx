@@ -15,7 +15,7 @@ int main(void)
     int word = count_words(text);
     int sentence = count_sentence(text);
     float grade = 0.0588 * (letters / word * 100) - 0.296 * (sentence / word * 100) - 15.8;
-    printf("%i letters\n%i words\n%i sentences\n%f Grade\n", letters, word, sentence, grade);
+    printf("Grade\n", grade);
 }
 
 int count_letters(string text)

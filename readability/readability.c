@@ -15,11 +15,12 @@ int main(void)
 
 int length(string text)
 {
+    int len = 0;
    int l = strlen(text);
    for(int i = 0; i < l; i++)
    {
         if isalnum(text[i])
-            int len++;
+            len++;
    }
    return len;
 

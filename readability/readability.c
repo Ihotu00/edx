@@ -58,7 +58,7 @@ int count_sentence(string text)
     {
         if ispunct(text[i])
         {
-            if isalpha(text[i + 1])
+            if isspace(text[i + 1])
             {
                 sentence++;
             }

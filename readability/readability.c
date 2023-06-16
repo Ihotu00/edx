@@ -33,7 +33,7 @@ int count_letters(string text)
 
 int count_words(string text)
 {
-    int word = 0;
+    int word = 1;
     int l = strlen(text);
     for (int i = 0; i < l; i++)
     {

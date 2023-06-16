@@ -73,5 +73,9 @@ int count_sentence(string text)
                 sentence++;
         }
     }
-    return sentence;
+    if (sentence == 0)
+    {
+        return 1;
+    }
+    else return sentence;
 }

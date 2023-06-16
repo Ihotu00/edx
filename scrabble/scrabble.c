@@ -48,7 +48,7 @@ int compute_score(string word)
         {
             word[i] = tolower(word[i]);
         }
-        score += POINTS[word[i] - "a"];
+        score += POINTS[word[i] - 'a'];
     }
     return score;
 

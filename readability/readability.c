@@ -57,8 +57,9 @@ int count_sentence(string text)
     int l = strlen(text);
     for (int i = 0; i < l; i++)
     {
-        if (ispunct(text[i]) != 0) && (isalpha(text[i + 1]) != 0)
+        if ispunct(text[i])
         {
+            if scrabble/readability
             sentence ++;
         }
     }

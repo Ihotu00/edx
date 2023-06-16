@@ -56,9 +56,10 @@ int count_sentence(string text)
     int l = strlen(text);
     for (int i = 0; i < l; i++)
     {
-        if (ispunct(text[i]))
+        if (ispunct(text[i])) && (isalpha(text[i + 1]))
         {
-            
+            sentence ++;
         }
     }
+    return sentence;
 }

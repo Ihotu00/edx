@@ -39,13 +39,10 @@ int count_words(string text)
     {
         if isspace(text[i])
         {
-            // for (int j = 0; j < l; j++)
-            // {
-                if isalpha(text[i + 1])
+            if isalpha(text[i + 1])
                 {
                     word++;
                 }
-            // }
         }
     }
     return word;

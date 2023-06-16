@@ -14,10 +14,10 @@ int main(void)
     int letters = count_letters(text);
     int word = count_words(text);
     int sentence = count_sentence(text);
-    int grade = 0.0588 * (letters / word * 100) - 0.296 * (sentence / word * 100) - 15.8;
+    float grade = 0.0588 * (letters / word * 100) - 0.296 * (sentence / word * 100) - 15.8;
     if (grade > 1 && grade < 16)
     {
-        printf("Grade %i\n", grade);
+        printf("Grade %f\n", grade);
     }
     else if (grade < 1)
     {

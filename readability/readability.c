@@ -59,8 +59,10 @@ int count_sentence(string text)
     {
         if ispunct(text[i])
         {
-            if scrabble/readability
-            sentence ++;
+            if isalpha(text[i + 1])
+            {
+                sentence++;
+            }
         }
     }
     return sentence;

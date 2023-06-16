@@ -5,6 +5,7 @@
 
 int count_letters(string text);
 int count_words(string text);
+int count_sentence(string text);
 
 
 int main(void)
@@ -48,3 +49,16 @@ int count_words(string text)
     return word;
 }
 
+
+int count_sentence(string text)
+{
+    int sentence = 0;
+    int l = strlen(text);
+    for (int i = 0; i < l; i++)
+    {
+        if (ispunct(text[i]))
+        {
+            
+        }
+    }
+}

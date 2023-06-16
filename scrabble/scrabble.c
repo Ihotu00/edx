@@ -36,7 +36,7 @@ int main(void)
 int compute_score(string word)
 {
     // convert word to lowercase
-    word = tolower(word);
+    word = strlwr(word);
 
     // take the lenght of the word
     len = strlen(word);

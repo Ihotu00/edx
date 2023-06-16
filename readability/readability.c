@@ -12,7 +12,7 @@ int main(void)
     printf("%i\n", len);
 }
 
-// int strlength(string text)
-// {
-//     for (int i = 0; )
-// }
+int strlength(string text)
+{
+    
+}

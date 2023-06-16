@@ -7,5 +7,7 @@ fruits = {
     "Tangerine": "50", "Watermelon": "80",
 }
 
-for fruit in fruits:
-    print(fruit)
+item = input("Item: ").lower()
+
+if item in fruits:
+    print(fruits[item])

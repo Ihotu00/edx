@@ -40,7 +40,7 @@ int count_words(string text)
     {
         if isalpha(text[i])
         {
-            if isspace(text[i + 1])
+            if isspace(text[i + 1]) || text[i == l]
             {
                 word++;
             }

@@ -15,7 +15,7 @@ int main(void)
     int letters = count_letters(text);
     int word = count_words(text);
     int sentence = count_sentence(text);
-    float grade = (0.0588 * (letters / word * 100)) - (0.296 * (sentence / word * 100)) - 15.8;
+    float grade = (0.0588 * ((letters / word) * 100)) - (0.296 * ((sentence / word) * 100)) - 15.8;
     grade = round(grade);
     if (grade > 1 && grade < 16)
     {

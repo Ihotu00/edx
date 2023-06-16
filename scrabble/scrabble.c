@@ -43,12 +43,15 @@ int compute_score(string word)
     for (int i = 0; i < len; i++)
     {
         word[i] = tolower(word[i]);
-        // if(isupper(word[i]))
-        // {
-        //     // convert character to lowercase
-        //     word[i] = tolower(word[i]);
-        // }
-        score += POINTS[word[i] - 'a'];
+        if (ispunct(word[i]))
+        {
+            score += 0;
+        }
+        else
+        {
+            score += POINTS[word[i] - 'a'];
+        }
+
     }
     return score;
 

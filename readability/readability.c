@@ -10,20 +10,24 @@ int count_words(string text);
 int main(void)
 {
     string text = get_string("Text: ");
-    int len = count_letters(text);
-    printf("%i\n", len);
+    int letters = count_letters(text);
+    int word = count_words(text);
+    printf("%i, %i\n ", letters, word);
 }
 
 int count_letters(string text)
 {
-    int len = 0;
+    int letters = 0;
    int l = strlen(text);
    for (int i = 0; i < l; i++)
    {
         if isalpha(text[i])
-            len++;
+        {
+            letters++;
+        }
+
    }
-   return len;
+   return letters;
 
 }
 
@@ -31,6 +35,13 @@ int count_words(string text)
 {
     int word = 0;
     int l = strlen(text);
-    for (int i = 0)
+    for (int i = 0; i < l; i++)
+    {
+        if isspace(text[i])
+        {
+            word++;
+        }
+    }
+    return word;
 }
 

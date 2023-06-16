@@ -35,8 +35,6 @@ int main(void)
 
 int compute_score(string word)
 {
-    // convert word to lowercase
-    // word = strlwr(word);
 
     // take the lenght of the word
     int len = strlen(word);
@@ -46,6 +44,7 @@ int compute_score(string word)
     {
         if(isupper(word[i]))
         {
+            // convert character to lowercase
             word[i] = tolower(word[i]);
         }
         score += POINTS[word[i] - 'a'];

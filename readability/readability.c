@@ -15,11 +15,11 @@ int main(void)
     int letters = count_letters(text);
     int word = count_words(text);
     int sentence = count_sentence(text);
-    float grade = 0.0588 * (letters / word * 100) - 0.296 * (sentence / word * 100) - 15.8;
+    int grade = 0.0588 * (letters / word * 100) - 0.296 * (sentence / word * 100) - 15.8;
     grade = round(grade);
     if (grade > 1 && grade < 16)
     {
-        printf("Grade %f\n", grade);
+        printf("Grade %i\n", grade);
     }
     else if (grade < 1)
     {
@@ -29,7 +29,7 @@ int main(void)
     {
         printf("Grade 16+\n");
     }
-    printf("%i, %i, %i\n", letters, word, sentence);
+    // printf("%i, %i, %i\n", letters, word, sentence);
 }
 
 int count_letters(string text)

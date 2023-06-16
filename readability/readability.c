@@ -17,7 +17,7 @@ int main(void)
     int sentence = count_sentence(text);
     int grade = (0.0588 * (letters / word) * 100) - (0.296 * (sentence / word) * 100) - 15.8;
     grade = round(grade);
-    if (grade > 1 && grade < 16)
+    if (grade >= 1 && grade <= 16)
     {
         printf("Grade %i\n", grade);
     }

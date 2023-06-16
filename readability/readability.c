@@ -29,7 +29,7 @@ int main(void)
     {
         printf("Grade 16+\n");
     }
-    // printf("%i, %i, %i\n", letters, word, sentence);
+    printf("%i, %i, %i\n", letters, word, sentence);
 }
 
 int count_letters(string text)

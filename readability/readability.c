@@ -19,17 +19,17 @@ int main(void)
     grade = round(grade);
     if (grade >= 1 && grade <= 16)
     {
-        printf("Grade %f\n", grade);
+        printf("Grade %.f\n", grade);
     }
     else if (grade < 1)
     {
-        printf("Before Grade 1 %f\n", grade);
+        printf("Before Grade 1\n");
     }
     else
     {
-        printf("Grade 16+ %f\n", grade);
+        printf("Grade 16+\n");
     }
-    printf("%f, %f, %f\n", letters, word, sentence);
+    // printf("%f, %f, %f\n", letters, word, sentence);
 }
 
 int count_letters(string text)

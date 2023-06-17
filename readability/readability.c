@@ -72,11 +72,11 @@ int count_sentence(string text)
         {
                 sentence++;
         }
-    if (i == l - 1) sentence++;
+    // if (i == l - 1) sentence++;
+    // }
+    // if (sentence == 0)
+    // {
+    //     return 1;
     }
-    if (sentence == 0)
-    {
-        return 1;
-    }
-    else return sentence;
+    return sentence;
 }

@@ -79,5 +79,6 @@ int count_sentence(string text)
         {
             sentence++;
         }
+    }
     return sentence;
 }

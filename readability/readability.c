@@ -74,6 +74,7 @@ int count_sentence(string text)
     int l = strlen(text);
     for (int i = 0; i < l; i++)
     {
+        // count after a . ! or ?
         if (text[i] == '.' || text[i] == '!' || text[i] == '?')
         {
             sentence++;

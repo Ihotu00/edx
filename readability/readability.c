@@ -15,7 +15,9 @@ int main(void)
     float letters = count_letters(text);
     float word = count_words(text);
     float sentence = count_sentence(text);
+    // apply the Coleman-Liau index
     float grade = (0.0588 * (letters / word) * 100) - (0.296 * (sentence / word) * 100) - 15.8;
+    // round grade
     grade = round(grade);
     if (grade >= 1 && grade <= 16)
     {
@@ -29,30 +31,33 @@ int main(void)
     {
         printf("Grade 16+\n");
     }
-    // printf("%.f, %.f, %.f\n", letters, word, sentence);
 }
 
+// function to count the letters in a string
 int count_letters(string text)
 {
     int letters = 0;
-   int l = strlen(text);
-   for (int i = 0; i < l; i++)
-   {
+    int l = strlen(text);
+    for (int i = 0; i < l; i++)
+    {
+        // only count alphabtes
         if isalpha(text[i])
         {
             letters++;
         }
-   }
-   return letters;
+    }
+    return letters;
 
 }
 
+// function to count the words in a string
 int count_words(string text)
 {
     int word = 1;
     int l = strlen(text);
     for (int i = 0; i < l; i++)
     {
+        // count after every space
         if isspace(text[i])
         {
             word++;
@@ -62,6 +67,7 @@ int count_words(string text)
 }
 
 
+// function to count sentences in a string
 int count_sentence(string text)
 {
     int sentence = 0;
@@ -70,13 +76,7 @@ int count_sentence(string text)
     {
         if (text[i] == '.' || text[i] == '!' || text[i] == '?')
         {
-                sentence++;
+            sentence++;
         }
-    // if (i == l - 1) sentence++;
-    // }
-    // if (sentence == 0)
-    // {
-    //     return 1;
-    }
     return sentence;
 }

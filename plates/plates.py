@@ -36,7 +36,6 @@ def is_valid(s):
         for c in s:
             if c in "0123456789":
                 b = s[s.find(c):]
-                # return b
                 if b[0] == "0" or b.isnumeric() == False:
                     return 0
                 else:

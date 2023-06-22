@@ -1,11 +1,11 @@
 sort1 uses: bubble sort
 
-How do you know?: it took the least amount of time
+How do you know?: it took the least amount of time to sort sorted50000.txt
 
-sort2 uses: TODO
+sort2 uses: merge sort
 
-How do you know?: TODO
+How do you know?: it took the least amount of time to sort random50000.txt
 
-sort3 uses: TODO
+sort3 uses: selection sort
 
-How do you know?: TODO
+How do you know?: process of elimination

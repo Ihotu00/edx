@@ -74,12 +74,8 @@ bool vote(string name)
             candidates[i].votes ++;
             return true;
         }
-        else
-        {
-            return false;
-        }
     }
-
+    return false;
 
 }
 
@@ -87,5 +83,6 @@ bool vote(string name)
 void print_winner(void)
 {
     // TODO
+    
     return;
 }

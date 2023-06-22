@@ -87,7 +87,8 @@ void print_winner(void)
     {
         for (int j =0; j < MAX; j++)
         {
-            if candidate[i].votes < candidate
+            if candidate[i].votes < candidate[j].votes
+                break;
         }
     }
     return;

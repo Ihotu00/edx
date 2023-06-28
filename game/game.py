@@ -4,8 +4,9 @@ from random import randint
 while True:
     try:
         level = int(input("Level: "))
+        1/level
         break
-    except ValueError:
+    except (ValueError, ZeroDivisionError):
         pass
 
 number = randint(1, level)

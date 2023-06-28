@@ -9,11 +9,15 @@ while True:
         pass
 
 number = randint(1, level)
+
 while(True):
     try:
         guess = int(input("Guess: "))
+        break
     except ValueError:
         pass
+
+while True:
     if guess < number:
         print("Too small!")
     elif guess > number:

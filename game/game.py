@@ -16,11 +16,12 @@ def main():
 
 
 def check(s):
-    try:
-        t = int(s)
-        return True
-    except ValueError:
-        return False
+    while True
+        try:
+            t = int(s)
+            return True
+        except ValueError:
+            return False
 
 
 main()

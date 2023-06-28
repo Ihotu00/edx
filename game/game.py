@@ -1,27 +1,28 @@
 from random import randint
 
 
-def main():
-    level = check(input("Level: "))
-    guess = check(input("Guess: "))
-    number = randint(1, level)
-    while True:
-        if guess < number:
-            print("Too small!")
-        elif guess > number:
-            print("Too large!")
-        else:
-            print("Just right!")
-            break
-
-
-def check(s):
+while True:
     try:
-        t = int(s)
-        return True
+        level = int(input("Level: "))
+        break
     except ValueError:
-        return False
+        pass
 
+number = randint(1, level)
 
-main()
+while True:
+    try:
+        guess = int(input("Guess: "))
+        break
+    except ValueError:
+        pass
+
+while True:
+    if guess < number:
+        print("Too small!")
+    elif guess > number:
+        print("Too large!")
+    else:
+        print("Just right!")
+        break
 

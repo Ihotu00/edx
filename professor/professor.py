@@ -8,6 +8,7 @@ def main():
         val1, val2 = generate_integer(l)
         sum = input(f"{val1} + {val2}: ")
         asum = val1 + val2
+        print(asum)
         if sum == asum:
             score += 1
         else:

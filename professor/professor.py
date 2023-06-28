@@ -26,16 +26,19 @@ def get_level():
     return level
 
 def generate_integer(level):
-    if level == 1:
-        x = randint(0, 9)
-        y = randint(0, 9)
-    elif level == 2:
-        x = randint(10, 99)
-        y = randint(10, 99)
-    else:
-        x = randint(100, 999)
-        y = randint(100, 999)
-    return x, y
+    try:
+        if level == 1:
+            x = randint(0, 9)
+            y = randint(0, 9)
+        elif level == 2:
+            x = randint(10, 99)
+            y = randint(10, 99)
+        else:
+            x = randint(100, 999)
+            y = randint(100, 999)
+        return x, y
+    except ValueError:
+        pass
 
 
 main()

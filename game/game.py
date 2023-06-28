@@ -2,8 +2,10 @@ from random import randint
 
 
 def main():
-    level = check(input("Level: "))
-    guess = check(input("Guess: "))
+    while True:
+        level = check(input("Level: "))
+    while True:
+        guess = check(input("Guess: "))
     number = randint(1, level)
     while(True):
         if guess < number:
@@ -18,9 +20,9 @@ def main():
 def check(s):
     try:
         t = int(s)
-        break
+        return True
     except ValueError:
-        pass
+        return False
 
 
 

@@ -11,6 +11,8 @@ int preferences[MAX][MAX];
 // locked[i][j] means i is locked in over j
 bool locked[MAX][MAX];
 
+bool cycle(int winner, int loser);
+
 // Each pair has a winner, loser
 typedef struct
 {
@@ -173,7 +175,7 @@ void sort_pairs(void)
                 pairs[i] = swaps;
             }
         }
-        printf("%i: %i, %i\n", strength[i], pairs[i].winner, pairs[i].loser);
+        // printf("%i: %i, %i\n", strength[i], pairs[i].winner, pairs[i].loser);
     }
     return;
 }
@@ -190,38 +192,38 @@ void lock_pairs(void)
 
     for (int i = 0; i < pair_count; i++)
     {
-        locked[pairs[i].winner][pairs[i].loser] = true;
+        locked[pairs[i].winner][pairs[i].loser] = !cycle(pairs[i].winner, pairs[i].loser);
     }
 
-    for (int i = 0; i < candidate_count; i++)
-    {
-        if (state[i] == 1)
-        {
-            state[i] = 2;
-            for (int j = 0; j < candidate_count; j++)
-            {
-                if (locked[i][j] == true)
-                {
-                    if (state[j] == 2)
-                    {
-                        locked[i][j] = false;
-                    }
-                }
-            }
-        }
-        state[i] = 3;
-    }
-
-    for (int k = 0; k < candidate_count; k++)
-    {
-        for (int l = 0; l < candidate_count; l++)
-        {
-            printf("%d", locked[k][l]);
-        }
-        printf("\n");
-    }
+    // for (int k = 0; k < candidate_count; k++)
+    // {
+    //     for (int l = 0; l < candidate_count; l++)
+    //     {
+    //         printf("%d", locked[k][l]);
+    //     }
+    //     printf("\n");
+    // }
 
     return;
+}
+
+bool cycle(int winner, int loser)
+{
+    if (loser == winner)
+    {
+        return true;
+    }
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (locked[loser][i] == true)
+        {
+            if (cycle(winner, i))
+            {
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 // Print the winner of the election
@@ -247,7 +249,7 @@ void print_winner(void)
     {
         if (in[i] == 0)
         {
-            printf("Winner is %s\n", candidates[i]);
+            printf("%s\n", candidates[i]);
         }
     }
     return;

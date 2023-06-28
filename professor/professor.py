@@ -17,11 +17,12 @@ def main():
         else:
             print("EEE")
         i += 1
+    print("Score: ", score)
 
 def get_level():
     level = 0
     while (level < 1 or level > 3):
-        rylevel = int(input("Level: "))
+        level = int(input("Level: "))
     return level
 
 def generate_integer(level):

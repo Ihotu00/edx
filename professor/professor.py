@@ -22,7 +22,7 @@ def main():
 def get_level():
     level = 0
     while (level < 1 or level > 3):
-        level = int(input("Level: "))
+        level = checkint(input("Level: "))
     return level
 
 def generate_integer(level):
@@ -37,5 +37,12 @@ def generate_integer(level):
         y = randint(100, 999)
     return x, y
 
+def check(s):
+    while True:
+        try:
+            t = int(input(f"{s}: "))
+            return True
+        except ValueError:
+            pass
 
 main()

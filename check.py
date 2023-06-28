@@ -6,10 +6,9 @@ def main():
 def check(s):
     while True:
         try:
-            t = int(input("s: "))
-            break
+            t = int(input(f"{s}: "))
+            return True
         except ValueError:
             pass
-    print(t)
 
 main()

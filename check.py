@@ -1,3 +1,7 @@
+import sys
+
+
+
 def check(s):
     while True:
         try:

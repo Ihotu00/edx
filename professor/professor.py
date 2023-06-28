@@ -1,11 +1,19 @@
 from random import randint
 
 def main():
+    i = 0
+    score = 0
     l = get_level()
-    val1, val2 = generate_integer(l)
-    sum = input(f"{val1} + {val2}: ")
-    asum = val1 + val2
-    if sum == asum:
+    while (i < 10):
+        val1, val2 = generate_integer(l)
+        sum = input(f"{val1} + {val2}: ")
+        asum = val1 + val2
+        if sum == asum:
+            score += 1
+        else:
+            print("EEE")
+        i += 1
+
 def get_level():
     level = 0
     while (level < 1 or level > 3):

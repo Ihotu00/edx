@@ -16,8 +16,6 @@ while(True):
         break
     except ValueError:
         pass
-
-while True:
     if guess < number:
         print("Too small!")
     elif guess > number:

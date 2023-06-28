@@ -6,7 +6,7 @@ def main():
     guess = check(input("Guess: "))
 
 
-while True:
+:
     try:
         break
     except ValueError:

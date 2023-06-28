@@ -3,15 +3,17 @@ from random import randint
 
 while True:
     try:
-        level = input("Level: ")
-    try:
-        guess = input("Guess: ")
+        level = int(input("Level: "))
         break
     except ValueError:
         pass
 
 number = randint(1, level)
 while(True):
+    try:
+        guess = int(input("Guess: "))
+    except ValueError:
+        pass
     if guess < number:
         print("Too small!")
     elif guess > number:

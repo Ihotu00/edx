@@ -1,9 +1,13 @@
 from random import randint
 
 
+def main():
+    level = check(int(input("Level: ")))
+    guess = int(input("Guess: "))
+
+
 while True:
     try:
-        level = int(input("Level: "))
         break
     except ValueError:
         pass
@@ -12,7 +16,6 @@ number = randint(1, level)
 
 while(True):
     try:
-        guess = int(input("Guess: "))
         if guess < number:
             print("Too small!")
         elif guess > number:

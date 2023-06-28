@@ -1,6 +1,7 @@
 import sys
 
-
+def main():
+    check(sys.argv[1])
 
 def check(s):
     while True:
@@ -11,4 +12,4 @@ def check(s):
             pass
     print(t)
 
-check()
+main()

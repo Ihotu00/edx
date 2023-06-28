@@ -2,8 +2,8 @@ from random import randint
 
 
 def main():
-    level = check(int(input("Level: ")))
-    guess = int(input("Guess: "))
+    level = check(input("Level: "))
+    guess = check(input("Guess: "))
 
 
 while True:

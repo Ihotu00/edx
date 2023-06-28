@@ -8,4 +8,4 @@ while True:
     except EOFError:
         print("\n")
         break
-print(names)
+print(p.join(names))

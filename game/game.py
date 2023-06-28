@@ -1,7 +1,7 @@
 from random import randint
 
-level = input("Level: ")
-guess = input("Guess: ")
+level = int(input("Level: "))
+guess = int(input("Guess: "))
 number = randint(1, level)
 if guess < number:
     print("Too small!")

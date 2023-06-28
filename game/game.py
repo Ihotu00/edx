@@ -2,12 +2,10 @@ from random import randint
 
 
 def main():
-    while True:
-        level = check(input("Level: "))
-    while True:
-        guess = check(input("Guess: "))
+    level = check(input("Level: "))
+    guess = check(input("Guess: "))
     number = randint(1, level)
-    while(True):
+    while True:
         if guess < number:
             print("Too small!")
         elif guess > number:
@@ -25,5 +23,5 @@ def check(s):
         return False
 
 
-
+main()
 

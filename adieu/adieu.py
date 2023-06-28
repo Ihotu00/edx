@@ -1,7 +1,7 @@
 import inflect
 
 p = inflect.engine()
-names = ["Adieu", "adieu" "to"]
+names = ["Adieu", "adieu", "to"]
 while True:
     try:
         names.append(input("Name: "))

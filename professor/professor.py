@@ -6,9 +6,11 @@ def main():
     l = get_level()
     while (i < 10):
         val1, val2 = generate_integer(l)
-        sum = input(f"{val1} + {val2}: ")
+        try:
+            sum = int(input(f"{val1} + {val2}: "))
+        except ValueError:
+            pass
         asum = val1 + val2
-        print(asum)
         if sum == asum:
             score += 1
         else:

@@ -21,13 +21,13 @@ def main():
 def get_level():
     level = 0
     while (level < 1 or level > 3):
-        level = int(input("Level: "))
+        rylevel = int(input("Level: "))
     return level
 
 def generate_integer(level):
     if level == 1:
-        x = randint(1, 9)
-        y = randint(1, 9)
+        x = randint(0, 9)
+        y = randint(0, 9)
     elif level == 2:
         x = randint(10, 99)
         y = randint(10, 99)

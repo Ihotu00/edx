@@ -3,9 +3,9 @@ from random import randint
 def main():
     l = get_level()
     val1, val2 = generate_integer(l)
-    sum = val1 + val2
-    print(sum, val1, val2)
-
+    sum = input(f"{val1} + {val2}: ")
+    asum = val1 + val2
+    if sum == asum:
 def get_level():
     level = 0
     while (level < 1 or level > 3):

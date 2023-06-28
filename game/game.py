@@ -3,16 +3,10 @@ from random import randint
 def check(s)
     while True:
         try:
-            s = int(input("Level: "))
-            break
+            type = int(s)
+            return True
         except ValueError:
             pass
-while True:
-    try:
-        guess = int(input("Guess: "))
-        break
-    except ValueError:
-        pass
 
 number = randint(1, level)
 if guess < number:

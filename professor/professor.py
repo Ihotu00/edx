@@ -11,10 +11,10 @@ def get_level():
     return level
 
 def generate_integer(level):
-    if level = 1:
+    if level == 1:
         x = randint(1, 9)
         y = randint(1, 9)
-    elif level = 2:
+    elif level == 2:
         x = randint(10, 99)
         y = randint(10, 99)
     else:

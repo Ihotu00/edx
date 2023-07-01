@@ -14,11 +14,12 @@ def main():
 
         for fail in range(3):
             sum = input(f"{val1} + {val2} = ")
-
-            try:
-                sum = int(sum)
-            except ValueError:
-                pass
+            while True:
+                
+            # try:
+            #     sum = int(sum)
+            # except ValueError:
+            #     pass
 
             if sum == asum:
                 score += 1

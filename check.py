@@ -1,7 +1,7 @@
-import sys
+
 
 def main():
-    check(sys.argv[1])
+   level = check(level)
 
 def check(s):
     while True:

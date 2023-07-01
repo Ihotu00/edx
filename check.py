@@ -9,8 +9,8 @@ def main():
 def check(s):
     try:
         t = int(s)
-        return True
+        return t
     except ValueError:
-        return False
+        pass
 
 main()

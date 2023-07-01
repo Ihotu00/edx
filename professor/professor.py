@@ -28,8 +28,8 @@ def main():
 
 def get_level():
     while True:
-       if level = check(input("Level: ")):
-            break
+       level = check(input("Level: "))
+       break
     if (level >= 1 and level <= 3):
         return level
 

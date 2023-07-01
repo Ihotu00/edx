@@ -14,12 +14,6 @@ def main():
 
         for fail in range(3):
             sum = check(input(f"{val1} + {val2} = "))
-
-            # try:
-            #     sum = int(sum)
-            # except ValueError:
-            #     pass
-
             if sum == asum:
                 score += 1
                 break
@@ -34,12 +28,9 @@ def main():
 
 def get_level():
     while True:
-        try:
-            level = int(input("Level: "))
+            level = check(input("Level: "))
             if (level >= 1 and level <= 3):
                return level
-        except ValueError:
-            pass
 
 
 def generate_integer(level):

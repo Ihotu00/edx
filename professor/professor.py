@@ -13,9 +13,8 @@ def main():
         asum = val1 + val2
 
         for fail in range(3):
-            sum = input(f"{val1} + {val2} = ")
-            while True:
-                
+            sum = check(input(f"{val1} + {val2} = "))
+
             # try:
             #     sum = int(sum)
             # except ValueError:

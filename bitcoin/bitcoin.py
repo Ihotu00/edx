@@ -10,8 +10,8 @@ if len(sys.argv) == 2:
         sys.exit()
 
 response = requests.get("https://api.coindesk.com/v1/bpi/currentprice.json")
-
+sys
 bpi = response.json()["bpi"]
 usd = bpi["USD"]
-amount = sys.argv[1] *
+amount = sys.argv[1] * usd["rate_float"]
 print(amount)

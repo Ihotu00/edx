@@ -33,6 +33,7 @@ def get_level():
             return level
 
 
+
 def generate_integer(level):
     if level == 1:
         x = randint(0, 9)

@@ -28,10 +28,9 @@ def main():
 
 def get_level():
     while True:
-        level = input("Level: ")
-        if check(level):
-            if (level >= 1 and level <= 3):
-                return level
+        level = check(input("Level: "))
+        if (level >= 1 and level <= 3):
+            return level
 
 
 def generate_integer(level):

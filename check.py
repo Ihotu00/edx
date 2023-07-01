@@ -13,4 +13,5 @@ def check(s):
     except ValueError:
         pass
 
-main()
+if __name__ = "__main__'"
+    main()

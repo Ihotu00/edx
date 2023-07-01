@@ -1,14 +1,13 @@
 
 
 def main():
-   level = check()
+   level = check(input("Level: "))
 
 def check(s):
-    while True:
-        try:
-            t = int(s)
-            return True
-        except ValueError:
-            pass
+    try:
+        t = int(s)
+        return True
+    except ValueError:
+        return False
 
 main()

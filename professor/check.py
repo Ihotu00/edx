@@ -4,6 +4,7 @@ def main():
     while True:
         level = input("Level: ")
         if check(level):
+            level+= 2
             break
 
 def check(s):

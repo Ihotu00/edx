@@ -7,5 +7,5 @@ if len(sys.argv) == 2:
         print("OK")
     except ValueError:
         sys.exit()
-# else:
-#     sys.exit()
+
+re

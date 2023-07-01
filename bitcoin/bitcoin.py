@@ -12,5 +12,5 @@ except ValueError:
 response = requests.get("https://api.coindesk.com/v1/bpi/currentprice.json")
 bpi = response.json()["bpi"]
 usd = bpi["USD"]
-amount = float(sys.argv[1] * usd["rate_float"])
+amount = sys.argv[1] * usd["rate_float"]
 print(f"${amount:,.4f}")

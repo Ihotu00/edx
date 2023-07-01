@@ -30,7 +30,7 @@ def get_level():
     while True:
         level = input("Level: ")
         if check(level):
-            if (level >= 1 and level <= 3):
+            if (level == '1' or level == '2' or level == '3'):
                 return level
 
 

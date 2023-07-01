@@ -7,7 +7,7 @@ def check(s):
     while True:
         try:
             t = int(input(f"{s=}: "))
-            return True
+            return t
         except ValueError:
             pass
 

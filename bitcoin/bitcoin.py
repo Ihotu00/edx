@@ -11,5 +11,7 @@ if len(sys.argv) == 2:
 
 response = requests.get("https://api.coindesk.com/v1/bpi/currentprice.json")
 
-amount = response.json()["USD"]
+bpi = response.json()["bpi"]
+usd = bpi["USD"]
+amount = sys.argv[1] *
 print(amount)

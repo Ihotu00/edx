@@ -3,27 +3,43 @@ from random import randint
 def main():
     i = 0
     score = 0
+    fail = 0
+
     l = get_level()
+
     while (i < 10):
         val1, val2 = generate_integer(l)
-        sum = input(f"{val1} + {val2}: ")
-        try:
-            sum = int(sum)
-        except ValueError:
-            pass
         asum = val1 + val2
-        if sum == asum:
-            score += 1
-        else:
-            print("EEE")
+
+        for fail in range(3):
+            sum = input(f"{val1} + {val2} = ")
+
+            try:
+                sum = int(sum)
+            except ValueError:
+                pass
+
+            if sum == asum:
+                score += 1
+                break
+            else:
+                fail +=1
+                print("EEE")
+                if fail == 3:
+                    print(asum)
         i += 1
+
     print("Score: ", score)
 
 def get_level():
-    level = 0
-    while (level < 1 or level > 3):
-        check(level)
-    return level
+    while True:
+        try:
+            level = int(input("Level: "))
+            if (level >= 1 and level <= 3):
+               return level
+        except ValueError:
+            pass
+
 
 def generate_integer(level):
     if level == 1:
@@ -37,12 +53,5 @@ def generate_integer(level):
         y = randint(100, 999)
     return x, y
 
-def check(s):
-    while True:
-        try:
-            t = int(input(f"{s}: "))
-            return True
-        except ValueError:
-            pass
-
-main()
+if __name__ == "__main__":
+    main()

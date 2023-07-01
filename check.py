@@ -1,13 +1,13 @@
 
 
 def main():
-   check()
+   level = check()
 
-def check():
+def check(s):
     while True:
         try:
-            t = int(input(f": "))
-            return t
+            t = int(s)
+            return True
         except ValueError:
             pass
 

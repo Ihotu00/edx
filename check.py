@@ -1,7 +1,10 @@
 
 
 def main():
-   level = check(input("Level: "))
+    while True:
+        level = input("Level: ")
+        if check(level):
+            break
 
 def check(s):
     try:

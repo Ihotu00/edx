@@ -9,7 +9,7 @@ def main():
 
 def check(s):
     try:
-        t = float(s)
+        t = int(s)
         return t
     except ValueError:
         pass

@@ -11,7 +11,7 @@ while True:
 
 number = randint(1, level)
 
-while True:
+while True: 
     try:
         guess = int(input("Guess: "))
         if guess < number:

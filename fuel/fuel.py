@@ -1,29 +1,33 @@
 def main():
-    a, b = seperate()
-    z = a / b * 100
-    # check z and print appropriate output
-    if z > 1 and z < 99:
-        print(f"{z:.0f}%")
-    elif z <= 1:
-        print("E")
+    fuel = input("How much left: ")
+    if convert(fuel):
+        z = convert(fuel)
+        print(gauge(z))
     else:
-        print("F")
+        print(convert(fuel))
 
-# function to seperate user input
+def convert(fuel):
+    x, sign, y = fuel.partition("/")
+    try:
+        x, y = int(x), int(y)
+        z = int(x / y * 100)
+        if x > y:
+            raise ValueError
+    except ValueError:
+        raise ValueError
+    except ZeroDivisionError:
+        raise ZeroDivisionError
+    else:
+        return z
+
+def gauge(z):
+    if z > 1 and z < 99:
+        return f"{str(z)}%"
+    elif z <= 1:
+        return "E"
+    else:
+        return "F"
 
 
-def seperate():
-    while True:
-        fuel = input("How much left: ")
-        x, sign, y = fuel.partition("/")
-        # make sure x and y are integers
-        try:
-            x, y = int(x), int(y)
-            if x <= y:
-                return x, y
-        # continue loop if input is not integer or y = 0
-        except (ValueError, ZeroDivisionError):
-            pass
-
-
-main()
+if __name__ == "__main__":
+    main()

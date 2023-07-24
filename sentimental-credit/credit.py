@@ -24,11 +24,12 @@ def pattern(card):
 def check_sum(card):
     sum = 0
     for i in range(-2, len(card), -2):
-        card[i] *= 2
-        sum += card[i]
-    for i in range(-1, len(card), -2):
-        sum += card[i]
-    return sum
+    #     card[i] *= 2
+    #     sum += card[i]
+    # for i in range(-1, len(card), -2):
+    #     sum += card[i]
+    # return sum
+        return (card[i])
 
 
 

@@ -24,7 +24,7 @@ def pattern(card):
 
 def check_sum(card):
     sum = 0
-    for i in reversed(range(0, len(card), 2)):
+    for i in reversed(range(3, len(card), 2)):
     #     digit = int(card[i])
     #     digit *= 2
     #     for i in str(digit):
@@ -40,4 +40,4 @@ def check_sum(card):
 if __name__ == "__main__":
     main()
 # amex:378282246310005, 371449635398431
-# visa:4222222222222 master: 5555555555554444
+# visa:4222222222222 master: 378282246310005

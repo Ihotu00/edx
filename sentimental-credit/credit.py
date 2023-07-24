@@ -31,7 +31,7 @@ def check_sum(card):
     #     digit *= 2
     #     for i in str(digit):
     #         sum += int(i)
-    for i in reversed(range(0, len(card), 2)):
+    for i in reversed(range(1, len(card), 2)):
     #     digit = int(card[i])
     #     sum += digit
     # return sum % 10

@@ -25,15 +25,15 @@ def pattern(card):
 def check_sum(card):
     sum = 0
     for i in reversed(range(3, len(card), 2)):
-        digit = int(card[i])
-        digit *= 2
-        for i in str(digit):
-            sum += int(i)
-    for i in reversed(range(1, len(card), 2)):
-        digit = int(card[i])
-        sum += digit
-    return sum % 10
-        # return card[i]
+    #     digit = int(card[i])
+    #     digit *= 2
+    #     for i in str(digit):
+    #         sum += int(i)
+    # for i in reversed(range(1, len(card), 2)):
+    #     digit = int(card[i])
+    #     sum += digit
+    # return sum % 10
+        return card[i]
 
 
 

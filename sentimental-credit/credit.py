@@ -7,11 +7,13 @@ def pattern():
     amex = "^(34|37)\d{13}$"
     visa = "^(4)(\d{12}$|\d{15}$)"
     master = "^(51|55)\d{14}$"
-    match = re.match(master, card)
-    if match:
-        print("AMEX")
-    else:
-        print("wrong")
+    if re.match(master, card):
+        return "master"
+    elif re.match(amex, card):
+        return "amex"
+    elif re.match(visa, card):
+        return "visa"
+    else
 
 
 

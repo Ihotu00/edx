@@ -3,10 +3,11 @@ import re
 # TODO
 def main():
     card = input("card: ")
-    if check_sum(card) == 0:
-        pattern(card)
-    else:
-        print("INVALID")
+    # if check_sum(card) == 0:
+    #     pattern(card)
+    # else:
+    #     print("INVALID")
+    print(check_sum(card))
 
 def pattern(card):
     amex = "^(34|37)\d{13}$"
@@ -24,14 +25,15 @@ def pattern(card):
 def check_sum(card):
     sum = 0
     for i in reversed(range(0, len(card), 2)):
-        digit = int(card[i])
-        digit *= 2
-        for i in str(digit):
-            sum += int(i)
-    for i in reversed(range(1, len(card), 2)):
-        digit = int(card[i])
-        sum += digit
-    return sum % 10
+    #     digit = int(card[i])
+    #     digit *= 2
+    #     for i in str(digit):
+    #         sum += int(i)
+    # for i in reversed(range(1, len(card), 2)):
+    #     digit = int(card[i])
+    #     sum += digit
+    # return sum % 10
+        return card[i]
 
 
 

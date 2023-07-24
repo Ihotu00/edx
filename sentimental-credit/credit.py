@@ -2,7 +2,7 @@ import re
 
 # TODO
 def main():
-    card = int(input("card: "))
+    card = input("card: ")
     # if check_sum(card) == 0:
     #     pattern(card)
     # else:
@@ -23,11 +23,13 @@ def pattern(card):
 
 def check_sum(card):
     sum = 0
-    for i in reversed(range(1, len(str(card)), 2)):
-        card[i] *= 2
-        sum += card[i]
-    for i in reversed(range(0, len(str(card)), 2)):
-        sum += card[i]
+    for i in reversed(range(1, len(card), 2)):
+        digit = int(card[i])
+        digit *= 2
+        sum += digit
+    for i in reversed(range(0, len(card), 2)):
+        digit = int(card[i])
+        sum += digit
     return sum
 
 

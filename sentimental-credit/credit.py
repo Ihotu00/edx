@@ -6,7 +6,7 @@ def main():
     # if check_sum(card) == 0:
     #     pattern(card)
     # else:
-    print(check_sum(card))
+    check_sum(card)
 
 def pattern(card):
     amex = "^(34|37)\d{13}$"
@@ -27,10 +27,11 @@ def check_sum(card):
         digit = int(card[i])
         digit *= 2
         sum += digit
-    for i in reversed(range(0, len(card), 2)):
-        digit = int(card[i])
-        sum += digit
-    return sum
+    # for i in reversed(range(0, len(card), 2)):
+    #     digit = int(card[i])
+    #     sum += digit
+    # return sum
+    print(sum)
 
 
 

@@ -4,7 +4,7 @@ import re
 amex = "^(34|37)\d{13}"
 visa = "^4(\d{12, 15})"
 card = input("card: ")
-match = re.match(amex, card)
+match = re.match(visa, card)
 if match:
     print("AMEX")
 else:

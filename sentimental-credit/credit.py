@@ -31,15 +31,15 @@ def check_sum(card):
     sum = 0
     temp = card[:len(card) - 1]  # store input in variable without last digit
 
-    for i in temp[ : :-2]:  # first half of the check_sum
-        digit = int(i)
+    for i in temp[ : :-2]:  # first half of the check_sum: iterate through every other digit
+        digit = int(i)      # and multiply by 2
         digit *= 2
         for i in str(digit):
-            sum += int(i)
-    for i in card[ : :-2]:  # second half of check_sum
+            sum += int(i)   # add each digit to sum
+    for i in card[ : :-2]:  # second half of check_sum: iterate through the other digits
         digit = int(i)
         sum += digit
-    return sum % 10
+    return sum % 10     # return last digit of sum
 
 
 

@@ -2,7 +2,8 @@ import re
 
 # TODO
 amex = "^(34|37)\d{13}$"
-visa = "^(4)\d{12, 15}$"
+visa = "^(4)(\d{12}$|\d{15}$)"
+master = 
 card = input("card: ")
 match = re.match(visa, card)
 if match:

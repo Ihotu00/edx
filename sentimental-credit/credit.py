@@ -19,8 +19,10 @@ def pattern(card):
         print("INVALID")
 
 def check_sum(card):
-    for i in range(len(card), -2):
-        
+    sum = 0
+    for i in range(-2, len(card), -2):
+        card[i] *= 2
+        sum += card[i]
 
 
 

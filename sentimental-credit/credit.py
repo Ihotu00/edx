@@ -18,7 +18,7 @@ def pattern(card):
     else:
         print("INVALID")
 
-# def check_sum():
+def check_sum(card):
 
 
 

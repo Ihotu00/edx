@@ -1,6 +1,6 @@
 import re
 
 # TODO
-pattern = "^(34|37)[0-9]{15, 15}"
+pattern = "^(34|37)\d{13}"
 card = input("card: ")
 

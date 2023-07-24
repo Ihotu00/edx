@@ -2,9 +2,9 @@ import re
 
 # TODO
 amex = "^(34|37)\d{13}"
-visa = "^(4)\d{12, 15}"
+visa = "4[0-9]{12}"
 card = input("card: ")
-match = re.match(visa, card)
+match = re.match(amex, card)
 if match:
     print("AMEX")
 else:

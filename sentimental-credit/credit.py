@@ -27,9 +27,9 @@ def check_sum(card):
         digit = int(card[i])
         digit *= 2
         sum += digit
-    for i in reversed(range(1, len(card), 2)):
-        digit = int(card[i])
-        sum += digit
+    # for i in reversed(range(1, len(card), 2)):
+    #     digit = int(card[i])
+    #     sum += digit
     # return sum
     print(sum)
 

@@ -26,16 +26,16 @@ def pattern(card):
 def check_sum(card):
     sum = 0
     temp = card[:len(card) - 1]
-    # for i in reversed(range(1, len(temp), 2)):
+    for i in temp[ : :-2]:
     #     digit = int(temp[i])
     #     digit *= 2
     #     for i in str(digit):
     #         sum += int(i)
-    for i in card[ : :-1]:
+    # for i in card[ : :-2]:
     #     digit = int(card[i])
     #     sum += digit
     # return sum % 10
-        print(card[i])
+        print(i)
 
 
 

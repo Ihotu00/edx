@@ -10,7 +10,7 @@ def pattern(card):
     visa = "^(4)(\d{12}$|\d{15}$)"
     master = "^(51|55)\d{14}$"
     if re.match(master, card):
-        print("MASTER")
+        print("MASTERCARD")
     elif re.match(amex, card):
         print("AMEX")
     elif re.match(visa, card):
@@ -24,4 +24,4 @@ def pattern(card):
 
 if __name__ == "__main__":
     main()
-# amex:4111111111111111, visa:4111111111111111, master: 5555555555554444
+# amex:378282246310005, visa:4111111111111111, master: 5555555555554444

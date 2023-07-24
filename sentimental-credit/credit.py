@@ -13,7 +13,11 @@ def pattern():
         return "amex"
     elif re.match(visa, card):
         return "visa"
-    else
+    else:
+        return "invalid"
+
+def check_sum():
+    
 
 
 

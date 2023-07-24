@@ -19,7 +19,8 @@ def pattern(card):
         print("INVALID")
 
 def check_sum(card):
-
+    card /=10
+    
 
 
 if __name__ == "__main__":

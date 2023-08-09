@@ -3,7 +3,7 @@ from datetime import date
 class Date:
     def __init__(self, birthday):
         self.birthday = birthday
-    def __sub__(date.today(), birthday):
+    def __sub__(date.today(), self):
         return date.today() - birthday
 
 def main():

@@ -1,7 +1,5 @@
 from datetime import date
 
-class date(year, month, day)
-
 def main():
     print(date.today())
 

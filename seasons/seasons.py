@@ -11,7 +11,7 @@ def main():
     # sec = Date(input("Enter birthday: "))
     # print(sec)
     sec = input("Enter birthday: ")
-    print((date.today() - date.fromisoformat(sec)).total_seconds())
+    print(f"{(date.today() - date.fromisoformat(sec)).total_seconds()}")
 
 if __name__ == "__main__":
     main()

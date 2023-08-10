@@ -8,8 +8,6 @@ class Date:
         # return (date.today() - self.birthday).total_seconds()
 
 def main():
-    # sec = Date(input("Enter birthday: "))
-    # print(sec)
     sec = input("Enter birthday: ")
     min = (date.today() - date.fromisoformat(sec)).total_seconds() / 60
     print(min)

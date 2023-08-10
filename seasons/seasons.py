@@ -10,7 +10,7 @@ def minutes(birthday):
         minutes = int((date.today() - date.fromisoformat(birthday)).total_seconds() / 60)
         return f'{p.number_to_words(minutes, andword="").capitalize()} minutes'
     else:
-        sys.exit()
+        sys.exit("Format YYYY-MM-DD")
 
 
 if __name__ == "__main__":

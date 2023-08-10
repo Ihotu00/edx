@@ -1,7 +1,5 @@
 from datetime import date, timedelta
-import re
-import sys
-import inflect
+import re, sys, inflect
 
 def main():
     p = inflect.engine()

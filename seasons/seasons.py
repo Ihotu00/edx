@@ -3,8 +3,8 @@ from datetime import date, timedelta, datetime
 class Date:
     def __init__(self, birthday):
         self.birthday = birthday
-    def __sub__(self):
-        return (date.today() - self.birthday).total_seconds()
+    __sub__(date.today(), self.birthday)
+        # return (date.today() - self.birthday).total_seconds()
 
 def main():
     sec = Date(input("Enter birthday: "))

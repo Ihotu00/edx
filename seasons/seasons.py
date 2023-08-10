@@ -2,7 +2,7 @@ from datetime import date
 import re, sys, inflect
 
 def main():
-    (minutes(input("Enter birthday: ")))
+    print(minutes(input("Enter birthday: ")))
 
 def minutes(birthday):
     p = inflect.engine()
@@ -15,5 +15,3 @@ def minutes(birthday):
 
 if __name__ == "__main__":
     main()
-
-# check50 cs50/problems/2022/python/seasons

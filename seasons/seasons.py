@@ -1,10 +1,10 @@
 from datetime import date, timedelta, datetime
-i
+import operator
 
 class Date:
     def __init__(self, birthday):
         self.birthday = birthday
-    operator.sub__(date.today(), self.birthday)
+        operator.sub(date.today(), self.birthday)
         # return (date.today() - self.birthday).total_seconds()
 
 def main():

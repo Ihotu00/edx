@@ -4,7 +4,7 @@ class Date:
     def __init__(self, birthday):
         self.birthday = birthday
     def __sub__(self):
-        return (date.today() - datetime.strptime(self.birthday)).total_seconds()
+        return (date.today() - datetime.strptime(self.birthday, "%Y-%m%d")).total_seconds()
 
 def main():
     sec = Date(input("Enter birthday: "))

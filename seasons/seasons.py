@@ -3,7 +3,7 @@ from datetime import date, timedelta, datetime
 class Date:
     def __init__(self, birthday):
         self.birthday = birthday
-    __sub__(date.today(), self.birthday)
+    operator.sub__(date.today(), self.birthday)
         # return (date.today() - self.birthday).total_seconds()
 
 def main():

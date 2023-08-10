@@ -1,4 +1,4 @@
-from datetime import date, timedelta
+from datetime import date
 import re, sys, inflect
 
 def main():
@@ -9,6 +9,8 @@ def main():
         print(f'{p.number_to_words(min, andword="").capitalize()} minutes')
     else:
         sys.exit()
+
+# def
 
 if __name__ == "__main__":
     main()

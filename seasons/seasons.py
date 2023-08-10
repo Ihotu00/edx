@@ -7,7 +7,7 @@ def main():
     p = inflect.engine()
     sec = input("Enter birthday: ")
     if re.fullmatch(r"(\d{4})-(\d{2})-(\d{2})", sec):
-        min = (date.today() - date.fromisoformat(sec)).total_seconds() / 60
+        min = int((date.today() - date.fromisoformat(sec)).total_seconds() / 60)
         print(p.number_to_words(min).capitalize())
     else:
         sys.exit()

@@ -3,7 +3,7 @@ import operator
 
 class Date:
     def __init__(self, birthday):
-        self.birthday = birthday
+        self.birthday = date.fromisofobirthday
         operator.sub(date.today(), self.birthday)
         # return (date.today() - self.birthday).total_seconds()
 

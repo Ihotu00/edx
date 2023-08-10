@@ -11,7 +11,8 @@ def main():
     # sec = Date(input("Enter birthday: "))
     # print(sec)
     sec = input("Enter birthday: ")
-    print(f"{(date.today() - date.fromisoformat(sec)).total_minutes()}")
+    min = (date.today() - date.fromisoformat(sec)).total_seconds() * 60
+    print(min)
 
 if __name__ == "__main__":
     main()

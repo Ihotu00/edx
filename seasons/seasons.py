@@ -13,4 +13,4 @@ def main():
 if __name__ == "__main__":
     main()
 
-checcs50
+# check50 cs50/problems/2022/python/seasons

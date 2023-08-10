@@ -8,7 +8,7 @@ def main():
     sec = input("Enter birthday: ")
     if re.fullmatch(r"(\d{4})-(\d{2})-(\d{2})", sec):
         min = int((date.today() - date.fromisoformat(sec)).total_seconds() / 60)
-        print(p.number_to_words(min).capitalize())
+        print(p.number_to_words(min, andword="").capitalize())
     else:
         sys.exit()
 

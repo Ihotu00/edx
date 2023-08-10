@@ -2,15 +2,16 @@ from datetime import date
 import re, sys, inflect
 
 def main():
+    (minutes(input("Enter birthday: ")))
+
+def minutes(birthday):
     p = inflect.engine()
-    sec = input("Enter birthday: ")
-    if re.fullmatch(r"(\d{4})-(\d{2})-(\d{2})", sec):
-        min = int((date.today() - date.fromisoformat(sec)).total_seconds() / 60)
-        print(f'{p.number_to_words(min, andword="").capitalize()} minutes')
+    if re.fullmatch(r"(\d{4})-(\d{2})-(\d{2})", birthday):
+        minutes = int((date.today() - date.fromisoformat(birthday)).total_seconds() / 60)
+        return f'{p.number_to_words(minutes, andword="").capitalize()} minutes'
     else:
         sys.exit()
 
-# def
 
 if __name__ == "__main__":
     main()

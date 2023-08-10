@@ -3,13 +3,13 @@ import operator
 
 class Date:
     def __init__(self, birthday):
-        self.birthday = date.fromisofobirthday
+        self.birthday = date.fromisoformat(birthday)
         operator.sub(date.today(), self.birthday)
         # return (date.today() - self.birthday).total_seconds()
 
 def main():
     sec = Date(input("Enter birthday: "))
-    print(sec.__sub__())
+    print(sec)
     # sec = input("Enter birthday: ")
     # print((date.today() - sec).total_seconds())
 

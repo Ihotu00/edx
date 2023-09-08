@@ -26,8 +26,8 @@ class Jar:
 
     @property
     def size(self):
-        self.size = 6
         return self._size
+    
 
 def main():
     cap = int(input("Capacity: "))

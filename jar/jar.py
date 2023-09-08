@@ -5,7 +5,7 @@ class Jar:
         self.capacity = capacity
 
     def __str__(self):
-        for range(self.capacity):
+        for i in range(self.capacity):
             return "🍪"
 
 def main():

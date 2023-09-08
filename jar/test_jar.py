@@ -11,14 +11,14 @@ def test_str():
     jar.deposit(1)
     assert str(jar) == "🍪"
     jar.deposit(7)
-    assert str(jar) == "🍪🍪🍪🍪🍪🍪🍪"
+    assert str(jar) == "🍪🍪🍪🍪🍪🍪🍪🍪"
 
 def test_deposit():
     jar = Jar()
     jar.deposit(1)
-    assert self.size == 1
+    assert deposite.self.size == 1
     jar.deposit(5)
-    assert self.size == 6
+    assert deposite.self.size == 6
     with pytest.raises(ValueError):
         jar.deposit(10)
 
@@ -26,6 +26,6 @@ def test_withdraw():
     jar = Jar()
     jar.deposit(10)
     jar.withdraw(3)
-    assert self.size == 7
+    assert withdraw.self.size == 7
     with pytest.raises(ValueError):
         jar.withdraw(10)

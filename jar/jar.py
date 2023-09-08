@@ -5,8 +5,7 @@ class Jar:
         self.capacity = capacity
 
     def __str__(self):
-        for i in range(self.capacity):
-            return "🍪", end=""
+        return "🍪" * self.capacity
 
 def main():
     cap = int(input("Capacity: "))

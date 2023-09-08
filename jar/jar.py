@@ -5,19 +5,19 @@ class Jar:
         self.capacity = capacity
 
     def __str__(self):
-        return "🍪" * self.capacity
+        return "🍪" * self.size
 
     def deposit(self, n):
-        size += n
-        if size <= self.capacity:
-            return size
+        self.size += n
+        if self.size <= self.capacity:
+            return self.size
         else:
             raise ValueError("At capacity")
 
     def withdraw(self, n):
-        size -= n
-        if size >= 0:
-            return size
+        self.size -= n
+        if self.size >= 0:
+            return self.size
         else:
             raise ValueError("Not enough")
 

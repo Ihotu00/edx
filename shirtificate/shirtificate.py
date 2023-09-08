@@ -7,8 +7,7 @@ class PDF(FPDF):
         self.cell(30, 10, "CS50 Shirtificate", border=1, align="C")
         self.ln(20)
 
-    def image(self, shirtificate.png)
-
 pdf = PDF()
 pdf.add_page()
-pdf.set_font("Courier", size=12)
+pdf.image("shirtificate.png")
+pdf.output("shirtificate.pdf")

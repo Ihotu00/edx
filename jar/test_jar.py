@@ -1,4 +1,4 @@
 from jar import Jar
 
 def test_init():
-    assert (Jar(10))
+    assert init(Jar(-10))

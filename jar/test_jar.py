@@ -3,7 +3,7 @@ import pytest
 
 def test_init():
     with pytest.raises(ValueError):
-        Jar(-10))
+        Jar(-10)
 
 def test_str():
     jar = Jar()

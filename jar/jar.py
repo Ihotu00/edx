@@ -14,10 +14,19 @@ class Jar:
         else:
             raise ValueError("At capacity")
 
+    def withdraw(self, n):
+        self.capacity -= n
+        if self.capacity >= 0:
+            return self.capacity
+        else:
+            raise ValueError("Not enough")
+
+
+
 def main():
     cap = int(input("Capacity: "))
-    deposit = int(input("Deposit: "))
-    print(Jar(cap), Jar(cap).deposit(deposit))
+    withdraw = int(input("Withdraw: "))
+    print(Jar(cap), Jar(cap).withdraw(withdraw))
 
 
 

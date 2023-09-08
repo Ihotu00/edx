@@ -9,7 +9,10 @@ class Jar:
 
     def deposit(self, n):
         self.capacity += n
-        return self.capacity
+        if self.capacity <= 12:
+            return self.capacity
+        else:
+            raise ValueError("At capacity")
 
 def main():
     cap = int(input("Capacity: "))

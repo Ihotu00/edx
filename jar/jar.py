@@ -3,5 +3,9 @@ class Jar:
         if capacity < 1:
             raise ValueError("Must be 1-12")
 
-# def main():
-#     Jar(input("Capacity: "))
+def main():
+    cap = input("Capacity: ")
+    Jar(cap)
+
+if __name__ == "main":
+    main()

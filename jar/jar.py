@@ -10,14 +10,14 @@ class Jar:
     def deposit(self, n):
         n += n
         if n <= self.capacity:
-            return self.n
+            return n
         else:
             raise ValueError("At capacity")
 
     def withdraw(self, n):
         n -= n
         if n >= 0:
-            return self.n
+            return n
         else:
             raise ValueError("Not enough")
 

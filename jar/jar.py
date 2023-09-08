@@ -9,6 +9,7 @@ class Jar:
 
     def deposit(self, n):
         self.capacity += n
+        return self.capacity
 
 def main():
     cap = int(input("Capacity: "))

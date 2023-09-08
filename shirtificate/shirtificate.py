@@ -9,5 +9,7 @@ from fpdf import FPDF
 
 pdf = FPDF()
 pdf.add_page()
+pdf.set_font("Courier", "B", 15)
+pdf.cell
 pdf.image("shirtificate.png", None, 50, 180)
 pdf.output("shirtificate.pdf")

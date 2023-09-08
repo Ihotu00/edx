@@ -11,6 +11,7 @@ name = input("Name: ")
 
 pdf = FPDF()
 pdf.add_page()
+pdf.image("shirtificate.png", 10, 50, 180)
 pdf.set_font("Courier", "B", 30)
 pdf.cell(190, 10, "CS50 Shirtificate", new_x ="LMARGIN", new_y="NEXT", align="C")
 pdf.image("shirtificate.png", 10, 50, 180)

@@ -4,4 +4,4 @@ class Jar:
             raise ValueError("Must be 1-12")
 
 def main():
-    cookie = Jar()
+    Jar(input("Capacity: "))

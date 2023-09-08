@@ -7,6 +7,9 @@ class Jar:
     def __str__(self):
         return "🍪" * self.capacity
 
+    def deposit(self, n):
+        self.capacity += n
+
 def main():
     cap = int(input("Capacity: "))
     print(Jar(cap))

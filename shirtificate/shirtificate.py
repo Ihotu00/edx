@@ -9,5 +9,5 @@ from fpdf import FPDF
 
 pdf = FPDF()
 pdf.add_page()
-pdf.image("shirtificate.png", 0, 100, 180)
+pdf.image("shirtificate.png", 105, 100, 180)
 pdf.output("shirtificate.pdf")

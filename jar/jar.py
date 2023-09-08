@@ -3,9 +3,14 @@ class Jar:
         if capacity < 1:
             raise ValueError("Must be 1-12")
 
+    def __str__(self):
+        
+
 def main():
     cap = int(input("Capacity: "))
     Jar(cap)
+
+
 
 if __name__ == "__main__":
     main()

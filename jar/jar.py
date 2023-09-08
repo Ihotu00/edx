@@ -38,8 +38,10 @@ class Jar:
 
 
 def main():
-    jar = Jar()
-    jar.deposit(5)
+    jar = Jar(20)
+    jar.deposit(17)
+    print(jar)
+    jar.withdraw(10)
     print(jar)
 
 

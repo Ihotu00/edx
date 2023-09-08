@@ -14,7 +14,7 @@ class Jar:
 def main():
     cap = int(input("Capacity: "))
     deposit = int(input("Deposit: "))
-    print(Jar(cap), Jar.deposit(deposit))
+    print(Jar(cap), Jar().deposit(deposit))
 
 
 

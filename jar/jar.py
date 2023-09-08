@@ -4,7 +4,7 @@ class Jar:
             raise ValueError("Must be 1-12")
 
     def __str__(self):
-        return ""
+        return "🍪"
 
 def main():
     cap = int(input("Capacity: "))

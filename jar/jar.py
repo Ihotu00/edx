@@ -3,6 +3,7 @@ class Jar:
         if capacity < 1:
             raise ValueError("Must be 1-12")
         self.capacity = capacity
+        self.size = 0
 
     def __str__(self):
         return "🍪" * self.size

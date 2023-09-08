@@ -2,9 +2,11 @@ class Jar:
     def __init__(self, capacity=12):
         if capacity < 1:
             raise ValueError("Must be 1-12")
+        self.capacity = capacity
 
     def __str__(self):
-        return "🍪"
+        for range(self.capacity):
+            return "🍪"
 
 def main():
     cap = int(input("Capacity: "))

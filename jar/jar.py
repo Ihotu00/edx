@@ -27,12 +27,12 @@ class Jar:
     @property
     def size(self):
         return self._size
-    
+
 
 def main():
     cap = int(input("Capacity: "))
-    withdraw = int(input("Withdraw: "))
-    print(Jar(cap), Jar(cap).withdraw(withdraw))
+    deposit = int(input("Deposit: "))
+    print(Jar(cap), Jar(cap).deposit(deposit))
 
 
 

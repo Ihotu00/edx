@@ -21,7 +21,8 @@ class Jar:
         else:
             raise ValueError("Not enough")
 
-
+    @property
+    def capacity(self):
 
 def main():
     cap = int(input("Capacity: "))

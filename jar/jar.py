@@ -8,21 +8,25 @@ class Jar:
         return "🍪" * self.capacity
 
     def deposit(self, n):
-        n += n
-        if n <= self.capacity:
-            return n
+        size += n
+        if size <= self.capacity:
+            return size
         else:
             raise ValueError("At capacity")
 
     def withdraw(self, n):
-        n -= n
-        if n >= 0:
-            return n
+        size -= n
+        if size >= 0:
+            return size
         else:
             raise ValueError("Not enough")
 
     # @property
     # def capacity(self):
+
+    @property
+    def size(self=0):
+        return self._size
 
 def main():
     cap = int(input("Capacity: "))

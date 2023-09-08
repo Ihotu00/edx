@@ -8,7 +8,8 @@ class Jar:
 
 def main():
     cap = int(input("Capacity: "))
-    Jar(cap)
+    print(Jar(cap))
+
 
 
 

@@ -26,10 +26,10 @@ class Jar:
 
     @property
     def size(self):
-        return self._size
+        return self.size
     @size.setter
     def size(self, size):
-        self._size = 0
+        self.size = 0
 
 
 def main():

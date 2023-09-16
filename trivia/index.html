@@ -11,7 +11,8 @@
                 let k = document.querySelector('#correct');
                 k.addEventListener('click', function() {
                     k.style.backgroundColor = 'green';
-                    document.querySelector('#response1').innerHTML = 'Correct'
+                    document.querySelector('#response1').innerHTML = 'Correct';
+                    k.style.backgroundColor = '';
                 });
                 let wrong = document.querySelectorAll('#wrong');
                 for (let i = 0; i < wrong.length; i++) {

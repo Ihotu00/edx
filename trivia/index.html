@@ -25,8 +25,8 @@
                 m.addEventListener('click', function() {
                     m.style.backgroundColor = 'red';
                 });
-                document.querySelector('#submit').addEventListener('click', function() {
-                    let answer = document.querySelector('#answer');
+                document.querySelector('#submit').addEventListener('click', function(event) {
+                    let answer = document.getElementById('answer');
                     if (answer.value == 'no') {
                         answer.style.backgroungColor = 'green';
                     }

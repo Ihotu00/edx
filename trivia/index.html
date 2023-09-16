@@ -28,11 +28,12 @@
                 document.querySelector('#submit').addEventListener('click', function(event) {
                     let answer = document.querySelector('#answer');
                     if (answer.value == 'no') {
-                        answer.style.backgroungColor = 'green'
+                        answer.style.backgroungColor = 'green';
                     }
                     else {
-                        answer.style.backgroungColor = 'red'
+                        answer.style.backgroungColor = 'red';
                     }
+                    event.preventDefault();
                 })
             }
             )

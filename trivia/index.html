@@ -11,21 +11,24 @@
                 let k = document.querySelector('#correct');
                 k.addEventListener('click', function() {
                     k.style.backgroundColor = 'green';
+                    document.querySelector('#response1').innerHTML = 'Correct'
                 });
                 let wrong = document.querySelectorAll('#wrong');
                 for (let i = 0; i < wrong.length; i++) {
                     wrong[i].addEventListener('click', function() {
                         wrong[i].style.backgroundColor = 'red';
-                        // confirm('wrong');
+                        document.querySelector('#response1').innerHTML = 'Incorrect';
                     }
                 )};
                 document.querySelector('#submit').addEventListener('click', function() {
                     let answer = document.querySelector('#answer');
                     if (answer.value === 'no') {
                         answer.style.backgroundColor = 'green';
+                        document.querySelector('#response2').innerHTML = 'Correct';
                     }
                     else {
                         answer.style.backgroundColor = 'red';
+                        document.querySelector('#response2').innerHTML = 'Incorrect';
                     }
                 })
             })
@@ -44,7 +47,7 @@
                 <button id="wrong">jiraiya</button>
                 <button id="wrong">tsunade</button>
                 <button id="wrong">minato</button>
-                <button id="cprrect">kakashi</button>
+                <button id="correct">kakashi</button>
                 <p id="response1"></p>
                 <!-- TODO: Add multiple choice question here -->
             </div>

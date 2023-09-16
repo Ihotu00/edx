@@ -25,14 +25,14 @@
                 m.addEventListener('click', function() {
                     m.style.backgroundColor = 'red';
                 });
-                document.querySelector('#submit').addEventListener('click', function onClick(event) {
+                document.querySelector('#submit').addEventListener('click', function(event) {
                     let answer = document.querySelector('#answer');
-                    if (answer.value === 'no') {
-                        answer.style.backgroungColor = 'green';
-                    }
-                    else {
-                        answer.style.backgroungColor = 'red';
-                    }
+                    // if (answer.value === 'no') {
+                    //     answer.style.backgroungColor = 'green';
+                    // }
+                    // else {
+                    answer.style.backgroungColor = 'red';
+                    // }
                     event.preventDefault();
                 })
             })

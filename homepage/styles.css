@@ -10,6 +10,6 @@ div {
   }
 
 body {
-    background-image: linear-gradient(to bottom right, LightCyan, AntiqueWhite);
+    background-image: linear-gradient(to bottom right, LightCyan, Azure, AntiqueWhite);
     margin: 60px 55px;
 }

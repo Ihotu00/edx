@@ -1,6 +1,10 @@
 .test {
     height: 500px;
-    width: 5%;
-    margin: 25px;
+    width: 1%;
+    /* margin: 25px; */
     background-color: black;
+  }
+
+  div {
+    margin: 25px;
   }

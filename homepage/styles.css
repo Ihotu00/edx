@@ -1,4 +1,5 @@
-.header {
-    background-color: yellow
-    text: black
-}
+div {
+    height: 500px;
+    width: 50%;
+    background-color: powderblue;
+  }

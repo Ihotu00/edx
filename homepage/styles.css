@@ -9,7 +9,7 @@ div {
     margin: 25px;
   }
 
-div:hover {
+div.col:hover {
     background-color: DarkTurquoise;
     transition: color 2s ease-in-out, background-color 0.15s ease-in-out;
 }

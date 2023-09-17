@@ -14,6 +14,9 @@ div.col:hover {
     transition: color 2s ease-in-out, background-color 0.15s ease-in-out;
 }
 
+div.container-fluid {
+    background-color: Magenta
+}
 
 body {
     background-image: radial-gradient(LightCyan, Cyan, DarkCyan);

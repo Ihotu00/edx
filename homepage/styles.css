@@ -17,6 +17,10 @@ div.col:hover {
 }
 
 div.container-fluid {
+    margin: 25px;
+    padding: 50px;
+    color: white;
+    border-style: solid;
     background-color: hsl(0, 0%, 20%)
     /* color: White */
 }

@@ -8,8 +8,8 @@ div.col {
     margin: 25px;
     padding: 50px;
     color: black;
-    /* border-style: solid; */
-  }
+    border: 1px solid black;
+}
 
 div.col:hover {
     background-color: DarkTurquoise;

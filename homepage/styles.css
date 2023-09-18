@@ -6,6 +6,7 @@
 
 div {
     margin: 25px;
+    padding: 50px
   }
 
 div.col:hover {

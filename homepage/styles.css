@@ -15,7 +15,7 @@ div.col:hover {
 }
 
 div.container-fluid {
-    background-color: DarkGrey
+    background-color: hsl(0, 0%, 20%)
     /* color: White */
 }
 

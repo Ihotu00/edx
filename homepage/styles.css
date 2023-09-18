@@ -1,7 +1,6 @@
 .test {
     height: 400px;
     width: 1%;
-    /* margin: 25px; */
     background-color: black;
   }
 
@@ -24,6 +23,3 @@ body {
     margin: 60px 55px;
 }
 
-/* h1 {
-    background-color: LightCoral
-} */

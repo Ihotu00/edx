@@ -38,3 +38,7 @@ a {
 a.one {
   color: black;
 }
+
+#me {
+  border-left: 6px solid black;
+}

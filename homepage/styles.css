@@ -21,7 +21,8 @@ div.container-fluid {
     padding: 50px;
     color: white;
     border-style: solid;
-    background-color: hsl(0, 0%, 20%)
+    background-color: hsl(0, 0%, 20%);
+    text-align: center;
     /* color: White */
 }
 

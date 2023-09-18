@@ -8,6 +8,7 @@ div {
     margin: 25px;
     padding: 50px;
     color: black;
+    border-style: solid;
   }
 
 div.col:hover {

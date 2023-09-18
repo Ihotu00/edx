@@ -23,6 +23,6 @@ body {
     margin: 60px 55px;
 }
 
-.nav  {
-  a {href="startover.html"}
+a {
+  underline: none
 }

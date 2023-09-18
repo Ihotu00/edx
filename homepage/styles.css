@@ -41,5 +41,6 @@ a.one {
 
 #me {
   border-left: 6px solid black;
-  margin-right: 100px;
+  margin: 50px;
+  padding: 25px;
 }

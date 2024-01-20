@@ -2,7 +2,7 @@ div.col-sm-4 {
     /* margin: 25px; */
     padding: 50px;
     color: black;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 div.col-sm-4:hover {

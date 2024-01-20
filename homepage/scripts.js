@@ -1,1 +1,3 @@
-document.querySelector
+document.querySelector('#index.html').addEventListener('click', function() {
+    
+})

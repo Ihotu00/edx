@@ -1,4 +1,4 @@
-div.col {
+div.col-sm-4 {
     margin: 25px;
     padding: 50px;
     color: black;
@@ -37,3 +37,7 @@ a.one {
   margin: 200px 50px;
   padding: 25px;
 }
+
+/* #main-content {
+  height: 100vh;
+} */

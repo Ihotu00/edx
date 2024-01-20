@@ -1,3 +1,4 @@
 function navigate(page: string) {
-    var 
+    var content = document.getElementById("content").src;
+    content = page;
 }

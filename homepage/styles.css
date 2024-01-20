@@ -1,6 +1,6 @@
 div.col-sm-4 {
-    margin: 25px;
-    padding: 50px;
+    /* margin: 25px;
+    padding: 50px; */
     color: black;
     border: 1px solid black;
 }
@@ -11,8 +11,8 @@ div.col:hover {
 }
 
 div.container-fluid {
-    margin-bottom: 25px;
-    padding: 10px;
+    /* margin-bottom: 25px;
+    padding: 10px; */
     color: white;
     border: 1px solid black;
     background-color: black;

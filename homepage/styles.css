@@ -5,7 +5,7 @@ div.col-sm-4 {
     border: 1px solid black;
 }
 
-div.col:hover {
+div.col-sm-4:hover {
     background-color: DarkTurquoise;
     transition: color 2s ease-in-out, background-color 0.15s ease-in-out;
 }

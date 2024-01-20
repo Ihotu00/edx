@@ -1,1 +1,3 @@
-navigate()
+function navigate(page: string) {
+    var 
+}

@@ -1,14 +1,14 @@
-div.col-sm-4 {
-    /* margin: 25px; */
+/* div.col-sm-4 {
+    margin: 25px;
     padding: 50px;
     color: black;
     border: 1px solid black;
-}
+} */
 
-div.col-sm-4:hover {
+/* div.col-sm-4:hover {
     background-color: DarkTurquoise;
     transition: color 2s ease-in-out, background-color 0.15s ease-in-out;
-}
+} */
 
 div.container-fluid {
     /* margin-bottom: 25px; */

@@ -8,6 +8,7 @@ div.col-sm-4 {
 div.col-sm-4:hover {
     background-color: DarkTurquoise;
     transition: color 2s ease-in-out, background-color 0.15s ease-in-out;
+    text: center;
 }
 
 div.container-fluid {

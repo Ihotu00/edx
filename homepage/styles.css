@@ -43,5 +43,9 @@ a.one {
 } */
 
 .bg-primary {
-  background-c
+  background-color: blue;
+}
+
+.bg-info {
+  background-color: gray;
 }

@@ -17,14 +17,15 @@ function addRow() {
     cellFirst.innerHTML = first;
     cellLast.innerHTML = last;
     cellHandle.innerHTML = handle;
-    cellButton.innerHTML = "<button class='btn'>Delete</button>";
+    cellButton.innerHTML = "<button class='btn' id='deleteRow'>Delete</button>";
     // cellButton.addEventListener('click', () => {
     //     console.log(this);
     //     deleteRow(this);
     //   });
 }
 
-function deleteRow(t) {
-    row = t.parentNode.parentNode;
+function deleteRow() {
+    // row = t.parentNode.parentNode;
+    document.get
     document.getElementById("table").deleteRow(row.rowIndex);
 }

@@ -4,3 +4,7 @@ function navigate(page) {
 }
 var tableContent = [{first: "Ihotu", last: "Ifenne", handle: "@ii"},
                     {first: "John", last: "Doe", handle:"@jd"}]
+
+function addRow() {
+    var table = document.getElementById
+}

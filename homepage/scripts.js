@@ -19,11 +19,11 @@ function addRow() {
     cellHandle.innerHTML = handle;
     cellButton.innerHTML = "<button class='btn'>Delete</button>";
     cellButton.addEventListener('click', () => {
-        console.log(rowId);
-        deleteRow(rowId);
+        console.log(this);
+        deleteRow(this);
       });
 }
 
-function deleteRow(rowIndex) {
-    document.getElementById("table").deleteRow(rowIndex)
+function deleteRow(row) {
+    document.getElementById("table").deleteRow(row.rowIndex)
 }

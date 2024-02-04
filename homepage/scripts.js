@@ -7,11 +7,11 @@ var tableContent = [{first: "Ihotu", last: "Ifenne", handle: "@ii"},
 
 function addRow() {
     console.log("started")
-    const first = document.querySelector('#first');
-    const last = document.querySelector('#last');
-    const handle = document.querySelector('#handle');
+    const first = document.querySelector('#first').innerHTML;
+    const last = document.querySelector('#last').innerHTML;
+    const handle = document.querySelector('#handle').innerHTML;
     const table = document.querySelector('#table');
-    console.log(first.value, last, handle)
+    console.log(first, last, handle)
     var row = document.createElement('tr');
     var cellFirst = document.createElement('td');
     var textFirst = document.createTextNode(first);

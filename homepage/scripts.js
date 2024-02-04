@@ -24,10 +24,10 @@ function addRow() {
     //   });
 }
 
-// function deleteRow() {
+function deleteRow() {
     // row = t.parentNode.parentNode;
-    deleteRowButton = document.querySelectorAll('[id=test]').addEventListener('click', () => {
-        
+    deleteRowButton = document.querySelectorAll('[id=deleteRow]').addEventListener('click', () => {
+        console.log(deleteRowButton.rowIndex);
     });
     // document.getElementById("table").deleteRow(row.rowIndex);
-// }
+}

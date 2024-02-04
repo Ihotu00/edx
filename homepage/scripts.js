@@ -18,10 +18,10 @@ function addRow() {
     cellLast.innerHTML = last;
     cellHandle.innerHTML = handle;
     cellButton.innerHTML = "<button class='btn'>Delete</button>";
-    cellButton.addEventListener('click', () => {
-        console.log(this);
-        deleteRow(this);
-      });
+    // cellButton.addEventListener('click', () => {
+    //     console.log(this);
+    //     deleteRow(this);
+    //   });
 }
 
 function deleteRow(t) {

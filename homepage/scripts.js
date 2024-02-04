@@ -22,6 +22,9 @@ function addRow() {
     //     console.log(this);
     //     deleteRow(this);
     //   });
+    deleteRowButton = document.querySelectorAll('[id=deleteRow]').addEventListener('click', () => {
+        console.log(deleteRowButton.rowIndex);
+    });
 }
 
 function deleteRow() {

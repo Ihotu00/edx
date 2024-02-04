@@ -17,12 +17,11 @@ function addRow() {
     cellLast.innerHTML = last;
     cellHandle.innerHTML = handle;
     cellButton.innerHTML = "<button class='btn-primary'>Delete</button>";
-    // cellButton = document.createElement("BUTTON");
-    // cellButton.textContent = "Delete";
 }
 
 function deleteRow() {
-    newButton.addEventListener('click', () => {
+    var deleteButton = document.getElementById("")
+    deleteButton.addEventListener('click', () => {
         alert('New button clicked!');
       });
     document.getElementById("table").deleteRow(rowIndex)

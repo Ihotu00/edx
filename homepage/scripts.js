@@ -11,10 +11,16 @@ function addRow() {
     const handle = document.getElementById('handle');
     const table = document.getElementById('#table');
     var row = document.createElement('tr');
-    var cell = document.createElement('td');
-    var text = document.createTextNode(first);
-    var cell = document.createElement('td');
-    var text = document.createTextNode(first);
-    var cell = document.createElement('td');
-    var text = document.createTextNode(first);
+    var cellFirst = document.createElement('td');
+    var textFirst = document.createTextNode(first);
+    var cellLast = document.createElement('td');
+    var textLast = document.createTextNode(last);
+    var cellHandle = document.createElement('td');
+    var textHandle = document.createTextNode(handle);
+    cellFirst.appendChild(textFirst);
+    row.appendChild(cellFirst);
+    cellLast.appendChild(textLast);
+    row.appendChild(cellLast);
+    cellHandle.appendChild(textHandle);
+    row.appendChild(cellHandle);
 }

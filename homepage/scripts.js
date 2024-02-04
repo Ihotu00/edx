@@ -12,10 +12,11 @@ function addRow() {
     var cellFirst = row.insertCell(0);
     var cellLast = row.insertCell(1);
     var cellHandle = row.insertCell(2);
+    var cellButton = row.insertCell(3);
     cellFirst.innerHTML = first;
     cellLast.innerHTML = last;
     cellHandle.innerHTML = handle;
-    cellHandle.innerHTML = document.createElement("BUTTON");
+    cellButton.innerHTML = document.createElement("BUTTON");
 }
 
 function deleteRow() {

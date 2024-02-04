@@ -23,4 +23,5 @@ function addRow() {
     row.appendChild(cellLast);
     cellHandle.appendChild(textHandle);
     row.appendChild(cellHandle);
+    table.appendChild(row);
 }

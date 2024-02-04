@@ -22,5 +22,8 @@ function addRow() {
 }
 
 function deleteRow() {
+    newButton.addEventListener('click', () => {
+        alert('New button clicked!');
+      });
     document.getElementById("table").deleteRow(rowIndex)
 }

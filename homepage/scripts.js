@@ -24,6 +24,7 @@ function addRow() {
       });
 }
 
-function deleteRow(row) {
-    document.getElementById("table").deleteRow(row.rowIndex)
+function deleteRow(t) {
+    row = t.parentNode.parentNode;
+    document.getElementById("table").deleteRow(row.rowIndex);
 }

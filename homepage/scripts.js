@@ -17,7 +17,7 @@ function addRow() {
     cellFirst.innerHTML = first;
     cellLast.innerHTML = last;
     cellHandle.innerHTML = handle;
-    cellButton.innerHTML = "<button class='btn-primary' id='>Delete</button>";
+    cellButton.innerHTML = "<button class='btn-primary' id=tbodyRowCount>Delete</button>";
 }
 
 function deleteRow() {

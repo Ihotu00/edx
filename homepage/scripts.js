@@ -6,12 +6,10 @@ var tableContent = [{first: "Ihotu", last: "Ifenne", handle: "@ii"},
                     {first: "John", last: "Doe", handle:"@jd"}]
 
 function addRow() {
-    console.log("started")
     const first = document.querySelector('#first').value;
     const last = document.querySelector('#last').value;
     const handle = document.querySelector('#handle').value;
     const table = document.querySelector('#table');
-    console.log(first, last, handle)
     var row = document.createElement('tr');
     var cellFirst = document.createElement('td');
     var textFirst = document.createTextNode(first);

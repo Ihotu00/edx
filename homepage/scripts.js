@@ -6,9 +6,9 @@ var tableContent = [{first: "Ihotu", last: "Ifenne", handle: "@ii"},
                     {first: "John", last: "Doe", handle:"@jd"}]
 
 function addRow() {
-    const first = document.getElementById('first');
-    const last = document.getElementById('last');
-    const handle = document.getElementById('handle');
+    const first = document.getElementById('first').innerHTML;
+    const last = document.getElementById('last').innerHTML;
+    const handle = document.getElementById('handle').innerHTML;
     const table = document.getElementById('#table');
     var row = document.createElement('tr');
     var cellFirst = document.createElement('td');

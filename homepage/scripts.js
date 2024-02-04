@@ -8,6 +8,7 @@ function addRow() {
     const last = document.querySelector('#last').value;
     const handle = document.querySelector('#handle').value;
     const table = document.querySelector('#table');
+    var tbodyRowCount = table.tBodies[0].rows.length;
     var row = table.insertRow(-1);
     var cellFirst = row.insertCell(0);
     var cellLast = row.insertCell(1);
@@ -16,7 +17,7 @@ function addRow() {
     cellFirst.innerHTML = first;
     cellLast.innerHTML = last;
     cellHandle.innerHTML = handle;
-    cellButton.innerHTML = "<button class='btn-primary'>Delete</button>";
+    cellButton.innerHTML = "<button class='btn-primary' id='>Delete</button>";
 }
 
 function deleteRow() {

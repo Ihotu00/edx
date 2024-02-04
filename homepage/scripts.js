@@ -17,7 +17,7 @@ function addRow() {
     cellFirst.innerHTML = first;
     cellLast.innerHTML = last;
     cellHandle.innerHTML = handle;
-    cellButton.innerHTML = "<button class='btn-primary' id=rowId>Delete</button>";
+    cellButton.innerHTML = "<button class='btn-primary' id=$`{rowId}`>Delete</button>";
     cellButton.addEventListener('click', () => {
         deleteRow(rowId);
       });

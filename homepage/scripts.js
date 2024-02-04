@@ -18,5 +18,5 @@ function addRow() {
 }
 
 function deleteRow() {
-    
+    document.getElementById("table").deleteRow(rowIndex)
 }

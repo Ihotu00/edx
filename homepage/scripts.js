@@ -24,8 +24,10 @@ function addRow() {
     //   });
 }
 
-function deleteRow() {
+// function deleteRow() {
     // row = t.parentNode.parentNode;
-    document.get
-    document.getElementById("table").deleteRow(row.rowIndex);
-}
+    deleteRowButton = document.querySelectorAll('[id=test]').addEventListener('click', () => {
+        
+    });
+    // document.getElementById("table").deleteRow(row.rowIndex);
+// }

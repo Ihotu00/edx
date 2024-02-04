@@ -8,7 +8,7 @@ function addRow() {
     const last = document.querySelector('#last').value;
     const handle = document.querySelector('#handle').value;
     const table = document.querySelector('#table');
-    var rowId = table.tBodies[0].rows.length + 1;
+    var rowId = table.tBodies[0].rows.length;
     var row = table.insertRow(-1);
     var cellFirst = row.insertCell(0);
     var cellLast = row.insertCell(1);
@@ -19,14 +19,10 @@ function addRow() {
     cellHandle.innerHTML = handle;
     cellButton.innerHTML = "<button class='btn-primary' id=rowId>Delete</button>";
     cellButton.addEventListener('click', () => {
-        table.deleteRow(rowIndex);
+        deleteRow(rowId);
       });
 }
 
-function deleteRow() {
-    var deleteButton = document.getElementById("")
-    deleteButton.addEventListener('click', () => {
-        alert('New button clicked!');
-      });
+function deleteRow(rowIndex) {
     document.getElementById("table").deleteRow(rowIndex)
 }

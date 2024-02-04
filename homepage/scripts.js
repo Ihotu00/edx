@@ -7,9 +7,9 @@ var tableContent = [{first: "Ihotu", last: "Ifenne", handle: "@ii"},
 
 function addRow() {
     console.log("started")
-    const first = document.getElementById('first').innerHTML;
-    const last = document.getElementById('last').innerHTML;
-    const handle = document.getElementById('handle').innerHTML;
+    const first = document.getElementById('#first').value;
+    const last = document.getElementById('#last').value;
+    const handle = document.getElementById('#handle').value;
     const table = document.getElementById('#table');
     console.log(first, last, handle)
     var row = document.createElement('tr');

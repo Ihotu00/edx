@@ -6,12 +6,12 @@ var tableContent = [{first: "Ihotu", last: "Ifenne", handle: "@ii"},
                     {first: "John", last: "Doe", handle:"@jd"}]
 
 function addRow() {
-    // console.log("started")
-    const first = document.getElementById('#first').value;
-    const last = document.getElementById('#last').value;
-    const handle = document.getElementById('#handle').value;
+    console.log("started")
+    const first = document.getElementById('#first');
+    const last = document.getElementById('#last');
+    const handle = document.getElementById('#handle');
     const table = document.getElementById('#table');
-    console.log(first)
+    console.log(first, last, handle)
     var row = document.createElement('tr');
     var cellFirst = document.createElement('td');
     var textFirst = document.createTextNode(first);

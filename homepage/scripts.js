@@ -16,9 +16,8 @@ function addRow() {
     cellFirst.innerHTML = first;
     cellLast.innerHTML = last;
     cellHandle.innerHTML = handle;
-    cellButton.innerHTML = document.createElement("BUTTON");
-    var t = document.createTextNode("Click me");
-    cellButton.appendChild(t);
+    cellButton = document.createElement("BUTTON");
+    cellButton.textContent = "Delete";
 }
 
 function deleteRow() {

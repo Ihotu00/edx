@@ -8,7 +8,7 @@ function addRow() {
     const last = document.querySelector('#last').value;
     const handle = document.querySelector('#handle').value;
     const table = document.querySelector('#table');
-    var rowId = table.tBodies[0].rows.length - 1;
+    var rowId = table.tBodies[0].rows.length;
     var row = table.insertRow(-1);
     var cellFirst = row.insertCell(0);
     var cellLast = row.insertCell(1);

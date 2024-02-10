@@ -19,18 +19,11 @@ function addRow() {
     cellHandle.innerHTML = handle;
     cellButton.innerHTML = "<button class='btn'>Delete</button>";
     cellButton.addEventListener('click', () => {
-        // console.log(this);
         deleteRow(row.id);
-        //this.deleteRow
       });
 }
 
 function deleteRow(rowId) {
-    // row = t.parentNode.parentNode;
-    // deleteRowButton = document.querySelectorAll('[id=deleteRow]').addEventListener('click', () => {
     row = document.querySelector(`table#table tr[id="${rowId}"]`);
-    console.log(row);
     document.getElementById("table").deleteRow(row.rowIndex);
-    // });
-    // document.getElementById("table").deleteRow(row.rowIndex);
 }

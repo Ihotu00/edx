@@ -28,7 +28,8 @@ function addRow() {
 function deleteRow(rowId) {
     // row = t.parentNode.parentNode;
     // deleteRowButton = document.querySelectorAll('[id=deleteRow]').addEventListener('click', () => {
-        console.log(rowId);
+        document.querySelector(`table#${tableId} tr[id="${rowId}"]`)
+    console.log(rowId);
     // });
     // document.getElementById("table").deleteRow(row.rowIndex);
 }

@@ -20,7 +20,7 @@ function addRow() {
     cellButton.innerHTML = "<button class='btn'>Delete</button>";
     cellButton.addEventListener('click', () => {
         // console.log(this);
-        deleteRow(rowId);
+        deleteRow(row.id);
         //this.deleteRow
       });
 }
@@ -28,7 +28,7 @@ function addRow() {
 function deleteRow(rowId) {
     // row = t.parentNode.parentNode;
     // deleteRowButton = document.querySelectorAll('[id=deleteRow]').addEventListener('click', () => {
-        document.querySelector(`table#${tableId} tr[id="${rowId}"]`)
+        document.querySelector(`table#table tr[id="${rowId}"]`)
     console.log(rowId);
     // });
     // document.getElementById("table").deleteRow(row.rowIndex);

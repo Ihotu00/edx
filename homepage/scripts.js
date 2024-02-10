@@ -13,7 +13,7 @@ function addRow() {
     var cellLast = row.insertCell(1);
     var cellHandle = row.insertCell(2);
     var cellButton = row.insertCell(3);
-    var row.id = table.tBodies[0].rows.length;
+    row.id = table.tBodies[0].rows.length;
     cellFirst.innerHTML = first;
     cellLast.innerHTML = last;
     cellHandle.innerHTML = handle;

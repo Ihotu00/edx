@@ -18,16 +18,16 @@ function addRow() {
     cellLast.innerHTML = last;
     cellHandle.innerHTML = handle;
     cellButton.innerHTML = "<button class='btn' id='deleteRow'>Delete</button>";
-    // cellButton.addEventListener('click', () => {
-    //     console.log(this);
-    //     deleteRow(this);
-    //   });
+    cellButton.addEventListener('click', () => {
+        // console.log(this);
+        deleteRow(this);
+      });
 }
 
-function deleteRow() {
+function deleteRow(t) {
     // row = t.parentNode.parentNode;
-    deleteRowButton = document.querySelectorAll('[id=deleteRow]').addEventListener('click', () => {
-        console.log(deleteRowButton.rowIndex);
-    });
+    // deleteRowButton = document.querySelectorAll('[id=deleteRow]').addEventListener('click', () => {
+        console.log(t.rowIndex);
+    // });
     // document.getElementById("table").deleteRow(row.rowIndex);
 }

@@ -20,15 +20,15 @@ function addRow() {
     cellButton.innerHTML = "<button class='btn' id='deleteRow'>Delete</button>";
     cellButton.addEventListener('click', () => {
         // console.log(this);
-        //deleteRow(this);
-        this.deleteRow
+        delete(this);
+        //this.deleteRow
       });
 }
 
-function deleteRow(t) {
+// function delete(t) {
     // row = t.parentNode.parentNode;
     // deleteRowButton = document.querySelectorAll('[id=deleteRow]').addEventListener('click', () => {
-        console.log(t);
+        // console.log(t.deleteRow);
     // });
     // document.getElementById("table").deleteRow(row.rowIndex);
-}
+// }

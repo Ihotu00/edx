@@ -25,10 +25,10 @@ function addRow() {
       });
 }
 
-// function delete(t) {
+function delete(t) {
     // row = t.parentNode.parentNode;
     // deleteRowButton = document.querySelectorAll('[id=deleteRow]').addEventListener('click', () => {
-        // console.log(t.deleteRow);
+        console.log(t.deleteRow);
     // });
     // document.getElementById("table").deleteRow(row.rowIndex);
-// }
+}

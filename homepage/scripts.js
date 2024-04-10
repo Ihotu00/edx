@@ -55,12 +55,16 @@ function checkTrivia(answer, response) {
     }
 }
 
-function validateTrivia(answer, input) {
-    if ((answer == 'minato' && input.localeCompare('Minato Namikaze', 'en', {sensitivity: 'base'}) == 0) ||
-        (answer == 'kushina' && input.localeCompare('Kushina Uzumaki', 'en', {sensitivity: 'base'}) == 0) ||
-        (answer == 'konoha' && input.localeCompare('Konohagakure', 'en', {sensitivity: 'base'}) == 0) ||
-        (answer == 'kurama' && input.localeCompare('Kurama', 'en', {sensitivity: 'base'}) == 0)) {
-            return true;
+function validateTrivia() {
+    input1 = document.querySelecor('#minato').value;
+    input2 = document.querySelecor('#kushina').value;
+    input3 = document.querySelecor('#konoha').value;
+    input4 = document.querySelecor('#kurama').value;
+    if ((input1.localeCompare('Minato Namikaze', 'en', {sensitivity: 'base'}) == 0) &&
+        (input2.localeCompare('Kushina Uzumaki', 'en', {sensitivity: 'base'}) == 0) &&
+        (input3.localeCompare('Konohagakure', 'en', {sensitivity: 'base'}) == 0) &&
+        (input4.localeCompare('Kurama', 'en', {sensitivity: 'base'}) == 0)) {
+            document.querySelector();
         }
     else { return false;}
 }

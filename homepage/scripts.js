@@ -4,6 +4,7 @@ function navigate(page) {
 }
 
 function addRow() {
+    closeModal();
     const first = document.querySelector('#first').value;
     const last = document.querySelector('#last').value;
     const handle = document.querySelector('#handle').value;
@@ -21,7 +22,6 @@ function addRow() {
     cellButton.addEventListener('click', () => {
         deleteRow(row.id);
       });
-    closeModal();
 }
 
 function deleteRow(rowId) {

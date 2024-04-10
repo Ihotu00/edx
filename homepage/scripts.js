@@ -54,11 +54,10 @@ function checkTrivia(answer, response) {
 }
 
 function validateTrivia(answer, input) {
-    console.log(input)
-    if ((answer == 'minato' && input.localCompare('Minato Namikaze', 'en', {sensitivity: 'base'}) == 0) ||
-        (answer == 'kushina' && input.localCompare('Kushina Uzumaki', 'en', {sensitivity: 'base'}) == 0) ||
-        (answer == 'konoha' && input.localCompare('Konohagakure', 'en', {sensitivity: 'base'}) == 0) ||
-        (answer == 'kurama' && input.localCompare('Kurama', 'en', {sensitivity: 'base'}) == 0)) {
+    if ((answer == 'minato' && input.localeCompare('Minato Namikaze', 'en', {sensitivity: 'base'}) == 0) ||
+        (answer == 'kushina' && input.localeCompare('Kushina Uzumaki', 'en', {sensitivity: 'base'}) == 0) ||
+        (answer == 'konoha' && input.localeCompare('Konohagakure', 'en', {sensitivity: 'base'}) == 0) ||
+        (answer == 'kurama' && input.localeCompare('Kurama', 'en', {sensitivity: 'base'}) == 0)) {
             return true;
         }
     else { return false;}

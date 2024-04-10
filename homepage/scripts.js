@@ -41,11 +41,10 @@ function closeModal() {
 }
 
 function checkTrivia(answer) {
-    console.log(`#${answer}`);
     let input = document.querySelector(`#${answer}`);
     if (answer === input.value) {
-        input.style.backgroundColor = 'green';
+        input.style.backgroundColor = 'light green';
     }
-    else { input.style.backgroundColor = 'red';}
-    document.querySelector(#response)
+    else { input.style.backgroundColor = 'light red';}
+    // document.querySelector(#response)
 }

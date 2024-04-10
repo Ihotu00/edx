@@ -46,5 +46,6 @@ function checkTrivia(answer, response) {
         input.style.backgroundColor = '#00ff00';
     }
     else { input.style.backgroundColor = '#ff3300';}
-    document.querySelector(response).innerHTML = "Hint: Use full name"
+    console.log(response);
+    document.querySelector(response).innerHTML = "Hint: Use full name";
 }

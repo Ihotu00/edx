@@ -30,9 +30,13 @@ function deleteRow(rowId) {
 }
 
 function closeModal() {
-    modal = new bootstrap.Modal(document.getElementById('getInfo'));
+    //var modal = new bootstrap.Modal(document.getElementById('getInfo'));
+    //modal.hide();
+    var myModalEl = document.getElementById('getInfo')
+    myModalEl.addEventListener('hidden.bs.modal', function (event) {
+    // do something...
     document.querySelector('#first').value = "";
     document.querySelector('#last').value = "";
     document.querySelector('#handle').value = "";
-    modal.hide();
+    })
 }

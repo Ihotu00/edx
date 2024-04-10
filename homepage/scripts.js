@@ -41,6 +41,7 @@ function closeModal() {
 }
 
 function checkTrivia(answer, response) {
+    document.querySelector(response).innerHTML = " ";
     let input = document.querySelector(`#${answer}`);
     if (answer.localeCompare(input.value, 'en', { sensitivity: 'base' }) == 0) {
         input.style.backgroundColor = '#00ff00';

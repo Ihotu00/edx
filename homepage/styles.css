@@ -6,6 +6,7 @@ body {
 
 section {
     height: 80vh;
+    color: white;
 }
 
 #section1 {
@@ -21,11 +22,10 @@ section {
         width: 50%;
         text-align: center;
         padding: 10px;
-        color: white;
     }
 
     button {
         background-color: black;
-        color: white;
+        /* color: white; */
     }
 }

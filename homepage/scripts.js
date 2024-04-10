@@ -21,6 +21,7 @@ function addRow() {
     cellButton.addEventListener('click', () => {
         deleteRow(row.id);
       });
+    document.querySelector('#first').value
 }
 
 function deleteRow(rowId) {

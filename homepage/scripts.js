@@ -40,9 +40,10 @@ function closeModal() {
     })
 }
 
-functio checkTrivia(answer) {
+function checkTrivia(answer) {
     var input = document.querySelector(`#${answer}`)
     if (answer == input.value) {
-        answer.style.backgroundcolor = green
+        answer.style.backgroundcolor = 'green'
     }
+    else { asnwer.style.background = 'red'}
 }

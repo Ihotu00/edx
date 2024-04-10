@@ -39,7 +39,7 @@ section {
 }
 
 .half1, .half2 {
-    border: 1px solid white;
+    /* border: 1px solid white; */
     display: flex;
     justify-content: left;
     align-items: center;

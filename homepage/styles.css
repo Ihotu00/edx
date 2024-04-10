@@ -4,9 +4,12 @@ body {
     /* color: white; */
 }
 
+section {
+    height: 80vh;
+}
+
 #section1 {
     /* border: 2px solid white; */
-    height: 80vh;
     background-color: #0000b3;
     display: flex;
     justify-content: center;

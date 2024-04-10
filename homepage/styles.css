@@ -5,11 +5,12 @@ body {
 }
 
 #section1 {
-    margin: auto;
     border: 2px solid white;
     height: 80vh;
     background-color: #0000b3;
-    padding: 10% 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     div {
         margin: auto;

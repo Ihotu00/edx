@@ -1,7 +1,10 @@
 function navigate(page) {
+    var previousPage;
+    document.querySelector(`#${page}`).classList.toggle('active')
     var content = document.querySelector('#content');
     document.querySelector(`#${page}`).classList.toggle('active')
     content.src = `${page}.html`;
+    previousPage = page;
 }
 
 function addRow() {

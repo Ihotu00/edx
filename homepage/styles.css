@@ -2,6 +2,7 @@ body {
     /* background-image: radial-gradient(LightCyan, Cyan, DarkCyan); */
     background-color: black;
     width: 100%;
+    border: 3px solid white;
     /* color: white; */
 }
 

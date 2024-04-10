@@ -43,8 +43,8 @@ function closeModal() {
 function checkTrivia(answer) {
     let input = document.querySelector(`#${answer}`);
     if (answer === input.value) {
-        input.style.backgroundColor = 'light green';
+        input.style.backgroundColor = 'green';
     }
-    else { input.style.backgroundColor = 'light red';}
+    else { input.style.backgroundColor = 'red';}
     // document.querySelector(#response)
 }

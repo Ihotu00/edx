@@ -40,6 +40,6 @@ function closeModal() {
     })
 }
 
-functio checkTrivia(question) {
-    
+functio checkTrivia(answer) {
+    var input = document.querySelector(answer).value
 }

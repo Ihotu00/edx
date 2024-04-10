@@ -47,4 +47,5 @@ function checkTrivia(answer) {
         input.style.backgroundColor = 'green';
     }
     else { input.style.backgroundColor = 'red';}
+    document.querySelector(#response)
 }

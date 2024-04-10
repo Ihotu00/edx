@@ -44,5 +44,7 @@ section {
 }
 
 .half2 {
-    font-size: 48px;
+    .material-icons {
+        font-size: 48px;
+    }
 }

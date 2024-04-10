@@ -7,14 +7,14 @@ body {
 section {
     height: 80vh;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #section1 {
     /* border: 2px solid white; */
     background-color: #0000b3;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
     div {
         margin: auto;
@@ -26,6 +26,6 @@ section {
 
     button {
         background-color: black;
-        /* color: white; */
+        color: white;
     }
 }

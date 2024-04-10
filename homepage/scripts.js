@@ -69,7 +69,6 @@ function submitTrivia() {
     else { document.querySelector('#trivia-card').style.backgroundColor = '#ff3300'; }
 }
 
-
 // function validateTrivia(answer, input) {
 //     if ((answer == 'minato' && input.localeCompare('Minato Namikaze', 'en', {sensitivity: 'base'}) == 0) ||
 //         (answer == 'kushina' && input.localeCompare('Kushina Uzumaki', 'en', {sensitivity: 'base'}) == 0) ||

@@ -39,3 +39,7 @@ function closeModal() {
         document.querySelector('#handle').value = "";
     })
 }
+
+functio checkTrivia(question) {
+    
+}

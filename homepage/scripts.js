@@ -41,5 +41,8 @@ function closeModal() {
 }
 
 functio checkTrivia(answer) {
-    var input = document.querySelector(answer).value
+    var input = document.querySelector(`#${answer}`)
+    if (answer == input.value) {
+        answer.style.backgroundcolor = green
+    }
 }

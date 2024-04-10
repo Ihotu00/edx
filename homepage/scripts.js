@@ -1,7 +1,7 @@
 function navigate(page) {
     var content = document.querySelector('#content');
     var previousPage = content.src.split('.')[0]
-    document.querySelector(`#${c}`).classList.toggle('active')
+    document.querySelector(`#${previousPage}`).classList.toggle('active')
     document.querySelector(`#${page}`).classList.toggle('active')
     content.src = `${page}.html`;
 }

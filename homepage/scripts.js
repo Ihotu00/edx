@@ -1,6 +1,6 @@
 function navigate(page) {
     var previousPage;
-    document.querySelector(`#${page}`).classList.toggle('active')
+    document.querySelector(`#${previousPage}`).classList.toggle('active')
     var content = document.querySelector('#content');
     document.querySelector(`#${page}`).classList.toggle('active')
     content.src = `${page}.html`;

@@ -25,7 +25,7 @@ function addRow() {
 }
 
 function deleteRow(rowId) {
-    row = document.querySelector(`table#table tr[id="${rowId}"]`);
+    var row = document.querySelector(`table#table tr[id="${rowId}"]`);
     document.getElementById("table").deleteRow(row.rowIndex);
 }
 

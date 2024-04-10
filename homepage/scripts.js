@@ -1,6 +1,7 @@
 function navigate(page) {
     var content = document.querySelector('#content');
-    content.src = page;
+    document.querySelector(`#${page}`).classList.toggle('active')
+    content.src = `${page}.html`;
 }
 
 function addRow() {

@@ -66,7 +66,7 @@ function submitTrivia() {
         (input4.localeCompare('Kurama', 'en', {sensitivity: 'base'}) == 0)) {
             document.querySelector('#trivia-card').style.backgroundColor = '#00ff00';
         }
-    else { document.querySelector('#trivia-card').style.backgroundColor = '#ff0000'; }
+    else { document.querySelector('#trivia-card').style.backgroundColor = 'rgba(255, 0, 0, 0.5)'; }
 }
 
 // function validateTrivia(answer, input) {

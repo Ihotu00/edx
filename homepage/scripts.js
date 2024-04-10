@@ -21,6 +21,7 @@ function addRow() {
     cellButton.addEventListener('click', () => {
         deleteRow(row.id);
       });
+    closeModal();
 }
 
 function deleteRow(rowId) {
@@ -30,6 +31,8 @@ function deleteRow(rowId) {
 
 function closeModal() {
     modal = new bootstrap.Modal(document.getElementById('getInfo'));
-    
-    modal.toggle();
+    document.querySelector('#first').value = "";
+    document.querySelector('#last').value = "";
+    document.querySelector('#handle').value = "";
+    //modal.toggle();
 }

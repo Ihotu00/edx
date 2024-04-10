@@ -31,7 +31,7 @@ section {
 }
 
 #section2 {
-    background-color: #8080ff;
+    background-color: #ccccff;
     .row {
         height: 100%;
     }
@@ -45,6 +45,7 @@ section {
 }
 
 .half1 {
+    color: black;
     div {
         padding-left: 30px;
         padding-right: 20px

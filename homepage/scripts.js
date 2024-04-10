@@ -55,7 +55,7 @@ function checkTrivia(answer, response) {
     }
 }
 
-function validateTrivia() {
+function submitTrivia() {
     input1 = document.querySelecor('#minato').value;
     input2 = document.querySelecor('#kushina').value;
     input3 = document.querySelecor('#konoha').value;
@@ -64,9 +64,9 @@ function validateTrivia() {
         (input2.localeCompare('Kushina Uzumaki', 'en', {sensitivity: 'base'}) == 0) &&
         (input3.localeCompare('Konohagakure', 'en', {sensitivity: 'base'}) == 0) &&
         (input4.localeCompare('Kurama', 'en', {sensitivity: 'base'}) == 0)) {
-            document.querySelector();
+            document.querySelector('#trivia-card').style.backgroungColor = '#00ff00';
         }
-    else { return false;}
+    else { document.querySelector('#trivia-card').style.backgroungColor = '#ff3300';}
 }
 
 

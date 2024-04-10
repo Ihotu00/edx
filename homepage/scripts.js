@@ -40,11 +40,11 @@ function closeModal() {
     })
 }
 
-function checkTrivia(answer) {
+function checkTrivia(answer, response) {
     let input = document.querySelector(`#${answer}`);
     if (answer.localeCompare(input.value, 'en', { sensitivity: 'base' }) == 0) {
         input.style.backgroundColor = '#00ff00';
     }
     else { input.style.backgroundColor = '#ff3300';}
-    // document.querySelector(#response)
+    document.querySelector(response).innerHTML = "Hint: Use full name"
 }

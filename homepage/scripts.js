@@ -43,8 +43,10 @@ function closeModal() {
 function checkTrivia(answer, response) {
     document.querySelector(response).innerHTML = "";
     let input = document.querySelector(`#${answer}`);
-    // if (answer.localeCompare(input.value, 'en', { sensitivity: 'base' }) == 0) {
-    if(validateTrivia(answer, input.value)){
+    if ((answer == 'minato' && input.value.localeCompare('Minato Namikaze', 'en', {sensitivity: 'base'}) == 0) ||
+        (answer == 'kushina' && input.value.localeCompare('Kushina Uzumaki', 'en', {sensitivity: 'base'}) == 0) ||
+        (answer == 'konoha' && input.value.localeCompare('Konohagakure', 'en', {sensitivity: 'base'}) == 0) ||
+        (answer == 'kurama' && input.value.localeCompare('Kurama', 'en', {sensitivity: 'base'}) == 0)) {
         input.style.backgroundColor = '#00ff00';
     }
     else {
@@ -53,12 +55,12 @@ function checkTrivia(answer, response) {
     }
 }
 
-function validateTrivia(answer, input) {
-    if ((answer == 'minato' && input.localeCompare('Minato Namikaze', 'en', {sensitivity: 'base'}) == 0) ||
-        (answer == 'kushina' && input.localeCompare('Kushina Uzumaki', 'en', {sensitivity: 'base'}) == 0) ||
-        (answer == 'konoha' && input.localeCompare('Konohagakure', 'en', {sensitivity: 'base'}) == 0) ||
-        (answer == 'kurama' && input.localeCompare('Kurama', 'en', {sensitivity: 'base'}) == 0)) {
-            return true;
-        }
-    else { return false;}
-}
+// function validateTrivia(answer, input) {
+//     if ((answer == 'minato' && input.localeCompare('Minato Namikaze', 'en', {sensitivity: 'base'}) == 0) ||
+//         (answer == 'kushina' && input.localeCompare('Kushina Uzumaki', 'en', {sensitivity: 'base'}) == 0) ||
+//         (answer == 'konoha' && input.localeCompare('Konohagakure', 'en', {sensitivity: 'base'}) == 0) ||
+//         (answer == 'kurama' && input.localeCompare('Kurama', 'en', {sensitivity: 'base'}) == 0)) {
+//             return true;
+//         }
+//     else { return false;}
+// }

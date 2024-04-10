@@ -1,6 +1,6 @@
 function navigate(page) {
     var content = document.querySelector('#content');
-    var previousPage = content.src;
+    var previousPage = content.src.split('/')[3].split('.')[0];
     console.log(previousPage);
     document.querySelector(`#${previousPage}`).classList.remove('active')
     document.querySelector(`#${page}`).classList.add('active')

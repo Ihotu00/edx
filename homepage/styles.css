@@ -44,7 +44,9 @@ section {
 }
 
 .half1 {
-    padding: 10px, 0px;
+    div {
+        padding: 20px, 0px;
+    }
 }
 
 .half2 {

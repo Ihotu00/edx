@@ -43,7 +43,7 @@ function closeModal() {
 function checkTrivia(answer, response) {
     document.querySelector(response).innerHTML = "";
     let input = document.querySelector(`#${answer}`);
-    if (answer.localeCompare(input.value, 'en', { sensitivity: 'base' }) == 0) {
+    if (validateTrivia(answer, input.value)) {
         input.style.backgroundColor = '#00ff00';
     }
     else {
@@ -57,6 +57,7 @@ function validateTrivia(answer, input) {
         (answer == 'kushina' && input.localCompare('Kushina Uzumaki', 'en', {sensitivity: 'base'}) == 0) ||
         (answer == 'konoha' && input.localCompare('Konohagakure', 'en', {sensitivity: 'base'}) == 0) ||
         (answer == 'kurama' && input.localCompare('Kurama', 'en', {sensitivity: 'base'}) == 0)) {
-            return true
+            return true;
         }
+    else { return false;}
 }

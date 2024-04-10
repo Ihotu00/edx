@@ -41,7 +41,7 @@ function closeModal() {
 }
 
 function checkTrivia(answer) {
-    document.querySelector(response).innerHTML = "";
+    document.querySelector(".response").innerHTML = "";
     let input = document.querySelector(`#${answer}`);
     if ((answer == 'minato' && input.value.localeCompare('Minato Namikaze', 'en', {sensitivity: 'base'}) == 0) ||
         (answer == 'kushina' && input.value.localeCompare('Kushina Uzumaki', 'en', {sensitivity: 'base'}) == 0) ||
@@ -51,7 +51,7 @@ function checkTrivia(answer) {
     }
     else {
         input.style.backgroundColor = '#ff3300';
-        document.querySelector(response).innerHTML = "Hint: Use full name";
+        document.querySelector(".response").innerHTML = "Hint: Use full name";
     }
 }
 

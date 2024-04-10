@@ -31,8 +31,7 @@ section {
 }
 
 #section2 {
-    background-color: #0000b3;
-    opacity: 0.6;
+    background-color: #ccccff;
     .row {
         height: 100%;
     }

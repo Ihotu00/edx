@@ -39,12 +39,16 @@ section {
 .half1, .half2 {
     border: 1px solid white;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
+}
+
+.half1 {
+    padding: 10px;
 }
 
 .half2 {
     .material-icons {
-        font-size: 48px;
+        font-size: 300px;
     }
 }

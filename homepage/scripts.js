@@ -21,10 +21,13 @@ function addRow() {
     cellButton.addEventListener('click', () => {
         deleteRow(row.id);
       });
-    document.querySelector('#first').value
 }
 
 function deleteRow(rowId) {
     row = document.querySelector(`table#table tr[id="${rowId}"]`);
     document.getElementById("table").deleteRow(row.rowIndex);
+}
+
+function closeModal() {
+    modal = do
 }

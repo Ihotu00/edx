@@ -42,7 +42,7 @@ function closeModal() {
 
 function checkTrivia(answer) {
     let input = document.querySelector(`#${answer}`);
-    if (answer.compareToIgnoreCase(input.value)) {
+    if (answer.localeCompare(input.value, undefined, { sensitivity: 'base' })) {
         input.style.backgroundColor = '#00ff00';
     }
     else { input.style.backgroundColor = '#ff3300';}

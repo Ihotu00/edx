@@ -40,7 +40,7 @@ function closeModal() {
     })
 }
 
-function checkTrivia(answer, response) {
+function checkTrivia(answer) {
     document.querySelector(response).innerHTML = "";
     let input = document.querySelector(`#${answer}`);
     if ((answer == 'minato' && input.value.localeCompare('Minato Namikaze', 'en', {sensitivity: 'base'}) == 0) ||

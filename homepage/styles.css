@@ -7,4 +7,5 @@ body {
 section {
     margin: auto;
     border: 2px solid white;
+    height: 40vh;
 }

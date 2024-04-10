@@ -9,11 +9,10 @@ body {
     border: 2px solid white;
     height: 80vh;
     background-color: #0000b3;
-    padding: 10px;
+    padding: 10% 0%;
 
     div {
         margin: auto;
-        padding: 10px;
         border: 1px solid white;
         width: 50%;
         text-align: center;

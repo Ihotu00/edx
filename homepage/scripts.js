@@ -56,17 +56,18 @@ function checkTrivia(answer, response) {
 }
 
 function submitTrivia() {
-    input1 = document.querySelecor('#minato').value;
-    input2 = document.querySelecor('#kushina').value;
-    input3 = document.querySelecor('#konoha').value;
-    input4 = document.querySelecor('#kurama').value;
+    input1 = document.querySelector('#minato').value;
+    input2 = document.querySelector('#kushina').value;
+    input3 = document.querySelector('#konoha').value;
+    input4 = document.querySelector('#kurama').value;
     if ((input1.localeCompare('Minato Namikaze', 'en', {sensitivity: 'base'}) == 0) &&
         (input2.localeCompare('Kushina Uzumaki', 'en', {sensitivity: 'base'}) == 0) &&
         (input3.localeCompare('Konohagakure', 'en', {sensitivity: 'base'}) == 0) &&
         (input4.localeCompare('Kurama', 'en', {sensitivity: 'base'}) == 0)) {
             document.querySelector('#trivia-card').style.backgroungColor = '#00ff00';
+            console.log('correct');
         }
-    else { document.querySelector('#trivia-card').style.backgroungColor = '#ff3300';}
+    else { document.querySelector('#trivia-card').style.backgroungColor = '#ff3300'; console.log('wrong'); }
 }
 
 

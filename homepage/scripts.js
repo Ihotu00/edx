@@ -54,3 +54,7 @@ function checkTrivia(answer, response) {
         document.querySelector(response).innerHTML = "Hint: Use full name; eg Naruto Uzumaki";
     }
 }
+
+function result() {
+    
+}

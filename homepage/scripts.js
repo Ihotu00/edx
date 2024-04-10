@@ -41,12 +41,13 @@ function closeModal() {
 }
 
 function checkTrivia(answer, response) {
-    document.querySelector(response).innerHTML = " ";
+    document.querySelector(response).innerHTML = "";
     let input = document.querySelector(`#${answer}`);
     if (answer.localeCompare(input.value, 'en', { sensitivity: 'base' }) == 0) {
         input.style.backgroundColor = '#00ff00';
     }
-    else { input.style.backgroundColor = '#ff3300';}
-    console.log(response);
-    document.querySelector(response).innerHTML = "Hint: Use full name";
+    else {
+        input.style.backgroundColor = '#ff3300';
+        document.querySelector(response).innerHTML = "Hint: Use full name";
+    }
 }

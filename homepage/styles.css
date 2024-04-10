@@ -29,3 +29,7 @@ section {
         color: white;
     }
 }
+
+.half1, .half2 {
+    border: 1px solid white;
+}

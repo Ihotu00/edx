@@ -34,9 +34,10 @@ function closeModal() {
     //modal.hide();
     var myModalEl = document.getElementById('getInfo')
     myModalEl.addEventListener('hidden.bs.modal', function (event) {
-    // do something...
-    document.querySelector('#first').value = "";
-    document.querySelector('#last').value = "";
-    document.querySelector('#handle').value = "";
+        // do something...
+        console.log("made it here");
+        document.querySelector('#first').value = "";
+        document.querySelector('#last').value = "";
+        document.querySelector('#handle').value = "";
     })
 }

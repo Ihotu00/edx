@@ -34,5 +34,5 @@ function closeModal() {
     document.querySelector('#first').value = "";
     document.querySelector('#last').value = "";
     document.querySelector('#handle').value = "";
-    //modal.toggle();
+    modal.toggle();
 }

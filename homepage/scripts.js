@@ -51,10 +51,16 @@ function checkTrivia(answer, response) {
     }
     else {
         input.style.backgroundColor = '#ff3300';
-        document.querySelector(response).innerHTML = "Hint: Use full name; eg Naruto Uzumaki";
+        document.querySelector(response).innerHTML = "Hint: Use full name ed 'Naruto Uzumaki'";
     }
 }
 
-function result() {
-    
-}
+// function validateTrivia(answer, input) {
+//     if ((answer == 'minato' && input.localeCompare('Minato Namikaze', 'en', {sensitivity: 'base'}) == 0) ||
+//         (answer == 'kushina' && input.localeCompare('Kushina Uzumaki', 'en', {sensitivity: 'base'}) == 0) ||
+//         (answer == 'konoha' && input.localeCompare('Konohagakure', 'en', {sensitivity: 'base'}) == 0) ||
+//         (answer == 'kurama' && input.localeCompare('Kurama', 'en', {sensitivity: 'base'}) == 0)) {
+//             return true;
+//         }
+//     else { return false;}
+// }

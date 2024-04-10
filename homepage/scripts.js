@@ -65,9 +65,8 @@ function submitTrivia() {
         (input3.localeCompare('Konohagakure', 'en', {sensitivity: 'base'}) == 0) &&
         (input4.localeCompare('Kurama', 'en', {sensitivity: 'base'}) == 0)) {
             document.querySelector('#trivia-card').style.backgroundColor = '#00ff00';
-            console.log('correct');
         }
-    else { document.querySelector('#trivia-card').style.backgroundColor = '#ff3300'; console.log('wrong'); }
+    else { document.querySelector('#trivia-card').style.backgroundColor = '#ff3300'; }
 }
 
 

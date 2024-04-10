@@ -29,5 +29,7 @@ function deleteRow(rowId) {
 }
 
 function closeModal() {
-    modal = do
+    modal = new bootstrap.Modal(document.getElementById('getInfo'));
+    
+    modal.toggle();
 }

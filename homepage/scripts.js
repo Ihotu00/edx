@@ -43,7 +43,8 @@ function closeModal() {
 function checkTrivia(answer, response) {
     document.querySelector(response).innerHTML = "";
     let input = document.querySelector(`#${answer}`);
-    if (validateTrivia(answer, input.value)) {
+    // if (answer.localeCompare(input.value, 'en', { sensitivity: 'base' }) == 0) {
+    if(validateTrivia(answer, input.value)){
         input.style.backgroundColor = '#00ff00';
     }
     else {
@@ -53,6 +54,7 @@ function checkTrivia(answer, response) {
 }
 
 function validateTrivia(answer, input) {
+    console.log(input)
     if ((answer == 'minato' && input.localCompare('Minato Namikaze', 'en', {sensitivity: 'base'}) == 0) ||
         (answer == 'kushina' && input.localCompare('Kushina Uzumaki', 'en', {sensitivity: 'base'}) == 0) ||
         (answer == 'konoha' && input.localCompare('Konohagakure', 'en', {sensitivity: 'base'}) == 0) ||

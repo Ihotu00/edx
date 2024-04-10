@@ -30,7 +30,15 @@ section {
     }
 }
 
+#section2 {
+    .row {
+        height: 100%;
+    }
+}
+
 .half1, .half2 {
     border: 1px solid white;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

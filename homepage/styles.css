@@ -9,10 +9,13 @@ body {
     border: 2px solid white;
     height: 80vh;
     background-color: #0000b3;
-    text-align: center;
+    padding: 10px;
 
     div {
         margin: auto;
         padding: 10px;
+        border: 1px solid white;
+        width: 50%;
+        text-align: center;
     }
 }

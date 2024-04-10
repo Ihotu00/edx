@@ -51,3 +51,12 @@ function checkTrivia(answer, response) {
         document.querySelector(response).innerHTML = "Hint: Use full name";
     }
 }
+
+function validateTrivia(answer, input) {
+    if ((answer == 'minato' && input.localCompare('Minato Namikaze', 'en', {sensitivity: 'base'}) == 0) ||
+        (answer == 'kushina' && input.localCompare('Kushina Uzumaki', 'en', {sensitivity: 'base'}) == 0) ||
+        (answer == 'konoha' && input.localCompare('Konohagakure', 'en', {sensitivity: 'base'}) == 0) ||
+        (answer == 'kurama' && input.localCompare('Kurama', 'en', {sensitivity: 'base'}) == 0)) {
+            return true
+        }
+}

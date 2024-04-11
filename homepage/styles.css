@@ -152,4 +152,5 @@ tr:hover  + tr td {
 
 .click-effect {
     box-shadow: 0 0 2em 5px #0000b3;
+    transition: all .1s ease-out;
 }

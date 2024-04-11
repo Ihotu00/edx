@@ -15,8 +15,7 @@ function ticTacToe(div) {
         board[div] = 'O';
         document.getElementById('current-tic-tac-toe-player').innerHTML = 'Player One(X)';
     }
-    document.getElementById(`${div}`).parentElement.classList.add('disable-div');
-    if(currentPlayerWins()) {
+    if(currentPlayerWins() == true) {
         // console.log(currentPlayerWins());
         // console.log(board);
         if (playerX) {
@@ -27,6 +26,7 @@ function ticTacToe(div) {
         }
     }
     else { playerX = !playerX; console.log(playerX)}
+    document.getElementById(`${div}`).parentElement.classList.add('disable-div');
 }
 
 function currentPlayerWins() {

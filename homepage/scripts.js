@@ -121,7 +121,7 @@ function guess() {
             response.style.color = "#00ff00";
             guess.disabled = true;
             document.getElementById('guess-button').disabled = true;
-            retry();
+            document.getElementById('retry').classList.remove('retry');
         }
         else {
             response.innerHTML = "Wrong!!!";
@@ -131,6 +131,7 @@ function guess() {
 }
 
 function retry() {
+    document.getElementById('answer').innerHTML = "???"
     document.getElementById('retry').classList.add('retry');
     number = Math.floor(Math.random() * 11);
     tries = 0;

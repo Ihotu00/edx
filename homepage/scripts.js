@@ -41,7 +41,7 @@ function viewTodoDescription(rowId) {
     modal = document.getElementById('view-description')
     modal.addEventListener('show.bs.modal', function (event) {
         console.log(todoDescription[rowId]);
-        document.getElementById("#description-modal").innerHTML = todoDescription[rowId];
+        document.getElementById("description-modal").innerHTML = todoDescription[rowId];
     })
 }
 

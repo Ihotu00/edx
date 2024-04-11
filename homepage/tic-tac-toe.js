@@ -29,10 +29,10 @@ function ticTacToe(div) {
 }
 
 function currentPlayerWins() {
-    console.log(board['2']);
-    console.log(board);
+    console.log(board['1']); console.log(board['2']); console.log(board['3']);
+    // console.log(board);
     // if (
-    //     (board['1'] == board['2'] && board['2'] == board['3']) ||
+    //     (board['1'] == board['2'] && board['2'] == board['3'])
         // (board['4'] == board['5'] && board['5'] == board['6']) ||
         // (board['7'] == board['8'] && board['8'] == board['9']) ||
         // (board['1'] == board['4'] && board['4'] == board['7']) ||

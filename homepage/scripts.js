@@ -1,3 +1,5 @@
+let test = 0;
+
 function navigate(page) {
     var content = document.querySelector('#content');
     var previousPage = content.src.split('/')[3].split('.')[0];

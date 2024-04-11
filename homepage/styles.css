@@ -103,7 +103,7 @@ section {
 
 #table-button {
     border: 1px solid white;
-    button {
+    /* button {
         position: absolute;
-    }
+    } */
 }

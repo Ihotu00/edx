@@ -3,7 +3,7 @@ html, body {
 }
 
 body {
-    /* background-image: radial-gradient(LightCyan, Cyan, DarkCyan); */
+    background-image: linear-gradient(to bottom right, #ccccff, #9999ff, #0000b3);
     background-color: black;
     /* border: 3px solid white; */
     /* color: white; */

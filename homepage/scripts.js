@@ -5,7 +5,7 @@ let todoDescription = {
 
 let score = 0;
 
-let number = 0;
+let number = Math.floor(Math.random() * 11);
 
 function navigate(page) {
     var content = document.querySelector('#content');
@@ -103,4 +103,9 @@ function clickingGame() {
 
 function guess() {
     var guess = document.getElementById('guess').innerHTML
+    var response = document.getElementById('guess-response')
+    if (guess == number) {
+        response.innerHTML = "Correct!!!";
+        response.style.color = "G"
+    }
 }

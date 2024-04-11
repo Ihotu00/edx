@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+          crossorigin="anonymous"></script>
+      <script src="scripts.js"></script>
+      <link href="styles.css" rel="stylesheet">
+      <title>Games</title>
+    </head>
+
+    <body class="gradient">
+      <div class="row">
+          <div class="quick-links" class="col-md-2">
+            <label for="quick-links-list" class="p-2">Quick Links</label>
+            <ul id="quick-links-list">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="table.html">To Do</a></li>
+            </ul>
+          </div>
+      </div>
+      <div class="m-5">
+            <div class="row row-cols-1 row-cols-md-4 g-4 mb-3">
+              <div class="col">
+                <div class="card h-100" id="trivia-card">
+                  <!-- <img src="assets/trivia.jpg" class="card-img-top" alt="..."> -->
+                  <div class="card-body">
+                    <h5 class="card-title">Trivia</h5>
+                    <p class="card-text">Some quick and simple Naruto questions</p>
+                    <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#trivia">Play</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card h-100">
+                  <!-- <img src="..." class="card-img-top" alt="..."> -->
+                  <div class="card-body">
+                    <h5 class="card-title">Clicking Games</h5>
+                    <p class="card-text">Click the button the increase the number</p>
+                    <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#click-game">Play</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card h-100">
+                  <!-- <img src="..." class="card-img-top" alt="..."> -->
+                  <div class="card-body">
+                    <h5 class="card-title">Guessing Game</h5>
+                    <p class="card-text">Can you guess the correct number?</p>
+                    <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#guess-game">Play</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card h-100">
+                  <!-- <img src="..." class="card-img-top" alt="..."> -->
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row row-cols-1 row-cols-md-4 g-4">
+              <div class="col">
+                <div class="card h-100">
+                  <!-- <img src="assets/trivia.jpg" class="card-img-top" alt="..."> -->
+                  <div class="card-body">
+                    <h5 class="card-title">Trivia</h5>
+                    <p class="card-text">Some quick and simple math and general knowledge questions</p>
+                    <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#trivia">Play</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card h-100">
+                  <!-- <img src="..." class="card-img-top" alt="..."> -->
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a short card.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card h-100">
+                  <!-- <img src="..." class="card-img-top" alt="..."> -->
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card h-100">
+                  <!-- <img src="..." class="card-img-top" alt="..."> -->
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          <div class="modal fade" id="trivia" tabindex="-1" aria-labelledby="trivia"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Trivia</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <!-- <form> -->
+                          <div class="mb-3">
+                            <label for="minato" class="form-label">What is the name of Naruto's father</label>
+                            <div class="input-group">
+                              <input type="text" class="form-control" id="minato">
+                              <button class="btn btn-outline-primary" type="button" id="button-minato" onClick="checkTrivia('minato', '#minato-response')">Check</button>
+                            </div>
+                            <p id="minato-response" style="color: #ff3300;"></p>
+                          </div>
+                          <div class="mb-3">
+                            <label for="kushina" class="form-label">What is the name of Naruto's mother</label>
+                            <div class="input-group">
+                              <input type="text" class="form-control" id="kushina">
+                              <button class="btn btn-outline-primary" type="button" id="button-kushina" onClick="checkTrivia('kushina', '#kushina-response')">Check</button>
+                            </div>
+                            <p id="kushina-response" style="color: #ff3300;"></p>
+                          </div>
+                          <div class="mb-3">
+                            <label for="konoha" class="form-label">What is the name of Naruto's village</label>
+                            <div class="input-group">
+                              <input type="text" class="form-control" id="konoha">
+                              <button class="btn btn-outline-primary" type="button" id="button-konoha" onClick="checkTrivia('konoha', '#konoha-response')">Check</button>
+                            </div>
+                            <p id="konoha-response" style="color: #ff3300;"></p>
+                          </div>
+                          <div class="mb-3">
+                            <label for="kurama" class="form-label">What is the name of the nine tailed fox from Naruto</label>
+                            <div class="input-group">
+                              <input type="text" class="form-control" id="kurama">
+                              <button class="btn btn-outline-primary" type="button" id="button-kurama" onClick="checkTrivia('kurama', '#kurama-response')">Check</button>
+                            </div>
+                            <p id="kurama-response" style="color: white;"></p>
+                          </div>
+                        <!-- </form> -->
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onClick="submitTrivia()">Save changes</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="modal fade" tabindex="-1" id="click-game">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="click-title">Clicking Game</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <h3 class="center mb-3" id="score">0</h3>
+                  <div class="center"><div class="circle click-effect" id="circle" onClick="clickingGame()">Click Me!</div></div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" tabindex="-1" id="guess-game">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="guess-title">Guessing Game</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="center"><h3>Guess a number between 1 and 10</h3></div>
+                  <h3 class="center mb-3" id="answer">???</h3>
+                  <p id="guess-response"></p>
+                  <div class="center">
+                    <div class="col-5">
+                      <div class="input-group">
+                        <input type="text" class="form-control" id="guess" placeholder="Your Guess...">
+                        <button class="btn btn-outline-primary" type="button" id="button-konoha" onClick="guess()">Check</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+
+    </body>

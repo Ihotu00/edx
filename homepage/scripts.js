@@ -1,6 +1,9 @@
 let todoDescription = {
-    
+    "0": "Beef, Carrots, Milk, Sausage, Noodles",
+    "1": "@ 4:00pm"
 };
+
+console.log(todoDescription);
 
 function navigate(page) {
     var content = document.querySelector('#content');

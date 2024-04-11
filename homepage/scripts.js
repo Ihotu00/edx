@@ -45,6 +45,10 @@ function deleteRow(rowId) {
     delete todoDescription[rowId];
 }
 
+function strike(rowId) {
+    var row = document.querySelector(`table#table tr[id=])
+}
+
 function closeModal() {
     var myModalEl = document.getElementById('getInfo')
     myModalEl.addEventListener('hidden.bs.modal', function (event) {

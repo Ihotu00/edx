@@ -1,5 +1,5 @@
 html, body {
-    height: 100%;
+    min-height: 100%;
 }
 
 body {
@@ -10,7 +10,7 @@ body {
 }
 
 section {
-    min-height: 80%;
+    height: 80%;
     color: white;
 }
 

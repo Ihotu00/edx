@@ -4,8 +4,8 @@ let todoDescription = {
 };
 
 let score = 0;
-
 let number = Math.floor(Math.random() * 11);
+let tries = 0;
 
 function navigate(page) {
     var content = document.querySelector('#content');
@@ -102,12 +102,21 @@ function clickingGame() {
 }
 
 function guess() {
-    var guess = document.getElementById('guess').innerHTML
     var response = document.getElementById('guess-response')
-    if (guess == number) {
-        document.getElementById('answer').innerHTML = number
-        response.innerHTML = "Correct!!!";
-        response.style.color = "#00ff00"
-        number = Math.floor(Math.random() * 11);
+    tries++
+    if (tries > 3) {
+        response.innerHTML = `You have run out of tries, the number was ${number}`;
+        document.getElementById('guess-button')
+    }
+    else {
+        var guess = document.getElementById('guess').innerHTML
+        if (guess == number) {
+            document.getElementById('answer').innerHTML = number
+            response.innerHTML = "Correct!!!";
+            response.style.color = "#00ff00";
+            number = Math.floor(Math.random() * 11);
+            tries = 0;
+        }
+        else ()
     }
 }

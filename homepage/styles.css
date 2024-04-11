@@ -81,8 +81,11 @@ section {
     text-decoration: none;
 }
 
-.sectiona:hover {
+/* .sectiona:hover {
     opacity: 90%
+} */
+#section2row:hover {
+    opacity: 20%;
 }
 
 .quick-links {

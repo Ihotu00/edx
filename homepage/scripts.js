@@ -1,4 +1,6 @@
-let todoDescription = 0;
+let todoDescription = {
+    
+};
 
 function navigate(page) {
     var content = document.querySelector('#content');

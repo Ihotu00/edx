@@ -27,7 +27,7 @@ function addRow() {
     cellTitle.innerHTML = title;
     // cellDescription.innerHTML = description;
     // cellHandle.innerHTML = handle;
-    cellButton.innerHTML = "<span class="material-icons">delete</span>";
+    cellButton.innerHTML = "<span class='material-icons'>delete</span>";
     cellButton.addEventListener('click', () => {
         deleteRow(row.id);
       });

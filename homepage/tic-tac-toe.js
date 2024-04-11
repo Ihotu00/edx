@@ -12,6 +12,6 @@ function ticTacToe(div) {
     else {
         document.getElementById(`${div}`).innerHTML = 'O';
     }
-    document.getElementById(`${div}`).classList.add('disable-div');
+    document.getElementById(`${div}`).parentElement.classList.add('disable-div');
     playerX = !playerX;
 }

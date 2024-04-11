@@ -42,9 +42,11 @@ section {
 }
 
 .stick-on-top {
+    background-color: #0000b3;
     position: sticky;
     top: 0;
-    height: 10%
+    height: 10%;
+    border: 3px solid black;
 }
 
 #section2 {

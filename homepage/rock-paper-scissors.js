@@ -6,17 +6,17 @@ let moves = {
 let turn = "player1";
 
 function play(move) {
-    var turnTtext = document.getElementById('turn-text').innerHTML;
+    // var turnTtext = document.getElementById('turn-text').innerHTML;
     if (turn == "player1") {
         moves.player1 = move;
-        turnText = "Second Player's Move";
+        document.getElementById('turn-text').innerHTML = "Second Player's Move";
     }
 
     if (turn == "player2") {
         moves.player2 = move;
-        turnText = "Click the submit button to see the winner";
+        document.getElementById('turn-text').innerHTML = "Click the submit button to see the winner";
         document.getElementById('rock-paper-scissors-button').disabled= false;
     }
     turn = "player2";
-    console.log(moves)
+    console.log(moves);
 }

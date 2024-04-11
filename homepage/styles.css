@@ -43,6 +43,9 @@ section {
     .row {
         min-height: 100%;
     }
+    .material-icons {
+        justify-content: right;
+    }
 }
 
 .half1, .half2 {

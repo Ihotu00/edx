@@ -36,7 +36,9 @@ function replay() {
 }
 
 function submitRockPaperScisssors() {
-
+    if (getWinner(moves.player1, moves.player2) = 1) {
+        document.getElementById('winner').innerHTML = "Player One Wins!!"
+    }
 }
 
 function getWinner(move1, move2) {

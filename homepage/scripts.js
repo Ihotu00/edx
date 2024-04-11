@@ -105,7 +105,8 @@ function guess() {
     var response = document.getElementById('guess-response');
     var guess = document.getElementById('guess');
     tries--
-    if (tries <=1 ) {
+    console.log(tries);
+    if (tries = 0) {
         document.getElementById('answer').innerHTML = number
         document.getElementById('retry').classList.remove('retry');
         response.innerHTML = `You have run out of tries, the number was ${number}`;

@@ -33,7 +33,6 @@ function addRow() {
     console.log(todoDescription);
     document.querySelector('#title').value = "";
     document.querySelector('#description').value = "";
-    document.querySelector('#handle').value = "";
 }
 
 function deleteRow(rowId) {

@@ -17,7 +17,7 @@
 
     <body>
       <div class="row">
-        <div class="col-md-10 col-sm-6">
+        <!-- <div class="col-md-10 col-sm-6"> -->
           <div class="quick-links" class="col-md-2">
             <label for="quick-links-list" class="p-2">Quick Links</label>
             <ul id="quick-links-list">
@@ -26,12 +26,12 @@
               <!-- <li><a>Home</a></li> -->
             </ul>
           </div>
-        </div>
-        <div class="col-md-2 col-sm-6">
-          <button type="button" class="btn btn-primary mt-5" data-bs-toggle="modal" data-bs-target="#getInfo">
+        <!-- </div> -->
+        <!-- <div class="col-md-2 col-sm-6"> -->
+          <!-- <button type="button" class="btn btn-primary mt-5" data-bs-toggle="modal" data-bs-target="#getInfo">
             + Add Your Information
-          </button>
-        </div>
+          </button> -->
+        <!-- </div> -->
       </div>
       <div id="table-button">
         <div id="table-container">
@@ -65,8 +65,7 @@
               </tbody>
             </table>
           </div>
-          <div class="col d-flex justify-content-center" style="border: 1px solid white">
-          <!-- <div class="col align-self-center" style="border: 1px solid white"> -->
+          <div class="col-8 d-flex" style="justify-content: right;">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#getInfo">
               +
             </button>
@@ -76,24 +75,24 @@
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title">Please Input Your Details</h5>
+                  <h5 class="modal-title">New TODO item</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick="closeModal()"></button>
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="first" class="form-label">First name</label>
-                        <input type="text" class="form-control" id="first" placeholder="Ihotu">
+                        <!-- <label for="first" class="form-label">First name</label> -->
+                        <input type="text" class="form-control" id="first" placeholder="Get groceries">
                     </div>
 
                     <div class="mb-3">
-                        <label for="last" class="form-label">Last name</label>
-                        <input type="text" class="form-control" id="last" placeholder="Ifenne">
+                        <!-- <label for="last" class="form-label">Last name</label> -->
+                        <textarea type="text" class="form-control" id="last" placeholder="Beef, Carrots, Milk, Sausage, Noodles"></textarea>
                     </div>
 
-                    <div class="mb-3">
+                    <!-- <div class="mb-3">
                         <label for="handle" class="form-label">Handle</label>
                         <input type="text" class="form-control" id="handle" placeholder="@ii">
-                    </div>
+                    </div> -->
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onClick="closeModal()">Close</button>

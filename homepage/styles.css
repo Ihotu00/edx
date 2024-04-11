@@ -107,6 +107,6 @@ tr:hover {
 }
 
 td:hover {
-    transform: scale(1.1);
-    box-shadow: 40px 40px 5px #0000b3, -40px -40px 5px #0000b3;
+    /* transform: scale(1.1); */
+    box-shadow: 10px 10px 5px #0000b3, -10px -10px 5px #0000b3;
 }

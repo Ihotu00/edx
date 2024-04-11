@@ -6,7 +6,6 @@ let moves = {
 let turn = "player1";
 
 function play(move) {
-    // var turnTtext = document.getElementById('turn-text').innerHTML;
     if (turn == "player1") {
         moves.player1 = move;
         document.getElementById('turn-text').innerHTML = "Second Player's Move";

@@ -84,7 +84,7 @@ section {
 /* .sectiona:hover {
     opacity: 90%
 } */
-#section2row:hover {
+#section2.row:hover {
     opacity: 20%;
 }
 

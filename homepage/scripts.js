@@ -102,6 +102,8 @@ function clickingGame() {
 }
 
 function guess() {
+    var hint = document.getElementById('guess-hint');
+    hint.innerHTML = "";
     var response = document.getElementById('guess-response');
     var guess = document.getElementById('guess');
     tries--
@@ -111,6 +113,7 @@ function guess() {
         response.innerHTML = `You have run out of tries, the number was ${number}`;
         document.getElementById('guess-button').disabled = true;
         guess.disabled = true;
+        document.getElementById('guess-hint').innerHTML = "";
     }
     else {
         if (guess.value == number) {
@@ -123,7 +126,9 @@ function guess() {
         }
         else {
             response.innerHTML = `Wrong!!! You have ${tries} tries left`;
-            response.style.color = "#ff0000"
+            response.style.color = "#ff0000";
+            if(guess.value > number) { hint.innerHTML = "Your guess is too high"}
+            if(guess.value < number) { hint.innerHTML = "Your guess is too low"}
         }
     }
 }
@@ -137,4 +142,5 @@ function retry() {
     document.getElementById('guess').disabled = false;
     document.getElementById('guess').value = "";
     var response = document.getElementById('guess-response').innerHTML = "";
+    document.getElementById('guess-hint').innerHTML = "";
 }

@@ -27,6 +27,8 @@ function addRow() {
         deleteRow(row.id);
       });
     cellTitle.addEventListener('click', () => {
+        // var modal = document.getElementById('view-description');
+        var modalEl = new bootstrap.Modal(document.getElementById('view-description')).show();
         viewTodoDescription(row.id, cellTitle);
     });
     cellCheck.addEventListener('click', () => {

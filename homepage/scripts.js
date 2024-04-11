@@ -37,6 +37,7 @@ function addRow() {
 function deleteRow(rowId) {
     var row = document.querySelector(`table#table tr[id="${rowId}"]`);
     document.getElementById("table").deleteRow(row.rowIndex);
+    todoDescription[rowId].delete();
 }
 
 function closeModal() {

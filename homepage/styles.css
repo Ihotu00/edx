@@ -164,7 +164,7 @@ tr:hover  + tr td {
     transition: all .1s ease-out;
 }
 
-.rockPaperScissors {
+.rockPaperScissors, .ticTacToe {
     border: 1px solid black;
     background: #9999ff;
     color: white;
@@ -178,4 +178,8 @@ tr:hover  + tr td {
 
 .disable-div {
     pointer-events: none;
+}
+
+.ticTacToe {
+    height: 3em;
 }

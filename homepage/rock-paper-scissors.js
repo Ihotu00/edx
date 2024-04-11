@@ -34,3 +34,7 @@ function replay() {
     document.getElementById('scissors').classList.remove('disable-div');
     document.getElementById('rock-paper-scissors-retry').classList.add('retry');
 }
+
+function submitRockPaperScisssors() {
+    
+}

@@ -104,6 +104,8 @@ section {
 #table-button {
     border: 1px solid white;
     button {
-        align-item: end;
+        position: absolute;
+        top: 50%;
+        left: 50%;
     }
 }

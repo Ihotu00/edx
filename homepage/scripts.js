@@ -1,4 +1,4 @@
-let test = 0;
+let todoDescription = 0;
 
 function navigate(page) {
     var content = document.querySelector('#content');
@@ -20,7 +20,7 @@ function addRow() {
     var cellButton = row.insertCell(2);
     row.id = table.tBodies[0].rows.length - 1;
     cellTitle.innerHTML = title;
-    cellDescription.innerHTML = description;
+    // cellDescription.innerHTML = description;
     // cellHandle.innerHTML = handle;
     cellButton.innerHTML = "<span class="material-icons">delete</span>";
     cellButton.addEventListener('click', () => {

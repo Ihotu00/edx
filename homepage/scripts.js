@@ -29,6 +29,9 @@ function addRow() {
     cellTitle.addEventListener('click', () => {
         viewTodoDescription(row.id, cellTitle);
     });
+    cellCheck.addEventListener('click', () => {
+        strike(row.id);
+      });
     todoDescription[row.id] = description;
     document.querySelector('#title').value = "";
     document.querySelector('#description').value = "";

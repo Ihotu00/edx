@@ -14,5 +14,10 @@ function ticTacToe(div) {
         board[div] = 'O';
     }
     document.getElementById(`${div}`).parentElement.classList.add('disable-div');
+    getTicTacToeWinner();
     playerX = !playerX;
+}
+
+function getTicTacToeWinner() {
+    if (board['1'] === board['2'] === board['3']) { console.log('winner'); }
 }

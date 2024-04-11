@@ -101,14 +101,14 @@ section {
     }
 }
 
-/* tr:hover {
-    opacity: 80%;
+tr:hover {
     cursor: pointer;
-} */
+    box-shadow: 10px 10px 5px white, -10px -10px 5px black;
+}
 
 td:hover {
     /* transform: scale(1.1); */
+    opacity: 80%;
     margin: 10px;
     padding: 10px;
-    box-shadow: 10px 10px 5px white, -10px -10px 5px black;
 }

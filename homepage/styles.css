@@ -136,4 +136,6 @@ tr:hover  + tr td {
 .circle {
     background-color: #0000b3;
     border-radius: 50%;
+    height: 50px;
+    width: 50px;
 }

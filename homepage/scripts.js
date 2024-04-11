@@ -29,7 +29,8 @@ function addRow() {
     cellTitle.addEventListener('click', () => {
         // var modal = document.getElementById('view-description');
         var modalEl = new bootstrap.Modal(document.getElementById('view-description')).show();
-        viewTodoDescription(row.id, cellTitle);
+        console.log(cellTitle.innerHTML);
+        viewTodoDescription(row.id, cellTitle.innerHTML);
     });
     cellCheck.addEventListener('click', () => {
         strike(row.id);

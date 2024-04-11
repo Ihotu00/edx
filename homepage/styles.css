@@ -82,6 +82,7 @@ section {
     opacity: 80%
 }
 
-nav {
+.navbar {
     position: fixed;
+    width: 100%;
 }

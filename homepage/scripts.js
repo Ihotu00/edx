@@ -38,7 +38,6 @@ function addRow() {
 }
 
 function viewTodoDescription(rowId, title) {
-    console.log('i was here')
     document.getElementById("description-body").innerHTML = todoDescription[rowId];
     document.getElementById("description-title").innerHTML = title;
 }

@@ -5,17 +5,18 @@ let board = {
 let playerX = true;
 
 function ticTacToe(div) {
+    document.getElementById(`${div}`).parentElement.classList.add('disable-div');
     if (playerX) {
         document.getElementById(`${div}`).innerHTML = 'X';
         board[div] = 'X';
         document.getElementById('current-tic-tac-toe-player').innerHTML = 'Player Two(O)';
     }
-    if (!playerX) {
+    else {
         document.getElementById(`${div}`).innerHTML = 'O';
         board[div] = 'O';
         document.getElementById('current-tic-tac-toe-player').innerHTML = 'Player One(X)';
     }
-    if(currentPlayerWins() == true) {
+    if(currentPlayerWins()) {
         // console.log(currentPlayerWins());
         // console.log(board);
         if (playerX) {
@@ -26,7 +27,6 @@ function ticTacToe(div) {
         }
     }
     else { playerX = !playerX; console.log(playerX)}
-    document.getElementById(`${div}`).parentElement.classList.add('disable-div');
 }
 
 function currentPlayerWins() {

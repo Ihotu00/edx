@@ -8,10 +8,12 @@ function ticTacToe(div) {
     if (playerX) {
         document.getElementById(`${div}`).innerHTML = 'X';
         board[div] = 'X';
+        document.getElementById('current-tic-tac-toe-player').innerHTML = 'Player One(X)';
     }
     else {
         document.getElementById(`${div}`).innerHTML = 'O';
         board[div] = 'O';
+        document.getElementById('current-tic-tac-toe-player').innerHTML = 'Player One(X)';
     }
     document.getElementById(`${div}`).parentElement.classList.add('disable-div');
     if(currentPlayerWins()) {

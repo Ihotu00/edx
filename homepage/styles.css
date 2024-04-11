@@ -159,6 +159,6 @@ tr:hover  + tr td {
     display: none;
 }
 
-.answer {
+/* #guess-response {
     transition: all .1s ease-out;
-}
+} */

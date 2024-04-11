@@ -102,15 +102,16 @@ function clickingGame() {
 }
 
 function guess() {
-    var response = document.getElementById('guess-response')
-        var guess = document.getElementById('guess').innerHTML
+    var response = document.getElementById('guess-response');
+        var guess = document.getElementById('guess');
     tries++
     if (tries > 3) {
         response.innerHTML = `You have run out of tries, the number was ${number}`;
         document.getElementById('guess-button').disabled = true;
+        guess.disabled = true;
     }
     else {
-        if (guess == number) {
+        if (guess.innerHTML == number) {
             document.getElementById('answer').innerHTML = number
             response.innerHTML = "Correct!!!";
             response.style.color = "#00ff00";

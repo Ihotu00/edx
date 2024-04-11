@@ -15,7 +15,8 @@ function play(move) {
 
     if (turn == "player2") {
         moves.player2 = move;
-        turn = "finish";
         turnText = "Click the submit button to see the winner";
+        document.getElementById('rock-paper-scissors-button').disabled= false;
     }
+    console.log(moves)
 }

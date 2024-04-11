@@ -16,21 +16,18 @@ function navigate(page) {
 function addRow() {
     const title = document.querySelector('#title').value;
     const description = document.querySelector('#description').value;
-    // const handle = document.querySelector('#handle').value;
     const table = document.querySelector('#table');
     var row = table.insertRow(-1);
     var cellTitle = row.insertCell(1);
-    // var cellDescription = row.insertCell(1);
-    // var cellHandle = row.insertCell(2);
     var cellButton = row.insertCell(2);
     row.id = table.tBodies[0].rows.length - 1;
     cellTitle.innerHTML = title;
-    // cellDescription.innerHTML = description;
-    // cellHandle.innerHTML = handle;
     cellButton.innerHTML = "<span class='material-icons'>delete</span>";
     cellButton.addEventListener('click', () => {
         deleteRow(row.id);
       });
+    todoDescription.row.id = description;
+    console.log(todoDescription);
     document.querySelector('#title').value = "";
     document.querySelector('#description').value = "";
     document.querySelector('#handle').value = "";

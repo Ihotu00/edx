@@ -81,3 +81,9 @@ section {
 .sectiona:hover {
     opacity: 80%
 }
+
+.quick-links {
+    border: 3px solid #0000b3;
+    color: white;
+    margin: 10px
+}

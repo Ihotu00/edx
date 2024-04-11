@@ -21,5 +21,16 @@ function play(move) {
         document.getElementById('rock-paper-scissors-retry').classList.remove('retry');
     }
     turn = "player2";
-    console.log(moves);
+}
+
+function replay() {
+    moves.player1 = "";
+    moves.player2 = "";
+    turn = "player1";
+    document.getElementById('turn-text').innerHTML = "First Player's Move";
+    document.getElementById('rock-paper-scissors-button').disabled= true;
+    document.getElementById('rock').classList.remove('disable-div');
+    document.getElementById('paper').classList.remove('disable-div');
+    document.getElementById('scissors').classList.remove('disable-div');
+    document.getElementById('rock-paper-scissors-retry').classList.add('retry');
 }

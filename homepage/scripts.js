@@ -47,7 +47,6 @@ function deleteRow(rowId) {
 
 function strike(rowId) {
     var row = document.querySelector(`table#table tr[id="${rowId}"]`);
-    console.log(row);
     row.cells[1].classList.toggle('text-decoration-line-through');
 }
 

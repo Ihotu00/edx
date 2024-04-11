@@ -106,6 +106,6 @@ function guess() {
     var response = document.getElementById('guess-response')
     if (guess == number) {
         response.innerHTML = "Correct!!!";
-        response.style.color = "G"
+        response.style.color = "#00ff00"
     }
 }

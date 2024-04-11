@@ -93,5 +93,5 @@ function submitTrivia() {
 }
 
 function clickingGame() {
-    document.getElementById('circle').classList.toggle('click-effect')
+    document.getElementById('circle').classList.add('click-effect')
 }

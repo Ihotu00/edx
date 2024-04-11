@@ -102,10 +102,12 @@ function clickingGame() {
 }
 
 function guess() {
+    document.getElementById('answer').innerHTML = number
     var response = document.getElementById('guess-response');
     var guess = document.getElementById('guess');
     tries++
     if (tries >= 3) {
+        document.getElementById('answer').innerHTML = number
         document.getElementById('retry').classList.remove('retry');
         response.innerHTML = `You have run out of tries, the number was ${number}`;
         document.getElementById('guess-button').disabled = true;

@@ -38,8 +38,9 @@ function addRow() {
 
 function viewTodoDescription(rowId) {
     // document.getElementById("#description-modal").innerHTML = todoDescription[rowId];
-    modal = document.getElementById('#view-description')
-    modal.addEventListener('show.bs.modal', () => {
+    modal = document.getElementById('view-description')
+    modal.addEventListener('show.bs.modal', function (event) {
+        console.log(todoDescription[rowId]);
         document.getElementById("#description-modal").innerHTML = todoDescription[rowId];
     })
 }

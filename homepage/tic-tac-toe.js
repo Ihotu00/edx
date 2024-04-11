@@ -14,11 +14,13 @@ function ticTacToe(div) {
         board[div] = 'O';
     }
     document.getElementById(`${div}`).parentElement.classList.add('disable-div');
-    getTicTacToeWinner();
-    playerX = !playerX;
+    if(currentPlayerWins()) {
+        
+    }
+    else { playerX = !playerX; }
 }
 
-function getTicTacToeWinner() {
+function currentPlayerWins() {
     if ((board['1'] == board['2'] && board['2'] == board['3']) ||
         (board['4'] == board['5'] && board['5'] == board['6']) ||
         (board['7'] == board['8'] && board['8'] == board['9']) ||
@@ -27,5 +29,5 @@ function getTicTacToeWinner() {
         (board['3'] == board['6'] && board['6'] == board['9']) ||
         (board['1'] == board['5'] && board['5'] == board['9']) ||
         (board['3'] == board['5'] && board['5'] == board['7']) ||
-        ) {  }
+        ) { return true; }
 }

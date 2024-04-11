@@ -166,12 +166,12 @@ tr:hover  + tr td {
 
 .rockPaperScissors {
     border: 1px solid black;
+    background: #9999ff;
+    color: white;
 }
 
 .rockPaperScissors:hover {
-    /* color: black;
-    opacity: 10% */
     cursor: pointer;
-    box-shadow: 0 0 2em 5px #0000b3;
+    box-shadow: 0 0 2em 5px black;
     transform: scale(1.05);
 }

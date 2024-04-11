@@ -111,9 +111,8 @@ tr:hover {
     box-shadow: 0 0 2em 5px #0000b3;
     bordr: 3px solid black;
     td:hover {
-        transform: scale(1.1);
-        padding: 10px;
-        margin: 10px;
+        transform: scale(1.05);
+        border: 2px soild black;
     }
 }
 

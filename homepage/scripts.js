@@ -9,9 +9,9 @@ function navigate(page) {
 }
 
 function addRow() {
-    const first = document.querySelector('#first').value;
-    const last = document.querySelector('#last').value;
-    const handle = document.querySelector('#handle').value;
+    const first = document.querySelector('#title').value;
+    const last = document.querySelector('#description').value;
+    // const handle = document.querySelector('#handle').value;
     const table = document.querySelector('#table');
     var row = table.insertRow(-1);
     var cellFirst = row.insertCell(0);

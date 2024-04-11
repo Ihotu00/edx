@@ -1,3 +1,7 @@
+html, body {
+    height: 100%;
+}
+
 body {
     /* background-image: radial-gradient(LightCyan, Cyan, DarkCyan); */
     background-color: black;
@@ -6,7 +10,7 @@ body {
 }
 
 section {
-    min-height: 80vh;
+    min-height: 80%;
     color: white;
 }
 

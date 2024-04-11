@@ -14,6 +14,7 @@ function play(move) {
 
     if (turn == "player2") {
         moves.player2 = move;
+        document.getElementById('currentPlayer').innerHTML = "";
         document.getElementById('turn-text').innerHTML = "Click the submit button to see the winner";
         document.getElementById('rock-paper-scissors-button').disabled= false;
         document.getElementById('rock').classList.add('disable-div');

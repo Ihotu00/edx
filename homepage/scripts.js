@@ -28,8 +28,8 @@ function addRow() {
     cellButton.addEventListener('click', () => {
         deleteRow(row.id);
       });
-      console.log(row.id);
-    todoDescription.row.id = description;
+    var prop = row.id;
+    todoDescription.prop = description;
     console.log(todoDescription);
     document.querySelector('#title').value = "";
     document.querySelector('#description').value = "";

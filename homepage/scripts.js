@@ -77,7 +77,7 @@ function checkTrivia(answer, response) {
         console.log(test);
     }
     else {
-        input.style.backgroundColor = '#ff3300';
+        input.style.backgroundColor = '#ff0000';
         document.querySelector(response).innerHTML = "Hint: Use full name ed 'Naruto Uzumaki'";
     }
 }
@@ -105,7 +105,9 @@ function guess() {
     var guess = document.getElementById('guess').innerHTML
     var response = document.getElementById('guess-response')
     if (guess == number) {
+        document.getElementById('answer').innerHTML = number
         response.innerHTML = "Correct!!!";
         response.style.color = "#00ff00"
+        number = Math.floor(Math.random() * 11);
     }
 }

@@ -103,13 +103,13 @@ function clickingGame() {
 
 function guess() {
     var response = document.getElementById('guess-response')
+        var guess = document.getElementById('guess').innerHTML
     tries++
     if (tries > 3) {
         response.innerHTML = `You have run out of tries, the number was ${number}`;
         document.getElementById('guess-button').disabled = true;
     }
     else {
-        var guess = document.getElementById('guess').innerHTML
         if (guess == number) {
             document.getElementById('answer').innerHTML = number
             response.innerHTML = "Correct!!!";
@@ -122,4 +122,8 @@ function guess() {
             response.style.color = "#ff0000"
         }
     }
+}
+
+function retry() {
+    document.getElementById('guess-button').disabled = false;
 }

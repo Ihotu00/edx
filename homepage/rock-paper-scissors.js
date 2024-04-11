@@ -9,7 +9,6 @@ function play(move) {
     var turnTtext = document.getElementById('turn-text').innerHTML;
     if (turn == "player1") {
         moves.player1 = move;
-        turn = "player2";
         turnText = "Second Player's Move";
     }
 
@@ -18,5 +17,6 @@ function play(move) {
         turnText = "Click the submit button to see the winner";
         document.getElementById('rock-paper-scissors-button').disabled= false;
     }
+    turn = "player2";
     console.log(moves)
 }

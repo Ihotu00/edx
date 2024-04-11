@@ -119,6 +119,9 @@ function guess() {
             document.getElementById('answer').innerHTML = number
             response.innerHTML = "Correct!!!";
             response.style.color = "#00ff00";
+            guess.disabled = true;
+            document.getElementById('guess-button').disabled = true;
+            retry();
         }
         else {
             response.innerHTML = "Wrong!!!";
@@ -133,5 +136,6 @@ function retry() {
     tries = 0;
     document.getElementById('guess-button').disabled = false;
     document.getElementById('guess').disabled = false;
+    document.getElementById('guess').value = "";
     var response = document.getElementById('guess-response').innerHTML = "";
 }

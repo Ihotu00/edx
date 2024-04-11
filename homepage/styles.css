@@ -43,7 +43,7 @@ section {
     .row {
         min-height: 100%;
     }
-    .material-icons {
+    .half2.material-icons {
         justify-content: right;
     }
 }

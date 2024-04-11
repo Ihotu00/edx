@@ -87,7 +87,7 @@ section {
     }
 }
 
-.sectiona {
+a {
     text-decoration: none;
 }
 
@@ -219,14 +219,14 @@ tr:hover  + tr td {
     overflow: hidden
   }
 
-  a:hover {
+  .quick-links-button:hover {
     width: 100px;
   }
 
-  a:hover .logout{
+  .quick-links-button:hover .logout{
     opacity: .9;
   }
 
-  a {
+  .quick-links-button {
     text-decoration: none;
   }

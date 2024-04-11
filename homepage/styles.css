@@ -4,11 +4,7 @@ html, body {
 
 body {
     background-color: white;
-    position: fixed;
-    overflow-y: scroll;
-    padding: 0;
-    margin: 0;
-    width: 100%;
+    width: 100vw;
     /* border: 3px solid white; */
     /* color: white; */
 }

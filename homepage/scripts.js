@@ -20,7 +20,7 @@ function addRow() {
     cellFirst.innerHTML = first;
     cellLast.innerHTML = last;
     cellHandle.innerHTML = handle;
-    cellButton.innerHTML = "<button class='btn'>Delete</button>";
+    cellButton.innerHTML = "<button class='btn btn-primary'>Delete</button>";
     cellButton.addEventListener('click', () => {
         deleteRow(row.id);
       });

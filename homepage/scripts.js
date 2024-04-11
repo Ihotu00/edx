@@ -5,6 +5,8 @@ let todoDescription = {
 
 let score = 0;
 
+let number = 0;
+
 function navigate(page) {
     var content = document.querySelector('#content');
     var previousPage = content.src.split('/')[3].split('.')[0];
@@ -97,4 +99,8 @@ function submitTrivia() {
 function clickingGame() {
     score++;
     document.getElementById('score').innerHTML = score;
+}
+
+function guess() {
+    var guess = document.getElementById('guess').innerHTML
 }

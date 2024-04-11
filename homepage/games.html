@@ -184,19 +184,16 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <div class="center"><h3>Guess a number between</div>
-                    <div class="center"><input type="text" inputmode="numeric" style="width: 70px; max-width: fit-content;"> <h3> and </h3>
-                    <input type="text" inputmode="numeric" style="width: 70px; max-width: fit-content;"></div>
-                  </h3>
+                  <h3>Guess a number between 1 and 10</h3>
                   <h3 class="center mb-3" id="answer">???</h3>
                   <p id="guess-response"></p>
                   <div class="center">
                     <div class="col-3">
-                        <label for="konoha" class="form-label">Your Guess</label>
-                        <div class="input-group">
-                          <input type="text" class="form-control" id="guess">
-                          <button class="btn btn-outline-primary" type="button" id="button-konoha" onClick="guess('guess')">Check</button>
-                        </div>
+                      <!-- <label for="konoha" class="form-label">Your Guess</label> -->
+                      <div class="input-group">
+                        <input type="text" class="form-control" id="guess" placeholder="Your Guess...">
+                        <button class="btn btn-outline-primary" type="button" id="button-konoha" onClick="guess('guess')">Check</button>
+                      </div>
                     </div>
                   </div>
                 </div>

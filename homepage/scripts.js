@@ -28,9 +28,16 @@ function addRow() {
     cellButton.addEventListener('click', () => {
         deleteRow(row.id);
       });
+    cellTitle.addEventListener('click', () => {
+        viewTodoDescription(row.id);
+    });
     todoDescription[row.id] = description;
     document.querySelector('#title').value = "";
     document.querySelector('#description').value = "";
+}
+
+function viewTodoDescription(rowId) {
+    document.getElementById("#description-modal").innerHTML = todoDescription[rowId];
 }
 
 function deleteRow(rowId) {

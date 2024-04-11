@@ -103,4 +103,7 @@ section {
 
 #table-button {
     border: 1px solid white;
+    button {
+        align-item: end;
+    }
 }

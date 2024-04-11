@@ -77,7 +77,7 @@ function checkTrivia(answer, response) {
     }
     else {
         input.style.backgroundColor = '#ff0000';
-        document.querySelector(response).innerHTML = "Hint: Use full name ed 'Naruto Uzumaki'";
+        document.querySelector(response).innerHTML = "Hint: Use full name eg 'Naruto Uzumaki'";
     }
 }
 

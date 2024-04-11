@@ -17,14 +17,14 @@ function ticTacToe(div) {
         board[div] = 'O';
         document.getElementById('next-tic-tac-toe-player').innerHTML = 'Player One(X)';
     }
-    if(currentPlayerWins()) {
-        // console.log(currentPlayerWins());
-        if (playerX) {
-            document.getElementById('tic-tac-toe-winner').innerHTML = 'Player One (X) Wins!!!';
-        }
-        if (!playerX) {
-            document.getElementById('tic-tac-toe-winner').innerHTML = 'Player Two (O) Wins!!!';
-        }
+    if(currentPlayerWins() == 0) {
+        console.log(currentPlayerWins());
+        // if (playerX) {
+        //     document.getElementById('tic-tac-toe-winner').innerHTML = 'Player One (X) Wins!!!';
+        // }
+        // if (!playerX) {
+        //     document.getElementById('tic-tac-toe-winner').innerHTML = 'Player Two (O) Wins!!!';
+        // }
     }
     playerX = !playerX;
 }
@@ -40,5 +40,5 @@ function currentPlayerWins() {
         // (board['3'] == board['6'] && board['6'] == board['9']) ||
         // (board['1'] == board['5'] && board['5'] == board['9']) ||
         // (board['3'] == board['5'] && board['5'] == board['7'])
-        ) { return true; }
+        ) { return 0; }
 }

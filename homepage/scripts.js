@@ -102,10 +102,8 @@ function clickingGame() {
 }
 
 function guess() {
-    document.getElementById('answer').innerHTML = number
     var response = document.getElementById('guess-response');
     var guess = document.getElementById('guess');
-    console.log(guess.value)
     tries++
     if (tries >= 3) {
         document.getElementById('answer').innerHTML = number

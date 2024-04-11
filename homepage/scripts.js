@@ -3,6 +3,8 @@ let todoDescription = {
     "1": "@ 4:00pm"
 };
 
+let score = 0;
+
 function navigate(page) {
     var content = document.querySelector('#content');
     var previousPage = content.src.split('/')[3].split('.')[0];
@@ -93,5 +95,6 @@ function submitTrivia() {
 }
 
 function clickingGame() {
-    document.getElementById('circle').classList.toggle('click-effect')
+    score++;
+    document.getElementById('score').innerHTML = score;
 }

@@ -18,6 +18,7 @@ function play(move) {
         document.getElementById('rock').classList.add('disable-div');
         document.getElementById('paper').classList.add('disable-div');
         document.getElementById('scissors').classList.add('disable-div');
+        document.getElementById('rock-paper-scissors-retry').classList.remove('retry');
     }
     turn = "player2";
     console.log(moves);

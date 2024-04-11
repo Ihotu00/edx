@@ -40,5 +40,18 @@ function submitRockPaperScisssors() {
 }
 
 function getWinner(move1, move2) {
-    
+    if (move1 == 'rock') {
+        if (move2 == 'paper') { return 2; }
+        if (move2 == 'scissors') { return 1; }
+    }
+
+    if (move1 == 'paper') {
+        if(move2 == 'rock') { return 1; }
+        if(move2 == 'scissors') { return 2; }
+    }
+
+    if (move1 == 'scissors') {
+        if(move2 == 'rock') { return 2; }
+        if(move2 == 'paper') { return 1; }
+    }
 }

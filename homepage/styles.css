@@ -88,3 +88,15 @@ section {
     margin: 10px;
     width: max-content;
 }
+
+#table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+
+    #table {
+        border: 1px solid white;
+        width: 
+    }
+}

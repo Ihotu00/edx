@@ -105,8 +105,7 @@ function guess() {
     var response = document.getElementById('guess-response');
     var guess = document.getElementById('guess');
     tries--
-    console.log(tries);
-    if (tries = 0) {
+    if (tries == 0) {
         document.getElementById('answer').innerHTML = number
         document.getElementById('retry').classList.remove('retry');
         response.innerHTML = `You have run out of tries, the number was ${number}`;
@@ -123,8 +122,7 @@ function guess() {
             document.getElementById('retry').classList.remove('retry');
         }
         else {
-            // if (tries = 1) { }
-            response.innerHTML = `Wrong!!! You have ${tries} left`;
+            response.innerHTML = `Wrong!!! You have ${tries} tries left`;
             response.style.color = "#ff0000"
         }
     }

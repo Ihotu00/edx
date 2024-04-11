@@ -50,8 +50,9 @@
                 <div class="card h-100">
                   <!-- <img src="..." class="card-img-top" alt="..."> -->
                   <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                    <h5 class="card-title">Guessing Game</h5>
+                    <p class="card-text">Can you guess the correct number?</p>
+                    <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#guess-game">Play</a>
                   </div>
                 </div>
               </div>
@@ -183,7 +184,9 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <h3>Guess the</h3>
+                  <h3>Guess a number between
+                    <input type=number> and <input type=number>
+                  </h3>
                   <h3 class="center mb-3" id="answer">???</h3>
                   <p id="guess-response"></p>
                   <div class="center">

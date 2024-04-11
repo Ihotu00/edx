@@ -60,12 +60,12 @@ section {
     }
 }
 
-.half2 {
+/* .half2 { */
     .material-icons {
         font-size: 300px;
         color: #0000b3;
     }
-}
+/* } */
 
 #section3 {
     background-color: #9999ff;

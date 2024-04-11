@@ -53,6 +53,8 @@ function checkTrivia(answer, response) {
         (answer == 'konoha' && input.value.localeCompare('Konohagakure', 'en', {sensitivity: 'base'}) == 0) ||
         (answer == 'kurama' && input.value.localeCompare('Kurama', 'en', {sensitivity: 'base'}) == 0)) {
         input.style.backgroundColor = '#00ff00';
+        test++;
+        console.log(test);
     }
     else {
         input.style.backgroundColor = '#ff3300';

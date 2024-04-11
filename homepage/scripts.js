@@ -30,6 +30,7 @@ function addRow() {
         viewTodoDescription(row.id, cellTitle);
     });
     cellCheck.addEventListener('click', () => {
+        console.log('i was here')
         strike(row.id);
       });
     todoDescription[row.id] = description;

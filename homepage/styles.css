@@ -41,6 +41,12 @@ section {
     }
 }
 
+.stick-on-top {
+    position: sticky;
+    top: 0;
+    height: 10%
+}
+
 #section2 {
     background-color: #ccccff;
     .row {
@@ -81,11 +87,8 @@ section {
     text-decoration: none;
 }
 
-/* .sectiona:hover {
-    opacity: 90%
-} */
-#section2.row:hover {
-    opacity: 20%;
+.sectiona:hover {
+    opacity: 30%
 }
 
 .quick-links {

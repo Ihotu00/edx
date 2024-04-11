@@ -150,7 +150,7 @@ tr:hover  + tr td {
     text-align: center;
 }
 
-.click-effect {
+.click-effect:active {
     box-shadow: 0 0 2em 5px #0000b3;
-    transition: all .1s ease-out;
+    transition: all 1s ease-out;
 }

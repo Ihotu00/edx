@@ -3,13 +3,15 @@ let moves = {
     "player2": ""
 }
 
-let turn = "player-x";
+let playerX = true;
 
 function ticTacToe(div) {
-    if (turn == "player-x") {
-        document.getElementById(`${div}`).innerHTML = 'X'
+    if (playerX) {
+        document.getElementById(`${div}`).innerHTML = 'X';
     }
-    if (turn == "player-y") {
-        document.getElementById(`${div}`).innerHTML = 'X'
+    else {
+        document.getElementById(`${div}`).innerHTML = 'O';
     }
+    playerX = !playerX;
+    console.log(playerX);
 }

@@ -137,6 +137,7 @@ tr:hover  + tr td {
     background-color: #0000b3;
     border-radius: 50%;
     height: 70px;
+    line-height: 70px;
     width: 70px;
     color: white;
     text-align: center;

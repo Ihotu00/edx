@@ -29,7 +29,6 @@ function addRow() {
         deleteRow(row.id);
       });
     todoDescription[row.id] = description;
-    console.log(todoDescription);
     document.querySelector('#title').value = "";
     document.querySelector('#description').value = "";
 }
@@ -38,7 +37,6 @@ function deleteRow(rowId) {
     var row = document.querySelector(`table#table tr[id="${rowId}"]`);
     document.getElementById("table").deleteRow(row.rowIndex);
     delete todoDescription[rowId];
-    console.log(todoDescription);
 }
 
 function closeModal() {

@@ -97,6 +97,7 @@ section {
 
     #table {
         border: 1px solid white;
-        width: 
+        width: 50%;
+        height: max-content;
     }
 }

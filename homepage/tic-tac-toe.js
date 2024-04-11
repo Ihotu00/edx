@@ -6,7 +6,7 @@
 let playerX = true;
 
 function ticTacToe(div) {
-    console.log(div)
+    console.log(div);
     if (playerX) {
         document.getElementById(`${div}`).innerHTML = 'X';
     }

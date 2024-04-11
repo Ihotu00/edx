@@ -177,5 +177,5 @@ tr:hover  + tr td {
 }
 
 .disable-div {
-
+    pointer-events: none;
 }

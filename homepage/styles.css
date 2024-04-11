@@ -163,3 +163,12 @@ tr:hover  + tr td {
     box-shadow: 0 0 2em 5px white;
     transition: all .1s ease-out;
 }
+
+.rockPaperScissors {
+    border: 1px solid black;
+}
+
+.rockPaperScissors:hover {
+    background-color: black;
+    opacity: 60%
+}

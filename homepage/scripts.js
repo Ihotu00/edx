@@ -5,7 +5,7 @@ let todoDescription = {
 
 let score = 0;
 let number = Math.floor(Math.random() * 11);
-let tries = 0;
+let tries = 3;
 
 function navigate(page) {
     var content = document.querySelector('#content');
@@ -104,8 +104,8 @@ function clickingGame() {
 function guess() {
     var response = document.getElementById('guess-response');
     var guess = document.getElementById('guess');
-    tries++
-    if (tries >= 3) {
+    tries--
+    if (tries <=1 ) {
         document.getElementById('answer').innerHTML = number
         document.getElementById('retry').classList.remove('retry');
         response.innerHTML = `You have run out of tries, the number was ${number}`;
@@ -133,7 +133,7 @@ function retry() {
     document.getElementById('answer').innerHTML = "???"
     document.getElementById('retry').classList.add('retry');
     number = Math.floor(Math.random() * 11);
-    tries = 0;
+    tries = 3;
     document.getElementById('guess-button').disabled = false;
     document.getElementById('guess').disabled = false;
     document.getElementById('guess').value = "";

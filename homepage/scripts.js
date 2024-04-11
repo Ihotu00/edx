@@ -9,19 +9,19 @@ function navigate(page) {
 }
 
 function addRow() {
-    const first = document.querySelector('#title').value;
-    const last = document.querySelector('#description').value;
+    const title = document.querySelector('#title').value;
+    const description = document.querySelector('#description').value;
     // const handle = document.querySelector('#handle').value;
     const table = document.querySelector('#table');
     var row = table.insertRow(-1);
-    var cellFirst = row.insertCell(0);
-    var cellLast = row.insertCell(1);
-    var cellHandle = row.insertCell(2);
-    var cellButton = row.insertCell(3);
+    var cellTitle = row.insertCell(0);
+    var cellDescription = row.insertCell(1);
+    // var cellHandle = row.insertCell(2);
+    var cellButton = row.insertCell(2);
     row.id = table.tBodies[0].rows.length - 1;
-    cellFirst.innerHTML = first;
-    cellLast.innerHTML = last;
-    cellHandle.innerHTML = handle;
+    cellTitle.innerHTML = title;
+    cellDescription.innerHTML = description;
+    // cellHandle.innerHTML = handle;
     cellButton.innerHTML = "<button class='btn btn-primary'>Delete</button>";
     cellButton.addEventListener('click', () => {
         deleteRow(row.id);

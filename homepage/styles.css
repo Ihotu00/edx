@@ -12,6 +12,9 @@ body {
 section {
     min-height: 80%;
     color: white;
+    h3 {
+        margin-top: 10px;
+    }
 }
 
 #section1 {

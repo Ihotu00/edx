@@ -105,7 +105,5 @@ section {
     border: 1px solid white;
     button {
         position: absolute;
-        top: 50%;
-        left: 50%;
     }
 }

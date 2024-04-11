@@ -23,11 +23,12 @@ function addRow() {
     var cellButton = row.insertCell(2);
     row.id = table.tBodies[0].rows.length - 1;
     cellTitle.innerHTML = title;
-    cellCheck = "<div class='form-check'><input class='form-check-input' type='checkbox' value='' name='check-1'></div>"
+    cellCheck.innerHTML = "<div class='form-check'><input class='form-check-input' type='checkbox' value='' name='check-1'></div>"
     cellButton.innerHTML = "<span class='material-icons'>delete</span>";
     cellButton.addEventListener('click', () => {
         deleteRow(row.id);
       });
+      console.log(row.id);
     todoDescription.row.id = description;
     console.log(todoDescription);
     document.querySelector('#title').value = "";

@@ -93,11 +93,9 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid white;
 
     #table {
-        border: 1px solid white;
-        width: 50%;
+        width: 30%;
         height: max-content;
     }
 }

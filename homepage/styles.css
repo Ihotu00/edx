@@ -100,3 +100,8 @@ section {
         height: max-content;
     }
 }
+
+tr:hover {
+    opacity: 80%;
+    cursor: pointer;
+}

@@ -103,10 +103,15 @@ section {
 
 tr:hover {
     cursor: pointer;
-    /* box-shadow: inset 10px 10px 5px #0000b3, inset -10px -10px 5px #0000b3; */
-    box-shadow: 10px 10px 5px black, -10px -10px 5px black;
+    box-shadow: 10px 10px 5px #0000b3, -10px -10px 5px #0000b3;
+    /* box-shadow: 10px 10px 5px black, -10px -10px 5px black; */
     bordr: 3px solid black;
 }
+
+tr:hover  + tr td {
+    position: relative;
+    z-index: -1;
+  }
 
 td:hover {
     /* transform: scale(1.1); */

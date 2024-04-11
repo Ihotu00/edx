@@ -42,7 +42,7 @@
                       <input class="form-check-input" type="checkbox" value="" id="check-1">
                     </div>
                   </td>
-                  <td data-bs-toggle="modal" data-bs-target="#view-description" onClick="viewTodoDescription('0')">Go grocery shopping</td>
+                  <td data-bs-toggle="modal" data-bs-target="#view-description" onClick="viewTodoDescription('0', 'Go grocery shopping')">Go grocery shopping</td>
                   <td><span class="material-icons">delete</span></td>
                 </tr>
                 <tr>
@@ -51,7 +51,7 @@
                       <input class="form-check-input" type="checkbox" value="" id="check-2">
                     </div>
                   </td>
-                  <td data-bs-toggle="modal" data-bs-target="#view-description" onClick="viewTodoDescription('1')">Water the plants</td>
+                  <td data-bs-toggle="modal" data-bs-target="#view-description" onClick="viewTodoDescription('1', 'Water the plants')">Water the plants</td>
                   <td><span class="material-icons">delete</span></td>
                 </tr>
               </tbody>
@@ -72,19 +72,14 @@
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <!-- <label for="first" class="form-label">First name</label> -->
+                        <label for="title" class="form-label">Title</label>
                         <input type="text" class="form-control" id="title" placeholder="Get groceries">
                     </div>
 
                     <div class="mb-3">
-                        <!-- <label for="last" class="form-label">Last name</label> -->
+                        <label for="description" class="form-label">Description</label>
                         <textarea type="text" class="form-control" id="description" placeholder="Beef, Carrots, Milk, Sausage, Noodles"></textarea>
                     </div>
-
-                    <!-- <div class="mb-3">
-                        <label for="handle" class="form-label">Handle</label>
-                        <input type="text" class="form-control" id="handle" placeholder="@ii">
-                    </div> -->
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onClick="closeModal()">Close</button>
@@ -98,11 +93,11 @@
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title">Modal title</h5>
+                  <h5 class="modal-title" id="description-title"></h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <p id="description-modal"></p>
+                  <p id="description-body"></p>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

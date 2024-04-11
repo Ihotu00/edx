@@ -3,8 +3,6 @@ let todoDescription = {
     "1": "@ 4:00pm"
 };
 
-console.log(todoDescription);
-
 function navigate(page) {
     var content = document.querySelector('#content');
     var previousPage = content.src.split('/')[3].split('.')[0];
@@ -29,20 +27,16 @@ function addRow() {
         deleteRow(row.id);
       });
     cellTitle.addEventListener('click', () => {
-        viewTodoDescription(row.id);
+        viewTodoDescription(row.id, cellTitle);
     });
     todoDescription[row.id] = description;
     document.querySelector('#title').value = "";
     document.querySelector('#description').value = "";
 }
 
-function viewTodoDescription(rowId) {
-    // document.getElementById("#description-modal").innerHTML = todoDescription[rowId];
-    modal = document.getElementById('view-description')
-    modal.addEventListener('show.bs.modal', function (event) {
-        console.log(todoDescription[rowId]);
-        document.getElementById("description-modal").innerHTML = todoDescription[rowId];
-    })
+function viewTodoDescription(rowId, title) {
+    document.getElementById("description-body").innerHTML = todoDescription[rowId];
+    document.getElementById("description-title").innerHTML = title;
 }
 
 function deleteRow(rowId) {

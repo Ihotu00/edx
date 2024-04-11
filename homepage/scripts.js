@@ -37,7 +37,11 @@ function addRow() {
 }
 
 function viewTodoDescription(rowId) {
-    document.getElementById("#description-modal").innerHTML = todoDescription[rowId];
+    // document.getElementById("#description-modal").innerHTML = todoDescription[rowId];
+    modal = document.getElementById('#view-description')
+    modal.addEventListener('show.bs.modal', () => {
+        document.getElementById("#description-modal").innerHTML = todoDescription[rowId];
+    })
 }
 
 function deleteRow(rowId) {
@@ -49,9 +53,8 @@ function deleteRow(rowId) {
 function closeModal() {
     var myModalEl = document.getElementById('getInfo')
     myModalEl.addEventListener('hidden.bs.modal', function (event) {
-        document.querySelector('#first').value = "";
-        document.querySelector('#last').value = "";
-        document.querySelector('#handle').value = "";
+        document.querySelector('#title').value = "";
+        document.querySelector('#description').value = "";
     })
 }
 

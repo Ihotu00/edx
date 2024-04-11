@@ -43,9 +43,6 @@ section {
     .row {
         min-height: 100%;
     }
-    .half2.material-icons {
-        justify-content: right;
-    }
 }
 
 .half1, .half2 {
@@ -72,4 +69,7 @@ section {
 
 #section3 {
     background-color: #9999ff;
+    .half2.material-icons {
+        justify-content: right;
+    }
 }

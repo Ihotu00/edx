@@ -8,6 +8,7 @@ let turn = "player1";
 function play(move) {
     if (turn == "player1") {
         moves.player1 = move;
+        document.getElementById('currentPlayer').innerHTML = "Player Two";
         document.getElementById('turn-text').innerHTML = "Second Player's Move";
     }
 
@@ -27,6 +28,7 @@ function replay() {
     moves.player1 = "";
     moves.player2 = "";
     turn = "player1";
+    document.getElementById('currentPlayer').innerHTML = "Player One";
     document.getElementById('turn-text').innerHTML = "First Player's Move";
     document.getElementById('rock-paper-scissors-button').disabled= true;
     document.getElementById('rock').classList.remove('disable-div');
@@ -36,12 +38,14 @@ function replay() {
 }
 
 function submitRockPaperScisssors() {
-    if (getWinner(moves.player1, moves.player2) = 1) {
+    if (getWinner(moves.player1, moves.player2) == 1) {
         document.getElementById('winner').innerHTML = "Player One Wins!!";
     }
-    if (getWinner(moves.player1, moves.player2) = 2) {
+    if (getWinner(moves.player1, moves.player2) == 2) {
         document.getElementById('winner').innerHTML = "Player Two Wins!!";
     }
+    console.log(moves);
+    console.log(getWinner(moves.player1, moves.player2));
 }
 
 function getWinner(move1, move2) {

@@ -41,5 +41,4 @@ function currentPlayerWins() {
         // (board['1'] == board['5'] && board['5'] == board['9']) ||
         // (board['3'] == board['5'] && board['5'] == board['7'])
         ) { return true; }
-    else { return false; }
 }

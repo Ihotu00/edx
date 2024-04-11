@@ -38,7 +38,7 @@ section {
 #section2 {
     background-color: #ccccff;
     .row {
-        height: 100%;
+        min-height: 100%;
     }
 }
 

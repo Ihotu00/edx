@@ -1,7 +1,7 @@
-// let moves = {
-//     "player1": "",
-//     "player2": ""
-// }
+let moves = {
+    "player1": "",
+    "player2": ""
+}
 
 let playerX = true;
 

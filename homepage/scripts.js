@@ -41,13 +41,14 @@ function viewTodoDescription(rowId, title) {
 
 function deleteRow(rowId) {
     var row = document.querySelector(`table#table tr[id="${rowId}"]`);
+    console.log(row);
     document.getElementById("table").deleteRow(row.rowIndex);
     delete todoDescription[rowId];
 }
 
 function strike(rowId) {
     var row = document.querySelector(`table#table tr[id="${rowId}"]`);
-    console.log(row);
+    console.log(`table#table tr[id="${rowId}"]`);
     row.cell[1].classList.toggle('text-decoration-line-through');
 }
 

@@ -90,7 +90,7 @@ section {
 }
 
 #table-container {
-    border: 1px solid white;
+    /* border: 1px solid white; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -99,4 +99,8 @@ section {
         width: 30%;
         height: max-content;
     }
+}
+
+#table-button {
+    border: 1px solid white;
 }

@@ -46,7 +46,7 @@ function deleteRow(rowId) {
 }
 
 function strike(rowId) {
-    var row = document.querySelector(`table#table tr[id=])
+    var row = document.querySelector(`table#table tr[id="${rowId}"]`);
 }
 
 function closeModal() {

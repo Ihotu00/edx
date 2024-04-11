@@ -8,7 +8,7 @@ function ticTacToe(div) {
     if (playerX) {
         document.getElementById(`${div}`).innerHTML = 'X';
         board[div] = 'X';
-        document.getElementById('current-tic-tac-toe-player').innerHTML = 'Player One(X)';
+        document.getElementById('current-tic-tac-toe-player').innerHTML = 'Player Two(O)';
     }
     else {
         document.getElementById(`${div}`).innerHTML = 'O';

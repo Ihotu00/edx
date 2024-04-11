@@ -103,7 +103,8 @@ section {
 
 tr:hover {
     cursor: pointer;
-    box-shadow: inset 10px 10px 5px #0000b3, inset -10px -10px 5px #0000b3;
+    /* box-shadow: inset 10px 10px 5px #0000b3, inset -10px -10px 5px #0000b3; */
+    box-shadow: inset 10px 10px 5px black, inset -10px -10px 5px black;
 }
 
 td:hover {

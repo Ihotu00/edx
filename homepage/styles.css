@@ -172,6 +172,6 @@ tr:hover  + tr td {
 
 .rockPaperScissors:hover {
     cursor: pointer;
-    box-shadow: 0 0 2em 5px black;
+    box-shadow: 0 0 2em 5px #0000b3;
     transform: scale(1.05);
 }

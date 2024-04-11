@@ -81,3 +81,7 @@ section {
 .sectiona:hover {
     opacity: 80%
 }
+
+nav {
+    position: fixed;
+}

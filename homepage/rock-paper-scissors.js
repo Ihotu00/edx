@@ -36,5 +36,9 @@ function replay() {
 }
 
 function submitRockPaperScisssors() {
+
+}
+
+function getWinner(move1, move2) {
     
 }

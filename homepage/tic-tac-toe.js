@@ -15,7 +15,10 @@ function ticTacToe(div) {
     }
     document.getElementById(`${div}`).parentElement.classList.add('disable-div');
     if(currentPlayerWins()) {
-        
+        if (playerX) {
+            document.getElementById('tic-tac-toe-winner').innerHTML = 'Player One (X) Wins!!!';
+        if (!playerX) {
+            document.getElementById('tic-tac-toe-winner').innerHTML = 'Player Two (O) Wins!!!';
     }
     else { playerX = !playerX; }
 }

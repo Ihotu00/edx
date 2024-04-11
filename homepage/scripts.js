@@ -122,7 +122,8 @@ function guess() {
             document.getElementById('retry').classList.remove('retry');
         }
         else {
-            response.innerHTML = "Wrong!!!";
+            // if (tries = 1) { }
+            response.innerHTML = `Wrong!!! You have ${tries} left`;
             response.style.color = "#ff0000"
         }
     }

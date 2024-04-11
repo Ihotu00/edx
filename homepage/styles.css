@@ -3,10 +3,13 @@ html, body {
 }
 
 body {
-    background-image: linear-gradient(to bottom right, #ccccff, #9999ff, #0000b3);
-    background-color: black;
+    background-color: white;
     /* border: 3px solid white; */
     /* color: white; */
+}
+
+.gradient {
+    background-image: linear-gradient(to bottom right, #ccccff, #9999ff, #0000b3);
 }
 
 section {
@@ -79,7 +82,7 @@ section {
 }
 
 .sectiona:hover {
-    opacity: 80%
+    opacity: 60%
 }
 
 .quick-links {

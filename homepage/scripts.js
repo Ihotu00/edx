@@ -105,7 +105,7 @@ function guess() {
     document.getElementById('answer').innerHTML = number
     var response = document.getElementById('guess-response');
     var guess = document.getElementById('guess');
-    console.log(guess.innerHTML)
+    console.log(guess.value)
     tries++
     if (tries >= 3) {
         document.getElementById('answer').innerHTML = number
@@ -115,7 +115,7 @@ function guess() {
         guess.disabled = true;
     }
     else {
-        if (guess.innerHTML == number) {
+        if (guess.value == number) {
             document.getElementById('answer').innerHTML = number
             response.innerHTML = "Correct!!!";
             response.style.color = "#00ff00";

@@ -49,4 +49,7 @@ function reset() {
         document.getElementById(`${i}`).parentElement.classList.remove('disable-div');
         document.getElementById(`${i}`).innerHTML = "";
       }
+    board = {
+        "1": "untouched1", "2": "untouched2", "3": "untouched3", "4": "untouched4", "5": "untouched5", "6": "untouched6", "7": "untouched7", "8": "untouched8", "9": "untouched9",
+    }
 }

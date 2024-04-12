@@ -18,6 +18,7 @@ function ticTacToe(div) {
     }
     if(currentPlayerWins()) {
         document.getElementById('board-container').parentElement.classList.add('disable-div');
+        document.getElementById('tic-tac-toe-retry').parentElement.classList.remove('retry');
         if (playerX) {
             document.getElementById('tic-tac-toe-winner').innerHTML = 'Player One (X) Wins!!!';
         }

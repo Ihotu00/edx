@@ -25,10 +25,10 @@ function ticTacToe(div) {
         if (!playerX) {
             document.getElementById('tic-tac-toe-winner').innerHTML = 'Player Two (O) Wins!!!';
         }
+    }
     if (currentPlayerWins() == 'tie') {
         document.getElementById('tic-tac-toe-retry').classList.remove('retry');
         document.getElementById('tic-tac-toe-winner').innerHTML = "It's a tie";
-    }
     }
     else { playerX = !playerX; }
 }
@@ -39,7 +39,6 @@ function currentPlayerWins() {
         var touched = document.getElementById(`${i}`).innerHTML;
         if (touched != '') { count++ }
     }
-    console.log(count);
     if (count == 9) { return 'tie'; }
     if ((board['1'] === board['2'] && board['2'] === board['3']) ||
         (board['4'] == board['5'] && board['5'] == board['6']) ||

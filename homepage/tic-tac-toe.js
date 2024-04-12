@@ -1,5 +1,5 @@
 let board = {
-    "1": "", "2": "", "3": "", "4": "", "5": "", "6": "", "7": "", "8": "", "9": "",
+    "1": "untouched1", "2": "untouched2", "3": "untouched3", "4": "untouched4", "5": "untouched5", "6": "untouched6", "7": "untouched7", "8": "untouched8", "9": "untouched9",
 }
 
 let playerX = true;
@@ -17,28 +17,26 @@ function ticTacToe(div) {
         board[div] = 'O';
         document.getElementById('next-tic-tac-toe-player').innerHTML = 'Player One(X)';
     }
-    if(currentPlayerWins() == 0) {
+    if(currentPlayerWins()) {
         console.log(currentPlayerWins());
-        // if (playerX) {
-        //     document.getElementById('tic-tac-toe-winner').innerHTML = 'Player One (X) Wins!!!';
-        // }
-        // if (!playerX) {
-        //     document.getElementById('tic-tac-toe-winner').innerHTML = 'Player Two (O) Wins!!!';
-        // }
+        if (playerX) {
+            document.getElementById('tic-tac-toe-winner').innerHTML = 'Player One (X) Wins!!!';
+        }
+        if (!playerX) {
+            document.getElementById('tic-tac-toe-winner').innerHTML = 'Player Two (O) Wins!!!';
+        }
     }
-    playerX = !playerX;
+    else { playerX = !playerX; }
 }
 
 function currentPlayerWins() {
-    // console.log(board['1']); console.log(board['2']); console.log(board['3']);
-    // console.log(board);
-    if ((board['1'] === board['2'] && board['2'] === board['3'] && (board['3'] == "X" || board['3'] == "O"))
-        // (board['4'] == board['5'] && board['5'] == board['6']) ||
-        // (board['7'] == board['8'] && board['8'] == board['9']) ||
-        // (board['1'] == board['4'] && board['4'] == board['7']) ||
-        // (board['2'] == board['5'] && board['5'] == board['8']) ||
-        // (board['3'] == board['6'] && board['6'] == board['9']) ||
-        // (board['1'] == board['5'] && board['5'] == board['9']) ||
-        // (board['3'] == board['5'] && board['5'] == board['7'])
-        ) { return 0; }
+    if ((board['1'] === board['2'] && board['2'] === board['3']) ||
+        (board['4'] == board['5'] && board['5'] == board['6']) ||
+        (board['7'] == board['8'] && board['8'] == board['9']) ||
+        (board['1'] == board['4'] && board['4'] == board['7']) ||
+        (board['2'] == board['5'] && board['5'] == board['8']) ||
+        (board['3'] == board['6'] && board['6'] == board['9']) ||
+        (board['1'] == board['5'] && board['5'] == board['9']) ||
+        (board['3'] == board['5'] && board['5'] == board['7'])
+        ) { return true; }
 }

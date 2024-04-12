@@ -183,3 +183,7 @@ tr:hover  + tr td {
 .ticTacToe {
     height: 6em;
 }
+
+.game-card {
+    height: 40vh;
+}

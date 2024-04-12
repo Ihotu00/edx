@@ -184,6 +184,7 @@ tr:hover  + tr td {
     height: 6em;
 }
 
-/* .game-card {
-    height: 40vh;
-} */
+.game-card {
+    border-radius: 50%;
+    border: 1px solid black'
+}

@@ -44,4 +44,7 @@ function reset() {
     document.getElementById('tic-tac-toe-winner').innerHTML = '';
     document.getElementById('board-container').parentElement.classList.remove('disable-div');
     document.getElementById('next-tic-tac-toe-player').innerHTML = 'Player One(X)';
+    for (let i = 1; i < 9; i++) {
+        document.getElementById(`${i}`).parentElement.classList.remove('disable-div');
+      }
 }

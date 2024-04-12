@@ -248,22 +248,25 @@
                 <div class="modal-body">
                   <h3 id="next-tic-tac-toe-player">Player One(X)</h3>
                   <!-- <span class="center"><h5 id="turn-text">First Player's Move</h5></span> -->
-                  <div class="row center">
-                    <div class="col-3 m-1 center ticTacToe" onClick="ticTacToe('1')"><h2 id="1"></h2></div>
-                    <div class="col-3 m-1 center ticTacToe" onClick="ticTacToe('2')"><h2 id="2"></h2></div>
-                    <div class="col-3 m-1 center ticTacToe" onClick="ticTacToe('3')"><h2 id="3"></h2></div>
-                  </div>
-                  <div class="row center">
-                    <div class="col-3 m-1 center ticTacToe" onClick="ticTacToe('4')"><h2 id="4"></h2></div>
-                    <div class="col-3 m-1 center ticTacToe" onClick="ticTacToe('5')"><h2 id="5"></h2></div>
-                    <div class="col-3 m-1 center ticTacToe" onClick="ticTacToe('6')"><h2 id="6"></h2></div>
-                  </div>
-                  <div class="row center">
-                    <div class="col-3 m-1 center ticTacToe" onClick="ticTacToe('7')"><h2 id="7"></h2></div>
-                    <div class="col-3 m-1 center ticTacToe" onClick="ticTacToe('8')"><h2 id="8"></h2></div>
-                    <div class="col-3 m-1 center ticTacToe" onClick="ticTacToe('9')"><h2 id="9"></h2></div>
-                  </div>
+                  <div id="board-container">
+                    <div class="row center">
+                      <div class="col-3 m-1 center ticTacToe" onClick="ticTacToe('1')"><h2 id="1"></h2></div>
+                      <div class="col-3 m-1 center ticTacToe" onClick="ticTacToe('2')"><h2 id="2"></h2></div>
+                      <div class="col-3 m-1 center ticTacToe" onClick="ticTacToe('3')"><h2 id="3"></h2></div>
+                    </div>
+                    <div class="row center">
+                      <div class="col-3 m-1 center ticTacToe" onClick="ticTacToe('4')"><h2 id="4"></h2></div>
+                      <div class="col-3 m-1 center ticTacToe" onClick="ticTacToe('5')"><h2 id="5"></h2></div>
+                      <div class="col-3 m-1 center ticTacToe" onClick="ticTacToe('6')"><h2 id="6"></h2></div>
+                    </div>
+                    <div class="row center">
+                      <div class="col-3 m-1 center ticTacToe" onClick="ticTacToe('7')"><h2 id="7"></h2></div>
+                      <div class="col-3 m-1 center ticTacToe" onClick="ticTacToe('8')"><h2 id="8"></h2></div>
+                      <div class="col-3 m-1 center ticTacToe" onClick="ticTacToe('9')"><h2 id="9"></h2></div>
+                    </div>
+                </div>
                   <span class="center"><h3 id="tic-tac-toe-winner"style="color: #00ff00;"></h3></span>
+                  <div class="center" style="cursor: pointer;"><span class="material-icons retry" id="tic-tac-toe-retry" onClick="reset()">refresh</span></div>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

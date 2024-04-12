@@ -18,7 +18,7 @@ function ticTacToe(div) {
     }
     if(currentPlayerWins()) {
         document.getElementById('board-container').parentElement.classList.add('disable-div');
-        document.getElementById('tic-tac-toe-retry').parentElement.classList.remove('retry');
+        document.getElementById('tic-tac-toe-retry').classList.remove('retry');
         if (playerX) {
             document.getElementById('tic-tac-toe-winner').innerHTML = 'Player One (X) Wins!!!';
         }
@@ -46,6 +46,7 @@ function reset() {
     document.getElementById('board-container').parentElement.classList.remove('disable-div');
     document.getElementById('next-tic-tac-toe-player').innerHTML = 'Player One(X)';
     for (let i = 1; i < 9; i++) {
-        document.getElementById(`${i}`).parentElement.classList.remove('disable-div');
+        document.getElementById(`${i}`).classList.remove('disable-div');
+        document.getElementById(`${i}`).innerHTML = "";
       }
 }

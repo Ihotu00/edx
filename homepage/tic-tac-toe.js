@@ -16,7 +16,7 @@ function ticTacToe(div) {
         board[div] = 'O';
         document.getElementById('next-tic-tac-toe-player').innerHTML = 'Player One(X)';
     }
-    if(currentPlayerWins() == 0) {
+    if(currentPlayerWins() == 'win') {
         document.getElementById('board-container').classList.add('disable-div');
         document.getElementById('tic-tac-toe-retry').classList.remove('retry');
         if (playerX) {
@@ -25,6 +25,10 @@ function ticTacToe(div) {
         if (!playerX) {
             document.getElementById('tic-tac-toe-winner').innerHTML = 'Player Two (O) Wins!!!';
         }
+    if (currentPlayerWins() == 'tie') {
+        document.getElementById('tic-tac-toe-retry').classList.remove('retry');
+        document.getElementById('tic-tac-toe-winner').innerHTML = "It's a tie";
+    }
     }
     else { playerX = !playerX; }
 }
@@ -35,7 +39,7 @@ function currentPlayerWins() {
         var touched = document.getElementById(`${i}`).innerHTML;
         if (touched != '') { count++ }
     }
-    if (count == 9) { return 2; }
+    if (count == 9) { return 'tie'; }
     if ((board['1'] === board['2'] && board['2'] === board['3']) ||
         (board['4'] == board['5'] && board['5'] == board['6']) ||
         (board['7'] == board['8'] && board['8'] == board['9']) ||
@@ -44,7 +48,7 @@ function currentPlayerWins() {
         (board['3'] == board['6'] && board['6'] == board['9']) ||
         (board['1'] == board['5'] && board['5'] == board['9']) ||
         (board['3'] == board['5'] && board['5'] == board['7'])
-        ) { return 0; }
+        ) { return 'win'; }
 }
 
 function reset() {

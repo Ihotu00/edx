@@ -46,7 +46,8 @@ function reset() {
     document.getElementById('board-container').classList.remove('disable-div');
     document.getElementById('next-tic-tac-toe-player').innerHTML = 'Player One(X)';
     for (let i = 1; i < 9; i++) {
-        document.getElementById(`${i}`).classList.remove('disable-div');
+        var see = document.getElementById(`${i}`).classList.remove('disable-div');
         document.getElementById(`${i}`).innerHTML = "";
+        console.log(see);
       }
 }

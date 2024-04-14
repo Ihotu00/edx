@@ -190,12 +190,17 @@ tr:hover  + tr td {
     height: 6em;
 }
 
-/* #form-container, .form-row {
+#form-container, .form-row {
     border: 1px solid black;
-} */
+}
+
+#form-container {
+    background-color: white;
+    width: 70%;
+}
 
 .form-row {
-    width: 50%;
+    width: 70%;
     input {
         margin-right: 20px;
     }

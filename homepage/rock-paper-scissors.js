@@ -20,7 +20,6 @@ function play(move) {
         document.getElementById('rock').classList.add('disable-div');
         document.getElementById('paper').classList.add('disable-div');
         document.getElementById('scissors').classList.add('disable-div');
-        document.getElementById('rock-paper-scissors-retry').classList.remove('retry');
     }
     turn = "player2";
 }
@@ -51,6 +50,7 @@ function submitRockPaperScisssors() {
         document.getElementById('winner').innerHTML = "Player Two Wins!!";
         document.getElementById(`${moves.player2}-wins`).classList.remove('retry');
     }
+    document.getElementById('rock-paper-scissors-retry').classList.remove('retry');
     console.log(moves);
     console.log(getWinner(moves.player1, moves.player2));
 }

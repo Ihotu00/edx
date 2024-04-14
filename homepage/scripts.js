@@ -101,12 +101,10 @@ function clickingGame() {
 }
 
 function guess() {
-    console.log(number);
     var hint = document.getElementById('guess-hint');
     hint.innerHTML = "";
     var response = document.getElementById('guess-response');
     var guess = document.getElementById('guess');
-    console.log(guess.value);
     tries--
     if (tries < 0) {
         document.getElementById('answer').innerHTML = number

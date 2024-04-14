@@ -5,7 +5,6 @@ let todoDescription = {
 
 let score = 0;
 let number = Math.floor(Math.random() * 11);
-console.log(number);
 let tries = 3;
 
 function navigate(page) {
@@ -102,6 +101,7 @@ function clickingGame() {
 }
 
 function guess() {
+    console.log(number);
     var hint = document.getElementById('guess-hint');
     hint.innerHTML = "";
     var response = document.getElementById('guess-response');

@@ -42,11 +42,11 @@ function replay() {
 function submitRockPaperScisssors() {
     if (getWinner(moves.player1, moves.player2) == 1) {
         document.getElementById('winner').innerHTML = "Player One Wins!!";
-        document.getElementById(`%${moves.player1}-wins`).classList.remove('retry');
+        document.getElementById(`${moves.player1}-wins`).classList.remove('retry');
     }
     if (getWinner(moves.player1, moves.player2) == 2) {
         document.getElementById('winner').innerHTML = "Player Two Wins!!";
-        document.getElementById(`%${moves.player2}-wins`).classList.remove('retry');
+        document.getElementById(`${moves.player2}-wins`).classList.remove('retry');
     }
     console.log(moves);
     console.log(getWinner(moves.player1, moves.player2));

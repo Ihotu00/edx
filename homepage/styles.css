@@ -190,6 +190,6 @@ tr:hover  + tr td {
     height: 6em;
 }
 
-#test, #test.div {
+#test, #test div {
     border: 1px solid black;
 }

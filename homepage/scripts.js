@@ -144,3 +144,7 @@ function retry() {
     var response = document.getElementById('guess-response').innerHTML = "";
     document.getElementById('guess-hint').innerHTML = "";
 }
+
+function submitSurvey() {
+    document.getElementByClassName('form-check-input').checked = false;
+}

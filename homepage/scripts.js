@@ -150,5 +150,5 @@ function submitSurvey() {
     for(x=0; x<radio.length;x++) {
         radio[x].checked = false;
     }
-
+    alert("Thank you for taking the survey!")
 }

@@ -5,7 +5,7 @@ let todoDescription = {
 
 let score = 0;
 let number = Math.floor(Math.random() * 11);
-let tries = 4;
+let tries = 3;
 
 function navigate(page) {
     var content = document.querySelector('#content');
@@ -108,7 +108,7 @@ function guess() {
     var guess = document.getElementById('guess');
     console.log(guess.value);
     tries--
-    if (tries == 0) {
+    if (tries < 0) {
         document.getElementById('answer').innerHTML = number
         document.getElementById('retry').classList.remove('retry');
         response.innerHTML = `You have run out of tries, the number was ${number}`;

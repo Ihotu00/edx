@@ -51,8 +51,6 @@ function submitRockPaperScisssors() {
         document.getElementById(`${moves.player2}-wins`).classList.remove('retry');
     }
     document.getElementById('rock-paper-scissors-retry').classList.remove('retry');
-    console.log(moves);
-    console.log(getWinner(moves.player1, moves.player2));
 }
 
 function getWinner(move1, move2) {

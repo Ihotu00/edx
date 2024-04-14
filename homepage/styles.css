@@ -196,4 +196,7 @@ tr:hover  + tr td {
 
 .form-row {
     width: 50%;
+    input {
+        margin-right: 20px;
+    }
 }

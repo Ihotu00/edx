@@ -146,6 +146,9 @@ function retry() {
 }
 
 function submitSurvey() {
-    document.getElementsByClassName('form-check-input').checked = false;
-    console.log(document.getElementsByClassName('form-check-input').checked);
+    var radio = document.getElementsByClassName('form-check-input');
+    for(x=0; x<radio.length;x++) {
+        radio[x].checked = false;
+    }
+
 }

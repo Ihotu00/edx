@@ -101,6 +101,7 @@ function clickingGame() {
 }
 
 function guess() {
+    console.log(number);
     var hint = document.getElementById('guess-hint');
     hint.innerHTML = "";
     var response = document.getElementById('guess-response');

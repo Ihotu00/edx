@@ -190,7 +190,7 @@ tr:hover  + tr td {
     height: 6em;
 }
 
-#form-container, .form-row {
+#form-container {
     border: 1px solid black;
 }
 

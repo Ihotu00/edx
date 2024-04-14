@@ -190,6 +190,6 @@ tr:hover  + tr td {
     height: 6em;
 }
 
-#test, #test div, .form-row {
+#test, .form-row {
     border: 1px solid black;
 }

@@ -90,6 +90,13 @@ section {
     }
 }
 
+#section4 {
+    background-color: #ccccff;
+    .row {
+        min-height: 100%;
+    }
+}
+
 a {
     text-decoration: none;
 }

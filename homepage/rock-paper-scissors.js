@@ -36,6 +36,9 @@ function replay() {
     document.getElementById('paper').classList.remove('disable-div');
     document.getElementById('scissors').classList.remove('disable-div');
     document.getElementById('rock-paper-scissors-retry').classList.add('retry');
+    document.getElementById('scissors-wins').classList.add('retry');
+    document.getElementById('paper-wins').classList.add('retry');
+    document.getElementById('rock-wins').classList.add('retry');
     document.getElementById('winner').innerHTML = "";
 }
 

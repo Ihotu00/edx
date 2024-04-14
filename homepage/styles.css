@@ -195,8 +195,9 @@ tr:hover  + tr td {
 }
 
 #form-container {
-    background-color: white;
+    background-color: #9999ff;
     width: 70%;
+    box-shadow: 0 0 2em 5px white;
 }
 
 .form-row {

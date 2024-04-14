@@ -5,6 +5,7 @@ let todoDescription = {
 
 let score = 0;
 let number = Math.floor(Math.random() * 11);
+console.log(number);
 let tries = 3;
 
 function navigate(page) {

@@ -106,6 +106,7 @@ function guess() {
     hint.innerHTML = "";
     var response = document.getElementById('guess-response');
     var guess = document.getElementById('guess');
+    console.log(guess.value);
     tries--
     if (tries == 0) {
         document.getElementById('answer').innerHTML = number

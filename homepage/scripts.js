@@ -146,5 +146,6 @@ function retry() {
 }
 
 function submitSurvey() {
-    document.getElementByClassName('form-check-input').checked = false;
+    document.getElementsByClassName('form-check-input').checked = false;
+    console.log(document.getElementsByClassName('form-check-input').checked);
 }

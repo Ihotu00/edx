@@ -5,7 +5,7 @@ let todoDescription = {
 
 let score = 0;
 let number = Math.floor(Math.random() * 11);
-let tries = 3;
+let tries = 4;
 
 function navigate(page) {
     var content = document.querySelector('#content');

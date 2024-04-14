@@ -193,3 +193,7 @@ tr:hover  + tr td {
 #test, .form-row {
     border: 1px solid black;
 }
+
+.form-row {
+    width: 50%;
+}

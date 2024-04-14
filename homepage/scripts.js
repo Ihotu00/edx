@@ -105,8 +105,7 @@ function guess() {
     hint.innerHTML = "";
     var response = document.getElementById('guess-response');
     var guess = document.getElementById('guess');
-    tries--
-    if (tries < 0) {
+    if (tries == 0) {
         document.getElementById('answer').innerHTML = number
         document.getElementById('retry').classList.remove('retry');
         response.innerHTML = `You have run out of tries, the number was ${number}`;
@@ -130,6 +129,8 @@ function guess() {
             if(guess.value < number) { hint.innerHTML = "Your guess is too low"}
         }
     }
+    console.log(number);
+    tries--
 }
 
 function retry() {

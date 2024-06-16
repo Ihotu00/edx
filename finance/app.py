@@ -68,6 +68,7 @@ def buy():
         else:
             db.execute("INSERT INTO users (USERID, SYMBOL, SHARES) VALUES(?,?,?)",
                        session["user_id"], request.form.get("symbol"), request.form.get("shares"))
+            db.execute()
 
 
 

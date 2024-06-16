@@ -66,11 +66,10 @@ def buy():
             return apology("you do not have enough cash")
 
         else:
+            user_cash -= cost
             db.execute("INSERT INTO users (USERID, SYMBOL, SHARES) VALUES(?,?,?)",
                        session["user_id"], request.form.get("symbol"), request.form.get("shares"))
-            db.execute("UPDATE table_name
-SET column1 = value1, column2 = value2...., columnN = valueN
-WHERE [condition]")
+            db.execute("UPDATE users SET cash = ? WHERE id=?", )
 
 
 

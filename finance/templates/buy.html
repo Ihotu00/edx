@@ -19,5 +19,6 @@
    id INTEGER PRIMARY KEY,
    user_id           INT NOT NULL,
    symbol         VARCHAR(255)      NOT NULL,
-   shares         INT      NOT NULL
+   shares         INT      NOT NULL,
+   unique(user_id, symbol)
 ); -->

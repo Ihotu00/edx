@@ -60,17 +60,17 @@ def buy():
             return apology("invalid symbol")
 
         user_cash = db.execute("SELECT cash FROM users where id = ?", session["user_id"])
-        logging.warning(user_cash)
+
         cost = quote["price"] * int(request.form.get("shares"))
 
         if cost > user_cash[0]["cash"]:
             return apology("you do not have enough cash")
 
         else:
-            user_cash -= cost
-            db.execute("INSERT INTO users (USERID, SYMBOL, SHARES) VALUES(?,?,?)",
+            user_cash[0]["cash"] -= cost
+            db.execute("INSERT INTO users_shares (USERID, SYMBOL, SHARES) VALUES(?,?,?)",
                        session["user_id"], request.form.get("symbol"), request.form.get("shares"))
-            db.execute("UPDATE users SET cash = ? WHERE id=?", user_cash, session["user_id"])
+            db.execute("UPDATE users SET cash = ? WHERE id=?", user_cash[0]["cash"], session["user_id"])
             return redirect("/")
 
 

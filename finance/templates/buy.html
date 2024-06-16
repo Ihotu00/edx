@@ -21,4 +21,13 @@
    symbol         VARCHAR(255)      NOT NULL,
    shares         INT      NOT NULL,
    creation_date DATE DEFAUKT Date()
-); -->
+);
+
+CREATE TABLE users_shares(
+   id INTEGER PRIMARY KEY,
+   user_id           INT NOT NULL,
+   symbol         VARCHAR(255)      NOT NULL,
+   shares         INT      NOT NULL,
+   creation_date DATE DEFAULT CURRENT_TIMESTAMP,
+   unique(user_id, symbol)
+);-->

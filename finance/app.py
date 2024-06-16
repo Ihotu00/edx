@@ -45,6 +45,7 @@ def buy():
     """Buy shares of stock"""
 
     if request.method == "GET":
+        logging.warning("Its a Warning")
         return render_template("buy.html")
 
     else:

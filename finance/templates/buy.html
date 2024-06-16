@@ -19,6 +19,7 @@
    user_shares_id           INT NOT NULL,
    symbol         VARCHAR(255)      NOT NULL,
    shares         INT      NOT NULL,
+   action VARCHAR(255) check("action" in ('buy', 'sell')) NOT ,
    creation_date DATE DEFAULT CURRENT_TIMESTAMP
 );
 

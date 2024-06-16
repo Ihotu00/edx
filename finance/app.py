@@ -59,10 +59,10 @@ def buy():
             return apology("invalid symbol")
 
         user_cash = db.execute("SELECT cash FROM users where id = ?", session["user_id"])
+        console.log(user_cash)
+        cost = quote["price"] * int(request.form.get("shares"))
 
-        cost = quote["price"] * request.form.get("shares")
-
-        if cost > user_cash:
+        if cost > user_cash[0]:
             return apology("you do not have enough cash")
 
         else:

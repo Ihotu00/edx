@@ -73,9 +73,9 @@ def buy():
             except(ValueError):
                 shares = db.execute("SELECT shares FROM users_shares WHERE user_id = ? AND symbol = ?",
                                            session["user_id"], request.form.get("symbol"))
-                shares += int(request.form.get("shares"))
+                shares[0]["shares"] += int(request.form.get("shares"))
                 db.execute("UPDATE users_shares SET shares = ? WHERE user_id = ? AND symbol = ?",
-                                           session["user_id"], request.form.get("symbol"))
+                                         shares[0]["shares"], session["user_id"], request.form.get("symbol"))
             db.execute("UPDATE users SET cash = ? WHERE id = ?", user_cash[0]["cash"], session["user_id"])
             return redirect("/")
 

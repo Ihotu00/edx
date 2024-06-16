@@ -63,7 +63,7 @@ def buy():
         logging.warning(user_cash)
         cost = quote["price"] * int(request.form.get("shares"))
 
-        if cost > user_cash[0]:
+        if cost > user_cash[0]["cash"]:
             return apology("you do not have enough cash")
 
         else:

@@ -65,6 +65,10 @@ def buy():
         if cost > user_cash:
             return apology("you do not have enough cash")
 
+        else:
+            db.execute("INSERT INTO users (USERID, SYMBOL, SHARES) VALUES(?,?,?)",
+                       session["user_id"], request.form.get("symbol"), request.form.get("shares"))
+
 
 
 @app.route("/history")

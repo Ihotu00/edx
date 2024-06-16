@@ -60,7 +60,7 @@ def buy():
             return apology("invalid symbol")
 
         user_cash = db.execute("SELECT cash FROM users where id = ?", session["user_id"])
-        logging.warning('%s', user_cash)
+        logging.warning('%f', user_cash)
         cost = quote["price"] * int(request.form.get("shares"))
 
         if cost > user_cash[0]:

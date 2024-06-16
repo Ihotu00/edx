@@ -1,0 +1,37 @@
+HTML TAGS USED
+1. <span>
+2. <section>
+3. <a>
+4. <button>
+5. <table>
+6. <figure>
+7. <ul>
+8. <input>
+9. <label>
+10. <svg>
+11. <div>
+12. <p>
+13. <h3>, <h5>
+
+CSS PROPERTIES USED
+1. height
+2. margin
+3. width
+4. color
+5. background-color
+6. display
+7. justify-content
+8. align-items
+9. padding
+10. position
+11. font-size
+12. text-decoration
+13. box-shadow
+14. transition
+
+USE OF JAVASCRIPT
+I created functions in javascript to make the games playable eg 'getWinner()' which determines the winner of rock-paper-scisors
+or 'ticTacToe' which gets the current player and sets their move on the appropriate square
+
+USE OF BOOTSTRAP
+I used bootstrap components such as modal, cards and button for the UI

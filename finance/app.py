@@ -45,7 +45,6 @@ def buy():
     """Buy shares of stock"""
 
     if request.method == "GET":
-        logging.warning("Its a Warning")
         return render_template("buy.html")
 
     else:
@@ -61,7 +60,7 @@ def buy():
             return apology("invalid symbol")
 
         user_cash = db.execute("SELECT cash FROM users where id = ?", session["user_id"])
-        print('%f', user_cash[0])
+        logging.warning(user_cash)
         cost = quote["price"] * int(request.form.get("shares"))
 
         if cost > user_cash[0]:

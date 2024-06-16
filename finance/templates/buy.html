@@ -20,7 +20,7 @@
    user_shares_id           INT NOT NULL,
    symbol         VARCHAR(255)      NOT NULL,
    shares         INT      NOT NULL,
-   creation_date DATE DEFAUKT Date()
+   creation_date DATE DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE users_shares(

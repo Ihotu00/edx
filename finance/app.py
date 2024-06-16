@@ -1,5 +1,4 @@
 import os
-import logging
 
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
@@ -60,7 +59,7 @@ def buy():
             return apology("invalid symbol")
 
         user_cash = db.execute("SELECT cash FROM users where id = ?", session["user_id"])
-        logging.warning('%f', user_cash)
+        print(user_cash)
         cost = quote["price"] * int(request.form.get("shares"))
 
         if cost > user_cash[0]:

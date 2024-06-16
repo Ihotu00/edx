@@ -68,8 +68,12 @@ def buy():
 
         else:
             user_cash[0]["cash"] -= cost
-            db.execute("INSERT INTO users_shares (user_id, symbol, shares) VALUES(?,?,?)",
+            try: db.execute("INSERT INTO users_shares (user_id, symbol, shares) VALUES(?,?,?)",
                        session["user_id"], request.form.get("symbol"), request.form.get("shares"))
+            except(ValueError):
+                shares = int(request.form.get("shares"))
+                db.execute("UPDATE users_shares SET shares = ? WHERE user_id = ? AND symbol = ?",
+                                           session["user_id"], request.form.get("symbol"))
             db.execute("UPDATE users SET cash = ? WHERE id = ?", user_cash[0]["cash"], session["user_id"])
             return redirect("/")
 

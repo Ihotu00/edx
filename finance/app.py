@@ -50,13 +50,15 @@ def buy():
         if not request.form.get("symbol"):
             return apology("must provide symbol")
 
-        if not request.form.get("shares") or not request.from.get("shares") > 0:
+        if not request.form.get("shares") or not request.form.get("shares") > 0:
             return apology("invalid number of shares")
 
         quote = lookup(request.form.get("symbol"))
 
         if quote == None:
             return apology("invalid symbol")
+
+        user_cash = db.execute("SELECT cash FROM users where id = ?", session["user_id"])
 
         else:
             return render_template("quoted.html", symbol=quote["symbol"], price=quote["price"])

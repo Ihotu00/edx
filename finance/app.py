@@ -69,7 +69,7 @@ def buy():
             user_cash -= cost
             db.execute("INSERT INTO users (USERID, SYMBOL, SHARES) VALUES(?,?,?)",
                        session["user_id"], request.form.get("symbol"), request.form.get("shares"))
-            db.execute("UPDATE users SET cash = ? WHERE id=?", )
+            db.execute("UPDATE users SET cash = ? WHERE id=?", user_cash, session["user_id"])
 
 
 

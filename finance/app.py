@@ -60,8 +60,11 @@ def buy():
 
         user_cash = db.execute("SELECT cash FROM users where id = ?", session["user_id"])
 
-        else:
-            return render_template("quoted.html", symbol=quote["symbol"], price=quote["price"])
+        cost = quote["price"] * request.form.get("shares")
+
+        if cost > user_cash:
+            return apology("you do not have enough cash")
+
 
 
 @app.route("/history")

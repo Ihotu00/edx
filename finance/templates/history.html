@@ -21,9 +21,9 @@
                 <td>{{ data["shares"] }}</td>
                 <td>{{ data["price"] | usd}}</td>
                 {% if data["transaction"] == 'sell' %}
-                <td  style="color: red;">{{ data["transaction"] | usd }}</td>
+                <td  style="color: red;">{{ data["transaction"] }}</td>
                 {% else %}
-                <td  style="color: green">{{ data["transaction"] | usd }}</td>
+                <td  style="color: green">{{ data["transaction"] }}</td>
                 {% endif %}
                 <td>{{ data["date"] }}</td>
             </tr {% endfor %}>

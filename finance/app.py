@@ -271,10 +271,10 @@ def sell():
 
         cash = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
 
-        if not request.form.get("shares") or int(request.form.get("shares")) > shares[0]["shares"]:
-            return apology("invalid number of shares")
-
         absShares = abs(int(request.form.get("shares")))
+
+        if not request.form.get("shares") or absShares > shares[0]["shares"]:
+            return apology("invalid/not enough number of shares")
 
         shares[0]["shares"] -= absShares
 

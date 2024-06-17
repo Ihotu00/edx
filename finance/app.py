@@ -51,7 +51,7 @@ def index():
     for i in range(len(user_data)):
         total += int(user_data[i]["worth"])
     total += user[0]["cash"]
-    return render_template("index.html", user_data=user_data)
+    return render_template("index.html", user_data=user_data, cash=user[0]["cash"], total=total)
 
 
 @app.route("/buy", methods=["GET", "POST"])

@@ -25,10 +25,12 @@
             </tr {% endfor %}>
         </tbody>
         <tfoot>
-            <tr></tr>
+            <tr>
+                <th colspan="4" class="text-end">Cash</th>
+                <td>{{ cash | usd }}</td></tr>
             <tr>
                 <th colspan="4" class="text-end">TOTAL</th>
-                <td></td>
+                <td>{{ total | usd }}</td>
             </tr>
         </tfoot>
     </table>

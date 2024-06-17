@@ -18,7 +18,8 @@
                 //     k.style.backgroundColor = '';
                 // });
                 edit(id, name) {
-
+                    document.getElementById('edit_name').value = name
+                    document.getElementById('edit').value = id
                 }
             })
         </script>
@@ -96,9 +97,9 @@
                     <div class="modal-body">
                         <form action="/action" method="post">
                             <div class="input-group input-group-sm">
-                                <input autocomplete="off" autofocus class="form-control form-control-sm" name="edit_name" placeholder="Name" type="text">
-                                <input class="form-control form-control-sm" name="edit_date" type="date">
-                                <input style="display: none" name="edit" type="number">
+                                <input autocomplete="off" autofocus class="form-control form-control-sm" name="edit_name" id="edit_name" placeholder="Name" type="text">
+                                <input class="form-control form-control-sm" name="edit_date" id="edit_date" type="date">
+                                <input style="display: none" id="edit" name="edit" type="number">
                                 <button class="btn btn-dark btm-sm" type="submit">Edit Birthday</button>
                             </div>
                         </form>

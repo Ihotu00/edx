@@ -15,12 +15,12 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
+            <tr {% for data in user_data %} >
+                <td>{{ data[]}}</td>
                 <td>Mark</td>
                 <td>Otto</td>
                 <td>@mdo</td>
-            </tr>
+            </tr {% endfor %}>
         </tbody>
         <tfoot>
             <td></td>

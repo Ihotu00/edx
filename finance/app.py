@@ -38,14 +38,13 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
     user_shares = db.execute("SELECT * FROM users_shares WHERE id = ?", session["user_id"])
-    logging.warning(user_shares)
-    user_data = [{}]
+    user_data = []
     for i in range(len(user_shares)):
         user_data.append({'symbol': user_shares[i]["symbol"],
                           'shares': user_shares[i]["shares"],
                           'price': lookup(user_shares[i]["symbol"])
                           })
-    return render_template("index.html", user_data)
+    return render_template("index.html", user_data=user_data)
 
 
 @app.route("/buy", methods=["GET", "POST"])

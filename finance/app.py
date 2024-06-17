@@ -100,7 +100,7 @@ def buy():
             db.execute("INSERT INTO users_transaction_history (user_id, symbol, shares, action) VALUES(?,?,?,?)",
                        session["user_id"], request.form.get("symbol").upper(), request.form.get("shares"), "buy")
             db.execute("UPDATE users SET cash = ? WHERE id = ?", user_cash[0]["cash"], session["user_id"])
-            return redirect("/")
+            return redirect("/", get_flashed_messages="Login Successful")
 
 
 

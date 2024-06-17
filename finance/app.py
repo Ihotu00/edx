@@ -37,7 +37,7 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    user_shares = db.execute("SELECT * FROM users_shares WHERE id = ?", session["user_id"])
+    user_shares = db.execute("SELECT * FROM users_shares WHERE user_id = ?", session["user_id"])
     user = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
     user_data = []
     total = 0

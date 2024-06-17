@@ -113,14 +113,17 @@ def history():
     for i in range(len(users_transaction_history)):
         price = lookup(users_transaction_history[i]["symbol"])
         color = ""
+        action = ""
         if users_transaction_history[i]["action"] == 'sell':
             color = "red"
+            action = "SOLD"
         else:
             color = "green"
+            action = "BOUGHT"
         history.append({'symbol': users_transaction_history[i]["symbol"],
                           'shares': users_transaction_history[i]["shares"],
                           'price': price["price"],
-                          'transaction': users_transaction_history[i]["action"],
+                          'transaction': action,
                           'date': users_transaction_history[i]["creation_date"],
                           'color': color
                           })

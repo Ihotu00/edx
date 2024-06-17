@@ -10,17 +10,17 @@
             <tr>
                 <th scope="col">Symbol</th>
                 <th scope="col">Shares</th>
-                <th scope="col">Price</th>
                 <th scope="col">Transaction</th>
+                <th scope="col">Price</th>
                 <th scope="col">Date</th>
             </tr>
         </thead>
         <tbody>
             <tr {% for data in history %} >
                 <td>{{ data["symbol"] | upper }}</td>
-                <td>{{ data["shares"] }}</td>
-                <td style="color={{ data['color']}}">{{ data["price"] | usd}}</td>
-                <td style="color={{ data['color']}}">{{ data["transaction"] }}</td>
+                <td style="color: {{ data['color']}};">{{ data["shares"] }}</td>
+                <td style="color: {{ data['color']}};">{{ data["transaction"] }}</td>
+                <td>{{ data["price"] | usd}}</td>
                 <td>{{ data["date"] }}</td>
             </tr {% endfor %}>
         </tbody>

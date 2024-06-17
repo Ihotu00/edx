@@ -341,10 +341,13 @@ def cash():
 @login_required
 def buy_or_sell():
 
-    if not request.form.get("shares"):
+    if not request.form.get("shares") or int(request.form.get("shares")) == 0:
         return apology("must provide amount")
 
     if int(request.form.get("shares")) > 0:
         return buy()
+
+    if int(request.form.get("shares")) < 0:
+        return sell()
 
     return apology("baby steps")

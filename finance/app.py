@@ -100,7 +100,7 @@ def buy():
             db.execute("INSERT INTO users_transaction_history (user_id, symbol, shares, action) VALUES(?,?,?,?)",
                        session["user_id"], request.form.get("symbol").upper(), request.form.get("shares"), "buy")
             db.execute("UPDATE users SET cash = ? WHERE id = ?", user_cash[0]["cash"], session["user_id"])
-            return redirect("/", get_flashed_messages("Login Successful"))
+            return redirect("/")
 
 
 
@@ -161,11 +161,18 @@ def login():
         session["user_id"] = rows[0]["id"]
 
         # Redirect user to home page
-        return redirect("/")
+        return redirect("/", get_flashed_messages("Login Successful"))
 
     # User reached route via GET (as by clicking a link or via redirect)
     else:
         return render_template("login.html")
+
+
+# app.route("/logout")
+def get_flashed_messages(message):
+    """Log user out"""
+
+    return message
 
 
 @app.route("/logout")

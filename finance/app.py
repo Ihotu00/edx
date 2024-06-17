@@ -247,7 +247,7 @@ def sell():
         shares = db.execute("SELECT * FROM users_shares WHERE user_id = ? AND symbol = ?",
                             session["user_id"], request.form.get("symbol").upper())
 
-        cash = db.execute("SELECT * FROM users WHERE id =", session["user_id"])
+        cash = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
 
         if not request.form.get("shares") or int(request.form.get("shares")) > shares[0]["shares"]:
             return apology("invalid number of shares")
@@ -255,7 +255,7 @@ def sell():
         shares[0]["shares"] -= int(request.form.get("shares"))
 
         price = lookup(request.form.get("symbol"))
-        cash[0]["cash"] += price
+        cash[0]["cash"] += price["price"]
 
         db.execute("UPDATE users_shares SET shares = ?, last_modified_date = ? WHERE user_id = ? AND symbol = ?",
                                          shares[0]["shares"], datetime.datetime.now(), session["user_id"], request.form.get("symbol").upper())

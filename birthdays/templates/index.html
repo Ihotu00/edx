@@ -57,10 +57,10 @@
                             <th>{{ birthday["month"] }}/{{ birthday["day"] }}</th>
                             <th>
                                 <span class="row center">
-                                    <form action="/action" method="post" class="col-2">
+                                    <span class="col-2">
                                         <input style="display: none" name="edit" value="{{ birthday['id'] }}">
                                         <button class="material-symbols-outlined btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#editModal" name="edit">edit</button>
-                                    </form>
+                                    </span>
                                     <form action="/action" method="post" class="col-2">
                                         <input style="display: none" name="delete" value="{{ birthday['id'] }}">
                                         <button class="material-symbols-outlined btn btn-outline-dark" type="submit">delete</button>

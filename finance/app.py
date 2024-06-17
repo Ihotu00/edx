@@ -88,15 +88,15 @@ def buy():
             logging.warning(user_cash[0]["cash"])
             try:
                 db.execute("INSERT INTO users_shares (user_id, symbol, shares) VALUES(?,?,?)",
-                       session["user_id"], request.form.get("symbol").lower(), request.form.get("shares"))
+                       session["user_id"], request.form.get("symbol").lower(), request.form.get("shares").lower())
                 logging.warning("Inserted first time")
             except(ValueError):
                 logging.warning("Already exist updating")
                 shares = db.execute("SELECT shares FROM users_shares WHERE user_id = ? AND symbol = ?",
-                                           session["user_id"], request.form.get("symbol"))
+                                           session["user_id"], request.form.get("symbol").lower())
                 shares[0]["shares"] += int(request.form.get("shares"))
                 db.execute("UPDATE users_shares SET shares = ?, last_modified_date = ? WHERE user_id = ? AND symbol = ?",
-                                         shares[0]["shares"], datetime.datetime.now(), session["user_id"], request.form.get("symbol"))
+                                         shares[0]["shares"], datetime.datetime.now(), session["user_id"], request.form.get("symbol").lower())
             db.execute("INSERT INTO users_transaction_history (user_id, symbol, shares, action) VALUES(?,?,?,?)",
                        session["user_id"], request.form.get("symbol").lower(), request.form.get("shares"), "buy")
             db.execute("UPDATE users SET cash = ? WHERE id = ?", user_cash[0]["cash"], session["user_id"])
@@ -245,7 +245,7 @@ def sell():
             return apology("must provide symbol")
 
         shares = db.execute("SELECT * FROM users_shares WHERE user_id = ? AND symbol = ?",
-                            session["user_id"], request.form.get("symbol"))
+                            session["user_id"], request.form.get("symbol").lower())
 
         cash = db.execute("SELECT * FROM users WHERE id =", session["user_id"])
 
@@ -258,9 +258,9 @@ def sell():
         cash[0]["cash"] += price
 
         db.execute("UPDATE users_shares SET shares = ?, last_modified_date = ? WHERE user_id = ? AND symbol = ?",
-                                         shares[0]["shares"], datetime.datetime.now(), session["user_id"], request.form.get("symbol"))
+                                         shares[0]["shares"], datetime.datetime.now(), session["user_id"], request.form.get("symbol").lower())
         db.execute("INSERT INTO users_transaction_history (user_id, symbol, shares, action) VALUES(?,?,?,?)",
-                    session["user_id"], request.form.get("symbol"), request.form.get("shares"), "sell")
+                    session["user_id"], request.form.get("symbol").lower(), request.form.get("shares"), "sell")
         db.execute("UPDATE users SET cash = ? WHERE id = ?", cash[0]["cash"], session["user_id"])
         return redirect("/")
 

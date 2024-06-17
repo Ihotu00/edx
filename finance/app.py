@@ -277,9 +277,8 @@ def sell():
         price = lookup(request.form.get("symbol"))
         cash[0]["cash"] += price["price"] * absShares
 
-        if cash[0]["cash"] == 0:
-            db.execute("DELET users_shares SET shares = ?, last_modified_date = ? WHERE user_id = ? AND symbol = ?",
-                                         shares[0]["shares"], datetime.datetime.now(), session["user_id"], request.form.get("symbol").upper())
+        if shares[0]["shares"] == 0:
+            db.execute("DELETE FROM users_shares WHERE user_id = ? AND symbol = ?", session["user_id"], request.form.get("symbol").upper())
 
         db.execute("UPDATE users_shares SET shares = ?, last_modified_date = ? WHERE user_id = ? AND symbol = ?",
                                          shares[0]["shares"], datetime.datetime.now(), session["user_id"], request.form.get("symbol").upper())

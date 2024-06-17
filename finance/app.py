@@ -237,9 +237,16 @@ def register():
 def sell():
     """Sell shares of stock"""
     if request.method == "GET":
-        symbols = db.execute("SELECT symbol, shares FROM users_shares WHERE user_id = ?", session["user_id"])
-        logging.warning(symbols)
+        symbols = db.execute("SELECT symbol FROM users_shares WHERE user_id = ?", session["user_id"])
         return render_template("sell.html", symbols=symbols)
 
     else:
-        
+        if not request.form.get("symbol"):
+            return apology("must provide symbol")
+
+        shares = db.execute("SELECT shares FROM users_shares WHERE user_id = ? AND symbol = ?",
+                            session["user_id"], request.form.get("symbol"))
+
+        logging.warning(symbols)
+        if not request.form.get("shares") or int(request.form.get("shares")) > shares[0]["shares"]:
+            return apology("invalid number of shares")

@@ -1,4 +1,5 @@
 import os
+import logging
 import datetime
 
 from cs50 import SQL
@@ -36,12 +37,13 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    user_shares = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
+    user_shares = db.execute("SELECT * FROM users_shares WHERE id = ?", session["user_id"])
+    logging.warning(user_shares)
     user_data = []
     for i in range(len(user_shares)):
-        user_data[i]["symbol"] = user_shares[i]["symbol"]
-        user_data[i]["shares"] = user_shares[i]["shares"]
-        user_data[i]["price"] = lookup(user_shares[i]["symbol"])
+        user_data["symbol"].append(user_shares[i]["symbol"])
+        user_data["shares"].append(user_shares[i]["shares"])
+        user_data["price"].append(lookup(user_shares[i]["symbol"]))
     return render_template("index.html", user_data)
 
 

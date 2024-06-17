@@ -23,7 +23,7 @@
                 <td>{{ data["shares"] }}</td>
                 <td>{{ data["price"] | usd}}</td>
                 <td>{{ data["worth"] | usd }}</td>
-                <td>
+                <td class="center">
                     <div class="col-md-3"><form action="/buy_or_sell" method="post">
                         <input style="display: none" name="symbol" type="text" value="{{ data['symbol']}}">
                         <div class="input-group input-group-sm">

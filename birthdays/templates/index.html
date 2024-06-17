@@ -20,11 +20,11 @@
             <div class="section">
 
                 <h2>All Birthdays</h2>
-                <table>
+                <table class="table">
                     <thead>
-                        <tr {% for person in persons %}>
-                            <th>{{ person["name"] }}</th>
-                            <th>{{ person["month"] }}/{{ person["day"] }}</th>
+                        <tr {% for birthday in birthdays %}>
+                            <th>{{ birthday["name"] }}</th>
+                            <th>{{ birthday["month"] }}/{{ birthday["day"] }}</th>
                         </tr {% endfor %}>
                     </thead>
                     <tbody>

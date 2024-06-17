@@ -280,7 +280,7 @@ def sell():
         db.execute("UPDATE users_shares SET shares = ?, last_modified_date = ? WHERE user_id = ? AND symbol = ?",
                                          shares[0]["shares"], datetime.datetime.now(), session["user_id"], request.form.get("symbol").upper())
         db.execute("INSERT INTO users_transaction_history (user_id, symbol, shares, action) VALUES(?,?,?,?)",
-                    session["user_id"], request.form.get("symbol").upper(), request.form.get("shares"), "sell")
+                    session["user_id"], request.form.get("symbol").upper(), -abs(int(request.form.get("shares"))), "sell")
         db.execute("UPDATE users SET cash = ? WHERE id = ?", cash[0]["cash"], session["user_id"])
         return redirect("/")
 

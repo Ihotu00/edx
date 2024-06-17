@@ -62,7 +62,8 @@
                     </thead>
                     <tbody>
                         <!-- TODO: Loop through the database entries to display them in this table -->
-                        <tr {% for birthday in birthdays %}>
+                        {% for birthday in birthdays %}
+                        <tr>
                             <th>{{ birthday["name"] }}</th>
                             <th>{{ birthday["month"] }}/{{ birthday["day"] }}</th>
                             <th>
@@ -78,7 +79,8 @@
                                     </form>
                                 </span>
                             </th>
-                        </tr {% endfor %}>
+                        </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>

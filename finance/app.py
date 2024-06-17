@@ -311,3 +311,28 @@ def changePassword():
         db.execute("UPDATE users SET hash = ? WHERE id = ?", password_hash, session["user_id"])
 
         return redirect("/")
+
+
+@app.route("/settings")
+@login_required
+def settings():
+    return render_template("settings.html")
+
+
+@app.route("/cash", methods=["GET", "POST"])
+@login_required
+def cash():
+    if request.method == "GET":
+        return render_template("cash.html")
+
+    else:
+        if not request.form.get("cash"):
+            return apology("must provide amount")
+
+        user = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+
+        user[0]["cash"] += int(request.form.get("cash"))
+
+        db.execute("UPDATE users SET cash = ? WHERE id = ?", user[0]["cash"], session["user_id"])
+
+        return redirect("/")

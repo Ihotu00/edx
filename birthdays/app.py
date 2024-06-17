@@ -24,8 +24,6 @@ def after_request(response):
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-
-    session["user_id"] = "schbjauebdamanonf"
     if request.method == "POST":
 
         # TODO: Add the user's entry into the database

@@ -55,7 +55,10 @@
                         <tr {% for birthday in birthdays %}>
                             <th>{{ birthday["name"] }}</th>
                             <th>{{ birthday["month"] }}/{{ birthday["day"] }}</th>
-                            <th></th>
+                            <th>
+                                <span class="material-symbols-outlined btn btn-outline btn-primary">edit</span>
+                                <span class="material-symbols-outlined btn btn-outline btn-primary">delete</span>
+                            </th>
                         </tr {% endfor %}>
                     </tbody>
                 </table>

@@ -40,10 +40,11 @@ def index():
     user_shares = db.execute("SELECT * FROM users_shares WHERE id = ?", session["user_id"])
     user_data = []
     for i in range(len(user_shares)):
+        price = int(lookup(user_shares[i]["symbol"]))
         user_data.append({'symbol': user_shares[i]["symbol"],
                           'shares': user_shares[i]["shares"],
-                          'price': lookup(user_shares[i]["symbol"]),
-                          'total': int(user_shares[i]["shares"]) * int()
+                          'price': price,
+                          'total': int(user_shares[i]["shares"]) * price
                           })
     return render_template("index.html", user_data=user_data)
 

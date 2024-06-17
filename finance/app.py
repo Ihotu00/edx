@@ -38,15 +38,19 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
     user_shares = db.execute("SELECT * FROM users_shares WHERE id = ?", session["user_id"])
+    user = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
     user_data = []
+    total = 0
     for i in range(len(user_shares)):
         price = lookup(user_shares[i]["symbol"])
         user_data.append({'symbol': user_shares[i]["symbol"],
                           'shares': user_shares[i]["shares"],
-                          'cash': user_shares[i]["cash"],
                           'price': price["price"],
                           'worth': int(user_shares[i]["shares"]) * price["price"]
                           })
+    for i in range(len(user_data)):
+        total += int(user_data[i]["worth"])
+    total += user[0]["cash"]
     return render_template("index.html", user_data=user_data)
 
 

@@ -61,6 +61,6 @@ def index():
 @app.route("/action", methods=["POST"])
 def action():
     if request.form.get("delete"):
-        db.execute("DELETE FROM birthdays where id = ?", request.form.get("id"))
+        db.execute("DELETE FROM birthdays where id = ?", request.form.get("delete"))
         flash("Deleted")
         return redirect("/")

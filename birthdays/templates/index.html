@@ -19,6 +19,7 @@
                 // });
                 function edit(id, name, month, day) {
                     document.getElementById('edit_name').value = name;
+                    month = f"${month:,2f}";
                     document.getElementById('edit_date').value = `2024-${month}-${day}`;
                     document.getElementById('edit').value = id;
                 }

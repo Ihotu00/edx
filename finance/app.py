@@ -82,6 +82,8 @@ def buy():
             return apology("you do not have enough cash")
 
         else:
+            logging.warning(user_cash[0]["cash"])
+            logging.warning(cost)
             user_cash[0]["cash"] -= cost
             try:
                 db.execute("INSERT INTO users_shares (user_id, symbol, shares) VALUES(?,?,?)",

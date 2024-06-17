@@ -48,6 +48,8 @@ def index():
                           'price': price["price"],
                           'worth': int(user_shares[i]["shares"]) * price["price"]
                           })
+    logging.warning(user_shares)
+    logging.warning(user_data)
     for i in range(len(user_data)):
         total += float(user_data[i]["worth"])
     total += user[0]["cash"]

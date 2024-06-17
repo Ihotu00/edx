@@ -44,7 +44,8 @@ def index():
         month = request.form.get("date").split('-')[1].lstrip('0')
         day = request.form.get("date").split('-')[2].lstrip('0')
 
-        db.execute("INSERT INTO birthdays (name, day, month) VALUES (?,?,?)", request.form.get("name"), day, month)
+        db.execute("INSERT INTO birthdays (name, day, month) VALUES (?,?,?)",
+                   request.form.get("name"), day, month)
         flash("Added Successfully")
 
         return redirect("/")
@@ -78,7 +79,8 @@ def action():
         month = request.form.get("edit_date").split('-')[1].lstrip('0')
         day = request.form.get("edit_date").split('-')[2].lstrip('0')
 
-        db.execute("UPDATE birthdays SET name = ?, day = ?, month = ? WHERE id = ?", request.form.get("edit_name"), day, month, request.form.get("edit"))
+        db.execute("UPDATE birthdays SET name = ?, day = ?, month = ? WHERE id = ?",
+                   request.form.get("edit_name"), day, month, request.form.get("edit"))
         flash("Update Successful")
 
         return redirect("/")

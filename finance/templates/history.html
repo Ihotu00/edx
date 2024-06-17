@@ -20,7 +20,7 @@
                 <td>{{ data["symbol"] | upper }}</td>
                 <td>{{ data["shares"] }}</td>
                 <td>{{ data["price"] | usd}}</td>
-                <td>{{ data["transaction"] | usd }}</td>
+                <td {% if data["transaction"] == }>{{ data["transaction"] | usd }}</td>
                 <td>{{ data["date"] | usd }}</td>
             </tr {% endfor %}>
         </tbody>

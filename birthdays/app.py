@@ -58,3 +58,9 @@ def index():
         return render_template("index.html", birthdays=birthdays)
 
 
+@app.route("/action", methods=["POST"])
+def action():
+    if request.form.get("edit"):
+        db.execute
+            flash("Edited")
+            return redirect("/")

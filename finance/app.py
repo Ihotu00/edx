@@ -36,6 +36,8 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
+    user_shares = db.execute("SELECT * WFROM users WHERE id = ?", session["user_id"])
+    price
     return render_template("index.html")
 
 

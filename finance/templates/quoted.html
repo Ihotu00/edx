@@ -6,6 +6,6 @@
 
 {% block main %}
     <div>
-        <p>A share of {{ symbol }} costs ${{ price }}</p>
+        <p>A share of {{ symbol }} costs {{ price | usd }}</p>
     </div>
 {% endblock %}

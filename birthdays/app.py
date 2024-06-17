@@ -64,4 +64,21 @@ def action():
         db.execute("DELETE FROM birthdays where id = ?", request.form.get("delete"))
         flash("Deleted")
         return redirect("/")
-    return
+
+    if request.form.get("edit"):
+
+        if not request.form.get("edit_name"):
+            flash("Invalid Name")
+            return redirect("/")
+
+        if not request.form.get("edit_date"):
+            flash("Invalid Date")
+            return redirect("/")
+
+        month = request.form.get("date").split('-')[1].lstrip('0')
+        day = request.form.get("date").split('-')[2].lstrip('0')
+
+        db.execute("UPDATE birthdays SET name = ?, day = ?, month = ? WHERE id = ?", request.form.get("name"), day, month, request.form.get("edit"))
+        flash("Update Successfull")
+
+        return redirect("/")

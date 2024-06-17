@@ -36,7 +36,7 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    user_shares = db.execute("SELECT * WFROM users WHERE id = ?", session["user_id"])
+    user_shares = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
     user_data = []
     for i in range(len(user_shares)):
         user_data[i]["symbol"] = user_shares[i]["symbol"]

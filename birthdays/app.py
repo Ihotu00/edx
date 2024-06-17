@@ -1,4 +1,5 @@
 import os
+import logging
 
 from cs50 import SQL
 from flask import Flask, flash, jsonify, redirect, render_template, request, session
@@ -39,6 +40,8 @@ def index():
         if not request.form.get("date"):
             flash("Invalid Date")
             return redirect("/")
+
+        logging.warning(request.form.get("date"))
 
         return redirect("/")
 

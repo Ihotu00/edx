@@ -267,7 +267,7 @@ def sell():
 
         cash = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
 
-        if not request.form.get("shares") or int(request.form.get("shares")) > shares[0]["shares"]:
+        if not request.form.get("shares") or int(request.form.get("shares")) > shares[0]["shares"] or int(request.form.get("shares")) <= 0:
             return apology("invalid number of shares")
 
         shares[0]["shares"] -= int(request.form.get("shares"))

@@ -18,7 +18,7 @@
                 //     k.style.backgroundColor = '';
                 // });
                 edit(id, name) {
-                    
+
                 }
             })
         </script>
@@ -94,7 +94,13 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>Modal body text goes here.</p>
+                        <form action="/" method="post">
+                            <div class="input-group input-group-sm">
+                                <input autocomplete="off" autofocus class="form-control form-control-sm" name="name" placeholder="Name" type="text">
+                                <input class="form-control form-control-sm" name="date" type="date">
+                                <button class="btn btn-dark btm-sm" type="submit">Add Birthday</button>
+                            </div>
+                        </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

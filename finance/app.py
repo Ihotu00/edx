@@ -277,6 +277,10 @@ def sell():
         price = lookup(request.form.get("symbol"))
         cash[0]["cash"] += price["price"] * absShares
 
+        if cash[0]["cash"] == 0:
+            db.execute("DELET users_shares SET shares = ?, last_modified_date = ? WHERE user_id = ? AND symbol = ?",
+                                         shares[0]["shares"], datetime.datetime.now(), session["user_id"], request.form.get("symbol").upper())
+
         db.execute("UPDATE users_shares SET shares = ?, last_modified_date = ? WHERE user_id = ? AND symbol = ?",
                                          shares[0]["shares"], datetime.datetime.now(), session["user_id"], request.form.get("symbol").upper())
         db.execute("INSERT INTO users_transaction_history (user_id, symbol, shares, action) VALUES(?,?,?,?)",

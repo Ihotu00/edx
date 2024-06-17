@@ -112,14 +112,19 @@ def history():
     history = []
     for i in range(len(users_transaction_history)):
         price = lookup(users_transaction_history[i]["symbol"])
+        color = ""
+        if users_transaction_history[i]["action"] == 'sell':
+            color = red
+        else:
+            color = green
         history.append({'symbol': users_transaction_history[i]["symbol"],
                           'shares': users_transaction_history[i]["shares"],
                           'price': price["price"],
                           'transaction': users_transaction_history[i]["action"],
                           'date': users_transaction_history[i]["creation_date"],
-                          'color
+                          'color':
                           })
-    return render_template("history.html", history=history, color="")
+    return render_template("history.html", history=history)
 
 @app.route("/login", methods=["GET", "POST"])
 def login():

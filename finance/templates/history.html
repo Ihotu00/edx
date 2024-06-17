@@ -17,15 +17,10 @@
         </thead>
         <tbody>
             <tr {% for data in history %} >
-                {% if data["transaction"] == 'sell' %}
-                {{color}} = 'style="color: red;"'
-                {% else %}
-                {{color}} = 'style="color: green"'
-                {% endif %}
                 <td>{{ data["symbol"] | upper }}</td>
                 <td>{{ data["shares"] }}</td>
-                <td {{ color }}>{{ data["price"] | usd}}</td>
-                <td {{ color }}>{{ data["transaction"] }}</td>
+                <td style="color={{ data['color']}}">{{ data["price"] | usd}}</td>
+                <td style="color={{ data['color']}}">{{ data["transaction"] }}</td>
                 <td>{{ data["date"] }}</td>
             </tr {% endfor %}>
         </tbody>

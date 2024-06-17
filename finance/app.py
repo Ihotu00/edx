@@ -100,6 +100,7 @@ def buy():
             db.execute("INSERT INTO users_transaction_history (user_id, symbol, shares, action) VALUES(?,?,?,?)",
                        session["user_id"], request.form.get("symbol").upper(), request.form.get("shares"), "buy")
             db.execute("UPDATE users SET cash = ? WHERE id = ?", user_cash[0]["cash"], session["user_id"])
+            flash("Purchase Successful")
             return redirect("/")
 
 
@@ -128,6 +129,7 @@ def history():
                           'color': color
                           })
     return render_template("history.html", history=history)
+
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -245,6 +247,7 @@ def register():
         session["user_id"] = rows[0]["id"]
 
         # Redirect user to home page
+        flash("Registration Successful")
         return redirect("/")
 
     else:
@@ -286,6 +289,7 @@ def sell():
         db.execute("INSERT INTO users_transaction_history (user_id, symbol, shares, action) VALUES(?,?,?,?)",
                     session["user_id"], request.form.get("symbol").upper(), -abs(int(request.form.get("shares"))), "sell")
         db.execute("UPDATE users SET cash = ? WHERE id = ?", cash[0]["cash"], session["user_id"])
+        flash("Successfull sold")
         return redirect("/")
 
 
@@ -316,6 +320,7 @@ def changePassword():
 
         db.execute("UPDATE users SET hash = ? WHERE id = ?", password_hash, session["user_id"])
 
+        flash("Password changed successfully")
         return redirect("/")
 
 
@@ -341,6 +346,7 @@ def cash():
 
         db.execute("UPDATE users SET cash = ? WHERE id = ?", user[0]["cash"], session["user_id"])
 
+        flash("Cash acquired")
         return redirect("/")
 
 @app.route("/buy_or_sell", methods=["POST"])

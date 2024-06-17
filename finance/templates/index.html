@@ -18,7 +18,7 @@
         <tbody>
             <tr {% for data in user_data %} >
                 <th scope="row">{{ loop.index }}</th>
-                <td>{{ data["symbol"] }}</td>
+                <td>{{ data["symbol"] | upper }}</td>
                 <td>{{ data["shares"] }}</td>
                 <td>{{ data["price"] | usd}}</td>
                 <td>{{ data["worth"] | usd }}</td>

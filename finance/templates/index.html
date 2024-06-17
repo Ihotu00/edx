@@ -24,9 +24,9 @@
                 <td>{{ data["price"] | usd}}</td>
                 <td>{{ data["worth"] | usd }}</td>
                 <td>
-                    <form action="/buy_or_sell" method="post">
-                        <input class="form-control mx-auto w-auto" name="shares" placeholder="Amount" type="number">
-                        <button class="btn btn-primary" type="submit">
+                    <form action="/buy_or_sell" method="post" class="row">
+                        <input class="form-control-sm mx-auto w-auto col-2" name="shares" placeholder="Amount" type="number">
+                        <button class="btn btn-primary btm-sm col-2" type="submit">
                             <span class="material-symbols-outlined">check</span>
                         </button>
                     </form>

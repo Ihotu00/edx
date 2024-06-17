@@ -41,9 +41,10 @@ def index():
     logging.warning(user_shares)
     user_data = [{}]
     for i in range(len(user_shares)):
-        user_data["symbol"].append(user_shares[i]["symbol"])
-        user_data["shares"].append(user_shares[i]["shares"])
-        user_data["price"].append(lookup(user_shares[i]["symbol"]))
+        user_data.append({'symbol': user_shares[i]["symbol"],
+                          'shares': user_shares[i]["shares"],
+                          'price': lookup(user_shares[i]["symbol"])
+                          })
     return render_template("index.html", user_data)
 
 

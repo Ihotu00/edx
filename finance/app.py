@@ -50,6 +50,7 @@ def index():
                           })
     for i in range(len(user_data)):
         total += float(user_data[i]["worth"])
+        logging.warning(user_data[i]["worth"])
     logging.warning(total)
     total += user[0]["cash"]
     logging.warning(user[0]["cash"])

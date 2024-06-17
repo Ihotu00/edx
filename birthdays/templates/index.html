@@ -10,21 +10,13 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
         <script>
-            // document.addEventListener('DOMContentLoaded', function() {
-                // let k = document.querySelector('#correct');
-                // k.addEventListener('click', function() {
-                //     k.style.backgroundColor = 'green';
-                //     document.querySelector('#response1').innerHTML = 'Correct';
-                //     k.style.backgroundColor = '';
-                // });
-                function edit(id, name, month, day) {
-                    document.getElementById('edit_name').value = name;
-                    month = String(month).padStart(2, '0');
-                    day = String(day).padStart(2, '0');
-                    document.getElementById('edit_date').value = `2024-${month}-${day}`;
-                    document.getElementById('edit').value = id;
-                }
-            // })
+            function edit(id, name, month, day) {
+                document.getElementById('edit_name').value = name;
+                month = String(month).padStart(2, '0');
+                day = String(day).padStart(2, '0');
+                document.getElementById('edit_date').value = `2024-${month}-${day}`;
+                document.getElementById('edit').value = id;
+            }
         </script>
 
         <title>Birthdays</title>

@@ -354,5 +354,3 @@ def buy_or_sell():
 
     if int(request.form.get("shares")) < 0:
         return sell()
-
-    return apology("baby steps")

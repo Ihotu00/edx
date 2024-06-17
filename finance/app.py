@@ -213,7 +213,7 @@ def register():
     if request.method == "POST":
 
         # Ensure username was submitted
-        if not request.form.get("name"):
+        if not request.form.get("username"):
             return apology("must provide username", 403)
 
         # Ensure password was submitted
@@ -234,13 +234,13 @@ def register():
         # Insert into do
         try:
             db.execute(
-                "INSERT INTO users (username, hash) VALUES(?,?)", request.form.get("name"), password_hash
+                "INSERT INTO users (username, hash) VALUES(?,?)", request.form.get("username"), password_hash
                 )
         except(ValueError): return apology("username taken", 403)
 
         # Query database for username
         rows = db.execute(
-            "SELECT * FROM users WHERE username = ?", request.form.get("name")
+            "SELECT * FROM users WHERE username = ?", request.form.get("username")
         )
 
         # Remember which user has logged in

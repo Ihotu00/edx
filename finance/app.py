@@ -37,7 +37,8 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
     user_shares = db.execute("SELECT * WFROM users WHERE id = ?", session["user_id"])
-    price
+    for 
+    price = lookup(user_shares[i]["symbol"])
     return render_template("index.html")
 
 

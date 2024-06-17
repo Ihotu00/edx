@@ -336,3 +336,13 @@ def cash():
         db.execute("UPDATE users SET cash = ? WHERE id = ?", user[0]["cash"], session["user_id"])
 
         return redirect("/")
+
+@app.route("/buy_or_sell", methods=["POST"])
+@login_required
+def buy_or_sell():
+
+    if not request.form.get("shares"):
+        return apology("must provide amount")
+
+    if int(request.form.get("shares")) > 0:
+        redirect("/buy", Post)

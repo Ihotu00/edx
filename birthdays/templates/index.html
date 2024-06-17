@@ -22,10 +22,10 @@
                 <h2>All Birthdays</h2>
                 <table>
                     <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Birthday</th>
-                        </tr>
+                        <tr {% for person in persons %}>
+                            <th>{{ person["name"] }}</th>
+                            <th>{{ person["month"] }}/{{ person["day"] }}</th>
+                        </tr {% endfor %}>
                     </thead>
                     <tbody>
                         <!-- TODO: Loop through the database entries to display them in this table -->

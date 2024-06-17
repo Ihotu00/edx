@@ -284,6 +284,7 @@ def sell():
 
 
 @app.route("/change-password", methods=["GET", "POST"])
+@login_required
 def changePassword():
     """Change Password"""
 

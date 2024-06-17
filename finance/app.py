@@ -37,21 +37,28 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    user_shares = db.execute("SELECT * FROM users_shares WHERE user_id = ?", session["user_id"])
+    user_shares = db.execute(
+        "SELECT * FROM users_shares WHERE user_id = ?", session["user_id"]
+    )
     user = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
     user_data = []
     total = 0
     for i in range(len(user_shares)):
         price = lookup(user_shares[i]["symbol"])
-        user_data.append({'symbol': user_shares[i]["symbol"],
-                          'shares': user_shares[i]["shares"],
-                          'price': price["price"],
-                          'worth': int(user_shares[i]["shares"]) * price["price"]
-                          })
+        user_data.append(
+            {
+                "symbol": user_shares[i]["symbol"],
+                "shares": user_shares[i]["shares"],
+                "price": price["price"],
+                "worth": int(user_shares[i]["shares"]) * price["price"],
+            }
+        )
     for i in range(len(user_data)):
         total += float(user_data[i]["worth"])
     total += user[0]["cash"]
-    return render_template("index.html", user_data=user_data, cash=user[0]["cash"], total=total)
+    return render_template(
+        "index.html", user_data=user_data, cash=user[0]["cash"], total=total
+    )
 
 
 @app.route("/buy", methods=["GET", "POST"])
@@ -68,7 +75,7 @@ def buy():
 
         try:
             int(request.form.get("shares"))
-        except (ValueError):
+        except ValueError:
             return apology("invalid shares")
 
         if not request.form.get("shares") or not int(request.form.get("shares")) > 0:
@@ -79,7 +86,9 @@ def buy():
         if quote == None:
             return apology("invalid symbol")
 
-        user_cash = db.execute("SELECT cash FROM users where id = ?", session["user_id"])
+        user_cash = db.execute(
+            "SELECT cash FROM users where id = ?", session["user_id"]
+        )
 
         cost = quote["price"] * int(request.form.get("shares"))
 
@@ -92,20 +101,40 @@ def buy():
             user_cash[0]["cash"] -= cost
             logging.warning(user_cash[0]["cash"])
             try:
-                db.execute("INSERT INTO users_shares (user_id, symbol, shares) VALUES(?,?,?)",
-                           session["user_id"], request.form.get("symbol").upper(), request.form.get("shares"))
+                db.execute(
+                    "INSERT INTO users_shares (user_id, symbol, shares) VALUES(?,?,?)",
+                    session["user_id"],
+                    request.form.get("symbol").upper(),
+                    request.form.get("shares"),
+                )
                 logging.warning("Inserted first time")
-            except (ValueError):
+            except ValueError:
                 logging.warning("Already exist updating")
-                shares = db.execute("SELECT shares FROM users_shares WHERE user_id = ? AND symbol = ?",
-                                    session["user_id"], request.form.get("symbol").upper())
+                shares = db.execute(
+                    "SELECT shares FROM users_shares WHERE user_id = ? AND symbol = ?",
+                    session["user_id"],
+                    request.form.get("symbol").upper(),
+                )
                 shares[0]["shares"] += int(request.form.get("shares"))
-                db.execute("UPDATE users_shares SET shares = ?, last_modified_date = ? WHERE user_id = ? AND symbol = ?",
-                           shares[0]["shares"], datetime.datetime.now(), session["user_id"], request.form.get("symbol").upper())
-            db.execute("INSERT INTO users_transaction_history (user_id, symbol, shares, action) VALUES(?,?,?,?)",
-                       session["user_id"], request.form.get("symbol").upper(), request.form.get("shares"), "buy")
-            db.execute("UPDATE users SET cash = ? WHERE id = ?",
-                       user_cash[0]["cash"], session["user_id"])
+                db.execute(
+                    "UPDATE users_shares SET shares = ?, last_modified_date = ? WHERE user_id = ? AND symbol = ?",
+                    shares[0]["shares"],
+                    datetime.datetime.now(),
+                    session["user_id"],
+                    request.form.get("symbol").upper(),
+                )
+            db.execute(
+                "INSERT INTO users_transaction_history (user_id, symbol, shares, action) VALUES(?,?,?,?)",
+                session["user_id"],
+                request.form.get("symbol").upper(),
+                request.form.get("shares"),
+                "buy",
+            )
+            db.execute(
+                "UPDATE users SET cash = ? WHERE id = ?",
+                user_cash[0]["cash"],
+                session["user_id"],
+            )
             flash("Purchase Successful")
             return redirect("/")
 
@@ -115,25 +144,29 @@ def buy():
 def history():
     """Show history of transactions"""
     users_transaction_history = db.execute(
-        "SELECT * FROM users_transaction_history WHERE user_id = ?", session["user_id"])
+        "SELECT * FROM users_transaction_history WHERE user_id = ?", session["user_id"]
+    )
     history = []
     for i in range(len(users_transaction_history)):
         price = lookup(users_transaction_history[i]["symbol"])
         color = ""
         action = ""
-        if users_transaction_history[i]["action"] == 'sell':
+        if users_transaction_history[i]["action"] == "sell":
             color = "red"
             action = "SOLD"
         else:
             color = "green"
             action = "BOUGHT"
-        history.append({'symbol': users_transaction_history[i]["symbol"],
-                        'shares': users_transaction_history[i]["shares"],
-                        'price': price["price"],
-                        'transaction': action,
-                        'date': users_transaction_history[i]["creation_date"],
-                        'color': color
-                        })
+        history.append(
+            {
+                "symbol": users_transaction_history[i]["symbol"],
+                "shares": users_transaction_history[i]["shares"],
+                "price": price["price"],
+                "transaction": action,
+                "date": users_transaction_history[i]["creation_date"],
+                "color": color,
+            }
+        )
     return render_template("history.html", history=history)
 
 
@@ -205,7 +238,9 @@ def quote():
             return apology("invalid symbol")
 
         else:
-            return render_template("quoted.html", symbol=quote["symbol"], price=quote["price"])
+            return render_template(
+                "quoted.html", symbol=quote["symbol"], price=quote["price"]
+            )
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -240,10 +275,11 @@ def register():
         # Insert into do
         try:
             db.execute(
-                "INSERT INTO users (username, hash) VALUES(?,?)", request.form.get(
-                    "username"), password_hash
+                "INSERT INTO users (username, hash) VALUES(?,?)",
+                request.form.get("username"),
+                password_hash,
             )
-        except (ValueError):
+        except ValueError:
             return apology("username taken", 400)
 
         # Query database for username
@@ -268,15 +304,19 @@ def sell():
     """Sell shares of stock"""
     if request.method == "GET":
         symbols = db.execute(
-            "SELECT symbol FROM users_shares WHERE user_id = ?", session["user_id"])
+            "SELECT symbol FROM users_shares WHERE user_id = ?", session["user_id"]
+        )
         return render_template("sell.html", symbols=symbols)
 
     else:
         if not request.form.get("symbol"):
             return apology("must provide symbol")
 
-        shares = db.execute("SELECT * FROM users_shares WHERE user_id = ? AND symbol = ?",
-                            session["user_id"], request.form.get("symbol").upper())
+        shares = db.execute(
+            "SELECT * FROM users_shares WHERE user_id = ? AND symbol = ?",
+            session["user_id"],
+            request.form.get("symbol").upper(),
+        )
 
         cash = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
 
@@ -291,14 +331,31 @@ def sell():
         cash[0]["cash"] += price["price"] * absShares
 
         if shares[0]["shares"] == 0:
-            db.execute("DELETE FROM users_shares WHERE user_id = ? AND symbol = ?",
-                       session["user_id"], request.form.get("symbol").upper())
+            db.execute(
+                "DELETE FROM users_shares WHERE user_id = ? AND symbol = ?",
+                session["user_id"],
+                request.form.get("symbol").upper(),
+            )
 
-        db.execute("UPDATE users_shares SET shares = ?, last_modified_date = ? WHERE user_id = ? AND symbol = ?",
-                   shares[0]["shares"], datetime.datetime.now(), session["user_id"], request.form.get("symbol").upper())
-        db.execute("INSERT INTO users_transaction_history (user_id, symbol, shares, action) VALUES(?,?,?,?)",
-                   session["user_id"], request.form.get("symbol").upper(), -abs(int(request.form.get("shares"))), "sell")
-        db.execute("UPDATE users SET cash = ? WHERE id = ?", cash[0]["cash"], session["user_id"])
+        db.execute(
+            "UPDATE users_shares SET shares = ?, last_modified_date = ? WHERE user_id = ? AND symbol = ?",
+            shares[0]["shares"],
+            datetime.datetime.now(),
+            session["user_id"],
+            request.form.get("symbol").upper(),
+        )
+        db.execute(
+            "INSERT INTO users_transaction_history (user_id, symbol, shares, action) VALUES(?,?,?,?)",
+            session["user_id"],
+            request.form.get("symbol").upper(),
+            -abs(int(request.form.get("shares"))),
+            "sell",
+        )
+        db.execute(
+            "UPDATE users SET cash = ? WHERE id = ?",
+            cash[0]["cash"],
+            session["user_id"],
+        )
         flash("Successfull sold")
         return redirect("/")
 
@@ -323,12 +380,16 @@ def changePassword():
 
         rows = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
 
-        if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("old_password")):
+        if len(rows) != 1 or not check_password_hash(
+            rows[0]["hash"], request.form.get("old_password")
+        ):
             return apology("incorrect password", 403)
 
         password_hash = generate_password_hash(request.form.get("new_password"))
 
-        db.execute("UPDATE users SET hash = ? WHERE id = ?", password_hash, session["user_id"])
+        db.execute(
+            "UPDATE users SET hash = ? WHERE id = ?", password_hash, session["user_id"]
+        )
 
         flash("Password changed successfully")
         return redirect("/")
@@ -354,7 +415,11 @@ def cash():
 
         user[0]["cash"] += int(request.form.get("cash"))
 
-        db.execute("UPDATE users SET cash = ? WHERE id = ?", user[0]["cash"], session["user_id"])
+        db.execute(
+            "UPDATE users SET cash = ? WHERE id = ?",
+            user[0]["cash"],
+            session["user_id"],
+        )
 
         flash("Cash acquired")
         return redirect("/")

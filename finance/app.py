@@ -85,6 +85,7 @@ def buy():
             logging.warning(user_cash[0]["cash"])
             logging.warning(cost)
             user_cash[0]["cash"] -= cost
+            logging.warning(user_cash[0]["cash"])
             try:
                 db.execute("INSERT INTO users_shares (user_id, symbol, shares) VALUES(?,?,?)",
                        session["user_id"], request.form.get("symbol"), request.form.get("shares"))

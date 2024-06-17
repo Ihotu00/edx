@@ -161,18 +161,12 @@ def login():
         session["user_id"] = rows[0]["id"]
 
         # Redirect user to home page
+        flash("Login Successful")
         return redirect("/")
 
     # User reached route via GET (as by clicking a link or via redirect)
     else:
         return render_template("login.html")
-
-
-# app.route("/logout")
-# def get_flashed_messages(message):
-#     """Log user out"""
-
-#     return message
 
 
 @app.route("/logout")

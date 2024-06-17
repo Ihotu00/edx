@@ -26,7 +26,10 @@
                 <td>
                     <form action="/buy_or_sell" method="post" class="row">
                         <div class="col-4"></div>
-                        <div class="col-4"><input class="form-control form-control-sm" name="shares" placeholder="Amount" type="number"></div>
+                        <div class="col-4">
+                            <input class="form-control form-control-sm" name="shares" placeholder="Amount" type="number">
+                            <input class="form-control form-control-sm" name="symbol" type="text" value="{{ data['symbol']}}">
+                        </div>
                         <div class="col-4"><button class="btn btn-primary btm-sm" type="submit">
                             <span class="material-symbols-outlined">check</span>
                         </button></div>

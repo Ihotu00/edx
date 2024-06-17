@@ -8,20 +8,20 @@
     <table class="table table-success table-hover">
         <thead>
             <tr>
-                <th scope="col">#</th>
                 <th scope="col">Symbol</th>
                 <th scope="col">Shares</th>
                 <th scope="col">Price</th>
-                <th scope="col">Total</th>
+                <th scope="col">Transaction</th>
+                <th scope="col">Date</th>
             </tr>
         </thead>
         <tbody>
-            <tr {% for data in user_data %} >
-                <th scope="row">{{ loop.index }}</th>
+            <tr {% for data in history %} >
                 <td>{{ data["symbol"] | upper }}</td>
                 <td>{{ data["shares"] }}</td>
                 <td>{{ data["price"] | usd}}</td>
-                <td>{{ data["worth"] | usd }}</td>
+                <td>{{ data["transaction"] | usd }}</td>
+                <td>{{ data["date"] | usd }}</td>
             </tr {% endfor %}>
         </tbody>
         <tfoot>

@@ -14,7 +14,7 @@
                     <th scope="col">Shares</th>
                     <th scope="col">Price</th>
                     <th scope="col">Total</th>
-                    <th scope="col">Buy/Sell</th>
+                    <th scope="col">Buy/Sell<h6 style="color: red">(Positive number to buy, Negative number to sell)</h6></th>
                 </tr>
             </thead>
             <tbody>
@@ -30,7 +30,7 @@
                                 <form action="/buy_or_sell" method="post">
                                     <input style="display: none" name="symbol" type="text" value="{{ data['symbol']}}">
                                     <div class="input-group input-group-sm">
-                                        <input class="form-control form-control-sm" name="shares" placeholder="Amount" type="number">
+                                        <input class="form-control form-control-sm" name="shares" placeholder="Amt" type="number">
                                         <button class="btn btn-primary btm-sm" type="submit">
                                             <span class="material-symbols-outlined">check</span>
                                         </button>

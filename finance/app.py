@@ -161,7 +161,7 @@ def login():
         session["user_id"] = rows[0]["id"]
 
         # Redirect user to home page
-        return redirect("/", get_flashed_messages("Login Successful"))
+        return redirect("/")
 
     # User reached route via GET (as by clicking a link or via redirect)
     else:
@@ -169,10 +169,10 @@ def login():
 
 
 # app.route("/logout")
-def get_flashed_messages(message):
-    """Log user out"""
+# def get_flashed_messages(message):
+#     """Log user out"""
 
-    return message
+#     return message
 
 
 @app.route("/logout")

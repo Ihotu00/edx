@@ -244,8 +244,12 @@ def sell():
         if not request.form.get("symbol"):
             return apology("must provide symbol")
 
-        shares = db.execute("SELECT shares FROM users_shares WHERE user_id = ? AND symbol = ?",
+        user_shares = db.execute("SELECT * FROM users_shares WHERE user_id = ? AND symbol = ?",
                             session["user_id"], request.form.get("symbol"))
 
-        if not request.form.get("shares") or int(request.form.get("shares")) > shares[0]["shares"]:
+        if not request.form.get("shares") or int(request.form.get("shares")) > user_shares[0]["shares"]:
             return apology("invalid number of shares")
+
+        price = lookup(request.form.get("symbol"))
+
+        user_shares[0][]

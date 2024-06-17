@@ -83,9 +83,12 @@ def buy():
 
         else:
             user_cash[0]["cash"] -= cost
-            try: db.execute("INSERT INTO users_shares (user_id, symbol, shares) VALUES(?,?,?)",
+            try:
+                db.execute("INSERT INTO users_shares (user_id, symbol, shares) VALUES(?,?,?)",
                        session["user_id"], request.form.get("symbol"), request.form.get("shares"))
+                logging.warning("Inserted first time")
             except(ValueError):
+                logging.warning("Already exist updating")
                 shares = db.execute("SELECT shares FROM users_shares WHERE user_id = ? AND symbol = ?",
                                            session["user_id"], request.form.get("symbol"))
                 shares[0]["shares"] += int(request.form.get("shares"))

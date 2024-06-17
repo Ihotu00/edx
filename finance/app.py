@@ -116,9 +116,10 @@ def history():
                           'shares': users_transaction_history[i]["shares"],
                           'price': price["price"],
                           'transaction': users_transaction_history[i]["action"],
-                          'date': users_transaction_history[i]["creation_date"]
+                          'date': users_transaction_history[i]["creation_date"],
+                          'color
                           })
-    return render_template("history.html", history=history)
+    return render_template("history.html", history=history, color="")
 
 @app.route("/login", methods=["GET", "POST"])
 def login():

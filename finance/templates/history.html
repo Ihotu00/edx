@@ -20,9 +20,12 @@
                 <td>{{ data["symbol"] | upper }}</td>
                 <td>{{ data["shares"] }}</td>
                 <td>{{ data["price"] | usd}}</td>
-                <td {% if data["transaction"] == 'sell' style="color: red;"%}
-                {% else style="color: green" %}{% endif %}>{{ data["transaction"] | usd }}</td>
-                <td>{{ data["date"] | usd }}</td>
+                {% if data["transaction"] == 'sell' %}
+                <td  style="color: red;">{{ data["transaction"] | usd }}</td>
+                {% else %}
+                <td  style="color: green">{{ data["transaction"] | usd }}</td>
+                {% endif %}
+                <td>{{ data["date"] }}</td>
             </tr {% endfor %}>
         </tbody>
     </table>

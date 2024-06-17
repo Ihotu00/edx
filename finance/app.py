@@ -74,8 +74,8 @@ def buy():
                 shares = db.execute("SELECT shares FROM users_shares WHERE user_id = ? AND symbol = ?",
                                            session["user_id"], request.form.get("symbol"))
                 shares[0]["shares"] += int(request.form.get("shares"))
-                db.execute("UPDATE users_shares SET shares = ? WHERE user_id = ? AND symbol = ?",
-                                         shares[0]["shares"], session["user_id"], request.form.get("symbol"))
+                db.execute("UPDATE users_shares SET shares = ?, last_modified_date = ? WHERE user_id = ? AND symbol = ?",
+                                         shares[0]["shares"], Date, session["user_id"], request.form.get("symbol"))
             db.execute("INSERT INTO users_transaction_history (user_id, symbol, shares, action) VALUES(?,?,?,?)",
                        session["user_id"], request.form.get("symbol"), request.form.get("shares"), "buy")
             db.execute("UPDATE users SET cash = ? WHERE id = ?", user_cash[0]["cash"], session["user_id"])

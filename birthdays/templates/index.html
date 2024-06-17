@@ -56,12 +56,14 @@
                             <th>{{ birthday["name"] }}</th>
                             <th>{{ birthday["month"] }}/{{ birthday["day"] }}</th>
                             <th>
-                                <form action="/action" method="post">
-                                    <span class="material-symbols-outlined btn btn-outline-dark">edit</span>
-                                </form>
-                                <form action="/action" method="post">
-                                    <span class="material-symbols-outlined btn btn-outline-dark">delete</span>
-                                </form>
+                                <span class="row center">
+                                    <form action="/action" method="post" class="col-2">
+                                        <span class="material-symbols-outlined btn btn-outline-dark">edit</span>
+                                    </form>
+                                    <form action="/action" method="post" class="col-2">
+                                        <span class="material-symbols-outlined btn btn-outline-dark">delete</span>
+                                    </form>
+                                </span>
                             </th>
                         </tr {% endfor %}>
                     </tbody>

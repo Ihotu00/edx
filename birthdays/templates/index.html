@@ -19,7 +19,8 @@
                 // });
                 function edit(id, name, month, day) {
                     document.getElementById('edit_name').value = name;
-                    month = f"${month:,2f}";
+                    month = String(month).padStart(2, '0');
+                    day = String(day).padStart(2, '0');
                     document.getElementById('edit_date').value = `2024-${month}-${day}`;
                     document.getElementById('edit').value = id;
                 }

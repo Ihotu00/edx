@@ -43,8 +43,9 @@ def index():
         price = lookup(user_shares[i]["symbol"])
         user_data.append({'symbol': user_shares[i]["symbol"],
                           'shares': user_shares[i]["shares"],
+                          'cash': user_shares[i]["cash"],
                           'price': price["price"],
-                          'total': int(user_shares[i]["shares"]) * price["price"]
+                          'worth': int(user_shares[i]["shares"]) * price["price"]
                           })
     return render_template("index.html", user_data=user_data)
 

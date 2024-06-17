@@ -66,6 +66,11 @@ def buy():
         if not request.form.get("symbol"):
             return apology("must provide symbol")
 
+        try:
+            int(request.form.get("shares"))
+        except(ValueError):
+            return apology("invalid shares")
+
         if not request.form.get("shares") or not int(request.form.get("shares")) > 0:
             return apology("invalid number of shares")
 

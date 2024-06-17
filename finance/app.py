@@ -344,7 +344,6 @@ def buy_or_sell():
     if not request.form.get("shares"):
         return apology("must provide amount")
 
-    # if int(request.form.get("shares")) > 0:
-    #     redirect("/buy", method="post")
-    
+    if int(request.form.get("shares")) > 0:
+
     return apology("baby steps")

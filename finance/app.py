@@ -255,7 +255,7 @@ def sell():
         shares[0]["shares"] -= int(request.form.get("shares"))
 
         price = lookup(request.form.get("symbol"))
-        cash[0]["cash"] += price["price"]
+        cash[0]["cash"] += price["price"] * int(request.form.get("shares"))
 
         db.execute("UPDATE users_shares SET shares = ?, last_modified_date = ? WHERE user_id = ? AND symbol = ?",
                                          shares[0]["shares"], datetime.datetime.now(), session["user_id"], request.form.get("symbol").upper())

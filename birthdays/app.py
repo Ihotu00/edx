@@ -75,10 +75,10 @@ def action():
             flash("Invalid Date")
             return redirect("/")
 
-        month = request.form.get("date").split('-')[1].lstrip('0')
-        day = request.form.get("date").split('-')[2].lstrip('0')
+        month = request.form.get("edit_date").split('-')[1].lstrip('0')
+        day = request.form.get("edit_date").split('-')[2].lstrip('0')
 
-        db.execute("UPDATE birthdays SET name = ?, day = ?, month = ? WHERE id = ?", request.form.get("name"), day, month, request.form.get("edit"))
+        db.execute("UPDATE birthdays SET name = ?, day = ?, month = ? WHERE id = ?", request.form.get("edit_name"), day, month, request.form.get("edit"))
         flash("Update Successfull")
 
         return redirect("/")

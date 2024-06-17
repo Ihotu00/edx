@@ -247,6 +247,5 @@ def sell():
         shares = db.execute("SELECT shares FROM users_shares WHERE user_id = ? AND symbol = ?",
                             session["user_id"], request.form.get("symbol"))
 
-        logging.warning(symbols)
         if not request.form.get("shares") or int(request.form.get("shares")) > shares[0]["shares"]:
             return apology("invalid number of shares")

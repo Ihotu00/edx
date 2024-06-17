@@ -39,7 +39,7 @@ def index():
     """Show portfolio of stocks"""
     user_shares = db.execute("SELECT * FROM users_shares WHERE id = ?", session["user_id"])
     logging.warning(user_shares)
-    user_data = []
+    user_data = [{}]
     for i in range(len(user_shares)):
         user_data["symbol"].append(user_shares[i]["symbol"])
         user_data["shares"].append(user_shares[i]["shares"])

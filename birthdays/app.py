@@ -79,6 +79,6 @@ def action():
         day = request.form.get("edit_date").split('-')[2].lstrip('0')
 
         db.execute("UPDATE birthdays SET name = ?, day = ?, month = ? WHERE id = ?", request.form.get("edit_name"), day, month, request.form.get("edit"))
-        flash("Update Successfull")
+        flash("Update Successful")
 
         return redirect("/")

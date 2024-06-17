@@ -348,6 +348,7 @@ def buy_or_sell():
         return buy()
 
     if int(request.form.get("shares")) < 0:
+        request.form.get("shares") = abs(request.form.get("shares"))
         return sell()
 
     return apology("baby steps")

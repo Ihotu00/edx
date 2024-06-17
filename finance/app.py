@@ -88,7 +88,7 @@ def buy():
             logging.warning(user_cash[0]["cash"])
             try:
                 db.execute("INSERT INTO users_shares (user_id, symbol, shares) VALUES(?,?,?)",
-                       session["user_id"], request.form.get("symbol"), request.form.get("shares"))
+                       session["user_id"], request.form.get("symbol").lower(), request.form.get("shares"))
                 logging.warning("Inserted first time")
             except(ValueError):
                 logging.warning("Already exist updating")
@@ -98,7 +98,7 @@ def buy():
                 db.execute("UPDATE users_shares SET shares = ?, last_modified_date = ? WHERE user_id = ? AND symbol = ?",
                                          shares[0]["shares"], datetime.datetime.now(), session["user_id"], request.form.get("symbol"))
             db.execute("INSERT INTO users_transaction_history (user_id, symbol, shares, action) VALUES(?,?,?,?)",
-                       session["user_id"], request.form.get("symbol"), request.form.get("shares"), "buy")
+                       session["user_id"], request.form.get("symbol").lower(), request.form.get("shares"), "buy")
             db.execute("UPDATE users SET cash = ? WHERE id = ?", user_cash[0]["cash"], session["user_id"])
             return redirect("/")
 

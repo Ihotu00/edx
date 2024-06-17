@@ -38,7 +38,9 @@ def index():
     """Show portfolio of stocks"""
     user_shares = db.execute("SELECT * WFROM users WHERE id = ?", session["user_id"])
     for symbol, shares in user_shares:
-        price["symbol"].append(lookup(symbol))
+        shares["symbol"] = symbol
+        shares["shares"] = shares
+        shares["price"].append(lookup(symbol))
     return render_template("index.html")
 
 

@@ -214,19 +214,19 @@ def register():
 
         # Ensure username was submitted
         if not request.form.get("username"):
-            return apology("must provide username", 403)
+            return apology("must provide username", 400)
 
         # Ensure password was submitted
         elif not request.form.get("password"):
-            return apology("must provide password", 403)
+            return apology("must provide password", 400)
 
         # Ensure password confirmation was submitted
         elif not request.form.get("confirmation"):
-            return apology("must provide password confimation", 403)
+            return apology("must provide password confimation", 400)
 
         # Ensure password confirmation is correct
         elif request.form.get("password") != request.form.get("confirmation"):
-            return apology("your password did not match", 403)
+            return apology("your password did not match", 400)
 
         # Hash password
         password_hash = generate_password_hash(request.form.get("password"))
@@ -236,7 +236,7 @@ def register():
             db.execute(
                 "INSERT INTO users (username, hash) VALUES(?,?)", request.form.get("username"), password_hash
                 )
-        except(ValueError): return apology("username taken", 403)
+        except(ValueError): return apology("username taken", 400)
 
         # Query database for username
         rows = db.execute(

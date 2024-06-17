@@ -42,6 +42,10 @@ def index():
             return redirect("/")
 
         logging.warning(request.form.get("date"))
+        month = request.form.get("date").split('-')[1]
+        day = request.form.get("date").split('-')[2]
+        logging.warning(month)
+        logging.warning(day)
 
         return redirect("/")
 

@@ -29,10 +29,10 @@ def index():
         # TODO: Add the user's entry into the database
 
         if not request.form.get("name"):
-            return flash("must provide symbol")
+            flash("must provide symbol")
 
         if not request.form.get("date"):
-            return flash("must provide symbol")
+            flash("must provide symbol")
 
         return redirect("/")
 

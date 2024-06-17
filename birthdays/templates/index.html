@@ -24,7 +24,7 @@
                 </div>
             </header>
         {% endif %}
-        
+
         <div class="container">
             <div class="section">
 
@@ -47,6 +47,7 @@
                         <tr>
                             <th>Name</th>
                             <th>Birthday</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -54,6 +55,7 @@
                         <tr {% for birthday in birthdays %}>
                             <th>{{ birthday["name"] }}</th>
                             <th>{{ birthday["month"] }}/{{ birthday["day"] }}</th>
+                            <th></th>
                         </tr {% endfor %}>
                     </tbody>
                 </table>

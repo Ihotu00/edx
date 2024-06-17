@@ -28,6 +28,12 @@ def index():
 
         # TODO: Add the user's entry into the database
 
+        if not request.form.get("name"):
+            return apology("must provide symbol")
+
+        if not request.form.get("date"):
+            return apology("must provide symbol")
+
         return redirect("/")
 
     else:

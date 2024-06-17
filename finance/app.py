@@ -237,8 +237,9 @@ def register():
 def sell():
     """Sell shares of stock"""
     if request.method == "GET":
-        user_shares = db.execute("SELECT symbol, shares FROM users_shares WHERE user_id = ?", session["user_id"])
+        symbols = db.execute("SELECT symbol, shares FROM users_shares WHERE user_id = ?", session["user_id"])
         logging.warning(symbols)
         return render_template("sell.html", symbols=symbols)
 
-    else: return apology("TODO")
+    else:
+        

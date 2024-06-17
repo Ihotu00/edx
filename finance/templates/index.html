@@ -13,6 +13,7 @@
                 <th scope="col">Shares</th>
                 <th scope="col">Price</th>
                 <th scope="col">Total</th>
+                <th scope="col">Buy/Sell</th>
             </tr>
         </thead>
         <tbody>
@@ -22,6 +23,10 @@
                 <td>{{ data["shares"] }}</td>
                 <td>{{ data["price"] | usd}}</td>
                 <td>{{ data["worth"] | usd }}</td>
+                <td>
+                    <input class="form-control mx-auto w-auto" name="cash" placeholder="Amount" type="number">
+                    <button class="btn btn-primary" type="submit">Add Cash</button>
+                </td>
             </tr {% endfor %}>
         </tbody>
         <tfoot>

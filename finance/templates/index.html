@@ -8,6 +8,7 @@
     <table class="table table-success table-hover">
         <thead>
             <tr>
+                <th scope="col">#</th>
                 <th scope="col">Symbol</th>
                 <th scope="col">Shares</th>
                 <th scope="col">Price</th>
@@ -16,13 +17,15 @@
         </thead>
         <tbody>
             <tr {% for data in user_data %} >
-                <td>{{ data[]}}</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                <th scope="row">{{ loop.index }}</th>
+                <td>{{ data["symbol"] }}</td>
+                <td>{{ data["shares"] }}</td>
+                <td>{{ data["price"] }}</td>
+                <td>{{ data["total"] }}</td>
             </tr {% endfor %}>
         </tbody>
         <tfoot>
+            <td></td>
             <td></td>
             <td></td>
             <th>TOTAL</th>

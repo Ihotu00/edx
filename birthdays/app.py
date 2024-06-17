@@ -2,12 +2,16 @@ import os
 
 from cs50 import SQL
 from flask import Flask, flash, jsonify, redirect, render_template, request, session
+from flask_session import Session
 
 # Configure application
 app = Flask(__name__)
 
 # Ensure templates are auto-reloaded
 app.config["TEMPLATES_AUTO_RELOAD"] = True
+
+app.config["SESSION_TYPE"] = "filesystem"
+Session(app)
 
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///birthdays.db")
@@ -29,10 +33,12 @@ def index():
         # TODO: Add the user's entry into the database
 
         if not request.form.get("name"):
-            flash("must provide symbol")
+            flash("Invalid Name")
+            return redirect("/")
 
         if not request.form.get("date"):
-            flash("must provide symbol")
+            flash("Invalid Date")
+            return redirect("/")
 
         return redirect("/")
 

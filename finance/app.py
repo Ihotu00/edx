@@ -291,27 +291,22 @@ def changePassword():
         return render_template("change-password.html")
 
     else:
-        # Ensure username was submitted
-        if not request.form.get("old_password"):
+        if not request.form.get("old_password") or not request.form.get("new_password"):
             return apology("must provide password", 403)
 
-        # Ensure password was submitted
-        elif not request.form.get("new_password"):
-            return apology("must provide password", 403)
+        elif not request.form.get("confirmation"):
+            return apology("must provide password confimation", 403)
 
-        # Query database for username
-        rows = db.execute(
-            "SELECT * FROM users WHERE username = ?", request.form.get("username")
-        )
+        elif request.form.get("new_password") != request.form.get("confirmation"):
+            return apology("your password did not match", 403)
 
-        # Ensure username exists and password is correct
-        if len(rows) != 1 or not check_password_hash(
-            rows[0]["hash"], request.form.get("password")
-        ):
-            return apology("invalid username and/or password", 403)
+        rows = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
 
-        # Remember which user has logged in
-        session["user_id"] = rows[0]["id"]
+        if len(rows) != 1 or not check_password_hash( rows[0]["hash"], request.form.get("old_password")):
+            return apology("incorrect password", 403)
 
-        # Redirect user to home page
+        password_hash = generate_password_hash(request.form.get("new_password"))
+
+        db.execute("UPDATE users SET hash = ? WHERE id = ?", password_hash, session["user_id"])
+
         return redirect("/")

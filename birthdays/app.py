@@ -64,3 +64,4 @@ def action():
         db.execute("DELETE FROM birthdays where id = ?", request.form.get("delete"))
         flash("Deleted")
         return redirect("/")
+    return

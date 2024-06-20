@@ -50,7 +50,7 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
 
-    if request.method = "GET":
+    if request.method == "GET":
 
         posts = db.execute("SELECT * FROM blog_posts WHERE user_id = ?", session["user_id"])
 
@@ -60,7 +60,7 @@ def index():
 
         if request.form.get("message"):
             db.execute("INSERT INTO blog_posts(user_id, post) VALUES(?,?)", session["user_id"], request.form.get("message"))
-            
+        return redirect("/")
 
 
 @app.route("/login", methods=["GET", "POST"])

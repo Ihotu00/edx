@@ -52,7 +52,7 @@ def index():
 
     if request.method == "GET":
 
-        posts = db.execute("SELECT * FROM blog_posts WHERE user_id = ?", session["user_id"])
+        posts = db.execute("SELECT * FROM blog_posts WHERE user_id = ? ORDER BY creation_time DESC", session["user_id"])
 
         return render_template("index.html", posts=posts)
 

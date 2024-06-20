@@ -15,3 +15,7 @@ main {
 .hide {
     display: none;
 }
+
+hr {
+    transform: rotate(90deg);
+}

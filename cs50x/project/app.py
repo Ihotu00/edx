@@ -52,6 +52,9 @@ def index():
 
     posts = db.execute("SELECT * FROM blog_posts WHERE user_id = ? ORDER BY creation_time DESC", session["user_id"])
 
+    groups = db.execute("SELECT * FROM users_groups WHERE user_id = ?", session["user_id"])
+    logging.warning(groups)
+
     return render_template("index.html", posts=posts)
 
 
@@ -84,6 +87,7 @@ def create_group():
 
         group = db.execute("SELECT * FROM groups WHERE group_name = ?", request.form.get("group_name"))
         db.execute("INSERT INTO users_groups(user_id, group_id) VALUES(?,?)", session["user_id"], group[0]["id"])
+        flash("Created Successfully")
     return redirect("/")
 
 

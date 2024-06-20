@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <div class="table-responsive-sm">
+        <table class="table table-success table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Symbol</th>
+                    <th scope="col">Shares</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Buy/Sell<p style="color: red">(Positive number to buy, Negative number to sell)</p></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr {% for data in user_data %} >
+                    <th scope="row">{{ loop.index }}</th>
+                    <td>{{ data["symbol"] | upper }}</td>
+                    <td>{{ data["shares"] }}</td>
+                    <td>{{ data["price"] | usd}}</td>
+                    <td>{{ data["worth"] | usd }}</td>
+                    <td>
+                        <div class="center">
+                            <div class="col-md-3">
+                                <form action="/buy_or_sell" method="post">
+                                    <input style="display: none" name="symbol" type="text" value="{{ data['symbol']}}">
+                                    <div class="input-group input-group-sm">
+                                        <input class="form-control form-control-sm" name="shares" placeholder="Amt" type="number">
+                                        <button class="btn btn-primary btm-sm" type="submit">
+                                            <span class="material-symbols-outlined">check</span>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </td>
+                </tr {% endfor %}>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="4" class="text-end">Cash</th>
+                    <td>{{ cash | usd }}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th colspan="4" class="text-end">TOTAL</th>
+                    <td>{{ total | usd }}</td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+{% endblock %}

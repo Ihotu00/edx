@@ -13,8 +13,9 @@ Logged In {{ name }}
           role="tab" aria-controls="home-tab-pane" aria-selected="true" onClick="show('message')">Posts</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#groups-tab-pane" type="button"
-          role="tab" aria-controls="profile-tab-pane" aria-selected="false" onClick="show('message')">Groups</button>
+        <button class="nav-link active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#groups-tab-pane"
+          type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false"
+          onClick="show('message')">Groups</button>
       </li>
       <li class="nav-item" role="presentation">
         <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button"
@@ -24,8 +25,7 @@ Logged In {{ name }}
   </div>
   <div class="card-body overflow-auto">
     <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade mb-3" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
-        tabindex="0">
+      <div class="tab-pane fade mb-3" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
         <div class="center">
           <div class="col-9">
             {% for post in posts %}
@@ -41,7 +41,8 @@ Logged In {{ name }}
           </div>
         </div>
       </div>
-      <div class="tab-pane fade show active" id="groups-tab-pane" role="tabpanel" aria-labelledby="groups-tab" tabindex="0">
+      <div class="tab-pane fade show active" id="groups-tab-pane" role="tabpanel" aria-labelledby="groups-tab"
+        tabindex="0">
         <div class="card-body text-light">
           <div class="row">
             <div class="col-md-3">
@@ -85,6 +86,7 @@ Logged In {{ name }}
       <div class="input-group input-group-md mb-3">
         <input autocomplete="off" class="form-control form-control-sm" name="message" placeholder="Message..."
           type="text">
+        <input class="hide" name="group_id" type="text">
         <button class="material-symbols-outlined btn btn-outline-primary" type="submit">send</button>
       </div>
     </form>

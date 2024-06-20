@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block main %}
-    <div class="card w-100 h-100 text-center border-primary">
+    <div class="card w-100 h-100 text-center">
         <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
             <li class="nav-item">
@@ -26,9 +26,9 @@
         </div>
     </div>
     <div class="card-footer">
-        <div class="row">
-            <input autocomplete="off" autofocus class="form-control form-control-sm col-9" name="message" placeholder="Message..." type="text">
-            <button class="btn btn-dark btm-sm material-symbols-outlined col-3" type="submit">send></button>
+        <div class="input-group input-group-sm">
+            <input autocomplete="off" autofocus class="form-control form-control-sm" name="message" placeholder="Message..." type="text">
+            <button class="btn btn-dark btm-sm material-symbols-outlined" type="submit">send></button>
         </div>
     </div>
 {% endblock %}

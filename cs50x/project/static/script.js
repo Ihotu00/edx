@@ -1,3 +1,3 @@
 function hide(id) {
-    document.getElementById(id).addClass('hide')
+    document.getElementById(id).classList.add('hide');
 }

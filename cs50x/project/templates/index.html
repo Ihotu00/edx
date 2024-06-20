@@ -46,7 +46,7 @@ Logged In {{ name }}
           <div class="row">
             <div class="col-md-3">
               {% for group in groups %}
-              <div class="card mt-3 text-bg-primary">
+              <div class="card mt-3 text-bg-primary" onClick="selected(group)">
                 <div class="card-body">
                   {{ group["group_name"] }}
                 </div>
@@ -57,7 +57,7 @@ Logged In {{ name }}
             </div>
             <div class="vr" style="color: black"></div>
             <div class="col-md-8">
-              <p class=""></p>
+              <p class="group_header"></p>
             </div>
           </div>
         </div>

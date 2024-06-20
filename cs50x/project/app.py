@@ -62,10 +62,12 @@ def login():
     if request.method == "POST":
         # Ensure username was submitted
         if not request.form.get("username"):
+            flash("Please provide Username")
             return render_template("login.html")
 
         # Ensure password was submitted
         elif not request.form.get("password"):
+            flash("Please provide Password")
             return render_template("login.html")
 
         # Query database for username
@@ -77,7 +79,8 @@ def login():
         if len(rows) != 1 or not check_password_hash(
             rows[0]["hash"], request.form.get("password")
         ):
-            return apology("invalid username and/or password", 403)
+            ("Invalid username/password")
+            return render_template("login.html")
 
         # Remember which user has logged in
         session["user_id"] = rows[0]["id"]

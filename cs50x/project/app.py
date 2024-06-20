@@ -50,7 +50,9 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
 
-    return render_template("index.html")
+    posts = db.execute("SELECT * FROM blog_posts WHERE user_id = ?", session["user_id"])
+
+    return render_template("index.html", posts=posts)
 
 
 @app.route("/login", methods=["GET", "POST"])

@@ -54,7 +54,7 @@ def index():
 
     groups = db.execute("SELECT * FROM groups inner join users_groups on groups.id = users_groups.group_id WHERE users_groups.user_id = ?", session["user_id"])
 
-    return render_template("index.html", posts=posts, groups=groups)
+    return render_template("index.html", posts=posts, groups=groups, tab=tab)
 
 
 @app.route("/post", methods=["POST"])
@@ -89,7 +89,7 @@ def create_group():
         group = db.execute("SELECT * FROM groups WHERE group_name = ?", request.form.get("group_name"))
         db.execute("INSERT INTO users_groups(user_id, group_id) VALUES(?,?)", session["user_id"], group[0]["id"])
         flash("Created Successfully")
-    return redirect("/")
+    return redirect("/", tab="group")
 
 
 
@@ -127,7 +127,7 @@ def login():
 
         # Redirect user to home page
         flash("Login Successful")
-        return redirect("/")
+        return redirect("/", tab="home")
 
     # User reached route via GET (as by clicking a link or via redirect)
     else:
@@ -199,7 +199,7 @@ def register():
 
         # Redirect user to home page
         flash("Registration Successful")
-        return redirect("/")
+        return redirect("/", tab="home")
 
     else:
         return render_template("register.html")

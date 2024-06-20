@@ -77,6 +77,7 @@ def create_group():
 
     if request.form.get("name"):
         db.execute("INSERT INTO groups(created_by, group_name) VALUES(?,?)", session["user_id"], request.form.get("name"))
+        db.execute("INSERT INTO users_groups(user_id, group_id) VALUES(?,?)", session["user_id"], request.form.get("group_id"))
     return redirect("/")
 
 

@@ -76,8 +76,14 @@ def create_group():
     """Show portfolio of stocks"""
 
     if request.form.get("name"):
-        db.execute("INSERT INTO groups(created_by, group_name) VALUES(?,?)", session["user_id"], request.form.get("name"))
-        db.execute("INSERT INTO users_groups(user_id, group_id) VALUES(?,?)", session["user_id"], request.form.get("group_id"))
+        try:
+            db.execute("INSERT INTO groups(created_by, group_name) VALUES(?,?)", session["user_id"], request.form.get("name"))
+        except (ValueError):
+            flash("Sorry that name is unavailbale. Try something else")
+            return redirect("/")
+        
+        group = db.execute("SELECT * FROM groups WHERE group_name = ?", request.form.get("name"))
+        db.execute("INSERT INTO users_groups(user_id, group_id) VALUES(?,?)", session["user_id"], group[0]["id"])
     return redirect("/")
 
 

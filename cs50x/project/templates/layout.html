@@ -50,29 +50,27 @@
             </div>
         </nav>
 
-        {% if get_flashed_messages() %}
-            <!-- <header>
-                <div class="alert alert-primary alert-dismissible fade show mb-0 text-center" role="alert">
-                    {{ get_flashed_messages() | join(" ") }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            </header> -->
-            <div class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
-                <div class="d-flex">
-                  <div class="toast-body">
-                    {{ get_flashed_messages() | join(" ") }}
-                  </div>
-                  <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-                </div>
-              </div>
-        {% endif %}
-
         <main class="container py-5 text-center">
             {% block main %}{% endblock %}
         </main>
 
         <footer class="mb-5">
-
+            {% if get_flashed_messages() %}
+                <!-- <header>
+                    <div class="alert alert-primary alert-dismissible fade show mb-0 text-center" role="alert">
+                        {{ get_flashed_messages() | join(" ") }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </header> -->
+                <div class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                    <div class="toast-body">
+                        {{ get_flashed_messages() | join(" ") }}
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>
+            {% endif %}
         </footer>
 
     </body>

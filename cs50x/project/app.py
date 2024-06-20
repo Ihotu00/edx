@@ -53,8 +53,8 @@ def index():
     posts = db.execute("SELECT * FROM blog_posts WHERE user_id = ? ORDER BY creation_time DESC", session["user_id"])
 
     groups = db.execute("SELECT * FROM groups inner join users_groups on groups.id = users_groups.group_id WHERE users_groups.user_id = ?", session["user_id"])
-    logging.warning(request.args.get("tab"))
-    return render_template("index.html", posts=posts, groups=groups, tab=request.args.get("tab"))
+    session["tab"] = "home"
+    return render_template("index.html", posts=posts, groups=groups, tab=session["tab"])
 
 
 @app.route("/post", methods=["POST"])
@@ -71,7 +71,7 @@ def post():
 
     if request.form.get("message"):
         db.execute("INSERT INTO blog_posts(user_id, post, group_id) VALUES(?,?,?)", session["user_id"], request.form.get("message"), group_id)
-    return redirect("/", tab=request.form.get("tab")) #url_for('found', email=x, listOfObjects=y)
+    return redirect("/")
 
 
 @app.route("/create/group", methods=["POST"])
@@ -84,12 +84,12 @@ def create_group():
             db.execute("INSERT INTO groups(created_by, group_name) VALUES(?,?)", session["user_id"], request.form.get("group_name"))
         except (ValueError):
             flash("Sorry that name is unavailbale. Try something else")
-            return redirect("/", tab="group")
+            return redirect("/")
 
         group = db.execute("SELECT * FROM groups WHERE group_name = ?", request.form.get("group_name"))
         db.execute("INSERT INTO users_groups(user_id, group_id) VALUES(?,?)", session["user_id"], group[0]["id"])
         flash("Created Successfully")
-    return redirect("/", tab="group")
+    return redirect("/")
 
 
 
@@ -127,7 +127,7 @@ def login():
 
         # Redirect user to home page
         flash("Login Successful")
-        return redirect("/", tab="home")
+        return redirect("/")
 
     # User reached route via GET (as by clicking a link or via redirect)
     else:
@@ -199,7 +199,7 @@ def register():
 
         # Redirect user to home page
         flash("Registration Successful")
-        return redirect("/", tab="home")
+        return redirect("/")
 
     else:
         return render_template("register.html")

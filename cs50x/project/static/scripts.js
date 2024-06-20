@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function(tab) {
-    if (tab === 'posts') {
+    if (tab === 'home') {
         document.getElementById('home-tab').classList.add("active");
         document.getElementById('home-tab-pane').classList.add("show active");
     }

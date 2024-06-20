@@ -18,7 +18,7 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 # Configure CS50 Library to use SQLite database
-# db = SQL("sqlite:///finance.db")
+db = SQL("sqlite:///tunglr.db")
 
 def login_required(f):
     """
@@ -58,6 +58,28 @@ def login():
 
     # Forget any user_id
     session.clear()
+    user_shares = db.execute(
+        "SELECT * FROM users_shares WHERE user_id = ?", session["user_id"]
+    )
+    user = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
+    user_data = []
+    total = 0
+    for i in range(len(user_shares)):
+        price = lookup(user_shares[i]["symbol"])
+        user_data.append(
+            {
+                "symbol": user_shares[i]["symbol"],
+                "shares": user_shares[i]["shares"],
+                "price": price["price"],
+                "worth": int(user_shares[i]["shares"]) * price["price"],
+            }
+        )
+    for i in range(len(user_data)):
+        total += float(user_data[i]["worth"])
+    total += user[0]["cash"]
+    return render_template(
+        "index.html", user_data=user_data, cash=user[0]["cash"], total=total
+    )
 
     return render_template("login.html")
 

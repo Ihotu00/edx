@@ -9,11 +9,11 @@ Logged In {{ name }}
   <div class="card-header">
     <ul class="nav nav-pills" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button"
+        <button class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button"
           role="tab" aria-controls="home-tab-pane" aria-selected="true" onClick="show('message')">Posts</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#groups-tab-pane" type="button"
+        <button class="nav-link active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#groups-tab-pane" type="button"
           role="tab" aria-controls="profile-tab-pane" aria-selected="false" onClick="show('message')">Groups</button>
       </li>
       <li class="nav-item" role="presentation">
@@ -24,7 +24,7 @@ Logged In {{ name }}
   </div>
   <div class="card-body overflow-auto">
     <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade show active mb-3" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
+      <div class="tab-pane fade mb-3" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
         tabindex="0">
         <div class="center">
           <div class="col-9">
@@ -41,12 +41,12 @@ Logged In {{ name }}
           </div>
         </div>
       </div>
-      <div class="tab-pane fade" id="groups-tab-pane" role="tabpanel" aria-labelledby="groups-tab" tabindex="0">
+      <div class="tab-pane fade show active" id="groups-tab-pane" role="tabpanel" aria-labelledby="groups-tab" tabindex="0">
         <div class="card-body text-light">
           <div class="row">
             <div class="col-md-3">
               {% for group in groups %}
-              <div class="card mt-3 text-bg-primary" onClick="selected(group)">
+              <div class="card mt-3 text-bg-primary" onClick="selected({{ group }})">
                 <div class="card-body">
                   {{ group["group_name"] }}
                 </div>

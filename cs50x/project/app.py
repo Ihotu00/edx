@@ -67,6 +67,8 @@ def post():
     if request.form.get("group_id") and int(request.form.get("group_id")):
         group_id = int(request.form.get("group_id"))
 
+    logging.warning(request.form.get("group_id"))
+
     if request.form.get("message"):
         db.execute("INSERT INTO blog_posts(user_id, post, group_id) VALUES(?,?,?)", session["user_id"], request.form.get("message"), group_id)
     return redirect("/")

@@ -9,6 +9,7 @@ function show(id) {
 
 
 function selected(group) {
+    console.log(group)
     document.getElementById('group_header').innerHTML = group["group_name"];
-    document.getElementById('group_id').value = group["id"];
+    document.getElementById('group_id').value = group["group_id"];
 }

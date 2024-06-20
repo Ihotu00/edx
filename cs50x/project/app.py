@@ -141,7 +141,7 @@ def register():
         # Insert into do
         try:
             db.execute(
-                "INSERT INTO users (username, hash) VALUES(?,?)",
+                "INSERT INTO users (username, password) VALUES(?,?)",
                 request.form.get("username"),
                 password_hash,
             )

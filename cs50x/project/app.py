@@ -58,30 +58,36 @@ def login():
 
     # Forget any user_id
     session.clear()
-    user_shares = db.execute(
-        "SELECT * FROM users_shares WHERE user_id = ?", session["user_id"]
-    )
-    user = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
-    user_data = []
-    total = 0
-    for i in range(len(user_shares)):
-        price = lookup(user_shares[i]["symbol"])
-        user_data.append(
-            {
-                "symbol": user_shares[i]["symbol"],
-                "shares": user_shares[i]["shares"],
-                "price": price["price"],
-                "worth": int(user_shares[i]["shares"]) * price["price"],
-            }
-        )
-    for i in range(len(user_data)):
-        total += float(user_data[i]["worth"])
-    total += user[0]["cash"]
-    return render_template(
-        "index.html", user_data=user_data, cash=user[0]["cash"], total=total
-    )
+    if request.method == "POST":
+        # Ensure username was submitted
+        if not request.form.get("username"):
+            return apology("must provide username", 403)
 
-    return render_template("login.html")
+        # Ensure password was submitted
+        elif not request.form.get("password"):
+            return apology("must provide password", 403)
+
+        # Query database for username
+        rows = db.execute(
+            "SELECT * FROM users WHERE username = ?", request.form.get("username")
+        )
+
+        # Ensure username exists and password is correct
+        if len(rows) != 1 or not check_password_hash(
+            rows[0]["hash"], request.form.get("password")
+        ):
+            return apology("invalid username and/or password", 403)
+
+        # Remember which user has logged in
+        session["user_id"] = rows[0]["id"]
+
+        # Redirect user to home page
+        flash("Login Successful")
+        return redirect("/")
+
+    # User reached route via GET (as by clicking a link or via redirect)
+    else:
+        return render_template("login.html")
 
 
 @app.route("/logout")

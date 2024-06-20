@@ -9,5 +9,5 @@ function show(id) {
 
 
 function selected(group) {
-    document.getElementById(')
+    document.getElementById('group_header').innerHTML = group["group_name"]
 }

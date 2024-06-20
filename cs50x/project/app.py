@@ -52,23 +52,9 @@ def index():
 
     posts = db.execute("SELECT * FROM blog_posts WHERE user_id = ? ORDER BY creation_time DESC", session["user_id"])
 
-    groups = db.execute("SELECT * FROM groups left join users_groups on groups.id = users_groups.group_id WHERE user_id = ?", session["user_id"])
-    """select movies.title
-from movies
-left join ratings
-on movies.id = ratings.movie_id
-where id in(
-    select movie_id
-    from stars
-    where person_id =(
-        select id
-        from people
-        where name = "Chadwick Boseman"
-    )
-)"""
-    logging.warning(groups)
+    groups = db.execute("SELECT * FROM groups inner join users_groups on groups.id = users_groups.group_id WHERE users_groups.user_id = ?", session["user_id"])
 
-    return render_template("index.html", posts=posts)
+    return render_template("index.html", posts=posts, groups=groups)
 
 
 @app.route("/post", methods=["POST"])

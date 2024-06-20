@@ -76,7 +76,7 @@ def create_group():
     """Show portfolio of stocks"""
 
     if request.form.get("name"):
-        db.execute("INSERT INTO blog_posts(created_by, group_name) VALUES(?,?)", session["user_id"], request.form.get("name"))
+        db.execute("INSERT INTO groups(created_by, group_name) VALUES(?,?)", session["user_id"], request.form.get("name"))
     return redirect("/")
 
 

@@ -74,10 +74,13 @@ Logged In {{ name }}
     </div>
   </div>
   <div class="card-footer" id="message">
-    <div class="input-group input-group-md mb-3">
-      <input autocomplete="off" class="form-control form-control-sm" name="message" placeholder="Message..." type="text">
-      <button class="material-symbols-outlined btn btn-outline-primary" type="submit">send</button>
-    </div>
+    <form action="/" method="post">
+      <div class="input-group input-group-md mb-3">
+        <input autocomplete="off" class="form-control form-control-sm" name="message" placeholder="Message..."
+          type="text">
+        <button class="material-symbols-outlined btn btn-outline-primary" type="submit">send</button>
+      </div>
+    </form>
   </div>
 </div>
 {% endblock %}

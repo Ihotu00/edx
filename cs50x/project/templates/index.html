@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block main %}
-    <div class="card w-100 h-100 text-center">
+    <div class="card w-100 h-100 text-center overflow-auto">
         <div class="d-flex align-items-start m-5">
             <div class="nav flex-column nav-pills me-3 bg-primary" id="v-pills-tab" role="tablist" aria-orientation="vertical">
               <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</button>
@@ -17,7 +17,7 @@
             <div class="tab-content" id="v-pills-tabContent">
               <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0">
                 {% for post in posts %}
-                <div class="card" style="width: 18rem;">
+                <div class="card w-90 mb-3" style="width: 18rem;">
                     <div class="card-body">
                       <p class="card-text">{{ post["post"]}}</p>
                     </div>

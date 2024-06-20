@@ -6,6 +6,7 @@ from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from functools import wraps
+from werkzeug.security import check_password_hash, generate_password_hash
 
 
 # Configure application
@@ -61,11 +62,11 @@ def login():
     if request.method == "POST":
         # Ensure username was submitted
         if not request.form.get("username"):
-            return apology("must provide username", 403)
+            return render_template("login.html")
 
         # Ensure password was submitted
         elif not request.form.get("password"):
-            return apology("must provide password", 403)
+            return render_template("login.html")
 
         # Query database for username
         rows = db.execute(

@@ -71,7 +71,7 @@ def post():
 
     if request.form.get("message"):
         db.execute("INSERT INTO blog_posts(user_id, post, group_id) VALUES(?,?,?)", session["user_id"], request.form.get("message"), group_id)
-    return #redirect("/")
+    return 'Message Sent' #redirect("/")
 
 
 @app.route("/create/group", methods=["POST"])

@@ -146,6 +146,7 @@ def register():
                 password_hash,
             )
         except ValueError:
+            flash("Username taken")
             return render_template("register.html")
 
         # Query database for username

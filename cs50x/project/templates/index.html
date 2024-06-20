@@ -21,9 +21,9 @@
         </div>
         <div class="card-body overflow-auto">
             <div class="tab-content" id="myTabContent">
-              <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+              <div class="tab-pane fade show active mb-3" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
                 {% for post in posts %}
-                <div class="card mb-3">
+                <div class="card mb-3 text-bg-primary">
                     <div class="card-body">
                         {{ post["post"] }}
                     </div>
@@ -39,8 +39,8 @@
             </div>
         </div>
         <div class="card-footer">
-            <div class="input-group input-group-sm">
-                <input autocomplete="off" autofocus class="form-control form-control-sm" name="message" placeholder="Message..." type="text">
+            <div class="input-group input-group-sm mb-3">
+                <input autocomplete="off" class="form-control form-control-sm" name="message" placeholder="Message..." type="text">
                 <button class="btn btn-dark btm-sm material-symbols-outlined" type="submit">send></button>
             </div>
         </div>

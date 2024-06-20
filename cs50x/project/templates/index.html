@@ -46,7 +46,7 @@ Logged In {{ name }}
           <div class="row">
             <div class="col-md-3">
               <h3>New group</h3>
-              <button class="btn btn-outline-primary btn-lg material-symbols-outlined mt-3">chat_add_on</button>
+              <button class="btn btn-outline-primary btn-lg material-symbols-outlined mt-3"data-bs-toggle="modal" data-bs-target="#add-group-modal">chat_add_on</button>
             </div>
             <div class="vr" style="color: black"></div>
             <div class="col-md-8">
@@ -84,11 +84,11 @@ Logged In {{ name }}
   </div>
 </div>
 
-<div class="modal fade" id="add-group" tabindex="-1" aria-labelledby="add-groupLabel" aria-hidden="true">
+<div class="modal fade" id="add-group-modal" tabindex="-1" aria-labelledby="add-group-label" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Create Message Board</h1>
+        <h1 class="modal-title fs-5" id="add-group-label">Create Message Board</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -96,7 +96,7 @@ Logged In {{ name }}
           <div class="input-group input-group-md mb-3">
             <input autocomplete="off" class="form-control form-control-sm" name="name" placeholder="Board Name..."
               type="text">
-            <button class="material-symbols-outlined btn btn-outline-primary" type="submit">send</button>
+            <button class="material-symbols-outlined btn btn-outline-primary" type="submit">check</button>
           </div>
         </form>
       </div>

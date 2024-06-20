@@ -1,7 +1,12 @@
 document.addEventListener('DOMContentLoaded', function(tab) {
     if (tab === 'posts') {
-        answer.style.backgroundColor = 'green';
-        document.querySelector('#response2').innerHTML = 'Correct';
+        document.getElementById('home-tab').classList.add("active");
+        document.getElementById('home-tab-pane').classList.add("show active");
+    }
+
+    if (tab === 'groups') {
+        document.getElementById('groups-tab').classList.add("active");
+        document.getElementById('groups-tab-pane').classList.add("show active");
     }
 });
 

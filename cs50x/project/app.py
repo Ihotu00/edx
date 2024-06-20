@@ -113,4 +113,52 @@ def register():
     # Forget any user_id
     session.clear()
 
-    return render_template("register.html")
+    if request.method == "POST":
+
+        # Ensure username was submitted
+        if not request.form.get("username"):
+            flash("Please provide Username")
+            return render_template("register.html")
+
+        # Ensure password was submitted
+        elif not request.form.get("password"):
+            flash("Please provide Password")
+            return render_template("register.html")
+
+        # Ensure password confirmation was submitted
+        elif not request.form.get("confirmation"):
+            flash("Please confirm Password")
+            return render_template("register.html")
+
+        # Ensure password confirmation is correct
+        elif request.form.get("password") != request.form.get("confirmation"):
+            flash("Passwords do not match")
+            return render_template("register.html")
+
+        # Hash password
+        password_hash = generate_password_hash(request.form.get("password"))
+
+        # Insert into do
+        try:
+            db.execute(
+                "INSERT INTO users (username, hash) VALUES(?,?)",
+                request.form.get("username"),
+                password_hash,
+            )
+        except ValueError:
+            return render_template("register.html")
+
+        # Query database for username
+        rows = db.execute(
+            "SELECT * FROM users WHERE username = ?", request.form.get("username")
+        )
+
+        # Remember which user has logged in
+        session["user_id"] = rows[0]["id"]
+
+        # Redirect user to home page
+        flash("Registration Successful")
+        return redirect("/")
+
+    else:
+        return render_template("register.html")

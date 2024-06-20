@@ -45,14 +45,22 @@ def after_request(response):
     return response
 
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 @login_required
 def index():
     """Show portfolio of stocks"""
 
-    posts = db.execute("SELECT * FROM blog_posts WHERE user_id = ?", session["user_id"])
+    if request.method = "GET":
 
-    return render_template("index.html", posts=posts)
+        posts = db.execute("SELECT * FROM blog_posts WHERE user_id = ?", session["user_id"])
+
+        return render_template("index.html", posts=posts)
+
+    else:
+
+        if request.form.get("message"):
+            db.execute("INSERT INTO blog_posts(user_id, post) VALUES(?,?)", session["user_id"], request.form.get("message"))
+            
 
 
 @app.route("/login", methods=["GET", "POST"])

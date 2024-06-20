@@ -1,3 +1,10 @@
+document.addEventListener('DOMContentLoaded', function(tab) {
+    if (tab === 'posts') {
+        answer.style.backgroundColor = 'green';
+        document.querySelector('#response2').innerHTML = 'Correct';
+    }
+});
+
 function hide(id) {
     document.getElementById(id).classList.add('hide');
 }

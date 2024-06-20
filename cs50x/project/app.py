@@ -70,6 +70,16 @@ def post():
     return redirect("/")
 
 
+@app.route("/create/group", methods=["POST"])
+@login_required
+def create_group():
+    """Show portfolio of stocks"""
+
+    if request.form.get("message"):
+        db.execute("INSERT INTO blog_posts(created_by, group_name) VALUES(?,?,?)", session["user_id"], request.form.get("message"))
+    return redirect("/")
+
+
 
 @app.route("/login", methods=["GET", "POST"])
 def login():

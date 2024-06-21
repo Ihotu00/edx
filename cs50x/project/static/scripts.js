@@ -1,15 +1,21 @@
 document.addEventListener('DOMContentLoaded', function() {
-    selected_tab(){
-        console.log(tab)
-        if (tab == 'home') {
-            document.getElementById('home-tab').classList.add("active");
-            document.getElementById('home-tab-pane').classList.add("show active");
-        }
+    console.log(tab)
+    if (tab == 'home') {
+        document.getElementById('groups-tab').classList.remove("active");
+        document.getElementById('groups-tab-pane').classList.remove("show");
+        document.getElementById('groups-tab-pane').classList.remove("active");
+        document.getElementById('home-tab').classList.add("active");
+        document.getElementById('home-tab-pane').classList.add("show");
+        document.getElementById('home-tab-pane').classList.add("active");
+    }
 
-        if (tab == 'groups') {
-            document.getElementById('groups-tab').classList.add("active");
-            document.getElementById('groups-tab-pane').classList.add("show active");
-        }
+    if (tab == 'groups') {
+        document.getElementById('home-tab').classList.remove("active");
+        document.getElementById('home-tab-pane').classList.remove("show");
+        document.getElementById('home-tab-pane').classList.remove("active");
+        document.getElementById('groups-tab').classList.add("active");
+        document.getElementById('groups-tab-pane').classList.add("show");
+        document.getElementById('groups-tab-pane').classList.add("active");
     }
 });
 

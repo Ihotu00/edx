@@ -101,32 +101,25 @@ def login():
 
     if request.method == "POST":
         if not request.form.get("username"):
-            return "Please provide Username"
+            return "Please provide Username", 400
 
-        # Ensure password was submitted
         elif not request.form.get("password"):
-            return("Please provide Password")
+            return "Please provide Password", 400
 
-        # Query database for username
         rows = db.execute(
             "SELECT * FROM users WHERE username = ?", request.form.get("username")
         )
 
-        # Ensure username exists and password is correct
         if len(rows) != 1 or not check_password_hash(
             rows[0]["password"], request.form.get("password")
         ):
-            ("Invalid username/password")
-            return render_template("login.html")
+            return "Invalid username/password", 400
 
-        # Remember which user has logged in
         session["user_id"] = rows[0]["id"]
 
-        # Redirect user to home page
         flash("Login Successful")
         return redirect("/")
 
-    # User reached route via GET (as by clicking a link or via redirect)
     else:
         return render_template("login.html")
 
@@ -135,10 +128,8 @@ def login():
 def logout():
     """Log user out"""
 
-    # Forget any user_id
     session.clear()
 
-    # Redirect user to login form
     return redirect("/login")
 
 
@@ -147,35 +138,24 @@ def logout():
 def register():
     """Register user"""
 
-    # Forget any user_id
     session.clear()
 
     if request.method == "POST":
 
-        # Ensure username was submitted
         if not request.form.get("username"):
-            flash("Please provide Username")
-            return render_template("register.html")
+            return "Please provide Username", 400
 
-        # Ensure password was submitted
         elif not request.form.get("password"):
-            flash("Please provide Password")
-            return render_template("register.html")
+            return "Please provide Password", 400
 
-        # Ensure password confirmation was submitted
         elif not request.form.get("confirmation"):
-            flash("Please confirm Password")
-            return render_template("register.html")
+            return "Please confirm Password", 400
 
-        # Ensure password confirmation is correct
         elif request.form.get("password") != request.form.get("confirmation"):
-            flash("Passwords do not match")
-            return render_template("register.html")
+            return "Passwords do not match", 400
 
-        # Hash password
         password_hash = generate_password_hash(request.form.get("password"))
 
-        # Insert into do
         try:
             db.execute(
                 "INSERT INTO users (username, password) VALUES(?,?)",
@@ -183,18 +163,14 @@ def register():
                 password_hash,
             )
         except ValueError:
-            flash("Username taken")
-            return render_template("register.html")
+            return "Username taken", 400
 
-        # Query database for username
         rows = db.execute(
             "SELECT * FROM users WHERE username = ?", request.form.get("username")
         )
 
-        # Remember which user has logged in
         session["user_id"] = rows[0]["id"]
 
-        # Redirect user to home page
         flash("Registration Successful")
         return redirect("/")
 

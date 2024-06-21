@@ -53,23 +53,25 @@ def index():
 
     groups = db.execute("SELECT * FROM groups inner join users_groups on groups.id = users_groups.group_id WHERE users_groups.user_id = ?", session["user_id"])
 
-    if not session["tab"]:
-        session["tab"] = "home"
-
-    return render_template("index.html", posts=posts, groups=groups, tab=session["tab"])
+    return render_template("index.html", posts=posts, groups=groups)
 
 
 @app.route("/post", methods=["POST"])
 @login_required
 def post():
 
-    if request.get_json():
-        data = request.get_json()
-        db.execute("INSERT INTO blog_posts(user_id, post, group_id) VALUES(?,?,?)", session["user_id"], data["message"], data["group_id"])
+    group_id = None
 
-        logging.warning(request.get_json())
+    if request.get_json():
+
+        data = request.get_json()
+        if data["group_id"]: group_id = data["group_id"]
+
+        db.execute("INSERT INTO blog_posts(user_id, post, group_id) VALUES(?,?,?)", session["user_id"], data["message"], group_id)
+
         posts = db.execute("SELECT * FROM blog_posts WHERE user_id = ? ORDER BY creation_time DESC", session["user_id"])
         return posts[0]
+
     else: return 'ERROR'
 
 
@@ -77,7 +79,6 @@ def post():
 @login_required
 def create_group():
 
-    session["tab"] = "groups"
     if request.form.get("group_name"):
         try:
             db.execute("INSERT INTO groups(created_by, group_name) VALUES(?,?)", session["user_id"], request.form.get("group_name"))
@@ -96,18 +97,15 @@ def create_group():
 def login():
     """Log user in"""
 
-    # Forget any user_id
     session.clear()
+
     if request.method == "POST":
-        # Ensure username was submitted
         if not request.form.get("username"):
-            flash("Please provide Username")
-            return render_template("login.html")
+            return "Please provide Username"
 
         # Ensure password was submitted
         elif not request.form.get("password"):
-            flash("Please provide Password")
-            return render_template("login.html")
+            return("Please provide Password")
 
         # Query database for username
         rows = db.execute(
@@ -126,7 +124,6 @@ def login():
 
         # Redirect user to home page
         flash("Login Successful")
-        session["tab"] = "home"
         return redirect("/")
 
     # User reached route via GET (as by clicking a link or via redirect)
@@ -199,7 +196,6 @@ def register():
 
         # Redirect user to home page
         flash("Registration Successful")
-        session["tab"] = "home"
         return redirect("/")
 
     else:

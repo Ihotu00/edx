@@ -48,7 +48,6 @@ def after_request(response):
 @app.route("/")
 @login_required
 def index():
-    """Show portfolio of stocks"""
 
     posts = db.execute("SELECT * FROM blog_posts WHERE user_id = ? ORDER BY creation_time DESC", session["user_id"])
 
@@ -63,7 +62,6 @@ def index():
 @app.route("/post", methods=["POST"])
 @login_required
 def post():
-    """Show portfolio of stocks"""
 
     # group_id = None
 
@@ -93,7 +91,6 @@ def post():
 @app.route("/create/group", methods=["POST"])
 @login_required
 def create_group():
-    """Show portfolio of stocks"""
 
     session["tab"] = "groups"
     if request.form.get("group_name"):

@@ -73,9 +73,9 @@ function send_post() {
         url: '/post',
         type: 'POST',
         contentType: 'application/json',
-        data: {
+        data: JSON.stringify({
             'group_id': document.getElementById('group_id').value,
-            'message': document.getElementById('message').value },
+            'message': document.getElementById('message').value }),
         success: function(response) {
             console.log(`success: ${response}`);
             console.log(contentType, data)

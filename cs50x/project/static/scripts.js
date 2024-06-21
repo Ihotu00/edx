@@ -66,6 +66,7 @@ function create_group() {
 
 //  offcanvas offcanvas-start off-canvas-lg show
 function canvas() {
+    document.getElementById('close-canvas').classList.remove('hide');
     document.getElementById('group-parent-div').classList.add('offcanvas');
     document.getElementById('group-parent-div').classList.add('offcanvas-start');
     _canvas = new bootstrap.Offcanvas('#group-parent-div');

@@ -81,7 +81,7 @@ def post():
         # logging.warning(request.form.get("group_id"))
         # logging.warning(request.form.get("message"))
 
-        session["tab"] = request.form["tab"]
+        # session["tab"] = request.form["tab"]
         posts = db.execute("SELECT * FROM blog_posts WHERE user_id = ? ORDER BY creation_time DESC", session["user_id"])
         return posts
     else: return 'ERROR'

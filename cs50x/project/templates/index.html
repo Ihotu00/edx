@@ -45,7 +45,7 @@ Logged In {{ name }}
       <div class="tab-pane fade show active" id="groups-tab-pane" role="tabpanel" aria-labelledby="groups-tab"
         tabindex="0">
         <div class="card-body text-light">
-          <div class="row">
+          <!-- <div class="row">
             <div class="col-md-3 overflow-auto" style="max-height: 300px" id="group-parent-div">
               {% for group in groups %}
               <div class="card mt-3 text-bg-primary" onClick='selected(JSON.parse(`{{ group | tojson }}`))'>
@@ -60,6 +60,22 @@ Logged In {{ name }}
             <div class="vr" style="color: black"></div>
             <div class="col-md-8">
               <h1 id="group_header"></h1>
+            </div>
+          </div> -->
+          <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            {% for group in groups %}
+            <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
+              aria-controls="v-pills-home" aria-selected="true">{{ group["group_name"] }}</a>
+            {% endfor %}
+          </div>
+          <div class="tab-content" id="v-pills-tabContent">
+            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+              ...</div>
+            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...
+            </div>
+            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...
+            </div>
+            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...
             </div>
           </div>
         </div>

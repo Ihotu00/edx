@@ -69,6 +69,8 @@ Logged In {{ name }}
                 type="button" role="tab" aria-controls="v-pills-home" aria-selected="true"
                 onClick='selected(JSON.parse(`{{ group | tojson }}`))'>{{ group["group_name"] }}</button>
               {% endfor %}
+              <button class="btn btn-outline-primary btn-lg material-symbols-outlined mt-3"
+                onClick="show_modal('add-group-modal')">chat_add_on</button>
             </div>
             <div class="tab-content" id="v-pills-tabContent">
               <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"

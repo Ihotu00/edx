@@ -50,10 +50,12 @@ function create_group() {
         success: function(response) {
             console.log(`success: ${JSON.stringify(response)}`);
             _modal.hide();
-            let child = """<div class='card mt-3 text-bg-primary' onClick='selected(${response})'><div class='card-body'>
-                  { response['group_name']}
-                </div>
-              </div>"""
+            let child = `<div class='card mt-3 text-bg-primary' onClick='selected(${response})'>
+                            <div class='card-body'>
+                            ${ response['group_name']}
+                            </div>
+                        </div>`
+            document.getElementById('group-parent-div')
             selected(response)
         },
         error: function(error) {

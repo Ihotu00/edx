@@ -83,6 +83,7 @@ def post():
 
         # session["tab"] = request.form["tab"]
         posts = db.execute("SELECT * FROM blog_posts WHERE user_id = ? ORDER BY creation_time DESC", session["user_id"])
+        logging.warning(posts[0])
         return jsonify(posts[0])
     else: return 'ERROR'
     # return redirect("/")

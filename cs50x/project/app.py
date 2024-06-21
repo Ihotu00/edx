@@ -83,13 +83,11 @@ def create_group():
         try:
             db.execute("INSERT INTO groups(created_by, group_name) VALUES(?,?)", session["user_id"], request.form.get("group_name"))
         except (ValueError):
-            flash("Sorry that name is unavailbale. Try something else")
-            return redirect("/")
+            return "Sorry that name is unavailbale. Try something else", 400
 
         group = db.execute("SELECT * FROM groups WHERE group_name = ?", request.form.get("group_name"))
         db.execute("INSERT INTO users_groups(user_id, group_id) VALUES(?,?)", session["user_id"], group[0]["id"])
-        flash("Created Successfully")
-    return redirect("/")
+        return "Created Successfully", 200
 
 
 

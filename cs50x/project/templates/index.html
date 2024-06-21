@@ -50,7 +50,7 @@ Logged In {{ name }}
             Button with data-bs-target
           </button>
           <div class="row">
-            <div class="col-md-3 overflow-auto offcanvas-start" tabindex="-1" style="max-height: 300px"
+            <div class="col-md-3 overflow-auto offcanvas offcanvas-start show" tabindex="-1" style="max-height: 300px"
               id="group-parent-div">
               {% for group in groups %}
               <div class="card mt-3 text-bg-primary" onClick='selected(JSON.parse(`{{ group | tojson }}`))'>

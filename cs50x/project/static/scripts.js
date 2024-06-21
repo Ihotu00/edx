@@ -45,6 +45,14 @@ function show(id) {
     document.getElementById(id).classList.remove('hide');
 }
 
+function show_modal(id) {
+    new bootstrap.Modal(document.getElementById(id)).show();
+}
+
+function hide_modal(id) {
+    new bootstrap.Modal(document.getElementById(id)).hide();
+}
+
 
 function selected(group) {
     document.getElementById('group_header').innerHTML = group["group_name"];
@@ -79,7 +87,7 @@ function create_group() {
         contentType: 'application/json',
         data: JSON.stringify({'group_name': document.getElementById('group_name').value}),
         success: function(response) {
-            new bootstrap.Modal(document.getElementById('add-group-modal')).hide();
+            hide_modal('add-group-modal');
             console.log(`success: ${JSON.stringify(response)}`);
             selected(response)
         },

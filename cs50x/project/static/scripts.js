@@ -65,4 +65,4 @@ function selected(group) {
 }
 
 
-function send_msg()
+function send_post()

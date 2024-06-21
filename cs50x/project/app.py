@@ -3,7 +3,7 @@ import logging
 import datetime
 
 from cs50 import SQL
-from flask import Flask, flash, redirect, render_template, request, session
+from flask import Flask, flash, redirect, render_template, request, session, jsonify
 from flask_session import Session
 from functools import wraps
 from werkzeug.security import check_password_hash, generate_password_hash
@@ -57,7 +57,7 @@ def index():
     groups = db.execute(
         "SELECT * FROM groups inner join users_groups on groups.id = users_groups.group_id WHERE users_groups.user_id = ? ORDER BY creation_time DESC", session["user_id"])
 
-    return render_template("index.html", posts=posts, groups=groups)
+    return render_template("index.html", posts=jsonify(posts), groups=jsonify(groups))
 
 
 @app.route("/post", methods=["POST"])

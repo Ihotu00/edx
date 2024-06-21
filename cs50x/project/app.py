@@ -81,13 +81,13 @@ def create_group():
 
     if request.get_json():
         data = request.get_json()
-        try:
-            db.execute("INSERT INTO groups(created_by, group_name) VALUES(?,?)", session["user_id"],data["group_name"])
-        except (ValueError):
-            return "Sorry that name is unavailbale. Try something else", 400
+        # try:
+            # db.execute("INSERT INTO groups(created_by, group_name) VALUES(?,?)", session["user_id"],data["group_name"])
+        # except (ValueError):
+        #     return "Sorry that name is unavailbale. Try something else", 400
 
         group = db.execute("SELECT * FROM groups WHERE group_name = ?", data["group_name"])
-        db.execute("INSERT INTO users_groups(user_id, group_id) VALUES(?,?)", session["user_id"], group[0]["id"])
+        # db.execute("INSERT INTO users_groups(user_id, group_id) VALUES(?,?)", session["user_id"], group[0]["id"])
         return group[0], 200
 
 

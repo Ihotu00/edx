@@ -56,7 +56,7 @@ def index():
 
     if not session["tab"]:
         session["tab"] = "home"
-
+    logging.warning(session["selected-group"])
     return render_template("index.html", posts=posts, groups=groups, tab=session["tab"])
 
 

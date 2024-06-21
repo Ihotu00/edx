@@ -54,13 +54,13 @@ function create_group() {
                             <div class='card-body'>
                             ${ response['group_name']}
                             </div>
-                        </div>`
-            document.getElementById('group-parent-div')
-            selected(response)
+                        </div>`;
+            document.getElementById('group-parent-div').appendChild(child);
+            selected(response);
         },
         error: function(error) {
             console.log(error.responseText);
-            show("group-taken")
+            show("group-taken");
         }
     });
 }

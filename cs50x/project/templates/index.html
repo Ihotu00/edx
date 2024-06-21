@@ -45,14 +45,14 @@ Logged In {{ name }}
       <div class="tab-pane fade show active text-light" id="groups-tab-pane" role="tabpanel"
         aria-labelledby="groups-tab" tabindex="0">
         <div class="card-body text-light">
-          <button class="btn btn-primary d-lg-none" type="button" aria-controls="offcanvasExample"
+          <button class="btn btn-primary d-lg-none text-start" type="button" aria-controls="offcanvasExample"
             onClick="show_canvas()">
             Button
           </button>
           <div class="row">
             <div class="col-md-3 overflow-auto text-bg-dark d-none d-lg-block" tabindex="-1" style="max-height: 300px"
               data-bs-backdrop="false" id="group-parent-div">
-              <div class="offcanvas-header text-start"><button type="button" class="btn-close hide text-end btn-lg"
+              <div class="offcanvas-header"><button type="button" class="btn-close hide text-end btn-lg"
                   id="close-canvas" onClick="close_canvas()" aria-label="Close"></button></div>
               {% for group in groups %}
               <div class="card mt-3 text-bg-primary" onClick='selected(JSON.parse(`{{ group | tojson }}`))'>

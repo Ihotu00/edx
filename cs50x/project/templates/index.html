@@ -63,19 +63,24 @@ Logged In {{ name }}
             </div>
           </div> -->
           <div class="d-flex align-items-start">
-            <div class="nav flex-column nav-pills me-3 overflow-auto" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-              <h3>Your Groups</h3>
-              {% for group in groups %}
-              <button class="nav-link" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home"
-                type="button" role="tab" aria-controls="v-pills-home" aria-selected="true"
-                onClick='selected(JSON.parse(`{{ group | tojson }}`))'>{{ group["group_name"] }}</button>
-              {% endfor %}
-              <button class="btn btn-outline-primary btn-lg material-symbols-outlined mt-3"
-                onClick="show_modal('add-group-modal')">chat_add_on</button>
+            <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist"
+              aria-orientation="vertical">
+              <div class="overflow-auto">
+                <h3>Your Groups</h3>
+                {% for group in groups %}
+                <button class="nav-link" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home"
+                  type="button" role="tab" aria-controls="v-pills-home" aria-selected="true"
+                  onClick='selected(JSON.parse(`{{ group | tojson }}`))'>{{ group["group_name"] }}</button>
+                {% endfor %}
+                <button class="btn btn-outline-primary btn-lg material-symbols-outlined mt-3"
+                  onClick="show_modal('add-group-modal')">chat_add_on</button>
+              </div>
             </div>
             <div class="tab-content" id="v-pills-tabContent">
               <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
-                aria-labelledby="v-pills-home-tab" tabindex="0"><h1 id="group_header"></h1></div>
+                aria-labelledby="v-pills-home-tab" tabindex="0">
+                <h1 id="group_header"></h1>
+              </div>
             </div>
           </div>
         </div>

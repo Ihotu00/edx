@@ -105,15 +105,15 @@ def login():
             if not data["username"]:
                 return "Please provide Username", 400
 
-            elif not request.form.get("password"):
+            elif not data["password"]:
                 return "Please provide Password", 400
 
             rows = db.execute(
-                "SELECT * FROM users WHERE username = ?", request.form.get("username")
+                "SELECT * FROM users WHERE username = ?",  data["username"]
             )
 
             if len(rows) != 1 or not check_password_hash(
-                rows[0]["password"], request.form.get("password")
+                rows[0]["password"],  data["password"]
             ):
                 return "Invalid username/password", 400
 

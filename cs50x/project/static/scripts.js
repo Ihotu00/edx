@@ -83,4 +83,7 @@ function send_post() {
             console.log(error);
         }
     });
+    console.log(JSON.stringify({
+        'group_id': document.getElementById('group_id').value,
+        'message': document.getElementById('message').value }))
 }

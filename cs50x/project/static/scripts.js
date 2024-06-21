@@ -76,5 +76,9 @@ function show_canvas() {
 }
 
 function close_canvas() {
-
+    _canvas.hide();
+    document.getElementById('close-canvas').classList.add('hide');
+    document.getElementById('group-parent-div').classList.add('d-none');
+    document.getElementById('group-parent-div').classList.remove('offcanvas');
+    document.getElementById('group-parent-div').classList.remove('offcanvas-start');
 }

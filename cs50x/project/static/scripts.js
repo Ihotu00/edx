@@ -71,7 +71,7 @@ function show_canvas() {
     document.getElementById('group-parent-div').classList.remove('d-none');
     document.getElementById('group-parent-div').classList.add('offcanvas');
     document.getElementById('group-parent-div').classList.add('offcanvas-start');
-    document.getElementById('group-parent-div').style('max-');
+    document.getElementById('group-parent-div').style['max-height'] = '100%';
     _canvas = new bootstrap.Offcanvas('#group-parent-div');
     _canvas.show();
 }
@@ -82,4 +82,5 @@ function close_canvas() {
     document.getElementById('group-parent-div').classList.add('d-none');
     document.getElementById('group-parent-div').classList.remove('offcanvas');
     document.getElementById('group-parent-div').classList.remove('offcanvas-start');
+    document.getElementById('group-parent-div').style['max-height'] = '300px';
 }

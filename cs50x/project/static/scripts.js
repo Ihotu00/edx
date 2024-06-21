@@ -50,22 +50,27 @@ function selected(group) {
     document.getElementById('group_header').innerHTML = group["group_name"];
     document.getElementById('group_id').value = group["group_id"];
     document.getElementById('tab').value = "groups";
-    // $.ajax({
-    //     url: '/',
-    //     type: 'POST',
-    //     contentType: 'application/json',
-    //     data: JSON.stringify({ 'selected-group': group }),
-    //     success: function(response) {
-    //         console.log('success');
-    //     },
-    //     error: function(error) {
-    //         console.log(error);
-    //     }
-    // });
 }
 
 
 function send_post() {
+    $.ajax({
+        url: '/post',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            'group_id': document.getElementById('group_id').value,
+            'message': document.getElementById('post').value }),
+        success: function(response) {
+            console.log(`success: ${JSON.stringify(response)}`);
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
+}
+
+function create_group() {
     $.ajax({
         url: '/post',
         type: 'POST',

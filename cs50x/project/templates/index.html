@@ -19,7 +19,8 @@ Logged In {{ name }}
       </li>
       <li class="nav-item" role="presentation">
         <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button"
-          role="tab" aria-controls="profile-tab-pane" aria-selected="false" onClick="hide('post-footer')">Profile</button>
+          role="tab" aria-controls="profile-tab-pane" aria-selected="false"
+          onClick="hide('post-footer')">Profile</button>
       </li>
     </ul>
   </div>
@@ -83,13 +84,14 @@ Logged In {{ name }}
   </div>
   <div class="card-footer" id="post-footer">
     <!-- <form action="/post" method="post"> -->
-      <div class="input-group input-group-md mb-3">
-        <input autocomplete="off" class="form-control form-control-sm" name="post" id="post" placeholder="Message..."
-          type="text">
-        <input class="hide" name="group_id" id="group_id" type="text">
-        <input class="hide" name="tab" id="tab" type="text" value="home">
-        <button class="material-symbols-outlined btn btn-outline-primary" type="submit" onClick="send_post()">send</button>
-      </div>
+    <div class="input-group input-group-md mb-3">
+      <input autocomplete="off" class="form-control form-control-sm" name="post" id="post" placeholder="Message..."
+        type="text">
+      <input class="hide" name="group_id" id="group_id" type="text">
+      <input class="hide" name="tab" id="tab" type="text" value="home">
+      <button class="material-symbols-outlined btn btn-outline-primary" type="submit"
+        onClick="send_post()">send</button>
+    </div>
     <!-- </form> -->
   </div>
 </div>
@@ -103,11 +105,12 @@ Logged In {{ name }}
       </div>
       <div class="modal-body">
         <!-- <form action="/create/group" method="post"> -->
-          <div class="input-group input-group-md mb-3">
-            <input autocomplete="off" class="form-control form-control-sm" name="group_name" placeholder="Board Name..."
-              type="text">
-            <button class="material-symbols-outlined btn btn-outline-primary" type="submit">check</button>
-          </div>
+        <div class="input-group input-group-md mb-3">
+          <input autocomplete="off" class="form-control form-control-sm" name="group_name" id="group_name"
+            placeholder="Board Name..." type="text">
+          <button class="material-symbols-outlined btn btn-outline-primary" type="submit"
+            onClick="create_group()">check</button>
+        </div>
         <!-- </form> -->
       </div>
     </div>

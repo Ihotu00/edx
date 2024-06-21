@@ -1,4 +1,4 @@
-var group_modal;
+var _modal;
 
 function hide(id) {
     document.getElementById(id).classList.add('hide');
@@ -10,15 +10,8 @@ function show(id) {
 }
 
 function show_modal(id) {
-    group_modal = new bootstrap.Modal(document.getElementById(id))
-    console.log(group_modal);
-    group_modal.show();
-}
-
-function hide_modal(id) {
-    console.log(group_modal);
-    group_modal.hide();
-    console.log(group_modal);
+    _modal = new bootstrap.Modal(document.getElementById(id))
+    _modal.show();
 }
 
 
@@ -55,7 +48,7 @@ function create_group() {
         contentType: 'application/json',
         data: JSON.stringify({'group_name': document.getElementById('group_name').value}),
         success: function(response) {
-            hide_modal('add-group-modal');
+            _modal.hide();
             console.log(`success: ${JSON.stringify(response)}`);
             selected(response)
         },

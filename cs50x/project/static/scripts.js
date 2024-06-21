@@ -62,3 +62,10 @@ function create_group() {
         }
     });
 }
+
+
+//  offcanvas offcanvas-start off-canvas-lg show
+function canvas() {
+    document.getElementByid('group-parent-div').classList.add('offcanvas')
+    document.getElementByid('group-parent-div').classList.add('offcanvas-start')
+}

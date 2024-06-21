@@ -1,5 +1,4 @@
-// var group_modal = new bootstrap.Modal(document.getElementById('add-group-modal'));
-var group_modal = new bootstrap.Modal(document.getElementById('add-group-modal'))
+var group_modal;
 
 function hide(id) {
     document.getElementById(id).classList.add('hide');
@@ -11,6 +10,7 @@ function show(id) {
 }
 
 function show_modal(id) {
+    group_modal = new bootstrap.Modal(document.getElementById('id'))
     group_modal.show();
 }
 

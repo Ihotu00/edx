@@ -38,7 +38,6 @@
 
 function hide(id) {
     document.getElementById(id).classList.add('hide');
-    document.getElementById(id).classList.remove('show');
 }
 
 
@@ -51,7 +50,7 @@ function show_modal(id) {
 }
 
 function hide_modal(id) {
-    document.getElementById(id).classList.remove('show');
+    new bootstrap.Modal(document.getElementById(id)).hide();
 }
 
 
@@ -88,7 +87,7 @@ function create_group() {
         contentType: 'application/json',
         data: JSON.stringify({'group_name': document.getElementById('group_name').value}),
         success: function(response) {
-            hide('add-group-modal');
+            hide_modal('add-group-modal');
             console.log(`success: ${JSON.stringify(response)}`);
             selected(response)
         },

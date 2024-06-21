@@ -1,4 +1,5 @@
 var _modal;
+var _canvas;
 
 function hide(id) {
     document.getElementById(id).classList.add('hide');
@@ -65,10 +66,15 @@ function create_group() {
 
 
 //  offcanvas offcanvas-start off-canvas-lg show
-function canvas() {
+function show_canvas() {
     document.getElementById('close-canvas').classList.remove('hide');
+    document.getElementById('group-parent-div').classList.remove('d-none');
     document.getElementById('group-parent-div').classList.add('offcanvas');
     document.getElementById('group-parent-div').classList.add('offcanvas-start');
     _canvas = new bootstrap.Offcanvas('#group-parent-div');
     _canvas.show();
+}
+
+function close_canvas() {
+
 }

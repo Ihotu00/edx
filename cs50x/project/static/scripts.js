@@ -78,7 +78,7 @@ function create_group() {
         data: JSON.stringify({'group_name': document.getElementById('group_name').value}),
         success: function(response) {
             console.log(`success: ${JSON.stringify(response)}`);
-            this.selected_group(response)
+            selected(response)
         },
         error: function(error) {
             console.log(error.responseText);

@@ -72,12 +72,13 @@ function send_post() {
     $.ajax({
         url: '/post',
         type: 'POST',
-        // Content-Type: 'application/json',
+        contentType: 'application/json',
         data: {
             'group_id': document.getElementById('group_id').value,
             'message': document.getElementById('message').value },
         success: function(response) {
             console.log(`success: ${response}`);
+            console.log(contentType, data)
         },
         error: function(error) {
             console.log(error);

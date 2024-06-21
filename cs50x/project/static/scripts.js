@@ -51,5 +51,5 @@ function selected(group) {
     document.getElementById('group_id').value = group["group_id"];
     document.getElementById('tab').value = "groups";
     sessionStorage.setItem("selected-group", group);
-    console.log(sessionStorage.getItem())
+    console.log(sessionStorage.getItem("selected-group"))
 }

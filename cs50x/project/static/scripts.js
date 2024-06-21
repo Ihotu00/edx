@@ -68,6 +68,7 @@ function selected(group) {
 function send_post() {
     // group_id = document.getElementById('group_id').value;
     // message = document.getElementById('message').value;
+    data = {'group_id': document.getElementById('group_id').value,'message': document.getElementById('message').value}
 
     $.ajax({
         url: '/post',
@@ -83,7 +84,5 @@ function send_post() {
             console.log(error);
         }
     });
-    console.log(JSON.stringify({
-        'group_id': document.getElementById('group_id').value,
-        'message': document.getElementById('message').value }))
+    console.log(data)
 }

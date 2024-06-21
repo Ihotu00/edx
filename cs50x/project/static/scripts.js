@@ -38,6 +38,7 @@
 
 function hide(id) {
     document.getElementById(id).classList.add('hide');
+    document.getElementById(id).classList.remove('show');
 }
 
 
@@ -46,11 +47,11 @@ function show(id) {
 }
 
 function show_modal(id) {
-    document.getElementById(id).classList.remove('show');
+    new bootstrap.Modal(document.getElementById(id)).show();
 }
 
 function hide_modal(id) {
-    new bootstrap.Modal(document.getElementById(id)).dispose();
+    document.getElementById(id).classList.remove('show');
 }
 
 
@@ -87,7 +88,7 @@ function create_group() {
         contentType: 'application/json',
         data: JSON.stringify({'group_name': document.getElementById('group_name').value}),
         success: function(response) {
-            hide_modal('add-group-modal');
+            hide('add-group-modal');
             console.log(`success: ${JSON.stringify(response)}`);
             selected(response)
         },

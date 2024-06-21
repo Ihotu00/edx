@@ -83,7 +83,8 @@ def post():
         logging.warning(request.form.get("message"))
 
         session["tab"] = request.form["tab"]
-        return 'Sent'
+        posts = db.execute("SELECT * FROM blog_posts WHERE user_id = ? ORDER BY creation_time DESC", session["user_id"])
+        return posts
     # return redirect("/")
 
 

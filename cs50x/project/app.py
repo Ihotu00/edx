@@ -79,9 +79,10 @@ def post():
 @login_required
 def create_group():
 
-    if request.form.get("group_name"):
+    if request.get_json():
+        data = request.get_json()
         try:
-            db.execute("INSERT INTO groups(created_by, group_name) VALUES(?,?)", session["user_id"], request.form.get("group_name"))
+            db.execute("INSERT INTO groups(created_by, group_name) VALUES(?,?)", session["user_id"],data["group_name"])
         except (ValueError):
             return "Sorry that name is unavailbale. Try something else", 400
 
@@ -98,25 +99,31 @@ def login():
     session.clear()
 
     if request.method == "POST":
-        if not request.form.get("username"):
-            return "Please provide Username", 400
+        if request.get_json():
+            data = request.get_json()
 
-        elif not request.form.get("password"):
-            return "Please provide Password", 400
+            if not data["username"]:
+                return "Please provide Username", 400
 
-        rows = db.execute(
-            "SELECT * FROM users WHERE username = ?", request.form.get("username")
-        )
+            elif not request.form.get("password"):
+                return "Please provide Password", 400
 
-        if len(rows) != 1 or not check_password_hash(
-            rows[0]["password"], request.form.get("password")
-        ):
-            return "Invalid username/password", 400
+            rows = db.execute(
+                "SELECT * FROM users WHERE username = ?", request.form.get("username")
+            )
 
-        session["user_id"] = rows[0]["id"]
+            if len(rows) != 1 or not check_password_hash(
+                rows[0]["password"], request.form.get("password")
+            ):
+                return "Invalid username/password", 400
 
-        flash("Login Successful")
-        return redirect("/")
+            session["user_id"] = rows[0]["id"]
+
+            flash("Login Successful")
+            return redirect("/")
+
+        else:
+            return 400
 
     else:
         return render_template("login.html")

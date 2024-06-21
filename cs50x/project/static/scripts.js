@@ -72,14 +72,13 @@ function send_post() {
 
 function create_group() {
     $.ajax({
-        url: '/post',
+        url: '/create/group',
         type: 'POST',
         contentType: 'application/json',
-        data: JSON.stringify({
-            'group_id': document.getElementById('group_id').value,
-            'message': document.getElementById('post').value }),
+        data: JSON.stringify({'group_name': document.getElementById('group_name').value}),
         success: function(response) {
             console.log(`success: ${JSON.stringify(response)}`);
+            selected_group(response)
         },
         error: function(error) {
             console.log(error);

@@ -21,6 +21,7 @@ Session(app)
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///tunglr.db")
 
+
 def login_required(f):
     """
     Decorate routes to require login.
@@ -36,6 +37,7 @@ def login_required(f):
 
     return decorated_function
 
+
 @app.after_request
 def after_request(response):
     """Ensure responses aren't cached"""
@@ -49,9 +51,11 @@ def after_request(response):
 @login_required
 def index():
 
-    posts = db.execute("SELECT * FROM blog_posts WHERE user_id = ? ORDER BY creation_time DESC", session["user_id"])
+    posts = db.execute(
+        "SELECT * FROM blog_posts WHERE user_id = ? ORDER BY creation_time DESC", session["user_id"])
 
-    groups = db.execute("SELECT * FROM groups inner join users_groups on groups.id = users_groups.group_id WHERE users_groups.user_id = ?", session["user_id"])
+    groups = db.execute(
+        "SELECT * FROM groups inner join users_groups on groups.id = users_groups.group_id WHERE users_groups.user_id = ?", session["user_id"])
 
     return render_template("index.html", posts=posts, groups=groups)
 
@@ -65,14 +69,18 @@ def post():
     if request.get_json():
 
         data = request.get_json()
-        if data["group_id"]: group_id = data["group_id"]
+        if data["group_id"]:
+            group_id = data["group_id"]
 
-        db.execute("INSERT INTO blog_posts(user_id, post, group_id) VALUES(?,?,?)", session["user_id"], data["message"], group_id)
+        db.execute("INSERT INTO blog_posts(user_id, post, group_id) VALUES(?,?,?)",
+                   session["user_id"], data["message"], group_id)
 
-        posts = db.execute("SELECT * FROM blog_posts WHERE user_id = ? ORDER BY creation_time DESC", session["user_id"])
+        posts = db.execute(
+            "SELECT * FROM blog_posts WHERE user_id = ? ORDER BY creation_time DESC", session["user_id"])
         return posts[0]
 
-    else: return 'ERROR'
+    else:
+        return 'ERROR'
 
 
 @app.route("/create/group", methods=["POST"])
@@ -81,14 +89,19 @@ def create_group():
 
     if request.form.get("group_name"):
         try:
-            db.execute("INSERT INTO groups(created_by, group_name) VALUES(?,?)", session["user_id"], request.form.get("group_name"))
+            db.execute("INSERT INTO groups(created_by, group_name) VALUES(?,?)",
+                       session["user_id"], request.form.get("group_name"))
         except (ValueError):
             return "Sorry that name is unavailbale. Try something else", 400
 
-        group = db.execute("SELECT * FROM groups WHERE group_name = ?", request.form.get("group_name"))
-        db.execute("INSERT INTO users_groups(user_id, group_id) VALUES(?,?)", session["user_id"], group[0]["id"])
-        return "Created Successfully", 200
+        group = db.execute(
+            "SELECT * FROM groups WHERE group_name = ?", request.form.get("group_name"))
+        db.execute("INSERT INTO users_groups(user_id, group_id) VALUES(?,?)",
+                   session["user_id"], group[0]["id"])
+        groups = db.execute(
+            "SELECT * FROM groups inner join users_groups on groups.id = users_groups.group_id WHERE users_groups.user_id = ?", session["user_id"])
 
+        return "Created Successfully", 200
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -105,7 +118,8 @@ def login():
             return "Please provide Password", 400
 
         rows = db.execute(
-            "SELECT * FROM users WHERE username = ?", request.form.get("username")
+            "SELECT * FROM users WHERE username = ?", request.form.get(
+                "username")
         )
 
         if len(rows) != 1 or not check_password_hash(
@@ -129,7 +143,6 @@ def logout():
     session.clear()
 
     return redirect("/login")
-
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -164,7 +177,8 @@ def register():
             return "Username taken", 400
 
         rows = db.execute(
-            "SELECT * FROM users WHERE username = ?", request.form.get("username")
+            "SELECT * FROM users WHERE username = ?", request.form.get(
+                "username")
         )
 
         session["user_id"] = rows[0]["id"]

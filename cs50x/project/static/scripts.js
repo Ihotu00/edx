@@ -17,7 +17,7 @@ function show_modal(id) {
 
 function hide_modal(id) {
     console.log(group_modal);
-    group_modal.dispose();
+    group_modal.hide();
     console.log(group_modal);
 }
 

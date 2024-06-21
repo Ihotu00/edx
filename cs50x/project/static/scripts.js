@@ -48,8 +48,12 @@ function create_group() {
         contentType: 'application/json',
         data: JSON.stringify({'group_name': document.getElementById('group_name').value}),
         success: function(response) {
-            _modal.hide();
             console.log(`success: ${JSON.stringify(response)}`);
+            _modal.hide();
+            let child = """<div class='card mt-3 text-bg-primary' onClick='selected(${response})'><div class='card-body'>
+                  { response['group_name']}
+                </div>
+              </div>"""
             selected(response)
         },
         error: function(error) {

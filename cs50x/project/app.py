@@ -3,7 +3,7 @@ import logging
 import datetime
 
 from cs50 import SQL
-from flask import Flask, flash, redirect, render_template, request, session, jsonify
+from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from functools import wraps
 from werkzeug.security import check_password_hash, generate_password_hash
@@ -83,8 +83,7 @@ def post():
 
         # session["tab"] = request.form["tab"]
         posts = db.execute("SELECT * FROM blog_posts WHERE user_id = ? ORDER BY creation_time DESC", session["user_id"])
-        logging.warning(posts[0])
-        return jsonify(posts[0])
+        return posts[0]
     else: return 'ERROR'
     # return redirect("/")
 

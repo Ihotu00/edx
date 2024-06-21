@@ -78,7 +78,6 @@ function send_post() {
             'message': document.getElementById('message').value }),
         success: function(response) {
             console.log(`success: ${response}`);
-            console.log(contentType, data)
         },
         error: function(error) {
             console.log(error);

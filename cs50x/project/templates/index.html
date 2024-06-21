@@ -24,9 +24,9 @@ Logged In {{ name }}
       </li>
     </ul>
   </div>
-  <div class="card-body overflow-auto">
+  <div class="card-body">
     <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade mb-3" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+      <div class="tab-pane fade mb-3 overflow-auto" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
         <div class="center">
           <div class="col-9">
             {% for post in posts %}

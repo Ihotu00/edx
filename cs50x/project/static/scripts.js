@@ -46,7 +46,7 @@ function show(id) {
 }
 
 function show_modal(id) {
-    new bootstrap.Modal(document.getElementById(id)).show();
+    document.getElementById(id).classList.remove('show');
 }
 
 function hide_modal(id) {

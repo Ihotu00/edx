@@ -50,4 +50,16 @@ function selected(group) {
     document.getElementById('group_header').innerHTML = group["group_name"];
     document.getElementById('group_id').value = group["group_id"];
     document.getElementById('tab').value = "groups";
+    $.ajax({
+        url: '/',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({ 'selected-group': group }),
+        success: function(response) {
+            console.log('success');
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
 }

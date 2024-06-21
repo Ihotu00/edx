@@ -64,9 +64,9 @@ Logged In {{ name }}
           </div> -->
           <div class="nav flex-column nav-pills"  id="group-parent-div" role="tablist" aria-orientation="vertical">
             {% for group in groups %}
-            <button class="nav-link active" id="{{ group['id']}}" data-toggle="pill" href="#v-pills-home" role="tab"
+            <a class="nav-link active" id="{{ group['id']}}" data-toggle="pill" href="#v-pills-home" role="tab"
               aria-controls="v-pills-home" aria-selected="true"
-              onClick='selected(JSON.parse(`{{ group | tojson }}`))'>{{ group["group_name"] }}</button>
+              onClick='selected(JSON.parse(`{{ group | tojson }}`))'>{{ group["group_name"] }}</a>
             {% endfor %}
           </div>
           <div class="tab-content" id="group-parent-div-content">

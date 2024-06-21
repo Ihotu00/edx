@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    console.log(tab)
     if (tab == 'home') {
         document.getElementById('groups-tab').classList.remove("active");
         document.getElementById('groups-tab-pane').classList.remove("show");
@@ -48,7 +47,6 @@ function show(id) {
 
 
 function selected(group) {
-    console.log(group)
     document.getElementById('group_header').innerHTML = group["group_name"];
     document.getElementById('group_id').value = group["group_id"];
     document.getElementById('tab').value = "groups";

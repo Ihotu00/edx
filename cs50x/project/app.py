@@ -53,7 +53,10 @@ def index():
     posts = db.execute("SELECT * FROM blog_posts WHERE user_id = ? ORDER BY creation_time DESC", session["user_id"])
 
     groups = db.execute("SELECT * FROM groups inner join users_groups on groups.id = users_groups.group_id WHERE users_groups.user_id = ?", session["user_id"])
-    session["tab"] = "home"
+
+    if not session["tab"]:
+        session["tab"] = "home"
+
     return render_template("index.html", posts=posts, groups=groups, tab=session["tab"])
 
 
@@ -71,6 +74,9 @@ def post():
 
     if request.form.get("message"):
         db.execute("INSERT INTO blog_posts(user_id, post, group_id) VALUES(?,?,?)", session["user_id"], request.form.get("message"), group_id)
+
+    session["tab"]
+
     return redirect("/")
 
 

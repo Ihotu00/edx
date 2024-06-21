@@ -85,6 +85,7 @@ function create_group() {
         },
         error: function(error) {
             console.log(error.responseText);
+            show("group-taken")
         }
     });
 }

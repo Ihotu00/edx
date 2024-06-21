@@ -71,6 +71,7 @@ function show_canvas() {
     document.getElementById('group-parent-div').classList.remove('d-none');
     document.getElementById('group-parent-div').classList.add('offcanvas');
     document.getElementById('group-parent-div').classList.add('offcanvas-start');
+    document.getElementById('group-parent-div').style('max-');
     _canvas = new bootstrap.Offcanvas('#group-parent-div');
     _canvas.show();
 }

@@ -71,12 +71,15 @@ function send_post() {
 }
 
 function create_group() {
+    modal = new bootstrap.Modal(document.getElementById('add-group-modal'), options)
+
     $.ajax({
         url: '/create/group',
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({'group_name': document.getElementById('group_name').value}),
         success: function(response) {
+            modal.hide();
             console.log(`success: ${JSON.stringify(response)}`);
             selected(response)
         },

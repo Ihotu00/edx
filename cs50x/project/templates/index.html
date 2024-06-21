@@ -54,7 +54,8 @@ Logged In {{ name }}
                 </div>
               </div>
               {% endfor %}
-              <button class="btn btn-outline-primary btn-lg material-symbols-outlined mt-3" onClick="show_modal('add-group-modal')">chat_add_on</button>
+              <button class="btn btn-outline-primary btn-lg material-symbols-outlined mt-3" data-bs-toggle="modal"
+                data-bs-target="#add-group-modal">chat_add_on</button>
             </div>
             <div class="vr" style="color: black"></div>
             <div class="col-md-8">
@@ -95,7 +96,7 @@ Logged In {{ name }}
   </div>
 </div>
 
-<div class="modal" id="add-group-modal" tabindex="-1" aria-labelledby="add-group-label" aria-hidden="true">
+<div class="modal fade" id="add-group-modal" tabindex="-1" aria-labelledby="add-group-label" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">

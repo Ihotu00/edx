@@ -75,8 +75,7 @@ def post():
     if request.form.get("message"):
         db.execute("INSERT INTO blog_posts(user_id, post, group_id) VALUES(?,?,?)", session["user_id"], request.form.get("message"), group_id)
 
-    session["tab"]
-
+    session["tab"] = request.form["tab"]
     return redirect("/")
 
 
@@ -85,6 +84,7 @@ def post():
 def create_group():
     """Show portfolio of stocks"""
 
+    session["tab"] = "groups"
     if request.form.get("group_name"):
         try:
             db.execute("INSERT INTO groups(created_by, group_name) VALUES(?,?)", session["user_id"], request.form.get("group_name"))
@@ -133,6 +133,7 @@ def login():
 
         # Redirect user to home page
         flash("Login Successful")
+        session["tab"] = "home"
         return redirect("/")
 
     # User reached route via GET (as by clicking a link or via redirect)
@@ -205,6 +206,7 @@ def register():
 
         # Redirect user to home page
         flash("Registration Successful")
+        session["tab"] = "home"
         return redirect("/")
 
     else:

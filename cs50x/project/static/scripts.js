@@ -79,7 +79,7 @@ function create_group() {
         contentType: 'application/json',
         data: JSON.stringify({'group_name': document.getElementById('group_name').value}),
         success: function(response) {
-            modal.hide();
+            new bootstrap.Modal(document.getElementById('add-group-modal')).hide();
             console.log(`success: ${JSON.stringify(response)}`);
             selected(response)
         },

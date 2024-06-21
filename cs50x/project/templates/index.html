@@ -85,15 +85,15 @@ Logged In {{ name }}
     </div>
   </div>
   <div class="card-footer" id="message">
-    <form action="/post" method="post">
+    <!-- <form action="/post" method="post"> -->
       <div class="input-group input-group-md mb-3">
         <input autocomplete="off" class="form-control form-control-sm" name="message" id="message" placeholder="Message..."
           type="text">
         <input class="hide" name="group_id" id="group_id" type="text">
         <input class="hide" name="tab" id="tab" type="text" value="home">
-        <button class="material-symbols-outlined btn btn-outline-primary" type="submit">send</button>
+        <button class="material-symbols-outlined btn btn-outline-primary" type="submit" onClick="send_post()">send</button>
       </div>
-    </form>
+    <!-- </form> -->
   </div>
 </div>
 

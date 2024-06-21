@@ -50,8 +50,7 @@ function show_modal(id) {
 }
 
 function hide_modal(id) {
-    dispose = new bootstrap.Modal(document.getElementById(id)).dispose();
-    console.log(dispose);
+    new bootstrap.Modal(document.getElementById(id)).dispose();
 }
 
 

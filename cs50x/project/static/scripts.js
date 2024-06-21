@@ -71,7 +71,7 @@ function send_post() {
 }
 
 function create_group() {
-    modal = new bootstrap.Modal(document.getElementById('add-group-modal'), options)
+    modal = new bootstrap.Modal(document.getElementById('add-group-modal'));
 
     $.ajax({
         url: '/create/group',

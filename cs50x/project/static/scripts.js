@@ -78,10 +78,10 @@ function create_group() {
         data: JSON.stringify({'group_name': document.getElementById('group_name').value}),
         success: function(response) {
             console.log(`success: ${JSON.stringify(response)}`);
-            selected_group(response)
+            this.selected_group(response)
         },
         error: function(error) {
-            console.log(error);
+            console.log(error.responseText);
         }
     });
 }

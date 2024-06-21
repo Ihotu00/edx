@@ -55,7 +55,7 @@ function create_group() {
                             ${ response['group_name']}
                             </div>
                         </div>`;
-            document.getElementById('group-parent-div').insertAdjacentHTML( 'beforeend', child );
+            document.getElementById('group-parent-div').insertAdjacentHTML( 'afterbegin', child );
             selected(response);
         },
         error: function(error) {

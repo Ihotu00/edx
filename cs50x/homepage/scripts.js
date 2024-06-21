@@ -58,7 +58,7 @@ function strike(rowId) {
     row.cells[1].classList.toggle('text-decoration-line-through');
 }
 
-function closeModal() {
+function closef() {
     var myModalEl = document.getElementById('getInfo')
     myModalEl.addEventListener('hidden.bs.modal', function (event) {
         document.querySelector('#title').value = "";

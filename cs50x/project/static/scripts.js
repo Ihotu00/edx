@@ -63,3 +63,6 @@ function selected(group) {
         }
     });
 }
+
+
+function send_msg()

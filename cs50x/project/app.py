@@ -56,7 +56,7 @@ def index():
 
     if not session["tab"]:
         session["tab"] = "home"
-    logging.warning('Session keys: {}'.format(session.keys()))
+
     return render_template("index.html", posts=posts, groups=groups, tab=session["tab"])
 
 
@@ -76,7 +76,8 @@ def post():
         db.execute("INSERT INTO blog_posts(user_id, post, group_id) VALUES(?,?,?)", session["user_id"], request.form.get("message"), group_id)
 
     session["tab"] = request.form["tab"]
-    return redirect("/")
+    return 'Sent'
+    # return redirect("/")
 
 
 @app.route("/create/group", methods=["POST"])

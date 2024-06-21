@@ -12,7 +12,7 @@ function show(id) {
 function show_modal(id) {
     group_modal = new bootstrap.Modal(document.getElementById(id))
     console.log(group_modal);
-    // group_modal.show();
+    group_modal.show();
 }
 
 function hide_modal(id) {

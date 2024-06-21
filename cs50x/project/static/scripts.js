@@ -1,13 +1,16 @@
-document.addEventListener('DOMContentLoaded', function(tab) {
-    if (tab === 'home') {
-        document.getElementById('home-tab').classList.add("active");
-        document.getElementById('home-tab-pane').classList.add("show active");
+document.addEventListener('DOMContentLoaded', function() {
+    selected_tab(){
+        if (tab == 'home') {
+            document.getElementById('home-tab').classList.add("active");
+            document.getElementById('home-tab-pane').classList.add("show active");
+        }
+
+        if (tab == 'groups') {
+            document.getElementById('groups-tab').classList.add("active");
+            document.getElementById('groups-tab-pane').classList.add("show active");
+        }
     }
 
-    if (tab === 'groups') {
-        document.getElementById('groups-tab').classList.add("active");
-        document.getElementById('groups-tab-pane').classList.add("show active");
-    }
 });
 
 function hide(id) {

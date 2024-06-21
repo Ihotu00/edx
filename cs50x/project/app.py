@@ -63,29 +63,14 @@ def index():
 @login_required
 def post():
 
-    # group_id = None
-
-    # if request.form.get("group_id") and int(request.form.get("group_id")):
-    #     group_id = int(request.form.get("group_id"))
-
-    # logging.warning(request.form.get("group_id"))
-
-    # if request.form.get("message"):
-    #     db.execute("INSERT INTO blog_posts(user_id, post, group_id) VALUES(?,?,?)", session["user_id"], request.form.get("message"), group_id)
-
     if request.get_json():
-    #     data = request.get_json()
-    #     db.execute("INSERT INTO blog_posts(user_id, post, group_id) VALUES(?,?,?)", session["user_id"], data["message"], data["group_id"])
-    # if request.form.get("group_id") or request.form.get("message"):
-        logging.warning(request.get_json())
-        # logging.warning(request.form.get("group_id"))
-        # logging.warning(request.form.get("message"))
+        data = request.get_json()
+        db.execute("INSERT INTO blog_posts(user_id, post, group_id) VALUES(?,?,?)", session["user_id"], data["message"], data["group_id"])
 
-        # session["tab"] = request.form["tab"]
+        logging.warning(request.get_json())
         posts = db.execute("SELECT * FROM blog_posts WHERE user_id = ? ORDER BY creation_time DESC", session["user_id"])
         return posts[0]
     else: return 'ERROR'
-    # return redirect("/")
 
 
 @app.route("/create/group", methods=["POST"])

@@ -48,7 +48,7 @@ Logged In {{ name }}
           <div class="row">
             <div class="col-md-3" id="group-parent-div">
               {% for group in groups %}
-              <div class="card mt-3 text-bg-primary" onClick="selected(JSON.parse('{{ group | tojson }}'))">
+              <div class="card mt-3 text-bg-primary" onClick='selected(JSON.parse(`{{ group | tojson }}`))'>
                 <div class="card-body">
                   {{ group["group_name"] }}
                 </div>

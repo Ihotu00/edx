@@ -15,7 +15,7 @@ function show_modal(id) {
 }
 
 function hide_modal(id) {
-    group_modal.hide();
+    group_modal.toggle();
 }
 
 

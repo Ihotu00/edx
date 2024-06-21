@@ -52,7 +52,7 @@ function create_group() {
             _modal.hide();
             let child = `<button class="nav-link" id="${response["id"]}" data-bs-toggle="pill" data-bs-target="#v-pills-home"
                 type="button" role="tab" aria-controls="v-pills-home" aria-selected="true"
-                onClick='selected(${response}))'>${ response["group_name"] }</button>`;
+                onClick='selected(${response})'>${ response["group_name"] }</button>`;
             document.getElementById('group-parent-div').insertAdjacentHTML( 'afterbegin', child );
             selected(response);
         },

@@ -86,7 +86,7 @@ def create_group():
         except (ValueError):
             return "Sorry that name is unavailbale. Try something else", 400
 
-        group = db.execute("SELECT * FROM groups WHERE group_name = ?", request.form.get("group_name"))
+        group = db.execute("SELECT * FROM groups WHERE group_name = ?", data["group_name"])
         db.execute("INSERT INTO users_groups(user_id, group_id) VALUES(?,?)", session["user_id"], group[0]["id"])
         return group[0], 200
 
@@ -147,37 +147,40 @@ def register():
 
     if request.method == "POST":
 
-        if not request.form.get("username"):
-            return "Please provide Username", 400
+        if request.get_json():
+            data = request.get_json()
 
-        elif not request.form.get("password"):
-            return "Please provide Password", 400
+            if not data["username"]:
+                return "Please provide Username", 400
 
-        elif not request.form.get("confirmation"):
-            return "Please confirm Password", 400
+            elif not data["password"]:
+                return "Please provide Password", 400
 
-        elif request.form.get("password") != request.form.get("confirmation"):
-            return "Passwords do not match", 400
+            elif not data["confirmation"]:
+                return "Please confirm Password", 400
 
-        password_hash = generate_password_hash(request.form.get("password"))
+            elif data["password"] != data["confrirmation"]:
+                return "Passwords do not match", 400
 
-        try:
-            db.execute(
-                "INSERT INTO users (username, password) VALUES(?,?)",
-                request.form.get("username"),
-                password_hash,
+            password_hash = generate_password_hash(data["password"])
+
+            try:
+                db.execute(
+                    "INSERT INTO users (username, password) VALUES(?,?)",
+                    data["username"],
+                    password_hash,
+                )
+            except ValueError:
+                return "Username taken", 400
+
+            rows = db.execute(
+                "SELECT * FROM users WHERE username = ?", data["username"]
             )
-        except ValueError:
-            return "Username taken", 400
 
-        rows = db.execute(
-            "SELECT * FROM users WHERE username = ?", request.form.get("username")
-        )
+            session["user_id"] = rows[0]["id"]
 
-        session["user_id"] = rows[0]["id"]
-
-        flash("Registration Successful")
-        return redirect("/")
+            flash("Registration Successful")
+            return redirect("/")
 
     else:
         return render_template("register.html")

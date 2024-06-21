@@ -45,12 +45,12 @@ Logged In {{ name }}
       <div class="tab-pane fade show active text-light" id="groups-tab-pane" role="tabpanel"
         aria-labelledby="groups-tab" tabindex="0">
         <div class="card-body text-light">
-          <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#group-parent-div" data-parent="body"
+          <button class="btn btn-primary d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#group-parent-div" data-parent="body"
             aria-controls="offcanvasExample">
             Button with data-bs-target
           </button>
           <div class="row">
-            <div class="col-md-3 overflow-auto offcanvas offcanvas-start show" tabindex="-1" style="max-height: 300px"
+            <div class="col-md-3 overflow-auto offcanvas offcanvas-start off-canvas-lg show" tabindex="-1" style="max-height: 300px"
               id="group-parent-div">
               {% for group in groups %}
               <div class="card mt-3 text-bg-primary" onClick='selected(JSON.parse(`{{ group | tojson }}`))'>

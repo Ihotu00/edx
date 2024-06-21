@@ -66,17 +66,13 @@ function selected(group) {
 
 
 function send_post() {
-    // group_id = document.getElementById('group_id').value;
-    // message = document.getElementById('message').value;
-    data = {'group_id': document.getElementById('group_id').value,'message': document.getElementById('message').value}
-
     $.ajax({
         url: '/post',
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({
             'group_id': document.getElementById('group_id').value,
-            'message': document.getElementById('message').value }),
+            'message': document.getElementById('post').value }),
         success: function(response) {
             console.log(`success: ${response}`);
         },
@@ -84,5 +80,4 @@ function send_post() {
             console.log(error);
         }
     });
-    console.log(data)
 }

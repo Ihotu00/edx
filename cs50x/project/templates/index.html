@@ -13,16 +13,16 @@ Logged In {{ name }}
     <ul class="nav nav-pills" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
         <button class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button"
-          role="tab" aria-controls="home-tab-pane" aria-selected="true" onClick="show('message')">Posts</button>
+          role="tab" aria-controls="home-tab-pane" aria-selected="true" onClick="show('post-footer')">Posts</button>
       </li>
       <li class="nav-item" role="presentation">
         <button class="nav-link active" id="groups-tab" data-bs-toggle="tab" data-bs-target="#groups-tab-pane"
           type="button" role="tab" aria-controls="groups-tab-pane" aria-selected="false"
-          onClick="show('message')">Groups</button>
+          onClick="show('post-footer')">Groups</button>
       </li>
       <li class="nav-item" role="presentation">
         <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button"
-          role="tab" aria-controls="profile-tab-pane" aria-selected="false" onClick="hide('message')">Profile</button>
+          role="tab" aria-controls="profile-tab-pane" aria-selected="false" onClick="hide('post-footer')">Profile</button>
       </li>
     </ul>
   </div>
@@ -84,11 +84,11 @@ Logged In {{ name }}
       </div>
     </div>
   </div>
-  <div class="card-footer" id="message">
+  <div class="card-footer" id="post-footer">
     <!-- <form action="/post" method="post"> -->
       <div class="input-group input-group-md mb-3">
-        <input autocomplete="off" class="form-control form-control-sm" name="message" id="message" placeholder="Message..."
-          type="text" value="another test">
+        <input autocomplete="off" class="form-control form-control-sm" name="post" id="post" placeholder="Message..."
+          type="text">
         <input class="hide" name="group_id" id="group_id" type="text">
         <input class="hide" name="tab" id="tab" type="text" value="home">
         <button class="material-symbols-outlined btn btn-outline-primary" type="submit" onClick="send_post()">send</button>

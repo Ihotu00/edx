@@ -42,10 +42,10 @@ Logged In {{ name }}
           </div>
         </div>
       </div>
-      <div class="tab-pane fade show active text-light" id="groups-tab-pane" role="tabpanel" aria-labelledby="groups-tab"
-        tabindex="0">
-        <!-- <div class="card-body text-light"> -->
-          <!-- <div class="row">
+      <div class="tab-pane fade show active text-light" id="groups-tab-pane" role="tabpanel"
+        aria-labelledby="groups-tab" tabindex="0">
+        <div class="card-body text-light">
+          <div class="row">
             <div class="col-md-3 overflow-auto" style="max-height: 300px" id="group-parent-div">
               {% for group in groups %}
               <div class="card mt-3 text-bg-primary" onClick='selected(JSON.parse(`{{ group | tojson }}`))'>
@@ -61,32 +61,31 @@ Logged In {{ name }}
             <div class="col-md-8">
               <h1 id="group_header"></h1>
             </div>
-          </div> -->
-          <h3 class="text-start mb-2">Your Groups</h3>
-          <div class="d-flex align-items-start">
-            <div class="nav flex-column nav-pills me-3" id="group-parent-div" role="tablist"
-              aria-orientation="vertical">
-              {% for group in groups %}
-              <button class="nav-link" id="{{group['id']}}" data-bs-toggle="pill" data-bs-target="#v-pills-home"
-                type="button" role="tab" aria-controls="v-pills-home" aria-selected="true"
-                onClick='selected(JSON.parse(`{{ group | tojson }}`))'>{{ group["group_name"] }}</button>
-              {% endfor %}
-              <button class="btn btn-outline-primary btn-lg material-symbols-outlined mt-3"
-                onClick="show_modal('add-group-modal')">chat_add_on</button>
-            </div>
-            <div class="tab-content" id="v-pills-tabContent">
-              <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
-                aria-labelledby="v-pills-home-tab" tabindex="0">
-                <!-- <h1 id="group_header"></h1> -->
-                <nav class="navbar bg-dark navbar-dark sticky-top">
-                  <div class="container-fluid">
-                    <span class="navbar-brand mb-0 h1" id="group_header"></span>
-                  </div>
-                </nav>
-              </div>
+          </div>
+        </div>
+        <!-- <h3 class="text-start mb-2">Your Groups</h3>
+        <div class="d-flex align-items-start">
+          <div class="nav flex-column nav-pills me-3" id="group-parent-div" role="tablist"
+            aria-orientation="vertical">
+            {% for group in groups %}
+            <button class="nav-link" id="{{group['id']}}" data-bs-toggle="pill" data-bs-target="#v-pills-home"
+              type="button" role="tab" aria-controls="v-pills-home" aria-selected="true"
+              onClick='selected(JSON.parse(`{{ group | tojson }}`))'>{{ group["group_name"] }}</button>
+            {% endfor %}
+            <button class="btn btn-outline-primary btn-lg material-symbols-outlined mt-3"
+              onClick="show_modal('add-group-modal')">chat_add_on</button>
+          </div>
+          <div class="tab-content" id="v-pills-tabContent">
+            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
+              aria-labelledby="v-pills-home-tab" tabindex="0">
+              <nav class="navbar bg-dark navbar-dark sticky-top">
+                <div class="container-fluid">
+                  <span class="navbar-brand mb-0 h1" id="group_header"></span>
+                </div>
+              </nav>
             </div>
           </div>
-        <!-- </div> -->
+        </div> -->
       </div>
       <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
         <div class="center">

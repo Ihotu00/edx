@@ -1,4 +1,4 @@
-let group_modal = new bootstrap.Modal(document.getElementById('add-group-modal'));
+var group_modal = new bootstrap.Modal(document.getElementById('add-group-modal'));
 
 function hide(id) {
     document.getElementById(id).classList.add('hide');

@@ -74,26 +74,30 @@ def post():
             data = request.get_json()
             group_id = data["group_id"]
 
-        else: return "Failed to get input.", 200
+        else:
+            return "Failed to get input.", 200
 
-        if not data["message"]: return "", 204
+        if not data["message"]:
+            return "", 204
 
         db.execute("INSERT INTO blog_posts(user_id, post, group_id) VALUES(?,?,?)",
-                session["user_id"], data["message"], group_id)
+                   session["user_id"], data["message"], group_id)
 
         posts = db.execute(
             "SELECT * FROM blog_posts WHERE user_id = ? ORDER BY creation_time DESC", session["user_id"])
         return posts[0]
 
     else:
-        logging.warning("got in")
+
         group_id = request.args.get("group_id")
         if group_id:
-            logging.warning(group_id)
-            posts = db.execute("SELECT * FROM blog_posts WHERE group_id = ? ORDER BY creation_time DESC", group_id)
+            posts = db.execute(
+                "SELECT * FROM blog_posts INNER JOIN users on users.id = blog_posts.user_id WHERE group_id = ? ORDER BY creation_time DESC", group_id)
+            logging.warning(posts)
 
         else:
-            posts = db.execute("SELECT * FROM blog_posts WHERE user_id = ? ORDER BY creation_time DESC", session["user_id"])
+            posts = db.execute(
+                "SELECT * FROM blog_posts WHERE user_id = ? ORDER BY creation_time DESC", session["user_id"])
 
         return posts
 
@@ -105,12 +109,15 @@ def create_group():
     if request.get_json():
         data = request.get_json()
         try:
-            db.execute("INSERT INTO groups(created_by, group_name) VALUES(?,?)", session["user_id"],data["group_name"])
+            db.execute("INSERT INTO groups(created_by, group_name) VALUES(?,?)",
+                       session["user_id"], data["group_name"])
         except (ValueError):
             return "Sorry that name is unavailbale. Try something else", 400
 
-        group = db.execute("SELECT * FROM groups WHERE group_name = ?", data["group_name"])
-        db.execute("INSERT INTO users_groups(user_id, group_id) VALUES(?,?)", session["user_id"], group[0]["id"])
+        group = db.execute(
+            "SELECT * FROM groups WHERE group_name = ?", data["group_name"])
+        db.execute("INSERT INTO users_groups(user_id, group_id) VALUES(?,?)",
+                   session["user_id"], group[0]["id"])
         return group[0], 200
     # return "", 200
 

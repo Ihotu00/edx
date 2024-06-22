@@ -48,10 +48,9 @@ function get_posts(id) {
         url: '/post?group_id=' + id,
         type: 'GET',
         success: function(response) {
-            header = document.getElementById("group_header_div")
-            console.log(header)
+            header = document.getElementById("group_posts")
             for (x = 0; x < response.length; x++){
-                header.insertAdjacentHTML('afterend', `<div class="card mt-5 text-bg-primary">
+                header.insertAdjacentHTML('beforeend', `<div class="card mt-5 text-bg-primary">
                                                             <div class="card-body">
                                                                 ${ response[x]["post"] }
                                                             </div>
@@ -59,7 +58,6 @@ function get_posts(id) {
                                                                 ${ response[x]["creation_time"] }
                                                             </div>
                                                         </div>`);
-                console.log(`success: ${JSON.stringify(response[x])}`);
             }
         },
         error: function(error) {

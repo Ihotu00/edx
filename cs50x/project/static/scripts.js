@@ -18,11 +18,10 @@ function show_modal(id) {
 
 
 function selected(group) {
+    get_posts(group["group_id"]);
     document.getElementById('group_header').innerHTML = group["group_name"];
     document.getElementById('group_id').value = group["group_id"];
-    document.getElementById('tab').value = "groups";
     if (is_canvas) close_canvas();
-    get_posts(group["group_id"]);
 }
 
 
@@ -33,7 +32,8 @@ function send_post() {
         contentType: 'application/json',
         data: JSON.stringify({
             'group_id': document.getElementById('group_id').value,
-            'message': document.getElementById('post').value }),
+            'message': document.getElementById('post').value
+        }),
         success: function(response) {
             console.log(`success: ${JSON.stringify(response)}`);
         },
@@ -50,14 +50,14 @@ function get_posts(id) {
         success: function(response) {
             header = document.getElementById("group_posts")
             header.replaceChildren();
-            for (x = 0; x < response.length; x++){
-                header.insertAdjacentHTML('beforeend', `<div class="card mt-5 text-bg-primary">
+            for (x = 0; x < response.length; x++) {
+                header.insertAdjacentHTML('beforeend', `<h1 id="group_header"></h1><div class="card mt-5 text-bg-primary">
                     <div class="card-header">
                                                             <div class="card-body">
-                                                                ${ response[x]["post"] }
+                                                                ${response[x]["post"]}
                                                             </div>
                                                             <div class="card-footer text-end">
-                                                                ${ response[x]["creation_time"] }
+                                                                ${response[x]["creation_time"]}
                                                             </div>
                                                         </div>`);
             }
@@ -75,16 +75,16 @@ function create_group() {
         url: '/create/group',
         type: 'POST',
         contentType: 'application/json',
-        data: JSON.stringify({'group_name': document.getElementById('group_name').value}),
+        data: JSON.stringify({ 'group_name': document.getElementById('group_name').value }),
         success: function(response) {
             console.log(`success: ${JSON.stringify(response)}`);
             _modal.hide();
-            let child =`<div class="card mt-3 text-bg-primary" onClick="selected(${response})">
+            let child = `<div class="card mt-3 text-bg-primary" onClick="selected(${response})">
                             <div class="card-body">
                             ${response["group_name"]}
                             </div>
                         </div>`;
-            document.getElementById('add-group-button').insertAdjacentHTML( 'beforebegin', child );
+            document.getElementById('add-group-button').insertAdjacentHTML('beforebegin', child);
             selected(response);
         },
         error: function(error) {

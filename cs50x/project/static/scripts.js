@@ -19,7 +19,6 @@ function show_modal(id) {
 
 function selected(group) {
     get_posts(group["group_id"]);
-    document.getElementById('group_header').innerHTML = group["group_name"];
     document.getElementById('group_id').value = group["group_id"];
     if (is_canvas) close_canvas();
 }

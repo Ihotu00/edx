@@ -48,17 +48,18 @@ function get_posts(id) {
         url: '/post?group_id=' + id,
         type: 'GET',
         success: function(response) {
-            console.log(`success: ${JSON.stringify(response)}`);
-            header = document.getElementById("group_header")
+            header = document.getElementById("group_header_div")
+            console.log(header)
             for (x = 0; x < response.length; x++){
-                header.insertAjacentHTML('afterend', `<div class="card mt-5 text-bg-primary">
+                header.insertAdjacentHTML('afterend', `<div class="card mt-5 text-bg-primary">
                                                             <div class="card-body">
-                                                                ${ response["post"] }
+                                                                ${ response[x]["post"] }
                                                             </div>
                                                             <div class="card-footer text-end">
-                                                                ${ response["creation_time"] }
+                                                                ${ response[x]["creation_time"] }
                                                             </div>
-                                                        </div>`)
+                                                        </div>`);
+                console.log(`success: ${JSON.stringify(response[x])}`);
             }
         },
         error: function(error) {

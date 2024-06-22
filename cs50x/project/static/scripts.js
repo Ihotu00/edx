@@ -49,7 +49,8 @@ function get_posts(id) {
         type: 'GET',
         success: function(response) {
             console.log(`success: ${JSON.stringify(response)}`);
-            document.getElementById("group_header")
+            header = document.getElementById("group_header")
+            for
         },
         error: function(error) {
             console.log(error);

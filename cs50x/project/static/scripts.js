@@ -50,7 +50,9 @@ function get_posts(id) {
         success: function(response) {
             console.log(`success: ${JSON.stringify(response)}`);
             header = document.getElementById("group_header")
-            for
+            for (x = 0; x < response.length; x++){
+                header.insertAjacentHTML()
+            }
         },
         error: function(error) {
             console.log(error);

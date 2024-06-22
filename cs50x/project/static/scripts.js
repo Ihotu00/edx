@@ -64,7 +64,7 @@ function get_posts(id, name) {
             if (error.status == 404) {
                 header.insertAdjacentHTML('beforeend',
                     `<div class="center">
-                        <h1 style="font-size: 50cqb; color: black"></h1>
+                        <h1 style="font-size: 5em; color: white"></h1>
                     </div>`)
             }
             else console.log(error);

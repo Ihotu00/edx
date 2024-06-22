@@ -60,27 +60,34 @@ def index():
     return render_template("index.html", posts=posts, groups=groups)
 
 
-@app.route("/post", methods=["POST"])
+@app.route("/post", methods=["GET", "POST"])
 @login_required
 def post():
-
-    group_id = None
 
     if request.get_json():
 
         data = request.get_json()
-        if data["group_id"]:
-            group_id = data["group_id"]
 
-        db.execute("INSERT INTO blog_posts(user_id, post, group_id) VALUES(?,?,?)",
-                   session["user_id"], data["message"], group_id)
+        if request.method == "POST":
 
-        posts = db.execute(
-            "SELECT * FROM blog_posts WHERE user_id = ? ORDER BY creation_time DESC", session["user_id"])
-        return posts[0]
+            group_id = None
 
-    else:
-        return 'ERROR'
+            if data["group_id"]:
+                group_id = data["group_id"]
+
+            db.execute("INSERT INTO blog_posts(user_id, post, group_id) VALUES(?,?,?)",
+                    session["user_id"], data["message"], group_id)
+
+            posts = db.execute(
+                "SELECT * FROM blog_posts WHERE user_id = ? ORDER BY creation_time DESC", session["user_id"])
+            return posts[0]
+
+        else:
+
+            posts
+
+    else: return 'ERROR', 400
+
 
 
 @app.route("/create/group", methods=["POST"])

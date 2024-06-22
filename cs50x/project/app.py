@@ -84,6 +84,7 @@ def post():
 
         posts = db.execute(
             "SELECT * FROM blog_posts WHERE user_id = ? ORDER BY creation_time DESC", session["user_id"])
+        return posts[0]
 
     else:
 
@@ -93,7 +94,7 @@ def post():
         else:
             posts = db.execute("SELECT * FROM blog_posts WHERE user_id = ? ORDER BY creation_time DESC", session["user_id"])
 
-    return posts[0]
+        return posts
 
 
 @app.route("/create/group", methods=["POST"])

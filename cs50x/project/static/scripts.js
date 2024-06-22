@@ -41,6 +41,23 @@ function send_post() {
     });
 }
 
+function get_post() {
+    $.ajax({
+        url: '/post',
+        type: 'GET',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            'group_id': document.getElementById('group_id').value,
+            'message': document.getElementById('post').value }),
+        success: function(response) {
+            console.log(`success: ${JSON.stringify(response)}`);
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
+}
+
 function create_group() {
     modal = new bootstrap.Modal(document.getElementById('add-group-modal'));
 

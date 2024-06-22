@@ -43,7 +43,8 @@ function get_posts(id) {
         success: function(response) {
             header = document.getElementById("group_posts")
             header.replaceChildren();
-            header.insertAdjacentHTML('beforeend', `<h1 id="group_header">${response[x]["group_name"]}</h1>`)
+            header.insertAdjacentHTML('beforeend', `<h1 id="group_header">${response[0]["group_name"]}</h1>`)
+            console.log(JSON.stringify(response))
             for (x = 0; x < response.length; x++) {
                 header.insertAdjacentHTML('beforeend',
                     `<div class="card mt-5 text-bg-primary">

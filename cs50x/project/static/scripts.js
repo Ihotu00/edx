@@ -17,13 +17,6 @@ function show_modal(id) {
 }
 
 
-function selected(group) {
-    get_posts(group["group_id"]);
-    document.getElementById('group_id').value = group["group_id"];
-    if (is_canvas) close_canvas();
-}
-
-
 function send_post() {
     $.ajax({
         url: '/post',
@@ -43,6 +36,7 @@ function send_post() {
 }
 
 function get_posts(id) {
+    console.log(id);
     $.ajax({
         url: '/post?group_id=' + id,
         type: 'GET',
@@ -62,6 +56,8 @@ function get_posts(id) {
                         </div>
                     </div>`);
             }
+            document.getElementById('group_id').value = id;
+            if (is_canvas) close_canvas();
         },
         error: function(error) {
             console.log(error);

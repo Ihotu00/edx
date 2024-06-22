@@ -92,7 +92,7 @@ def post():
         group_id = request.args.get("group_id")
         if group_id:
             posts = db.execute(
-                """SELECT post, blog_posts.id AS id, creation_time, username, group_name FROM blog_posts
+                """SELECT post, blog_posts.id AS id, blog_posts.creation_time AS creation_time, username, group_name FROM blog_posts
                 INNER JOIN users on users.id = blog_posts.user_id INNER JOIN groups on groups.id = blog_posts.group_id
                 WHERE group_id = ? ORDER BY creation_time DESC""", group_id)
 

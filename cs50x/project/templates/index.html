@@ -55,7 +55,7 @@ Logged In {{ name }}
               <div class="offcanvas-header"><button type="button" class="btn-close hide text-end btn-lg"
                   id="close-canvas" onClick="close_canvas()" aria-label="Close"></button></div>
               {% for group in groups %}
-              <div class="card mt-3 text-bg-primary" onClick='get_posts(`{{ group["group_id"] }}`)'>
+              <div class="card mt-3 text-bg-primary" onClick='get_posts(`{{ group["group_id"] }}, {{ group["group_name"] }}`)'>
                 <div class="card-body">
                   {{ group["group_name"] }}
                 </div>

@@ -35,7 +35,7 @@ function send_post() {
     });
 }
 
-function get_posts(id) {
+function get_posts(id, name) {
     console.log(id);
     $.ajax({
         url: '/post?group_id=' + id,

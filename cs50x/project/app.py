@@ -69,7 +69,7 @@ def post():
     posts = None
 
     if request.get_json():
-
+        logging.warning("get json failed")
         data = request.get_json()
 
         if data["group_id"]:
@@ -87,8 +87,9 @@ def post():
         return posts[0]
 
     else:
-
+        logging.warning("got in")
         if group_id:
+            logging.warning(group_id)
             posts = db.execute("SELECT * FROM blog_posts WHERE group_id = ? ORDER BY creation_time DESC", group_id)
 
         else:

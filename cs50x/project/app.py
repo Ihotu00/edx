@@ -64,11 +64,13 @@ def index():
 @login_required
 def post():
 
-    if request.get_json():
 
-        data = request.get_json()
 
-        if request.method == "POST":
+    if request.method == "POST":
+
+        if request.get_json():
+
+            data = request.get_json()
 
             group_id = None
 
@@ -81,18 +83,17 @@ def post():
             posts = db.execute(
                 "SELECT * FROM blog_posts WHERE user_id = ? ORDER BY creation_time DESC", session["user_id"])
             return posts[0]
+        
+        else: return 'ERROR', 400
+
+    else:
+        posts = None
+
+        if data["group_id"]:
+            posts = db.execute("SELECT * FROM blog_posts WHERE group_id = ? ORDER BY creation_time DESC", data["group_id"])
 
         else:
-            posts = None
-
-            if data["group_id"]:
-                posts = db.execute("SELECT * FROM blog_posts WHERE group_id = ? ORDER BY creation_time DESC", data["group_id"])
-
-            else:
-                posts = db.execute("SELECT * FROM blog_posts WHERE user_id = ? ORDER BY creation_time DESC", session["user_id"])
-
-    # else: return 'ERROR', 400
-
+            posts = db.execute("SELECT * FROM blog_posts WHERE user_id = ? ORDER BY creation_time DESC", session["user_id"])
 
 
 @app.route("/create/group", methods=["POST"])

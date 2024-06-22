@@ -88,16 +88,20 @@ def post():
 
     else:
         posts = None
+        group_id = None
 
         if request.get_json():
 
             data = request.get_json()
+            group_id = data["group_id"]
 
-        if data["group_id"]:
-            posts = db.execute("SELECT * FROM blog_posts WHERE group_id = ? ORDER BY creation_time DESC", data["group_id"])
+        if group_id:
+            posts = db.execute("SELECT * FROM blog_posts WHERE group_id = ? ORDER BY creation_time DESC", group_id)
 
         else:
             posts = db.execute("SELECT * FROM blog_posts WHERE user_id = ? ORDER BY creation_time DESC", session["user_id"])
+
+        return posts[0]
 
 
 @app.route("/create/group", methods=["POST"])

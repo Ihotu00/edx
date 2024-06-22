@@ -68,7 +68,6 @@ function create_group() {
 }
 
 
-//  offcanvas offcanvas-start off-canvas-lg show
 function show_canvas() {
     document.getElementById('close-canvas').classList.remove('hide');
     document.getElementById('group-parent-div').classList.remove('d-none');

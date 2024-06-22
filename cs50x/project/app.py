@@ -69,16 +69,13 @@ def post():
     posts = None
     logging.warning("started")
 
-    if request.get_json():
-        logging.warning("get json failed")
-        data = request.get_json()
-
-        if data["group_id"]:
-            group_id = data["group_id"]
-            
-    else: group_id = None
-
     if request.method == "POST":
+
+        if request.get_json():
+            data = request.get_json()
+
+            if data["group_id"]:
+                group_id = data["group_id"]
 
         if not data["message"]: return "", 204
 

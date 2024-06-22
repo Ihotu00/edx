@@ -51,7 +51,14 @@ function get_posts(id) {
             console.log(`success: ${JSON.stringify(response)}`);
             header = document.getElementById("group_header")
             for (x = 0; x < response.length; x++){
-                header.insertAjacentHTML()
+                header.insertAjacentHTML('afterend', `<div class="card mt-5 text-bg-primary">
+                                                            <div class="card-body">
+                                                                ${ response["post"] }
+                                                            </div>
+                                                            <div class="card-footer text-end">
+                                                                ${ response["creation_time"] }
+                                                            </div>
+                                                        </div>`)
             }
         },
         error: function(error) {

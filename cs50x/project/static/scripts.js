@@ -39,12 +39,10 @@ function get_posts(id, name) {
     console.log(id);
     header = document.getElementById("group_posts")
     header.replaceChildren();
+    header.insertAdjacentHTML('beforeend', `<h1 id="group_header">${name}</h1>`)
     $.ajax({
         url: '/post?group_id=' + id,
         type: 'GET',
-        complete: function() {
-            header.insertAdjacentHTML('beforeend', `<h1 id="group_header">${name}</h1>`)
-        },
         success: function(response) {
             console.log(JSON.stringify(response))
             for (x = 0; x < response.length; x++) {

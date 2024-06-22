@@ -36,7 +36,6 @@ function send_post() {
 }
 
 function get_posts(id, name) {
-    console.log(id);
     header = document.getElementById("group_posts")
     header.replaceChildren();
     header.insertAdjacentHTML('beforeend', `<h1 id="group_header">${name}</h1>`)
@@ -64,7 +63,7 @@ function get_posts(id, name) {
             if (error.status == 404) {
                 header.insertAdjacentHTML('beforeend',
                     `<div class="center">
-                        <h1 class="text-bg-dark" style="font-size: 15cqb; color: white">${error.responseText}</h1>
+                        <h1 class="text-muted" style="font-size: 15cqb; color: white">${error.responseText}</h1>
                     </div>`)
             }
             else console.log(error);

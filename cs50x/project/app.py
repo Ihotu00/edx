@@ -64,36 +64,28 @@ def index():
 @login_required
 def post():
 
+    data = None
+    group_id = None
+    posts = None
 
+    if request.get_json():
+
+        data = request.get_json()
+
+        if data["group_id"]:
+            group_id = data["group_id"]
 
     if request.method == "POST":
 
-        if request.get_json():
+        if not data["message"]: return "", 204
 
-            data = request.get_json()
+        db.execute("INSERT INTO blog_posts(user_id, post, group_id) VALUES(?,?,?)",
+                session["user_id"], data["message"], group_id)
 
-            group_id = None
-
-            if data["group_id"]:
-                group_id = data["group_id"]
-
-            db.execute("INSERT INTO blog_posts(user_id, post, group_id) VALUES(?,?,?)",
-                    session["user_id"], data["message"], group_id)
-
-            posts = db.execute(
-                "SELECT * FROM blog_posts WHERE user_id = ? ORDER BY creation_time DESC", session["user_id"])
-            return posts[0]
-
-        else: return 'ERROR', 400
+        posts = db.execute(
+            "SELECT * FROM blog_posts WHERE user_id = ? ORDER BY creation_time DESC", session["user_id"])
 
     else:
-        posts = None
-        group_id = None
-
-        if request.get_json():
-
-            data = request.get_json()
-            group_id = data["group_id"]
 
         if group_id:
             posts = db.execute("SELECT * FROM blog_posts WHERE group_id = ? ORDER BY creation_time DESC", group_id)
@@ -101,7 +93,7 @@ def post():
         else:
             posts = db.execute("SELECT * FROM blog_posts WHERE user_id = ? ORDER BY creation_time DESC", session["user_id"])
 
-        return posts[0]
+    return posts[0]
 
 
 @app.route("/create/group", methods=["POST"])

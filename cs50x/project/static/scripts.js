@@ -49,6 +49,7 @@ function get_posts(id) {
         type: 'GET',
         success: function(response) {
             header = document.getElementById("group_posts")
+            header.replaceChildren();
             for (x = 0; x < response.length; x++){
                 header.insertAdjacentHTML('beforeend', `<div class="card mt-5 text-bg-primary">
                     <div class="card-header">

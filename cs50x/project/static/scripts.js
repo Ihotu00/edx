@@ -51,15 +51,17 @@ function get_posts(id) {
             header = document.getElementById("group_posts")
             header.replaceChildren();
             for (x = 0; x < response.length; x++) {
-                header.insertAdjacentHTML('beforeend', `<h1 id="group_header"></h1><div class="card mt-5 text-bg-primary">
-                    <div class="card-header">
-                                                            <div class="card-body">
-                                                                ${response[x]["post"]}
-                                                            </div>
-                                                            <div class="card-footer text-end">
-                                                                ${response[x]["creation_time"]}
-                                                            </div>
-                                                        </div>`);
+                header.insertAdjacentHTML('beforeend',
+                    `<h1 id="group_header">${response[x]["group_name"]}</h1>
+                    <div class="card mt-5 text-bg-primary">
+                        <div class="card-header"></div>
+                        <div class="card-body">
+                            ${response[x]["post"]}
+                        </div>
+                        <div class="card-footer text-end">
+                            ${response[x]["creation_time"]}
+                        </div>
+                    </div>`);
             }
         },
         error: function(error) {

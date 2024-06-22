@@ -63,7 +63,7 @@ def index():
 @app.route("/post", methods=["GET", "POST"])
 @login_required
 def post():
-
+    logging.warning("started")
     data = None
     group_id = None
     posts = None

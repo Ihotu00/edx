@@ -46,9 +46,7 @@ function get_post() {
         url: '/post',
         type: 'GET',
         contentType: 'application/json',
-        data: JSON.stringify({
-            'group_id': document.getElementById('group_id').value,
-            'message': document.getElementById('post').value }),
+        data: JSON.stringify({'group_id': document.getElementById('group_id').value}),
         success: function(response) {
             console.log(`success: ${JSON.stringify(response)}`);
         },

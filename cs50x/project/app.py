@@ -75,6 +75,8 @@ def post():
 
         if data["group_id"]:
             group_id = data["group_id"]
+            
+    else: group_id = None
 
     if request.method == "POST":
 

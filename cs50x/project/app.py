@@ -74,7 +74,7 @@ def post():
         if request.get_json():
             data = request.get_json()
 
-            if data["group_id"]:
+        if data["group_id"]:
                 group_id = data["group_id"]
 
         if not data["message"]: return "", 204

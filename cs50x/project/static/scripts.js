@@ -51,6 +51,7 @@ function get_posts(id) {
             header = document.getElementById("group_posts")
             for (x = 0; x < response.length; x++){
                 header.insertAdjacentHTML('beforeend', `<div class="card mt-5 text-bg-primary">
+                    <div class="card-header">
                                                             <div class="card-body">
                                                                 ${ response[x]["post"] }
                                                             </div>

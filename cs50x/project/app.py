@@ -93,7 +93,6 @@ def post():
         if group_id:
             posts = db.execute(
                 "SELECT post, blog_posts.id, creation_time, username FROM blog_posts INNER JOIN users on users.id = blog_posts.user_id WHERE group_id = ? ORDER BY creation_time DESC", group_id)
-            logging.warning(posts)
 
         else:
             posts = db.execute(

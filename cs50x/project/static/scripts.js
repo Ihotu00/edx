@@ -52,9 +52,11 @@ function create_group() {
         success: function(response) {
             console.log(`success: ${JSON.stringify(response)}`);
             _modal.hide();
-            let child = `<button class="nav-link" id="${response["id"]}" data-bs-toggle="pill" data-bs-target="#v-pills-home"
-                type="button" role="tab" aria-controls="v-pills-home" aria-selected="true"
-                onClick='selected(${response})'>${ response["group_name"] }</button>`;
+            let child =`<div class="card mt-3 text-bg-primary" onClick="selected(${response})">
+                            <div class="card-body">
+                            ${response["group_name"]}
+                            </div>
+                        </div>`;
             document.getElementById('group-parent-div').insertAdjacentHTML( 'afterbegin', child );
             selected(response);
         },

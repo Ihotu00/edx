@@ -67,15 +67,14 @@ def post():
     data = None
     group_id = None
     posts = None
-    logging.warning("started")
 
     if request.method == "POST":
 
         if request.get_json():
             data = request.get_json()
+            group_id = data["group_id"]
 
-        if data["group_id"]:
-                group_id = data["group_id"]
+        else: return "Failed to get input.", 200
 
         if not data["message"]: return "", 204
 
@@ -88,6 +87,7 @@ def post():
 
     else:
         logging.warning("got in")
+        group_id = request.args.get("group_id")
         if group_id:
             logging.warning(group_id)
             posts = db.execute("SELECT * FROM blog_posts WHERE group_id = ? ORDER BY creation_time DESC", group_id)

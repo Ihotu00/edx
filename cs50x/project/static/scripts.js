@@ -45,10 +45,9 @@ function send_post() {
 
 function get_posts(id) {
     $.ajax({
-        url: '/post',
+        url: '/post?group_id=%s',
         type: 'GET',
-        contentType: 'application/json',
-        data: JSON.stringify({'group_id': id}),
+        data: {'group_id': id},
         success: function(response) {
             console.log(`success: ${JSON.stringify(response)}`);
         },

@@ -100,6 +100,9 @@ def post():
             posts = db.execute(
                 "SELECT * FROM blog_posts WHERE user_id = ? ORDER BY creation_time DESC", session["user_id"])
 
+        if not len(posts) > 0:
+            return "No posts in this group yet", 400
+
         return posts
 
 

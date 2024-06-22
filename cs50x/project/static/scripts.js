@@ -21,6 +21,7 @@ function selected(group) {
     document.getElementById('group_id').value = group["group_id"];
     document.getElementById('tab').value = "groups";
     close_canvas();
+    get_posts(group["group_id"]);
 }
 
 
@@ -41,12 +42,12 @@ function send_post() {
     });
 }
 
-function get_post() {
+function get_posts(id) {
     $.ajax({
         url: '/post',
         type: 'GET',
         contentType: 'application/json',
-        data: JSON.stringify({'group_id': document.getElementById('group_id').value}),
+        data: JSON.stringify({'group_id': id}),
         success: function(response) {
             console.log(`success: ${JSON.stringify(response)}`);
         },

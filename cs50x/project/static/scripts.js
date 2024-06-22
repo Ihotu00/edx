@@ -64,9 +64,12 @@ function get_posts(id, name) {
         },
         error: function(error) {
             if (error.status == 404) {
-                
+                header.insertAdjacentHTML('beforeend',
+                    `<div class="center">
+                        <h1 style="font-size: 50cqb; color: black"></h1>
+                    </div>`)
             }
-            console.log(error);
+            else console.log(error);
         }
     });
 }

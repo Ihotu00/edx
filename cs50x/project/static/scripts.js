@@ -63,6 +63,9 @@ function get_posts(id, name) {
             if (is_canvas) close_canvas();
         },
         error: function(error) {
+            if (error.status == 404) {
+                
+            }
             console.log(error);
         }
     });

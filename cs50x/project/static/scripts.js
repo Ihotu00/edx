@@ -18,11 +18,13 @@ function show_modal(id) {
 }
 
 function send_post() {
-    group_id = null;
+    group_id;
     element = "posts";
     position = "afterbegin"
     if (document.getElementById('groups-tab-pane').classList.contains("show")) {
         group_id = document.getElementById('group_id').value
+        position = "afterend";
+        element = "group_header";
     }
     $.ajax({
         url: '/post',
@@ -34,7 +36,7 @@ function send_post() {
         }),
         success: function(response) {
             console.log(`success: ${JSON.stringify(response)}`);
-            document.getElementById("group_header").insertAdjacentHTML('afterend',
+            document.getElementById(element).insertAdjacentHTML(position,
                 `<div class="card mt-5 text-bg-primary">
                     <div class="card-header text-start">
                         <img src=${response["photo"]} style="clip-path: circle();" width="20" height="20">

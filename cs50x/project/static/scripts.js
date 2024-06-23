@@ -140,6 +140,27 @@ function login(event) {
     });
 }
 
+function register(event) {
+    event.preventDefault();
+    $.ajax({
+        url: '/register',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            'username': event.target.username.value,
+            'password': event.target.password.value,
+            'confirmation': event.target.confirmation.value }),
+        success: function(response) {
+            location.pathname = "/";
+        },
+        error: function(error) {
+            console.log(error)
+            show("error-response")
+            document.getElementById('error-response').innerHTML = error.responseText
+        }
+    });
+}
+
 function show_canvas() {
     document.getElementById('close-canvas').classList.remove('hide');
     document.getElementById('group-parent-div').classList.remove('d-none');

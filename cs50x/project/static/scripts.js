@@ -121,10 +121,9 @@ function create_group() {
 }
 
 function login() {
-    data = JSON.stringify({
+    localStorage.setItem("user", JSON.stringify({
         'username': document.getElementById('username').value,
-        'password': document.getElementById('password').value })
-    localStorage.setItem("user": data);
+        'password': document.getElementById('password').value }));
     $.ajax({
         url: '/login',
         type: 'POST',

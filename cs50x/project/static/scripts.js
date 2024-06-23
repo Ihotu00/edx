@@ -1,7 +1,6 @@
 var _modal;
 var _canvas;
 var is_canvas = false;
-var is_group;
 
 
 function hide(id) {
@@ -18,11 +17,12 @@ function show_modal(id) {
     _modal.show();
 }
 
-function is_group() {
-    var myModalEl = document.getElementById('getInfo')
-    myModalEl.addEventListener('hidden.bs.modal', function (event) {
-        document.querySelector('#title').value = "";
-        document.querySelector('#description').value = "";
+function is_blog() {
+    console.log(document.getElementById('group_id').value);
+    var home_tab = document.getElementById('home-tab-pane')
+    home_tab.addEventListener('shown.bs.tab', function (event) {
+        document.getElementById('group_id').value = "";
+        console.log(document.getElementById('group_id').value);
     })
 }
 

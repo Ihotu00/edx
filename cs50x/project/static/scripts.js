@@ -31,16 +31,17 @@ function send_post() {
             document.getElementById("group_posts").insertAdjacentHTML('beforeend',
                 `<div class="card mt-5 text-bg-primary">
                     <div class="card-header text-start">
-                        <img src=${response[x]["photo"]} style="clip-path: circle()">
-                        ${response[x]["username"]}
+                        <img src=${response["photo"]} style="clip-path: circle()">
+                        ${response["username"]}
                     </div>
                     <div class="card-body">
-                        ${response[x]["post"]}
+                        ${response["post"]}
                     </div>
                     <div class="card-footer text-end">
-                        ${response[x]["creation_time"]}
+                        ${response["creation_time"]}
                     </div>
                 </div>`);
+            document.getElementById('post').value = '';
         },
         error: function(error) {
             console.log(error);

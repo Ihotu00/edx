@@ -49,7 +49,7 @@ function send_post() {
     });
 }
 
-function get_posts(id, name) {
+function get_group_msg(id, name) {
     document.getElementById('group_id').value = id;
     header = document.getElementById("group_posts")
     header.replaceChildren();

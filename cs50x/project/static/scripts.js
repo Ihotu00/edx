@@ -1,7 +1,7 @@
 var _modal;
 var _canvas;
 var is_canvas = false;
-var current_tab;
+var isMessage;
 
 function open_tab(tab) {
 

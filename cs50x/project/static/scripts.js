@@ -18,7 +18,7 @@ function show_modal(id) {
 }
 
 function send_post() {
-    group_id;
+    group_id = null;
     if (document.getElementById('home-tab-pane').classList.contains("show")) {
         group_id = document.getElementById('group_id').value
     }

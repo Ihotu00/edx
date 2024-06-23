@@ -35,6 +35,8 @@ function send_post() {
             'message': document.getElementById('post').value
         }),
         success: function(response) {
+            no_posts_msg = document.getElementById('no_posts_msg');
+            if (no_posts_msg) { no_posts_msg.remove(); }
             document.getElementById(element).insertAdjacentHTML(position,
                 `<div class="card mt-5 text-bg-primary">
                     <div class="card-header text-start">

@@ -19,7 +19,9 @@ function show_modal(id) {
 
 function send_post() {
     group_id;
-    if (document.getElementById('home-tab-pane').contains("show")) { group_id = document.getElementById('group_id').value}
+    if (document.getElementById('home-tab-pane').classList.contains("show")) {
+        group_id = document.getElementById('group_id').value
+    }
     $.ajax({
         url: '/post',
         type: 'POST',

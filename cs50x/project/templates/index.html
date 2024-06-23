@@ -13,9 +13,8 @@ Logged In {{ name }}
           role="tab" aria-controls="home-tab-pane" aria-selected="true" onClick="show('post-footer')">Posts</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="groups-tab" data-bs-toggle="tab" data-bs-target="#groups-tab-pane"
-          type="button" role="tab" aria-controls="groups-tab-pane" aria-selected="false"
-          onClick="hide('post-footer')">Groups</button>
+        <button class="nav-link" id="groups-tab" data-bs-toggle="tab" data-bs-target="#groups-tab-pane" type="button"
+          role="tab" aria-controls="groups-tab-pane" aria-selected="false" onClick="hide('post-footer')">Groups</button>
       </li>
       <li class="nav-item" role="presentation">
         <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button"
@@ -26,7 +25,8 @@ Logged In {{ name }}
   </div>
   <div class="card-body overflow-auto">
     <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade mb-3 show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+      <div class="tab-pane fade mb-3 show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
+        tabindex="0">
         <div class="center">
           <div class="col-9" id="posts">
             {% for post in posts %}
@@ -46,11 +46,11 @@ Logged In {{ name }}
           </div>
         </div>
       </div>
-      <div class="tab-pane fade text-light" id="groups-tab-pane" role="tabpanel"
-        aria-labelledby="groups-tab" tabindex="0">
+      <div class="tab-pane fade text-light" id="groups-tab-pane" role="tabpanel" aria-labelledby="groups-tab"
+        tabindex="0">
         <div class="card-body text-light">
-          <div class="text-start sticky-top"><button class="material-symbols-outlined btn btn-primary d-lg-none" type="button"
-              aria-controls="offcanvasExample" onClick="show_canvas()">
+          <div class="text-start sticky-top"><button class="material-symbols-outlined btn btn-primary d-lg-none"
+              type="button" aria-controls="offcanvasExample" onClick="show_canvas()">
               menu
             </button></div>
           <div class="row">
@@ -60,7 +60,8 @@ Logged In {{ name }}
                   id="close-canvas" onClick="close_canvas()" aria-label="Close"></button></div>
               <h2 class="sticky-top bg-dark">Your Groups</h2>
               {% for group in groups %}
-              <div class="card mt-3 text-bg-primary" onClick='get_group_msg(`{{ group["group_id"] }}`, `{{ group["group_name"] }}`); show("post-footer")'>
+              <div class="card mt-3 text-bg-primary"
+                onClick='get_group_msg(`{{ group["group_id"] }}`, `{{ group["group_name"] }}`); show("post-footer")'>
                 <div class="card-body">
                   {{ group["group_name"] }}
                 </div>
@@ -93,15 +94,15 @@ Logged In {{ name }}
   </div>
   <div class="card-footer" id="post-footer">
     <form onSubmit="send_post(event)" method="post">
-    <div class="input-group input-group-md mb-3">
-      <input autocomplete="off" class="form-control form-control-sm" name="post" id="post" placeholder="Message..."
-        type="text">
-      <input class="hide" name="group_id" id="group_id" type="text">
-      <input class="hide" name="tab" id="tab" type="text" value="home">
-      <button class="material-symbols-outlined btn btn-outline-primary" type="submit"
-        id="submit-post"><span class="spinner-border spinner-border-sm hide" role="status" aria-hidden="true"
-        id="spinner"></span>send</button>
-    </div>
+      <div class="input-group input-group-md mb-3">
+        <input autocomplete="off" class="form-control form-control-sm" name="post" id="post" placeholder="Message..."
+          type="text">
+        <input class="hide" name="group_id" id="group_id" type="text">
+        <input class="hide" name="tab" id="tab" type="text" value="home">
+        <button class="material-symbols-outlined btn btn-outline-primary" type="submit" id="submit-post"><span
+            class="spinner-border spinner-border-sm hide" role="status" aria-hidden="true"
+            id="spinner"></span>send</button>
+      </div>
     </form>
   </div>
 </div>

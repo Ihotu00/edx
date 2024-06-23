@@ -125,22 +125,22 @@ function login() {
         'username': document.getElementById('username').value,
         'password': document.getElementById('password').value }));
     console.log(localStorage.getItem("user"))
-    $.ajax({
-        url: '/login',
-        type: 'POST',
-        contentType: 'application/json',
-        data: JSON.stringify({
-            'username': document.getElementById('username').value,
-            'password': document.getElementById('password').value }),
-        success: function(response) {
-            console.log(`success: ${JSON.stringify(response)}`);
-        },
-        error: function(error) {
-            console.log(error)
-            document.getElementById('login_form').insertAdjacentHTML('beforeend',
-                `<p class="hide" style="color: red" id="group-taken">${error.responseText}</p>`)
-        }
-    });
+    // $.ajax({
+    //     url: '/login',
+    //     type: 'POST',
+    //     contentType: 'application/json',
+    //     data: JSON.stringify({
+    //         'username': document.getElementById('username').value,
+    //         'password': document.getElementById('password').value }),
+    //     success: function(response) {
+    //         console.log(`success: ${JSON.stringify(response)}`);
+    //     },
+    //     error: function(error) {
+    //         console.log(error)
+    //         document.getElementById('login_form').insertAdjacentHTML('beforeend',
+    //             `<p class="hide" style="color: red" id="group-taken">${error.responseText}</p>`)
+    //     }
+    // });
 }
 
 function show_canvas() {

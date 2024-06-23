@@ -125,7 +125,9 @@ function login() {
         url: '/login',
         type: 'POST',
         contentType: 'application/json',
-        data: JSON.stringify({ 'username': document.getElementById('username').value }),
+        data: JSON.stringify({
+            'username': document.getElementById('username').value,
+            'password': document.getElementById('password').value }),
         success: function(response) {
             console.log(`success: ${JSON.stringify(response)}`);
             _modal.hide();

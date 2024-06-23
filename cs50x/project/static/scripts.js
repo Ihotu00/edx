@@ -1,11 +1,8 @@
 var _modal;
 var _canvas;
 var is_canvas = false;
-var isMessage;
+var is_group;
 
-function open_tab(tab) {
-
-}
 
 function hide(id) {
     document.getElementById(id).classList.add('hide');
@@ -21,6 +18,9 @@ function show_modal(id) {
     _modal.show();
 }
 
+function is_group() {
+
+}
 
 function send_post() {
     $.ajax({

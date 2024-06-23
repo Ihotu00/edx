@@ -3,7 +3,7 @@ import logging
 import datetime
 
 from cs50 import SQL
-from flask import Flask, flash, redirect, render_template, request, session
+from flask import Flask, redirect, render_template, request, session
 from flask_session import Session
 from functools import wraps
 from werkzeug.security import check_password_hash, generate_password_hash
@@ -155,8 +155,7 @@ def login():
 
             session["user_id"] = rows[0]["id"]
 
-            flash("Login Successful")
-            return index()
+            return "Login Successful", 200
 
         else:
             logging.warning(request.get_json())
@@ -215,8 +214,7 @@ def register():
 
             session["user_id"] = rows[0]["id"]
 
-            flash("Registration Successful")
-            return index()
+            return "Registration Successful", 200
 
     else:
         return render_template("register.html")

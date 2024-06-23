@@ -121,6 +121,9 @@ function create_group() {
 }
 
 function login() {
+    localStorage.setItem("user": JSON.stringify({
+        'username': document.getElementById('username').value,
+        'password': document.getElementById('password').value }));
     $.ajax({
         url: '/login',
         type: 'POST',
@@ -137,9 +140,6 @@ function login() {
                 `<p class="hide" style="color: red" id="group-taken">${error.responseText}</p>`)
         }
     });
-    localStorage.setItem("user": JSON.stringify({
-        'username': document.getElementById('username').value,
-        'password': document.getElementById('password').value }));
 }
 
 function show_canvas() {

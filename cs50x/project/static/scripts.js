@@ -134,8 +134,8 @@ function login(event) {
         },
         error: function(error) {
             console.log(error)
-            document.getElementById('login_form').insertAdjacentHTML('beforeend',
-                `<p class="hide" style="color: red" id="group-taken">${error.responseText}</p>`)
+            show("error-response")
+            document.getElementById('error-response').innerHTML = error.responseText
         }
     });
 }

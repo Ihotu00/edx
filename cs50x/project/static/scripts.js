@@ -21,7 +21,7 @@ function is_blog() {
     console.log(document.getElementById('group_id').value);
     var home_tab = document.getElementById('home-tab-pane')
     home_tab.addEventListener('shown.bs.tab', function (event) {
-        document.getElementById('group_id').value = "";
+        document.querySelector('#group_id').value = "";
         console.log(document.getElementById('group_id').value);
     })
 }

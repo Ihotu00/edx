@@ -92,16 +92,17 @@ Logged In {{ name }}
     </div>
   </div>
   <div class="card-footer" id="post-footer">
-    <!-- <form action="/post" method="post"> -->
+    <form onSubmit="send_post(event)" method="post">
     <div class="input-group input-group-md mb-3">
       <input autocomplete="off" class="form-control form-control-sm" name="post" id="post" placeholder="Message..."
         type="text">
       <input class="hide" name="group_id" id="group_id" type="text">
       <input class="hide" name="tab" id="tab" type="text" value="home">
       <button class="material-symbols-outlined btn btn-outline-primary" type="submit"
-        onClick="send_post()">send</button>
+        id="submit-post"><span class="spinner-border spinner-border-sm hide" role="status" aria-hidden="true"
+        id="spinner"></span>send</button>
     </div>
-    <!-- </form> -->
+    </form>
   </div>
 </div>
 

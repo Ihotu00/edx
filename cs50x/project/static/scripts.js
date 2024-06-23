@@ -17,7 +17,10 @@ function show_modal(id) {
     _modal.show();
 }
 
-function send_post() {
+function send_post(event) {
+    event.preventDefault();
+    show("spinner")
+    document.getElementById("submit-post").classList.add("disabled")
     group_id;
     element = "posts";
     position = "afterbegin"
@@ -54,6 +57,10 @@ function send_post() {
         },
         error: function(error) {
             console.log(error);
+        },
+        complete: function() {
+            hide("spinner")
+            document.getElementById("submit-post").classList.remove("disabled")
         }
     });
 }

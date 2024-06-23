@@ -125,7 +125,6 @@ def create_group():
         db.execute("INSERT INTO users_groups(user_id, group_id) VALUES(?,?)",
                    session["user_id"], group[0]["id"])
         return group[0], 200
-    # return "", 200
 
 
 @app.route("/login", methods=["GET", "POST"])

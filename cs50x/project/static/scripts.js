@@ -19,7 +19,11 @@ function show_modal(id) {
 }
 
 function is_group() {
-
+    var myModalEl = document.getElementById('getInfo')
+    myModalEl.addEventListener('hidden.bs.modal', function (event) {
+        document.querySelector('#title').value = "";
+        document.querySelector('#description').value = "";
+    })
 }
 
 function send_post() {

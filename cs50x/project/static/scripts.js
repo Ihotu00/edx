@@ -142,14 +142,11 @@ function login(event, url) {
 }
 
 function imageUploaded(event) {
-    img = document.getElementById("display_profile_picture").src
-    console.log(img);
     const file = event.target.files[0];
     const reader = new FileReader();
     reader.readAsDataURL(file)
     reader.onloadend = () => {
-        img = reader.result
-        console.log("BASE64: ", img);
+        document.getElementById("display_profile_picture").src = reader.result
     };
 }
 

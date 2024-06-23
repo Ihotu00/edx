@@ -122,26 +122,30 @@ function create_group() {
 
 function login(event, url) {
     event.preventDefault();
-    console.log(event)
     show("spinner")
-    // $.ajax({
-    //     url: url,
-    //     type: 'POST',
-    //     contentType: 'application/json',
-    //     data: JSON.stringify({
-    //         'username': event.target.username.value,
-    //         'password': event.target.password.value,
-    //         'confirmation': url == "/register" ? event.target.confirmation.value : "",
-    //         'photo': url == "/register" ? event.target.photo.src : "" }),
-    //     success: function(response) {
-    //         location.pathname = "/";
-    //     },
-    //     error: function(error) {
-    //         console.log(error)
-    //         show("error-response")
-    //         document.getElementById('error-response').innerHTML = error.responseText
-    //     }
-    // });
+    document.getElementById("submit-form").classList.add("disabled")
+    $.ajax({
+        url: url,
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            'username': event.target.username.value,
+            'password': event.target.password.value,
+            'confirmation': url == "/register" ? event.target.confirmation.value : "",
+            'photo': url == "/register" ? event.target.photo.src : "" }),
+        success: function(response) {
+            // location.pathname = "/";
+        },
+        error: function(error) {
+            console.log(error)
+            show("error-response")
+            document.getElementById('error-response').innerHTML = error.responseText
+        },
+        complete: function() {
+            hide("spinner")
+            document.getElementById("submit-form").classList.remove("disabled")
+        }
+    });
 }
 
 function imageUploaded(event) {

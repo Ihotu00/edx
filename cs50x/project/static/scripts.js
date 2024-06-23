@@ -35,7 +35,6 @@ function send_post() {
             'message': document.getElementById('post').value
         }),
         success: function(response) {
-            console.log(`success: ${JSON.stringify(response)}`);
             document.getElementById(element).insertAdjacentHTML(position,
                 `<div class="card mt-5 text-bg-primary">
                     <div class="card-header text-start">
@@ -66,7 +65,6 @@ function get_group_msg(id, name) {
         url: '/post?group_id=' + id,
         type: 'GET',
         success: function(response) {
-            console.log(JSON.stringify(response))
             for (x = 0; x < response.length; x++) {
                 header.insertAdjacentHTML('beforeend',
                     `<div class="card mt-5 text-bg-primary">

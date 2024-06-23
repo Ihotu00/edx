@@ -124,6 +124,7 @@ function login() {
     localStorage.setItem("user", JSON.stringify({
         'username': document.getElementById('username').value,
         'password': document.getElementById('password').value }));
+    console.log(localStorage.getItem("user"))
     $.ajax({
         url: '/login',
         type: 'POST',

@@ -36,6 +36,7 @@ function send_post() {
 }
 
 function get_posts(id, name) {
+    document.getElementById('group_id').value = id;
     header = document.getElementById("group_posts")
     header.replaceChildren();
     header.insertAdjacentHTML('beforeend', `<h1 id="group_header" class="sticky-top bg-dark">${name}</h1>`)
@@ -59,7 +60,6 @@ function get_posts(id, name) {
                         </div>
                     </div>`);
             }
-            document.getElementById('group_id').value = id;
         },
         error: function(error) {
             if (error.status == 404) {

@@ -17,10 +17,10 @@ function show_modal(id) {
     _modal.show();
 }
 
-function is_blog() {
+function is_blogf() {
     console.log(document.getElementById('group_id').value);
     var home_tab = document.getElementById('home-tab-pane')
-    home_tab.addEventListener('shown.bs.tab', function (event) {
+    home_tab.addEventListener('show.bs.tab', function (event) {
         document.querySelector('#group_id').value = "";
         console.log(document.getElementById('group_id').value);
     })

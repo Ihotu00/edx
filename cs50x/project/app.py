@@ -84,7 +84,7 @@ def post():
                    session["user_id"], data["message"], group_id)
 
         posts = db.execute(
-            "SELECT * FROM blog_posts WHERE user_id = ? ORDER BY creation_time DESC", session["user_id"])
+            "SELECT * FROM blog_posts INNER JOIN users on userrs-id = blog_posts.uers_id WHERE user_id = ? ORDER BY creation_time DESC", session["user_id"])
         return posts[0]
 
     else:

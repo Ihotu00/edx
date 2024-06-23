@@ -38,7 +38,7 @@ function send_post() {
 function get_posts(id, name) {
     header = document.getElementById("group_posts")
     header.replaceChildren();
-    header.insertAdjacentHTML('beforeend', `<h1 id="group_header">${name}</h1>`)
+    header.insertAdjacentHTML('beforeend', `<h1 id="group_header" class="sticky-top">${name}</h1>`)
     $.ajax({
         url: '/post?group_id=' + id,
         type: 'GET',
@@ -46,7 +46,7 @@ function get_posts(id, name) {
             console.log(JSON.stringify(response))
             for (x = 0; x < response.length; x++) {
                 header.insertAdjacentHTML('beforeend',
-                    `<div class="card mt-5 text-bg-primary">
+                    `<div class="card mt-5 text-bg-primary col-md-7">
                         <div class="card-header"></div>
                         <div class="card-body">
                             ${response[x]["post"]}

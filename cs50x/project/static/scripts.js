@@ -129,7 +129,7 @@ function login(event, url) {
         data: JSON.stringify({
             'username': event.target.username.value,
             'password': event.target.password.value,
-            'confirmation': event.target.confirmation.value }),
+            'confirmation': url == "/register" ? event.target.confirmation.value : "" }),
         success: function(response) {
             location.pathname = "/";
         },

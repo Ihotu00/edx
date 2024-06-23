@@ -84,7 +84,8 @@ def post():
                    session["user_id"], data["message"], group_id)
 
         posts = db.execute(
-            "SELECT * FROM blog_posts INNER JOIN users on userrs-id = blog_posts.uers_id WHERE user_id = ? ORDER BY creation_time DESC", session["user_id"])
+            """SELECT post, blog_posts.id AS id, creation_time, username, photo FROM blog_posts
+            INNER JOIN users on users.id = blog_posts.user_id WHERE user_id = ? ORDER BY creation_time DESC""", session["user_id"])
         return posts[0]
 
     else:
@@ -97,7 +98,8 @@ def post():
 
         else:
             posts = db.execute(
-                "SELECT * FROM blog_posts WHERE user_id = ? ORDER BY creation_time DESC", session["user_id"])
+                """SELECT post, blog_posts.id AS id, creation_time, username, photo FROM blog_posts
+                INNER JOIN users on users.id = blog_posts.user_id WHERE user_id = ? ORDER BY creation_time DESC""", session["user_id"])
 
         if not len(posts) > 0:
             return "No posts in this group yet", 404

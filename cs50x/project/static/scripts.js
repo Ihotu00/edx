@@ -128,6 +128,7 @@ function login() {
         data: JSON.stringify({
             'username': document.getElementById('username').value,
             'password': document.getElementById('password').value }),
+        complete: function() {localStorage.setItem("user": data)}
         success: function(response) {
             console.log(`success: ${JSON.stringify(response)}`);
         },

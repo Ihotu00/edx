@@ -122,24 +122,26 @@ function create_group() {
 
 function login(event, url) {
     event.preventDefault();
-    $.ajax({
-        url: url,
-        type: 'POST',
-        contentType: 'application/json',
-        data: JSON.stringify({
-            'username': event.target.username.value,
-            'password': event.target.password.value,
-            'confirmation': url == "/register" ? event.target.confirmation.value : "",
-            'photo': url == "/register" ? event.target.photo.src : "" }),
-        success: function(response) {
-            location.pathname = "/";
-        },
-        error: function(error) {
-            console.log(error)
-            show("error-response")
-            document.getElementById('error-response').innerHTML = error.responseText
-        }
-    });
+    console.log(event)
+    show("spinner")
+    // $.ajax({
+    //     url: url,
+    //     type: 'POST',
+    //     contentType: 'application/json',
+    //     data: JSON.stringify({
+    //         'username': event.target.username.value,
+    //         'password': event.target.password.value,
+    //         'confirmation': url == "/register" ? event.target.confirmation.value : "",
+    //         'photo': url == "/register" ? event.target.photo.src : "" }),
+    //     success: function(response) {
+    //         location.pathname = "/";
+    //     },
+    //     error: function(error) {
+    //         console.log(error)
+    //         show("error-response")
+    //         document.getElementById('error-response').innerHTML = error.responseText
+    //     }
+    // });
 }
 
 function imageUploaded(event) {

@@ -145,7 +145,7 @@ function login(event, url) {
         'password': event.target.password.value,
         'photo': url == "/register" ? event.target.photo.value : "",
         'confirmation': url == "/register" ? event.target.confirmation.value : "" }));
-    console.log(event.target.photo.value)
+    console.log(event.target)
 }
 
 function imageUploaded(event) {

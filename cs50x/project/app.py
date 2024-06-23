@@ -183,6 +183,7 @@ def register():
 
         if request.get_json():
             data = request.get_json()
+            logging.warning(data)
 
             if not data["username"]:
                 return "Please provide Username", 400

@@ -28,6 +28,19 @@ function send_post() {
         }),
         success: function(response) {
             console.log(`success: ${JSON.stringify(response)}`);
+            document.getElementById("group_posts").insertAdjacentHTML('beforeend',
+                `<div class="card mt-5 text-bg-primary">
+                    <div class="card-header text-start">
+                        <img src=${response[x]["photo"]} style="clip-path: circle()">
+                        ${response[x]["username"]}
+                    </div>
+                    <div class="card-body">
+                        ${response[x]["post"]}
+                    </div>
+                    <div class="card-footer text-end">
+                        ${response[x]["creation_time"]}
+                    </div>
+                </div>`);
         },
         error: function(error) {
             console.log(error);

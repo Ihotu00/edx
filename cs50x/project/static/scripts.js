@@ -46,8 +46,8 @@ function get_posts(id, name) {
             console.log(JSON.stringify(response))
             for (x = 0; x < response.length; x++) {
                 header.insertAdjacentHTML('beforeend',
-                    `<div class="card mt-5 text-bg-primary col-md-7">
-                        <div class="card-header"></div>
+                    `<div class="card mt-5 text-bg-primary">
+                        <div class="card-header text-start"><p>${response[x]["username"]}</p></div>
                         <div class="card-body">
                             ${response[x]["post"]}
                         </div>

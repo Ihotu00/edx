@@ -28,7 +28,7 @@ function send_post() {
         }),
         success: function(response) {
             console.log(`success: ${JSON.stringify(response)}`);
-            document.getElementById("group_posts").insertAdjacentHTML('beforeend',
+            document.getElementById("group_posts").insertAdjacentHTML('beforebegin',
                 `<div class="card mt-5 text-bg-primary">
                     <div class="card-header text-start">
                         <img src=${response["photo"]} style="clip-path: circle();" width="20" height="20">

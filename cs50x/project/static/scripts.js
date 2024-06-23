@@ -142,15 +142,15 @@ function login(event, url) {
 }
 
 function imageUploaded(event) {
-    console.log(event);
+    img = document.getElementById("display_profile_picture").src
+    console.log(img);
     const file = event.target.files[0];
     const reader = new FileReader();
     reader.readAsDataURL(file)
     reader.onloadend = () => {
-        const base64String = reader.result
-        console.log("BASE64: ", base64String);
+        img = reader.result
+        console.log("BASE64: ", img);
     };
-    // console.log("READER STH: ", reader.readAsDataURL(file));
 }
 
 function show_canvas() {

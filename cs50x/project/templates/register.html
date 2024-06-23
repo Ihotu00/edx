@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block main %}
-    <form onsubmit="register(event)" id="register_form">
+    <form onsubmit="login(event, '/register')" id="register_form">
         <div class="mb-3">
             <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="username" placeholder="Username" type="text">
         </div>

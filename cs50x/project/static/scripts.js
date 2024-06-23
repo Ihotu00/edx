@@ -120,30 +120,10 @@ function create_group() {
     });
 }
 
-function login(event) {
+function login(event, url) {
     event.preventDefault();
     $.ajax({
-        url: '/login',
-        type: 'POST',
-        contentType: 'application/json',
-        data: JSON.stringify({
-            'username': event.target.username.value,
-            'password': event.target.password.value }),
-        success: function(response) {
-            location.pathname = "/";
-        },
-        error: function(error) {
-            console.log(error)
-            show("error-response")
-            document.getElementById('error-response').innerHTML = error.responseText
-        }
-    });
-}
-
-function register(event) {
-    event.preventDefault();
-    $.ajax({
-        url: '/register',
+        url: url,
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({

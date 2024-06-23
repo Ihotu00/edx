@@ -194,7 +194,7 @@ def register():
             elif not data["confirmation"]:
                 return "Please confirm Password", 400
 
-            elif data["password"] != data["confrirmation"]:
+            elif data["password"] != data["confirmation"]:
                 return "Passwords do not match", 400
 
             password_hash = generate_password_hash(data["password"])

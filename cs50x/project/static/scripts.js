@@ -17,22 +17,15 @@ function show_modal(id) {
     _modal.show();
 }
 
-function is_blog() {
-    console.log(document.getElementById('group_id').value);
-    var home_tab = document.getElementById('home-tab-pane')
-    home_tab.addEventListener('show.bs.tab', function (event) {
-        document.querySelector('#group_id').value = "";
-        console.log(document.getElementById('group_id').value);
-    })
-}
-
 function send_post() {
+    group_id;
+    if (document.getElementById('home-tab-pane').contains("show")) { group_id = document.getElementById('group_id').value}
     $.ajax({
         url: '/post',
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({
-            'group_id': document.getElementById('group_id').value,
+            'group_id': group_id,
             'message': document.getElementById('post').value
         }),
         success: function(response) {

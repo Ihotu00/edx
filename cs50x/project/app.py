@@ -73,7 +73,7 @@ def post():
 
         if request.get_json():
             data = request.get_json()
-            group_id = data["group_id"]
+            if data["group_id"]: group_id = data["group_id"]
 
         else:
             return "Failed to get input.", 200

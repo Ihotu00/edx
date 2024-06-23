@@ -31,7 +31,7 @@ function send_post() {
             document.getElementById("group_posts").insertAdjacentHTML('beforeend',
                 `<div class="card mt-5 text-bg-primary">
                     <div class="card-header text-start">
-                        <img src=${response["photo"]} style="clip-path: circle(); height: 3px; width: 3px">
+                        <img src=${response["photo"]} style="clip-path: circle();" width="50" height="60">
                         ${response["username"]}
                     </div>
                     <div class="card-body">
@@ -63,7 +63,7 @@ function get_posts(id, name) {
                 header.insertAdjacentHTML('beforeend',
                     `<div class="card mt-5 text-bg-primary">
                         <div class="card-header text-start">
-                            <img src=${response[x]["photo"]} style="clip-path: circle()">
+                            <img src=${response[x]["photo"]} style="clip-path: circle()" width="20" height="20">
                             ${response[x]["username"]}
                         </div>
                         <div class="card-body">

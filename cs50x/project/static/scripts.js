@@ -48,7 +48,7 @@ function get_posts(id, name) {
                 header.insertAdjacentHTML('beforeend',
                     `<div class="card mt-5 text-bg-primary">
                         <div class="card-header text-start">
-                            <img src=${response[x]["photo"]} style="clip-path: circle()">
+                            // <img src=${response[x]["photo"]} style="clip-path: circle()">
                             ${response[x]["username"]}
                         </div>
                         <div class="card-body">
@@ -63,12 +63,12 @@ function get_posts(id, name) {
         },
         error: function(error) {
             if (error.status == 404) {
+                console.log(error)
                 header.insertAdjacentHTML('beforeend',
                     `<div class="center">
                         <h1 class="text-white-50" style="font-size: 15cqb; color: white">${error.responseText}</h1>
                     </div>`)
             }
-            else console.log(error);
         }
     });
     if (is_canvas) close_canvas();

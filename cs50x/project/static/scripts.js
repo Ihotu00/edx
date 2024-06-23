@@ -85,7 +85,7 @@ function get_group_msg(id, name) {
             if (error.status == 404) {
                 console.log(error)
                 header.insertAdjacentHTML('beforeend',
-                    `<div class="center">
+                    `<div class="center" id="no_posts_msg">
                         <h1 class="text-white-50" style="font-size: 15cqb; color: white">${error.responseText}</h1>
                     </div>`)
             }

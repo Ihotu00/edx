@@ -145,11 +145,12 @@ function imageUploaded(event) {
     console.log(event);
     const file = event.target.files[0];
     const reader = new FileReader();
+    reader.readAsDataURL(file)
     reader.onloadend = () => {
         const base64String = reader.result
-        console.log(base64String);
+        console.log("BASE64: ", base64String);
     };
-    console.log(reader.readAsDataURL(file));
+    // console.log("READER STH: ", reader.readAsDataURL(file));
 }
 
 function show_canvas() {

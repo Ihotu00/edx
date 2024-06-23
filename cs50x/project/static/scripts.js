@@ -134,7 +134,7 @@ function login(event, url) {
             'confirmation': url == "/register" ? event.target.confirmation.value : "",
             'photo': url == "/register" ? event.target.photo.src : "" }),
         success: function(response) {
-            // location.pathname = "/";
+            location.pathname = "/";
         },
         error: function(error) {
             console.log(error)

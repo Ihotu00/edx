@@ -196,13 +196,17 @@ def register():
             elif data["password"] != data["confirmation"]:
                 return "Passwords do not match", 400
 
+            elif data["photo"]:
+                return "Photo is null", 400
+
             password_hash = generate_password_hash(data["password"])
 
             try:
                 db.execute(
-                    "INSERT INTO users (username, password) VALUES(?,?)",
+                    "INSERT INTO users (username, password, photo) VALUES(?,?,?)",
                     data["username"],
                     password_hash,
+                    data["photo"]
                 )
             except ValueError:
                 return "Username taken", 400

@@ -38,7 +38,7 @@ function send_post() {
 function get_posts(id, name) {
     header = document.getElementById("group_posts")
     header.replaceChildren();
-    header.insertAdjacentHTML('beforeend', `<h1 id="group_header" class="sticky-top">${name}</h1>`)
+    header.insertAdjacentHTML('beforeend', `<h1 id="group_header" class="sticky-top bg-dark">${name}</h1>`)
     $.ajax({
         url: '/post?group_id=' + id,
         type: 'GET',

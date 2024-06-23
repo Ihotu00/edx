@@ -57,7 +57,6 @@ function get_posts(id, name) {
                     </div>`);
             }
             document.getElementById('group_id').value = id;
-            if (is_canvas) close_canvas();
         },
         error: function(error) {
             if (error.status == 404) {
@@ -69,6 +68,7 @@ function get_posts(id, name) {
             else console.log(error);
         }
     });
+    if (is_canvas) close_canvas();
 }
 
 function create_group() {

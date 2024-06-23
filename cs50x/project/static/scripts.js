@@ -130,18 +130,13 @@ function login() {
             'password': document.getElementById('password').value }),
         success: function(response) {
             console.log(`success: ${JSON.stringify(response)}`);
-            _modal.hide();
-            let child = `<div class="card mt-3 text-bg-primary" onClick="selected(${response})">
-                            <div class="card-body">
-                            ${response["group_name"]}
-                            </div>
-                        </div>`;
-            document.getElementById('add-group-button').insertAdjacentHTML('beforebegin', child);
-            selected(response);
         },
         error: function(error) {
-            console.log(error.responseText);
-            show("group-taken");
+            console.log(error)
+            document.getElementById('login_form').insertAdjacentHTML('beforeend',
+                `<div class="center" id="no_posts_msg">
+                    <h1 class="text-white-50" style="font-size: 15cqb; color: white">${error.responseText}</h1>
+                </div>`)
         }
     });
 }

@@ -128,7 +128,6 @@ function login() {
         data: JSON.stringify({
             'username': document.getElementById('username').value,
             'password': document.getElementById('password').value }),
-        complete: function() {localStorage.setItem("user": data)}
         success: function(response) {
             console.log(`success: ${JSON.stringify(response)}`);
         },
@@ -138,6 +137,9 @@ function login() {
                 `<p class="hide" style="color: red" id="group-taken">${error.responseText}</p>`)
         }
     });
+    localStorage.setItem("user": JSON.stringify({
+        'username': document.getElementById('username').value,
+        'password': document.getElementById('password').value }));
 }
 
 function show_canvas() {

@@ -17,7 +17,7 @@ function show_modal(id) {
     _modal.show();
 }
 
-function is_blogf() {
+function is_blog() {
     console.log(document.getElementById('group_id').value);
     var home_tab = document.getElementById('home-tab-pane')
     home_tab.addEventListener('show.bs.tab', function (event) {

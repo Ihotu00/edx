@@ -159,7 +159,8 @@ def login():
             return redirect("/")
 
         else:
-            return 400
+            logging.warning(request.get_json())
+            return "invalid json", 400
 
     else:
         return render_template("login.html")

@@ -130,7 +130,7 @@ function login(event, url) {
             'username': event.target.username.value,
             'password': event.target.password.value,
             'confirmation': url == "/register" ? event.target.confirmation.value : "",
-            'photo': url == "/register" ? event.target.photo.value : "" }),
+            'photo': url == "/register" ? event.target.photo.src : "" }),
         success: function(response) {
             location.pathname = "/";
         },
@@ -140,11 +140,6 @@ function login(event, url) {
             document.getElementById('error-response').innerHTML = error.responseText
         }
     });
-    console.log(JSON.stringify({
-        'username': event.target.username.value,
-        'password': event.target.password.value,
-        'photo': url == "/register" ? event.target.photo.src : "",
-        'confirmation': url == "/register" ? event.target.confirmation.value : "" }));
 }
 
 function imageUploaded(event) {

@@ -120,7 +120,8 @@ function create_group() {
     });
 }
 
-function login() {
+function login(event) {
+    event.preventDefault();
     localStorage.setItem("user", JSON.stringify({
         'username': document.getElementById('username').value,
         'password': document.getElementById('password').value }));

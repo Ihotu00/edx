@@ -156,7 +156,7 @@ def login():
             session["user_id"] = rows[0]["id"]
 
             flash("Login Successful")
-            return redirect("/")
+            return index()
 
         else:
             logging.warning(request.get_json())
@@ -216,7 +216,7 @@ def register():
             session["user_id"] = rows[0]["id"]
 
             flash("Registration Successful")
-            return redirect("/")
+            return index()
 
     else:
         return render_template("register.html")

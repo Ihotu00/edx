@@ -130,7 +130,7 @@ function login(event) {
             'username': event.target.username.value,
             'password': event.target.password.value }),
         success: function(response) {
-            console.log(`success: ${location.pathname}`);
+            location.pathname = "/";
         },
         error: function(error) {
             console.log(error)

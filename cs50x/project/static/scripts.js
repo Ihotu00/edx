@@ -141,6 +141,10 @@ function login(event, url) {
     });
 }
 
+function imageUploaded(event) {
+    console.log(event);
+}
+
 function show_canvas() {
     document.getElementById('close-canvas').classList.remove('hide');
     document.getElementById('group-parent-div').classList.remove('d-none');

@@ -48,7 +48,7 @@ function get_posts(id, name) {
                 header.insertAdjacentHTML('beforeend',
                     `<div class="card mt-5 text-bg-primary">
                         <div class="card-header text-start">
-                            // <img src=${response[x]["photo"]} style="clip-path: circle()">
+                            <img src=${response[x]["photo"]} style="clip-path: circle()">
                             ${response[x]["username"]}
                         </div>
                         <div class="card-body">

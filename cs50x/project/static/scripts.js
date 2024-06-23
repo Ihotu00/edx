@@ -134,9 +134,7 @@ function login() {
         error: function(error) {
             console.log(error)
             document.getElementById('login_form').insertAdjacentHTML('beforeend',
-                `<div class="center" id="no_posts_msg">
-                    <h1 class="text-white-50" style="font-size: 15cqb; color: white">${error.responseText}</h1>
-                </div>`)
+                `<p class="hide" style="color: red" id="group-taken">${error.responseText}</p>`)
         }
     });
 }

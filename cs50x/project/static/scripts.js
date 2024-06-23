@@ -1,6 +1,11 @@
 var _modal;
 var _canvas;
 var is_canvas = false;
+var current_tab;
+
+function open_tab(tab) {
+
+}
 
 function hide(id) {
     document.getElementById(id).classList.add('hide');

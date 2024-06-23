@@ -143,8 +143,9 @@ function login(event, url) {
     console.log(JSON.stringify({
         'username': event.target.username.value,
         'password': event.target.password.value,
-        'confirmation': url == "/register" ? event.target.confirmation.value : "",
-        'photo': url == "/register" ? event.target.photo.value : "" }))
+        'photo': url == "/register" ? event.target.photo.value : "",
+        'confirmation': url == "/register" ? event.target.confirmation.value : "" }));
+    console.log(event.target.photo.value)
 }
 
 function imageUploaded(event) {

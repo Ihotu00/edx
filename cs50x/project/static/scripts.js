@@ -97,8 +97,6 @@ function get_group_msg(id, name) {
 }
 
 function create_group() {
-    modal = new bootstrap.Modal(document.getElementById('add-group-modal'));
-
     $.ajax({
         url: '/create/group',
         type: 'POST',
@@ -122,6 +120,9 @@ function create_group() {
     });
 }
 
+function login() {
+
+}
 
 function show_canvas() {
     document.getElementById('close-canvas').classList.remove('hide');

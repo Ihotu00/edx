@@ -58,7 +58,7 @@ def index():
     groups = db.execute(
         "SELECT * FROM groups inner join users_groups on groups.id = users_groups.group_id WHERE users_groups.user_id = ? ORDER BY creation_time DESC", session["user_id"])
 
-    return render_template("index.html", posts=posts, groups=groups)
+    return render_template("home.html", posts=posts, groups=groups)
 
 
 @app.route("/post", methods=["GET", "POST"])
@@ -153,6 +153,8 @@ def login():
                 return "Invalid username/password", 400
 
             session["user_id"] = rows[0]["id"]
+            session["user_photo"] = rows[0]["photo"]
+            session["user_name"] = rows[0]["username"]
 
             return "Login Successful", 200
 

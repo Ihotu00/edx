@@ -16,15 +16,24 @@ main {
     display: none;
 }
 
-hr{
+/* hr{
     transform: rotate(90deg);
-   }
+   } */
 
 ::-webkit-scrollbar {
-    width: 0;  /*Remove scrollbar space*/
-    background: transparent;  /*: just make scrollbar invisible*/
+    width: 0;
+    background: transparent;
 }
-/* Optional: show position indicator in red */
-::-webkit-scrollbar-thumb {
-    background: #FF0000;
-}
+
+.material-icons {
+    font-size: inherit;
+    line-height: inherit;
+    vertical-align: bottom;
+  }
+
+  .text-break {
+    /* text-overflow: ellipsis;
+    overflow: hidden; */
+    white-space: nowrap;
+    max-width: 25ch;
+  }

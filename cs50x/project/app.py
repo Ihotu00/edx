@@ -79,7 +79,7 @@ def post():
             return "Failed to get input.", 200
 
         if not data["message"]:
-            return "", 204
+            return "", 400
 
         db.execute("INSERT INTO blog_posts(user_id, post, group_id) VALUES(?,?,?)",
                    session["user_id"], data["message"], group_id)

@@ -87,7 +87,7 @@
                             <h5><span class="material-icons">add</span>Create Group</h5>
                         </a>
                         {% for group in groups %}
-                        <a class="btn btn-dark btn-lg text-start" onClick="" type="button">
+                        <a class="btn btn-dark btn-lg text-start" onClick='get_group_msg(`{{ group["group_id"] }}`, `{{ group["group_name"] }}`)' type="button">
                             <h5 class="text-break"><img src='{{ group["photo"]}}' width="30" height="30"/>{{ group["group_name"] }}</h5>
                         </a>
                         {% endfor %}

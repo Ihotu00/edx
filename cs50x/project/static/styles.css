@@ -45,9 +45,9 @@ main {
 .hover:hover {
     /* box-shadow: inset 0px 0px 0 5000px rgba(0, 0, 0, 0.1); */
     cursor: pointer;
-    color: var(--bs-btn-hover-color);
-    background-color: var(--bs-btn-hover-bg);
-    border-color: var(--bs-btn-hover-border-color);
+    color: #fff;
+    background-color: #424649;
+    border-color: #373b3e;
 }
 
 a {

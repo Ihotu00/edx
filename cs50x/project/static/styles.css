@@ -40,4 +40,7 @@ main {
 
 .navbar-colapse {
     flex-grow: 0;
+    .form-control {
+        width: 70%;
+    }
 }

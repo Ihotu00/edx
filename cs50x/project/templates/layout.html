@@ -55,28 +55,28 @@
                     <a class="list-group-item text-bg-dark border border-0 dropdown-toggle" data-bs-toggle="dropdown"
                         aria-expanded="false"><img src='{{ session["user_photo"]}}' title="Profile"
                             style="clip-path: circle();" width="30" height="30"></a>
-                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
-                        <li>
+                    <div class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                        <div>
                             <a class="dropdown-item text-start" href="/" type="button">
                                 <p><img src='{{ session["user_photo"]}}' style="clip-path: circle();" width="18"
                                         height="18"> View profile</p>
                             </a>
-                        </li>
-                        <li>
+                        </div>
+                        <div>
                             <hr class="dropdown-divider">
-                        </li><li>
+                        </div><div>
                             <a class="dropdown-item text-start" href="/" type="button">
                                 <p><span class="material-icons">settings</span> Settings</p>
                             </a>
-                        </li>
-                        <li>
+                        </div>
+                        <div>
                             <hr class="dropdown-divider">
-                        </li><li>
+                        </div><div>
                             <a class="dropdown-item text-start" href="/login" type="button">
                                 <p><span class="material-icons">logout</span> Logout</p>
                             </a>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
                 </li>
             </ul>
             {% else %}

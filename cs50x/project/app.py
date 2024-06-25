@@ -56,7 +56,9 @@ def index(client, client_name):
 
     if client == "user":
         posts = db.execute("""SELECT post, blog_posts.id AS id, blog_posts.creation_time, group_name AS name, photo FROM blog_posts
-                           INNER JOIN groups on groupname = group_name WHERE user_name = ? OR group_name IN (?) ORDER BY blog_posts.creation_time DESC""", client_name, [group["groupname"] for group in groups])
+                            INNER JOIN groups on groupname = group_name WHERE user_name = ? OR group_name IN (?)
+                            UNION SELECT post, blog_posts.id AS id, blog_posts.creation_time, user_name AS name, photo FROM blog_posts
+                            INNER JOIN users on username = user_name WHERE user_name = ? and group_name is null ORDER BY blog_posts.creation_time DESC""", client_name, [group["groupname"] for group in groups], client_name)
 
     if client == "group":
         posts = db.execute("""SELECT post, blog_posts.id AS id, blog_posts.creation_time, user_name AS name, photo FROM blog_posts
@@ -77,7 +79,8 @@ def post():
 
         if request.get_json():
             data = request.get_json()
-            if data["group_id"]: group_id = data["group_id"]
+            if data["group_id"]:
+                group_id = data["group_id"]
 
         else:
             return "Failed to get input.", 200

@@ -47,14 +47,15 @@
                             search
                         </span></a></li>
                 <li class="nav-item"><a class="list-group-item text-bg-dark border border-0" href="/settings"
-                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create post">
+                        data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create post">
                         <span class="material-symbols-outlined">
                             add
                         </span></a>
-                <li class="nav-item dropdown dropdown-center" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Open profile menu">
+                <li class="nav-item dropdown dropdown-center" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-title="Open profile menu">
                     <a class=" btn list-group-item text-bg-dark border border-0" data-bs-toggle="dropdown"
-                        aria-expanded="false"><img src='{{ session["user_photo"]}}'
-                            style="clip-path: circle();" width="30" height="30"></a>
+                        aria-expanded="false"><img src='{{ session["user_photo"]}}' style="clip-path: circle();"
+                            width="30" height="30"></a>
                     <div class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
                         <div>
                             <a class="dropdown-item text-start" href="/" type="button">
@@ -64,14 +65,16 @@
                         </div>
                         <div>
                             <hr class="dropdown-divider">
-                        </div><div>
+                        </div>
+                        <div>
                             <a class="dropdown-item text-start" href="/" type="button">
                                 <p><span class="material-icons">settings</span> Settings</p>
                             </a>
                         </div>
                         <div>
                             <hr class="dropdown-divider">
-                        </div><div>
+                        </div>
+                        <div>
                             <a class="dropdown-item text-start" href="/login" type="button">
                                 <p><span class="material-icons">logout</span> Logout</p>
                             </a>
@@ -92,6 +95,7 @@
         <main class="container py-5 text-center mt-5">
             {% block main %}{% endblock %}
 
+            {% if session["user_id" ] %}
             <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasExample"
                 aria-labelledby="offcanvasExampleLabel">
                 <div class="offcanvas-header">
@@ -125,6 +129,7 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
         </main>
     </body>
 

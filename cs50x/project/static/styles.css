@@ -29,24 +29,28 @@ main {
     font-size: inherit;
     line-height: inherit;
     vertical-align: bottom;
-  }
+}
 
-  .text-break {
+.text-break {
     /* text-overflow: ellipsis;
     overflow: hidden; */
     white-space: nowrap;
     max-width: 25ch;
-  }
+}
 
-  .navbar-nav .dropdown-menu {
+.navbar-nav .dropdown-menu {
     position: absolute;
 }
 
 .hover:hover {
-    box-shadow: inset 0px 0px 0 5000px rgba(0,0,0,0.1);
+    box-shadow: inset 0px 0px 0 5000px rgba(0, 0, 0, 0.1);
     cursor: pointer;
 }
 
+a {
+    text-decoration: none;
+}
+
 a:hover {
-    text-decoration:
+    text-decoration: underline;
 }

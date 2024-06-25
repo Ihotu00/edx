@@ -56,11 +56,11 @@
                         aria-expanded="false"><img src='{{ session["user_photo"]}}' title="Profile"
                             style="clip-path: circle();" width="30" height="30"></a>
                     <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
-                        <li class="d-grid text-start">
-                            <a class="btn btn-dark btn-lg text-start" href="/" type="button">
+                        <li>
+                            <a class="dropdown-item" href="/" type="button">
                                 <p><img src='{{ session["user_photo"]}}'
-                                    style="clip-path: circle();" width="30" height="30">View profile</p>
-                                    <p>{{ session["user_name"] }}</p>
+                                    style="clip-path: circle();" width="20" height="20">View profile
+                                    <p>{{ session["user_name"] }}</p></p>
                             </a>
                             <hr>
                         </li>

@@ -11,10 +11,7 @@ Welcome {{session["user_name"]}}
         <div class="card-header text-start">
           {% if post["group_name"] %}
             <a class="btn text-light btn-sm" href=""><img src='{{ post["photo"]}}' style="clip-path: circle();" width="25" height="25">
-              {{ post["group_name"] }}</a>
-          {& elif post["user_name"] %}
-          <a class="btn text-light btn-sm" href=""><img src='{{ post["photo"]}}' style="clip-path: circle();" width="25" height="25">
-            {{ post["user_name"] }}</a>
+              {{ post["group_name"] if post["group_name"] else post["user_name"]}}</a>
           {% endif %}
         </div>
         <div class="card-body overflow-hidden text-start">

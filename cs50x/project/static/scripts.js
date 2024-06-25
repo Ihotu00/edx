@@ -148,7 +148,7 @@ function login(event, url) {
             'photo': url == "/register" ? event.target.photo.src : ""
         }),
         success: function(response) {
-            location.pathname = "/user/";
+            location.pathname = `/user/${event.target.username.value}`;
         },
         error: function(error) {
             console.log(error)

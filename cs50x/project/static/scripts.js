@@ -153,6 +153,8 @@ function login(event, url) {
             console.log(error)
             show("error-response")
             document.getElementById('error-response').innerHTML = error.responseText
+            hide("spinner")
+            document.getElementById("submit-form").classList.remove("disabled")
         }
     });
 }

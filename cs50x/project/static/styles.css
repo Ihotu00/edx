@@ -38,4 +38,6 @@ main {
     max-width: 25ch;
   }
 
-.nav
+.navbar-colapse {
+    flex-grow: 0;
+}

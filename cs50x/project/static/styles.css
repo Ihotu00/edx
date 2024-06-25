@@ -43,14 +43,17 @@ main {
 }
 
 .hover:hover {
-    box-shadow: inset 0px 0px 0 5000px rgba(0, 0, 0, 0.1);
+    /* box-shadow: inset 0px 0px 0 5000px rgba(0, 0, 0, 0.1); */
     cursor: pointer;
+    color: var(--bs-btn-hover-color);
+    background-color: var(--bs-btn-hover-bg);
+    border-color: var(--bs-btn-hover-border-color);
 }
 
 a {
     text-decoration: none;
 }
 
-a:hover {
+.hover a:hover {
     text-decoration: underline;
 }

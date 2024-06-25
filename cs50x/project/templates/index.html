@@ -1,135 +1,24 @@
 {% extends "layout.html" %}
 
 {% block title %}
-Logged In {{ name }}
+Home
 {% endblock %}
 
 {% block main %}
-<div class="card w-100 h-100 bg-dark">
-  <div class="card-header">
-    <ul class="nav nav-pills" id="myTab" role="tablist">
-      <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button"
-          role="tab" aria-controls="home-tab-pane" aria-selected="true" onClick="show('post-footer')">Posts</button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="groups-tab" data-bs-toggle="tab" data-bs-target="#groups-tab-pane" type="button"
-          role="tab" aria-controls="groups-tab-pane" aria-selected="false" onClick="hide('post-footer')">Groups</button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button"
-          role="tab" aria-controls="profile-tab-pane" aria-selected="false"
-          onClick="hide('post-footer')">Profile</button>
-      </li>
-    </ul>
-  </div>
-  <div class="card-body">
-    <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade mb-3 show active overflow-auto" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" style="max-height: 65vh"
-        tabindex="0">
-        <div class="center">
-          <div class="col-9" id="posts">
-            {% for post in posts %}
-            <div class="card mt-5 text-bg-primary">
-              <div class="card-header text-start">
-                <img src='{{ post["photo"]}}' style="clip-path: circle();" width="20" height="20">
-                {{ post["username"] }}
-              </div>
-              <div class="card-body">
-                {{ post["post"] }}
-              </div>
-              <div class="card-footer text-end">
-                {{ post["creation_time"] }}
-              </div>
-            </div>
-            {% endfor %}
-          </div>
+    <div class="card-body mt-5" id="posts">
+        {% for post in posts %}
+        <div class="card mb-1 text-bg-dark hover">
+        <div class="card-header text-start">
+            <a class="btn text-light btn-lg" href=""><img src='{{ post["photo"]}}' style="clip-path: circle();" width="40" height="40">
+            {{ post["name"] }}</a>
         </div>
-      </div>
-      <div class="tab-pane fade text-light" id="groups-tab-pane" role="tabpanel" aria-labelledby="groups-tab"
-        tabindex="0">
-        <div class="card-body text-light">
-          <div class="text-start sticky-top"><button class="material-symbols-outlined btn btn-primary d-lg-none"
-              type="button" aria-controls="offcanvasExample" onClick="show_canvas()">
-              menu
-            </button></div>
-          <div class="row">
-            <div class="col-md-3 overflow-auto text-bg-dark d-none d-lg-block" tabindex="-1" style="max-height: 60vh"
-              data-bs-backdrop="false" id="group-parent-div">
-              <div class="offcanvas-header"><button type="button" class="btn-close hide text-end btn-lg"
-                  id="close-canvas" onClick="close_canvas()" aria-label="Close"></button></div>
-              <h2 class="sticky-top bg-dark">Your Groups</h2>
-              {% for group in groups %}
-              <div class="card mt-3 text-bg-primary pe-auto"
-                onClick='get_group_msg(`{{ group["group_id"] }}`, `{{ group["group_name"] }}`); show("post-footer")'>
-                <div class="card-body">
-                  {{ group["group_name"] }}
-                </div>
-              </div>
-              {% endfor %}
-              <button class="btn btn-outline-primary btn-lg material-symbols-outlined mt-3" id="add-group-button"
-                onClick="show_modal('add-group-modal')">chat_add_on</button>
-            </div>
-            <div class="vr d-none d-lg-block" style="color: black"></div>
-            <div class="col-md-8 overflow-auto" id="group_posts" style="max-height: 60vh">
-            </div>
-          </div>
+        <div class="card-body overflow-hidden">
+            {{ post["post"] }}
         </div>
-      </div>
-      <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-        <div class="center">
-          <div class="col-3 mt-5">
-            <div class="card-body text-center text-bg-primary mb-3">
-              <h3>0</h3>
-              <p>Posts</p>
-            </div>
-            <div class="card-body text-center text-bg-primary">
-              <h3>0</h3>
-              <p>Groups</p>
-            </div>
-          </div>
+        <div class="card-footer text-end">
+            {{ post["creation_time"] }}
         </div>
-      </div>
+        </div>
+        {% endfor %}
     </div>
-  </div>
-  <div class="card-footer" id="post-footer">
-    <div class="row">
-      <form onSubmit="send_post(event)" method="post" class="col-11">
-          <div class="input-group">
-            <input autocomplete="off" class="form-control form-control-sm" name="post" id="post" placeholder="Message..."
-              type="text">
-            <input class="hide" name="group_id" id="group_id" type="text">
-            <input class="hide" name="tab" id="tab" type="text" value="home">
-            <button class="material-symbols-outlined btn btn-outline-primary" type="submit" id="submit-post">send</button>
-          </div>
-      </form>
-      <div class="spinner-border text-primary col-1 hide" role="status" id="spinner">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade" id="add-group-modal" tabindex="-1" aria-labelledby="add-group-label" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="add-group-label">Create Message Board</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <!-- <form action="/create/group" method="post"> -->
-        <div class="input-group input-group-md mb-3">
-          <input autocomplete="off" class="form-control form-control-sm" name="group_name" id="group_name"
-            placeholder="Board Name..." type="text">
-          <button class="material-symbols-outlined btn btn-outline-primary" type="submit"
-            onClick="create_group()">check</button>
-        </div>
-        <p class="hide" style="color: red" id="group-taken">Sorry that group already exists!!!</p>
-        <!-- </form> -->
-      </div>
-    </div>
-  </div>
-</div>
-
 {% endblock %}

@@ -64,7 +64,7 @@ def index(client, client_name):
         posts = db.execute("""SELECT post, blog_posts.id AS id, blog_posts.creation_time, user_name AS name, photo FROM blog_posts
                            INNER JOIN users on username = user_name WHERE group_name = ? ORDER BY blog_posts.creation_time DESC""", client_name)
 
-    return render_template("home.html", posts=posts, groups=groups)
+    return render_template("index.html", posts=posts)
 
 
 @app.route("/post", methods=["GET", "POST"])

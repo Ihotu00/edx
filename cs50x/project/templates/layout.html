@@ -36,12 +36,10 @@
             {% endif %}
             <a class="navbar-brand" href="/"><span class="blue">Tunglr</span></a>
             {% if session["user_id"] %}
-            <ul class="navbar-nav mx-auto mt-2">
-                <div class="collapse navbar-collapse" id="search">
-                    <input class="form-control mx-auto mt-2 form-control-md w-50" type="search"
-                        placeholder="&#x1F50E;&#xFE0E; Search" aria-label="Search">
-                </div>
-            </ul>
+            <div class="collapse navbar-collapse" id="search">
+                <input class="form-control mx-auto mt-2 form-control-md w-50" type="search"
+                    placeholder="&#x1F50E;&#xFE0E; Search" aria-label="Search">
+            </div>
             <ul class="navbar-nav ms-auto mt-2 list-group list-group-horizontal text-bg-dark">
                 <li class="nav-item"><a class="navbar-toggler list-group-item text-bg-dark border border-0"
                         aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"
@@ -57,13 +55,11 @@
                     <a class="list-group-item text-bg-dark border border-0 dropdown-toggle" data-bs-toggle="dropdown"
                         aria-expanded="false"><img src='{{ session["user_photo"]}}' title="Profile"
                             style="clip-path: circle();" width="30" height="30"></a>
-                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" container="body">
+                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
                         <li>
                             <a class="dropdown-item" href="/" type="button">
-                                <p><img src='{{ session["user_photo"]}}' style="clip-path: circle();" width="20"
-                                        height="20">View profile
-                                    <p>{{ session["user_name"] }}</p>
-                                </p>
+                                <p><img src='{{ session["user_photo"]}}'
+                                    style="clip-path: circle();" width="20" height="20">View profile</p>
                             </a>
                             <hr>
                         </li>

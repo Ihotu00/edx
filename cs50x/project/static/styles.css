@@ -42,13 +42,10 @@ main {
     position: absolute;
 }
 
-.hover:hover {
-    /* box-shadow: inset 0px 0px 0 5000px rgba(0, 0, 0, 0.1); */
+/* .hover:hover {
+    box-shadow: inset 0px 0px 0 5000px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    color: #fff;
-    background-color: #424649;
-    border-color: #373b3e;
-}
+} */
 
 a {
     text-decoration: none;

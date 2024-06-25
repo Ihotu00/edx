@@ -51,10 +51,6 @@ def after_request(response):
 @login_required
 def index(client, client_name):
 
-    # posts = db.execute(
-    #     """SELECT post, blog_posts.id AS id, creation_time, username, photo FROM blog_posts
-    #         INNER JOIN users on users.id = blog_posts.user_id WHERE user_id = ? AND group_id IS NULL ORDER BY creation_time DESC""", session["user_id"])
-
     groups = db.execute(
         "SELECT * FROM groups inner join users_groups on groups.id = users_groups.group_id WHERE users_groups.user_id = ? ORDER BY creation_time DESC", session["user_id"])
 

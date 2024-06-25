@@ -54,3 +54,8 @@ a {
 .hover a:hover {
     text-decoration: underline;
 }
+
+img {
+    /* float: left; */
+    object-fit: cover;
+}

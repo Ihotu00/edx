@@ -6,7 +6,8 @@ var is_canvas = false;
 document.addEventListener('DOMContentLoaded', function() {
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
-    console.log(name);
+    // console.log(name);
+    console.log(JSON.stringify(name));
 })
 
 function hide(id) {

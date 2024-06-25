@@ -37,3 +37,7 @@ main {
     white-space: nowrap;
     max-width: 25ch;
   }
+
+  .navbar-nav .dropdown-menu {
+    position: absolute;
+}

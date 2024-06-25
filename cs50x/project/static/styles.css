@@ -41,3 +41,7 @@ main {
 .navbar-colapse {
     flex-grow: 0;
 }
+
+.navbar.container-fluid {
+    flex-wrap: nowrap;
+}

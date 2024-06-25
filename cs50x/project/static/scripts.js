@@ -137,6 +137,7 @@ function login(event, url) {
     event.preventDefault();
     show("spinner")
     document.getElementById("submit-form").classList.add("disabled")
+    url = url == "/register"
     $.ajax({
         url: url,
         type: 'POST',
@@ -154,10 +155,6 @@ function login(event, url) {
             console.log(error)
             show("error-response")
             document.getElementById('error-response').innerHTML = error.responseText
-        },
-        complete: function() {
-            hide("spinner")
-            document.getElementById("submit-form").classList.remove("disabled")
         }
     });
 }

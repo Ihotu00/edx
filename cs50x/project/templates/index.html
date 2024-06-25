@@ -5,6 +5,9 @@ Welcome {{session["user_name"]}}
 {% endblock %}
 
 {% block main %}
+<script>
+  name= ['{{ posts[0]["user_name"] if not posts[0]["group_name"] else posts[0]["group_name"] }}']
+</script>
     <div class="card-body mt-5" id="posts">
         {% for post in posts %}
         <div class="card mb-1 text-bg-dark hover">
@@ -12,8 +15,8 @@ Welcome {{session["user_name"]}}
           {% if post["group_name"] %}
             <a class="btn text-light btn-sm" href=""><img src='{{ post["photo"]}}' style="clip-path: circle();" width="25" height="25">
               <!-- {{ post["group_name"] if post["group_name"] else post["user_name"]}} -->
-                <!-- {{ post["user_name"] if not post["group_name"] else post["group_name"] }} -->
-                  {{ post["user_name"]}}
+                {{ post["user_name"] if not post["group_name"] else post["group_name"] }}
+                  <!-- {{ post["user_name"]}} -->
             </a>
           {% endif %}
         </div>

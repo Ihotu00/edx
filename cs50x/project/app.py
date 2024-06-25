@@ -55,11 +55,11 @@ def index(client, client_name):
         "SELECT * FROM groups INNER JOIN users_groups on groups.id = users_groups.group_id WHERE users_groups.user_id = ? ORDER BY creation_time DESC", session["user_id"])
 
     if client == "user":
-        posts = db.execute("""SELECT post, blog_posts.id AS id, blog_posts.creation_time, group_name AS name, photo FROM blog_posts
+        posts = db.execute("""SELECT post, blog_posts.id AS id, blog_posts.creation_time, blog_posts.group_name AS name, photo FROM blog_posts
                            INNER JOIN groups on groups.group_name = blog_posts.group_name WHERE user_name = ? OR group_id IN (?) ORDER BY blog_posts.creation_time DESC""", client_name, [group["id"] for group in groups])
 
     if client == "group":
-        posts = db.execute("""SELECT post, blog_posts.id AS id, blog_posts.creation_time, group_name AS name photo FROM blog_posts
+        posts = db.execute("""SELECT post, blog_posts.id AS id, blog_posts.creation_time, blog_posts.group_name AS name, photo FROM blog_posts
                            INNER JOIN groups on groups.group_name = blog_posts.group_name WHERE group_name = ? ORDER BY blog_posts.creation_time DESC""", client_name)
 
     return render_template("home.html", posts=posts, groups=groups)

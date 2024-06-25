@@ -2,6 +2,9 @@ var _modal;
 var _canvas;
 var is_canvas = false;
 
+// initialize tootips
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
 function hide(id) {
     document.getElementById(id).classList.add('hide');

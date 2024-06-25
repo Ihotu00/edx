@@ -58,12 +58,13 @@
                     <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
                         <li class="d-grid text-start">
                             <a class="btn btn-dark btn-lg text-start" href="/" type="button">
-                                <h5><img src='{{ session["user_photo"]}}'
-                                    style="clip-path: circle();" width="30" height="30">View profile</h5>
+                                <p><img src='{{ session["user_photo"]}}'
+                                    style="clip-path: circle();" width="30" height="30">View profile</p>
                                     <p>{{ session["user_name"] }}</p>
                             </a>
                             <hr>
                         </li>
+                        <li><button class="dropdown-item" type="button">Action</button></li>
                     </ul>
                 </li>
             </ul>

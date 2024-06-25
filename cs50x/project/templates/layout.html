@@ -40,7 +40,7 @@
                 <div class="col-8">
                     {% if session["user_id"] %}
                     <div class="row">
-                        <div class="col-lg-8 d-sm-none d-md-block">
+                        <div class="col-lg-9 d-sm-none d-md-block">
                             <div class="collapse navbar-collapse" id="search">
                                 <!-- <form class="d-flex navbar-nav ms-auto mt-2" role="search"> -->
                                     <input class="form-control mx-auto form-control-md mt-2" type="search" placeholder="Search"
@@ -48,21 +48,21 @@
                                 <!-- </form> -->
                             </div>
                         </div>
-                        <div class="col-lg-4 col-sm-8 ms-auto">
-                            <ul class="navbar-nav list-group list-group-horizontal text-bg-dark">
-                                <li class="nav-item ms-auto mt-2"><a
+                        <div class="col-lg-3 col-sm-8 ms-auto">
+                            <ul class="navbar-nav list-group ms-auto mt-2 list-group-horizontal text-bg-dark">
+                                <li class="nav-item"><a
                                         class="navbar-toggler list-group-item text-bg-dark border border-0"
                                         aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"
                                         data-bs-target="#search" data-bs-toggle="collapse"><span
                                             class="material-symbols-outlined">
                                             search
                                         </span></a></li>
-                                <li class="nav-item ms-auto mt-2"><a class="list-group-item text-bg-dark border border-0"
+                                <li class="nav-item"><a class="list-group-item text-bg-dark border border-0"
                                         href="/settings" title="Create post">
                                         <span class="material-symbols-outlined">
                                             add
                                         </span></a>
-                                <li class="nav-item ms-auto mt-2"><a class="list-group-item text-bg-dark border border-0"><img
+                                <li class="nav-item"><a class="list-group-item text-bg-dark border border-0"><img
                                             src='{{ session["user_photo"]}}' title="Profile"
                                             style="clip-path: circle();" width="30" height="30"></a></li>
                             </ul>

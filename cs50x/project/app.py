@@ -64,7 +64,8 @@ def index(client, client_name):
         posts = db.execute("""SELECT post, blog_posts.id AS id, blog_posts.creation_time, user_name AS name, photo FROM blog_posts
                            INNER JOIN users on username = user_name WHERE group_name = ? ORDER BY blog_posts.creation_time DESC""", client_name)
 
-    logging.warning([post["user_name"] for post in posts if not post["group_name"]])
+    # logging.warning([post["user_name"] for post in posts if not post["group_name"]])
+    logging.warning(posts)
     return render_template("index.html", posts=posts, groups=groups)
 
 

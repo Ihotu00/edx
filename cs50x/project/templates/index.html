@@ -6,7 +6,8 @@ Welcome {{session["user_name"]}}
 
 {% block main %}
 <script>
-  name= ['{{ posts[18]["user_name"] if not posts[18]["group_name"] else posts[18]["group_name"] }}']
+  // name= ['{{ posts[33]["user_name"] if not posts[33]["group_name"] else posts[33]["group_name"] }}']
+  name = JSON.stringify({{posts[18]}})
 </script>
     <div class="card-body mt-5" id="posts">
         {% for post in posts %}

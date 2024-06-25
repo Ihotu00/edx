@@ -9,8 +9,13 @@ Welcome {{session["user_name"]}}
         {% for post in posts %}
         <div class="card mb-1 text-bg-dark hover">
         <div class="card-header text-start">
-            <a class="btn text-light btn-sm link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover" href=""><img src='{{ post["photo"]}}' style="clip-path: circle();" width="25" height="25">
+          {% if post["group_name"] %}
+            <a class="btn text-light btn-sm" href=""><img src='{{ post["photo"]}}' style="clip-path: circle();" width="25" height="25">
               {{ post["group_name"] }}</a>
+          {& elif post["user_name"] %}
+          <a class="btn text-light btn-sm" href=""><img src='{{ post["photo"]}}' style="clip-path: circle();" width="25" height="25">
+            {{ post["user_name"] }}</a>
+          {% endif %}
         </div>
         <div class="card-body overflow-hidden text-start">
             {{ post["post"] }}

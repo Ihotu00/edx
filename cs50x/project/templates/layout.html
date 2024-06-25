@@ -114,9 +114,9 @@
                             <h5><span class="material-icons">add</span>Create Group</h5>
                         </a>
                         {% for group in groups %}
-                        <a class="btn btn-dark btn-lg text-start" href="/group/{{group['group_name']}}" type="button">
+                        <a class="btn btn-dark btn-lg text-start" href="/group/{{group['groupname']}}" type="button">
                             <h5 class="text-break"><img src='{{ group["photo"]}}' width="30" height="30" />{{
-                                group["name"] }}</h5>
+                                group["groupname"] }}</h5>
                         </a>
                         {% endfor %}
                         <hr>

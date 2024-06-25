@@ -62,7 +62,7 @@ def index(client, client_name):
     #     posts = db.execute("""SELECT post, blog_posts.id AS id, creation_time, username, photo FROM blog_posts
     #                        INNER JOIN users on users.id = blog_posts.user_id WHERE user_id = ? AND group_id IN ? ORDER BY creation_time DESC""", session["user_id"])
 
-    logging.warning(groups["id"])
+    logging.warning([group["id"] for group in groups])
     return render_template("home.html", posts=posts, groups=groups)
 
 

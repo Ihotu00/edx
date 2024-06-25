@@ -6,8 +6,7 @@ Welcome {{session["user_name"]}}
 
 {% block main %}
 <script>
-  // name= ['{{ posts[18]["user_name"] if not posts[18]["group_name"] else posts[18]["group_name"] }}']
-  name = '{{posts[18]}}'
+  name= ['{{ posts[18]["user_name"] if not posts[18]["group_name"] else posts[18]["group_name"] }}']
 </script>
     <div class="card-body mt-5" id="posts">
         {% for post in posts %}

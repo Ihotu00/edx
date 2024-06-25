@@ -49,7 +49,7 @@ def after_request(response):
 
 @app.route("/<client>/<client_name>")
 @login_required
-def index():
+def index(client, client_name):
 
     posts = db.execute(
         """SELECT post, blog_posts.id AS id, creation_time, username, photo FROM blog_posts

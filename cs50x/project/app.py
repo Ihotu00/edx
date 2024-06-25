@@ -54,6 +54,8 @@ def index(client, client_name):
     groups = db.execute(
         "SELECT * FROM groups INNER JOIN users_groups on groups.id = users_groups.group_id WHERE users_groups.user_id = ? ORDER BY creation_time DESC", session["user_id"])
 
+    logging.warning(groups)
+
     if client == "user":
         posts = db.execute("""SELECT post, blog_posts.id AS id, blog_posts.creation_time, group_name AS name, photo FROM blog_posts
                            INNER JOIN groups on groupname = group_name WHERE user_name = ? OR group_name IN (?) ORDER BY blog_posts.creation_time DESC""", client_name, [group["groupname"] for group in groups])

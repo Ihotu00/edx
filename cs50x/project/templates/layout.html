@@ -51,17 +51,16 @@
                         <span class="material-symbols-outlined">
                             add
                         </span></a>
-                <li class="nav-item">
+                <li class="nav-item dropdown-center">
                     <a class="list-group-item text-bg-dark border border-0 dropdown-toggle" data-bs-toggle="dropdown"
                         aria-expanded="false"><img src='{{ session["user_photo"]}}' title="Profile"
                             style="clip-path: circle();" width="30" height="30"></a>
                     <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
                         <li>
-                            <a class="dropdown-item" href="/" type="button">
+                            <a class="dropdown-item text-start" href="/" type="button">
                                 <p><img src='{{ session["user_photo"]}}'
-                                    style="clip-path: circle();" width="20" height="20">View profile</p>
+                                    style="clip-path: circle();" width="18" height="18"> View profile</p>
                             </a>
-                            <hr>
                         </li>
                         <li><button class="dropdown-item" type="button">Action</button></li>
                     </ul>

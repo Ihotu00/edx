@@ -133,11 +133,10 @@ function create_group() {
     });
 }
 
-function login(event, baseUrl) {
+function login(event, url) {
     event.preventDefault();
     show("spinner")
     document.getElementById("submit-form").classList.add("disabled")
-    url = baseUrl == "/register" ? "/register"
     $.ajax({
         url: url,
         type: 'POST',
@@ -145,11 +144,11 @@ function login(event, baseUrl) {
         data: JSON.stringify({
             'username': event.target.username.value,
             'password': event.target.password.value,
-            'confirmation': baseUrl == "/register" ? event.target.confirmation.value : "",
-            'photo': baseUrl == "/register" ? event.target.photo.src : ""
+            'confirmation': url == "/register" ? event.target.confirmation.value : "",
+            'photo': url == "/register" ? event.target.photo.src : ""
         }),
         success: function(response) {
-            location.pathname = "/";
+            location.pathname = "/user/";
         },
         error: function(error) {
             console.log(error)

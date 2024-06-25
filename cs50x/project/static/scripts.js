@@ -3,8 +3,11 @@ var _canvas;
 var is_canvas = false;
 
 // initialize tootips
-const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+document.addEventListener('DOMContentLoaded', function() {
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    console.log(tooltipTriggerList)
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+})
 
 function hide(id) {
     document.getElementById(id).classList.add('hide');
@@ -142,7 +145,8 @@ function login(event, url) {
             'username': event.target.username.value,
             'password': event.target.password.value,
             'confirmation': url == "/register" ? event.target.confirmation.value : "",
-            'photo': url == "/register" ? event.target.photo.src : "" }),
+            'photo': url == "/register" ? event.target.photo.src : ""
+        }),
         success: function(response) {
             location.pathname = "/";
         },

@@ -47,7 +47,7 @@ def after_request(response):
     return response
 
 
-@app.route("/<client>/<client_name>")
+@app.route("feed/<client>/<client_name>")
 @login_required
 def index(client, client_name):
 

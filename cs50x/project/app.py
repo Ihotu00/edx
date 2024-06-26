@@ -123,7 +123,7 @@ def create_group():
         group = db.execute("SELECT * from groups WHERE groupname = ?", data["group_name"])
         session["user_groups"].append(group[0])
 
-        return redirect(f"/feed/group/{data["group_name"]}")
+        return f"/feed/group/{data["group_name"]}", 200
 
     else: return "ERROR: Could not read data", 400
 

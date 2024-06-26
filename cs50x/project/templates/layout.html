@@ -96,6 +96,8 @@
             {% block main %}{% endblock %}
 
             {% if session["user_id" ] %}
+
+            <!-- Start of offcanvas -->
             <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasExample"
                 aria-labelledby="offcanvasExampleLabel">
                 <div class="offcanvas-header">
@@ -127,6 +129,29 @@
                     </div>
                 </div>
             </div>
+            <!-- End of offcanvas -->
+
+            <!-- Start of create group modal -->
+            <div class="modal fade" id="add-group-modal" tabindex="-1" aria-labelledby="add-group-label" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="add-group-label">Create Group</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="input-group input-group-md mb-3">
+                        <input autocomplete="off" class="form-control form-control-sm" name="group_name" id="group_name"
+                          placeholder="Board Name..." type="text">
+                        <button class="material-symbols-outlined btn btn-outline-primary" type="submit"
+                          onClick="create_group()">check</button>
+                      </div>
+                      <p class="hide" style="color: red" id="group-taken">Sorry that group already exists!!!</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+             <!-- End of create group modal -->
             {% endif %}
         </main>
     </body>

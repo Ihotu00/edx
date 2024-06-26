@@ -123,6 +123,8 @@ def create_group():
 
         return redirect(f"/feed/group/{data["group_name"]}")
 
+    else: return "ERROR: Could not read data", 400
+
 
 @app.route("/join/<group_name>", methods=["POST"])
 @login_required

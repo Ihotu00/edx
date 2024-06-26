@@ -165,8 +165,6 @@ def join_group(group_name):
             db.execute("COMMIT")
 
 
-        logging.warning(session["user_groups"])
-
         return redirect(f"/feed/group/{group_name}")
 
 

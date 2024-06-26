@@ -6,9 +6,9 @@ Post blogs and join message boards
 
 {% block main %}
 {% if header %}
-<div class="card-header text-start">
-    <img src='header["photo"]' style="clip-path: circle();" width="75" height="75" />
-        {{ header["name"] }}
+<div class="card">
+    <img src='header["photo"]' class="card-img-top" style="clip-path: circle();" />
+    <h5 class="card-title">{{ header["name"] }}</h5>
 </div>
 {% endif %}
 <div class="card-body mt-5" id="posts">

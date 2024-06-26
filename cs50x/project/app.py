@@ -51,6 +51,8 @@ def after_request(response):
 @login_required
 def index(client, client_name):
 
+    header= None
+
     if client == "user":
         if client_name != session["user_name"]:
             header = db.execute("SELECT username AS name, photo FROM users WHERE username = ?", client_name)

@@ -166,7 +166,7 @@ def join_group(group_name):
 
         logging.warning(session["user_groups"][-1])
 
-        redirect(f"/feed/group/{group_name}")
+        return redirect(f"/feed/group/{group_name}")
 
 
 @app.route("/login", methods=["GET", "POST"])

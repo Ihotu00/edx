@@ -113,7 +113,7 @@ function create_group() {
         url: '/create/group',
         type: 'POST',
         contentType: 'application/json',
-        data: JSON.stringify({ 'group_name': document.getElementById('group_name').value }),
+        data: JSON.stringify({ 'group_name': document.getElementById('group_name').value, 'photo': document.getElementById('group_photo').src }),
         // success: function(response) {
         //     console.log(`success: ${JSON.stringify(response)}`);
         //     _modal.hide();

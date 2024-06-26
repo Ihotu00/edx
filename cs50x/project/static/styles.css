@@ -60,10 +60,10 @@ a img {
     object-fit: cover;
 }
 
-#group_photo:hover {
+.img-hover:hover {
     opacity: 0.3;
 
-    button {
+    /* button {
         opacity: 1;
-    }
+    } */
 }

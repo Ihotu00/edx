@@ -72,8 +72,8 @@ def index(client, client_name):
         logging.warning(header[0]["has_joined"])
 
     # logging.warning([post["user_name"] for post in posts])
-    # logging.warning(header[0])
-    return render_template("index.html", posts=posts, header=header[0])
+    logging.warning(header)
+    return render_template("index.html", posts=posts, header=header)
 
 
 @app.route("/post", methods=["GET", "POST"])

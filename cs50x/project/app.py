@@ -154,11 +154,11 @@ def join_group(group_name):
 
         try:
             db.execute("INSERT INTO users_groups(user_name, group_name) VALUES(?,?)", session["user_name"], group_name)
-            db.execute("UPDATE groups SET members = ? WHERE groupname = ?", group[0].members+1, group_name)
+            db.execute("UPDATE groups SET members = ? WHERE groupname = ?", group[0].members_length+1, group_name)
             session["user_groups"].append(group[0])
         except(ValueError):
             db.execute("DELETE FROM users_groups WHERE user_name = ? AND group_name = ?", session["user_name"], group_name)
-            db.execute("UPDATE groups SET members = ? WHERE groupname = ?", group[0].members-1, group_name)
+            db.execute("UPDATE groups SET members = ? WHERE groupname = ?", group[0].members_length-1, group_name)
             session["user_groups"].remove(group[0])
 
 

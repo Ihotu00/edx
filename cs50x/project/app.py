@@ -69,7 +69,7 @@ def index(client, client_name):
     # logging.warning([post["user_name"] for post in posts])
     logging.warning(client_name)
     logging.warning(header[0]["name"])
-    return render_template("index.html", posts=posts, header=header)
+    return render_template("index.html", posts=posts, header=header[0])
 
 
 @app.route("/post", methods=["GET", "POST"])

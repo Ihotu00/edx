@@ -159,12 +159,12 @@ function login(event, url) {
     });
 }
 
-function imageUploaded(event) {
+function imageUploaded(event, id) {
     const file = event.target.files[0];
     const reader = new FileReader();
     reader.readAsDataURL(file)
     reader.onloadend = () => {
-        document.getElementById("display_profile_picture").src = reader.result
+        document.getElementById(id).src = reader.result
     };
 }
 

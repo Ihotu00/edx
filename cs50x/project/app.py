@@ -104,7 +104,7 @@ def post(id):
             """SELECT post, blog_posts.id AS id, creation_time, username, photo FROM blog_posts
             INNER JOIN users on users.id = blog_posts.user_id WHERE user_id = ? ORDER BY creation_time DESC""", session["user_id"])
 
-        return render_template("post.html", post=post, comments=comments)
+        # return render_template("post.html", post=post, comments=comments)
 
 
 @app.route("/create/group", methods=["POST"])
@@ -115,7 +115,7 @@ def create_group():
         data = request.get_json()
 
         try:
-            db.execute("INSERT INTO groups(created_by, groupname) VALUES(?,?)", session["user_id"], data["group_name"])
+            db.execute("INSERT INTO groups(created_by, groupname) VALUES(?,?)", session["user_name"], data["group_name"])
         except (ValueError):
             return "Sorry that name is unavailbale. Try something else", 400
 

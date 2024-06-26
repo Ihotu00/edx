@@ -6,10 +6,6 @@ Post blogs and join message boards
 
 {% block main %}
 {% if header %}
-<!-- <div class="card text-bg-dark">
-    <img src='{{ header["photo"] }}' class="card-img-top" height="100"/>
-    <h5 class="card-title">{{ header["name"] }}</h5>
-</div> -->
 <div class="card text-bg-dark mb-3 mt-5">
     <div class="row g-0">
       <div class="col-md-4">
@@ -20,12 +16,6 @@ Post blogs and join message boards
           <h1 class="card-title text-start">{{ header["name"] }}</h1>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="card text-bg-dark">
-    <img src='{{ header["photo"] }}' class="card-img">
-    <div class="card-img-overlay">
-      <h5 class="card-title">{{ header["name"] }}</h5>
     </div>
   </div>
 {% endif %}

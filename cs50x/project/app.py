@@ -64,12 +64,12 @@ def index(client, client_name):
     if client == "group":
         header = db.execute("SELECT groupname AS name, photo FROM groups WHERE groupname = ?", client_name)
         if header[0]["name"] in [group["groupname"] for group in session["user_groups"]]:
-            header[0]["has_joined"] = True
+            header[0]["is_member"] = True
         else:
-            header[0]["has_joined"] = False
+            header[0]["is_member"] = False
         posts = db.execute("""SELECT post, blog_posts.id AS id, blog_posts.creation_time, user_name, photo FROM blog_posts
                            INNER JOIN users on username = user_name WHERE group_name = ? ORDER BY blog_posts.creation_time DESC""", client_name)
-        logging.warning(header[0]["has_joined"])
+        logging.warning(header[0]["is_member"])
 
     # logging.warning([post["user_name"] for post in posts])
     # logging.warning(header)

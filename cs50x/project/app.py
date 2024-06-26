@@ -159,7 +159,7 @@ def join_group(group_name):
             "SELECT * FROM groups WHERE group_name = ?", group_name)
 
         session["user_groups"].append(group)
-        logging.warning(session["user_group"])
+        logging.warning(session["user_group"][-1]["group_name"])
 
         redirect(f"/feed/group/{group_name}")
 

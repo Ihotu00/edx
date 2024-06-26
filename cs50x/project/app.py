@@ -115,7 +115,7 @@ def create_group():
         data = request.get_json()
 
         try:
-            db.execute("INSERT INTO groups(created_by, groupname) VALUES(?,?)", session["user_name"], data["group_name"])
+            db.execute("INSERT INTO groups(created_by, groupname, photo) VALUES(?,?,?)", session["user_name"], data["group_name"], data["group_photo"])
         except (ValueError):
             return "Sorry that name is unavailbale. Try something else", 400
 

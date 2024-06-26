@@ -113,13 +113,14 @@ function create_group() {
         url: '/create/group',
         type: 'POST',
         contentType: 'application/json',
-        data: JSON.stringify({ 'group_name': document.getElementById('group_name').value, 'photo': document.getElementById('group_photo').src }),
+        data: JSON.stringify({ 'group_name': document.getElementById('group_name').value, 'group_photo': document.getElementById('group_photo').src }),
         success: function(response) {
-            document.getElementById('create-group-response').insertAdjacentHTML('beforebegin', child);
+            console.log(response)
+            location.pathname = response;
         },
         error: function(error) {
             console.log(error.responseText);
-            show("group-taken");
+            document.getElementById("group-taken").innerHTML = error.responseText;
         }
     });
 }

@@ -152,7 +152,11 @@ def join_group(group_name):
             "SELECT * FROM groups WHERE group_name = ?", group_name)
         db.execute("INSERT INTO users_groups(user_id, group_id) VALUES(?,?)",
                    session["user_id"], group[0]["id"])
-        # return group[0], 200 f'hanning{num}.pdf'
+
+        logging.warning(session["users_group"])
+        session["user_groups"].append(group)
+        logging.warning(session["users_group"])
+
         redirect(f"/group/{group_name}")
 
 

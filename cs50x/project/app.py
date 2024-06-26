@@ -158,9 +158,9 @@ def join_group(group_name):
         group = db.execute(
             "SELECT * FROM groups WHERE group_name = ?", group_name)
 
-        logging.warning(session["users_group"])
+        logging.warning(session["user_group"])
         session["user_groups"].append(group)
-        logging.warning(session["users_group"])
+        logging.warning(session["user_group"])
 
         redirect(f"/feed/group/{group_name}")
 

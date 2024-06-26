@@ -15,9 +15,11 @@ Post blogs and join message boards
             <div class="card-body">
                 <h1 class="card-title text-start">{{ header["name"] }}
                     {% if header["has_joined"] %}
-                    <a class="btn btn-lg btn-outline-light rounded-pill disabled">Joined</a>
-                    {% else %}
-                    <a class="btn btn-lg btn-outline-light rounded-pill" href="/join/{{header['nme']}}">Join</a>
+                        {% if header["has_joined"] == True %}
+                        <a class="btn btn-lg btn-outline-light rounded-pill disabled">Joined</a>
+                        {% else %}
+                        <a class="btn btn-lg btn-outline-light rounded-pill {{header.has_joined}}" href="/join/{{header['name']}}">Join</a>
+                        {% endif %}
                     {% endif %}
                 </h1>
             </div>

@@ -63,7 +63,7 @@ a img {
 #group_photo:hover {
     opacity: 0.3;
 
-    button {
+    .button {
         opacity: 1;
     }
 }

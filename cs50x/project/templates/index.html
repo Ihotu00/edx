@@ -6,14 +6,15 @@ Post blogs and join message boards
 
 {% block main %}
 <div class="card-header text-start hide">
-    <a class="btn btn-sm btn-dark rounded-pill" id="header-name"><img src='...' id="header-image" style="clip-path: circle();" width="75" height="75" />
+    <a class="btn btn-sm btn-dark rounded-pill"><img src='header.photo' style="clip-path: circle();" width="75" height="75" />
+        {{ header["name"] }}
     </a>
 </div>
 <div class="card-body mt-5" id="posts">
     {% for post in posts %}
     <div class="card mb-1 text-bg-dark hover">
         <div class="card-header text-start">
-            <a class="btn btn-sm btn-dark rounded-pill" id="post-link"
+            <a class="btn btn-sm btn-dark rounded-pill"
                 href="/{{'group/'+post.group_name if post.group_name else 'user/'+post.user_name}}"><img
                     src='{{ post["photo"]}}' style="clip-path: circle();" width="25" height="25" />
                 {{ post["user_name"] if not post["group_name"] else post["group_name"] }}

@@ -143,15 +143,17 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <div>
-                                <input type="file" class="form-control form-control-lg" namde="group_photo"/>
+                            <div class="mb-3">
+                                <input type="file" class="form-control form-control-lg" namde="group_photo" />
                             </div>
-                            <input autocomplete="off" class="form-control form-control-lg" name="group_name"
-                                id="group_name" placeholder="Group Name..." type="text">
+                            <div class="mb-3">
+                                <input autocomplete="off" class="form-control form-control-lg"
+                                    name="group_name" id="group_name" placeholder="Group Name..." type="text" />
+                            </div>
                             <p class="hide" style="color: red" id="group-taken">Error Message</p>
                         </div>
-                        <div class="modal-footer"><button class="btn btn-outline-dark"
-                                type="submit" onClick="create_group()">Create</button>
+                        <div class="modal-footer"><button class="btn btn-outline-dark" type="submit"
+                                onClick="create_group()">Create</button>
                         </div>
                     </div>
                 </div>

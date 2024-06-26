@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
 })
 
-document.getElementById("post-link").setAttribute("onClick", "show_header()")
+// document.getElementById("post-link").setAttribute("onClick", "show_header()")
 
 function hide(id) {
     document.getElementById(id).classList.add('hide');
@@ -22,10 +22,6 @@ function show(id) {
 function show_modal(id) {
     _modal = new bootstrap.Modal(document.getElementById(id))
     _modal.show();
-}
-
-function show_header() {
-    
 }
 
 function send_post(event) {

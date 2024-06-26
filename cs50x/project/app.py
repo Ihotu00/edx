@@ -52,18 +52,20 @@ def after_request(response):
 def index(client, client_name):
 
     if client == "user":
+        header = db.execute("SELECT username AS name, photo FROM users WHERE username = ?", client_name)
         posts = db.execute("""SELECT post, blog_posts.id AS id, blog_posts.creation_time, group_name, user_name, photo FROM blog_posts
                             INNER JOIN groups on groupname = group_name WHERE user_name = ? OR group_name IN (?)
                             UNION SELECT post, blog_posts.id AS id, blog_posts.creation_time, group_name, user_name AS name, photo FROM blog_posts
                             INNER JOIN users on username = user_name WHERE user_name = ? and group_name is null ORDER BY blog_posts.creation_time DESC""", client_name, [group["groupname"] for group in session["user_groups"]], client_name)
 
     if client == "group":
+        header = db.execute("SELECT groupname AS name, photo FROM groups WHERE groupname = ?", client_name)
         posts = db.execute("""SELECT post, blog_posts.id AS id, blog_posts.creation_time, user_name, photo FROM blog_posts
                            INNER JOIN users on username = user_name WHERE group_name = ? ORDER BY blog_posts.creation_time DESC""", client_name)
 
     # logging.warning([post["user_name"] for post in posts])
     # logging.warning(posts)
-    return render_template("index.html", posts=posts)
+    return render_template("index.html", posts=posts, header=header)
 
 
 @app.route("/post", methods=["GET", "POST"])

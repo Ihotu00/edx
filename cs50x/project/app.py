@@ -150,18 +150,18 @@ def join_group(group_name):
 
     if group_name:
 
-        try:
-            db.execute("INSERT INTO users_groups(user_name, group_name) VALUES(?,?)",
-                   session["user_name"], group_name)
-        except(ValueError):
-            db.execute("DELETE FROM users_groups WHERE user_name = ? AND group_name = ?", session["user_name"], group_name)
-
         group = db.execute(
             "SELECT * FROM groups WHERE groupname = ?", group_name)
 
+        try:
+            db.execute("INSERT INTO users_groups(user_name, group_name) VALUES(?,?)", session["user_name"], group_name)
+            session["user_groups"].append(group[0])
+        except(ValueError):
+            db.execute("DELETE FROM users_groups WHERE user_name = ? AND group_name = ?", session["user_name"], group_name)
+            session["user_groups"].remove(group[0])
+
         db.execute("UPDATE groups SET members = ? WHERE groupname = ?", group.members+1, group_name)
 
-        session["user_groups"].append(group)
         logging.warning(session["user_groups"][-1])
 
         redirect(f"/feed/group/{group_name}")

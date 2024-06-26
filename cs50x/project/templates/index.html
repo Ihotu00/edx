@@ -8,21 +8,22 @@ Post blogs and join message boards
 {% if header %}
 <div class="card text-bg-dark mb-3 mt-5">
     <div class="row g-0">
-      <div class="col-md-4" style="max-height: 150px;">
-        <img src='{{ header["photo"] }}' class="img-fluid rounded-start h-100 w-100">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h1 class="card-title text-start">{{ header["name"] }}</h1>
+        <div class="col-md-4" style="max-height: 150px;">
+            <img src='{{ header["photo"] }}' class="img-fluid rounded-start h-100 w-100">
         </div>
-        {% if header["has_joined"] %}
-        <a class="btn btn-lg btn-outline-light rounded-pill disabled">Joined</a>
-        {% else %}
-        <a class="btn btn-lg btn-outline-light rounded-pill" href="/join/{{header['nme']}}">Join</a>
-        {% endif %}
-      </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h1 class="card-title text-start">{{ header["name"] }}
+                    {% if header["has_joined"] %}
+                    <a class="btn btn-lg btn-outline-light rounded-pill disabled">Joined</a>
+                    {% else %}
+                    <a class="btn btn-lg btn-outline-light rounded-pill" href="/join/{{header['nme']}}">Join</a>
+                    {% endif %}
+                </h1>
+            </div>
+        </div>
     </div>
-  </div>
+</div>
 {% endif %}
 <div class="card-body mt-5" id="posts">
     {% for post in posts %}

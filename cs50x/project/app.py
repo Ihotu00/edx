@@ -115,16 +115,13 @@ def create_group():
         data = request.get_json()
 
         try:
-            db.execute("BEGIN")
             db.execute("INSERT INTO groups(created_by, groupname) VALUES(?,?)", session["user_name"], data["group_name"])
-            group = db.execute("SELECT * from groups WHERE groupname = ?", data["group_name"])
-            session["user_groups"].append(group[0])
-            db.execute("COMMIT")
         except (ValueError):
-            db.execute("")
             return "Sorry that name is unavailbale. Try something else", 400
 
         db.execute("INSERT INTO users_groups(user_name, group_name) VALUES(?,?)", session["user_name"], data["group_name"])
+        group = db.execute("SELECT * from groups WHERE groupname = ?", data["group_name"])
+        session["user_groups"].append(group[0])
 
         return redirect(f"/feed/group/{data["group_name"]}")
 

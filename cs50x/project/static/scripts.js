@@ -8,8 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
 })
 
-// document.getElementById("post-link").setAttribute("onClick", "show_header()")
-
 function hide(id) {
     document.getElementById(id).classList.add('hide');
 }

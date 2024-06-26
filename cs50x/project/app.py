@@ -159,6 +159,8 @@ def join_group(group_name):
         group = db.execute(
             "SELECT * FROM groups WHERE groupname = ?", group_name)
 
+        db.execute("UPDATE groups ")
+
         session["user_groups"].append(group)
         logging.warning(session["user_groups"][-1])
 

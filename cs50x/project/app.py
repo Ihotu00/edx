@@ -158,13 +158,14 @@ def join_group(group_name):
             session["user_groups"].append(group[0])
             db.execute("COMMIT")
         except(ValueError):
+            db.execute("ROLLBACK")
             db.execute("BEGIN")
             db.execute("DELETE FROM users_groups WHERE user_name = ? AND group_name = ?", session["user_name"], group_name)
             session["user_groups"].remove(group[0])
             db.execute("COMMIT")
 
 
-        logging.warning(session["user_groups"][-1])
+        logging.warning(session["user_groups"])
 
         return redirect(f"/feed/group/{group_name}")
 

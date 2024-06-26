@@ -143,20 +143,19 @@ def create_group():
         return group[0], 200
 
 
-@app.route("/join/<group>", methods=["POST"])
+@app.route("/join/<group>", methods=["GET", "POST"])
 @login_required
-def create_group(group):
+def join_group(group):
 
-    if request.get_json():
-        data = request.get_json()
+    if group:
         try:
             db.execute("INSERT INTO groups(created_by, group_name) VALUES(?,?)",
-                       session["user_id"], data["group_name"])
+                       session["user_id"], group)
         except (ValueError):
             return "Sorry that name is unavailbale. Try something else", 400
 
         group = db.execute(
-            "SELECT * FROM groups WHERE group_name = ?", data["group_name"])
+            "SELECT * FROM groups WHERE group_name = ?", group)
         db.execute("INSERT INTO users_groups(user_id, group_id) VALUES(?,?)",
                    session["user_id"], group[0]["id"])
         return group[0], 200

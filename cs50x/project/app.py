@@ -196,7 +196,6 @@ def login():
             return "Login Successful", 200
 
         else:
-            logging.warning(request.get_json())
             return "invalid json", 400
 
     else:
@@ -222,7 +221,6 @@ def register():
 
         if request.get_json():
             data = request.get_json()
-            logging.warning(data)
 
             if not data["username"]:
                 return "Please provide Username", 400

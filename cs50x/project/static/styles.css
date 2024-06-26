@@ -63,7 +63,7 @@ a img {
 .img-hover:hover {
     opacity: 0.3;
 
-    button {
+    .btn {
         opacity: 1;
     }
 }

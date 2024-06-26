@@ -139,7 +139,7 @@ def create_group():
         group = db.execute(
             "SELECT * FROM groups WHERE groupname = ?", data["group_name"])
         db.execute("INSERT INTO users_groups(user_name, group_name) VALUES(?,?)",
-                   session["user_name"], group[0]["name"])
+                   session["user_name"], group[0]["group_name"])
         return group[0], 200
 
 

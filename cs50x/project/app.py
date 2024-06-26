@@ -103,7 +103,8 @@ def post():
         posts = db.execute(
             """SELECT post, blog_posts.id AS id, creation_time, username, photo FROM blog_posts
             INNER JOIN users on users.id = blog_posts.user_id WHERE user_id = ? ORDER BY creation_time DESC""", session["user_id"])
-        return renderhtm
+        
+        return render_template("post.html", post=post, comments=comments)
 
 
 @app.route("/create/group", methods=["POST"])

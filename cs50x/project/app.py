@@ -153,11 +153,15 @@ def join_group(group_name):
             "SELECT * FROM groups WHERE groupname = ?", group_name)
 
         try:
+            db.execute("BEGIN")
             db.execute("INSERT INTO users_groups(user_name, group_name) VALUES(?,?)", session["user_name"], group_name)
             session["user_groups"].append(group[0])
+            db.execute("COMMIT")
         except(ValueError):
+            db.execute("BEGIN")
             db.execute("DELETE FROM users_groups WHERE user_name = ? AND group_name = ?", session["user_name"], group_name)
             session["user_groups"].remove(group[0])
+            db.execute("COMMIT")
 
 
         logging.warning(session["user_groups"][-1])

@@ -59,3 +59,7 @@ a img {
     float: left;
     object-fit: cover;
 }
+
+#group_photo {
+    background: black;
+}

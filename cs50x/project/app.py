@@ -122,7 +122,7 @@ def create_group():
 
         db.execute("INSERT INTO users_groups(user_name, group_name) VALUES(?,?)", session["user_name"], group[0]["group_name"])
 
-        return redirect(f"/feed/group/{group_name}")
+        return redirect(f"/feed/group/{data["group_name"]}")
 
 
 @app.route("/join/<group_name>", methods=["POST"])

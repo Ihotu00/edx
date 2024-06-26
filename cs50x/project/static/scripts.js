@@ -114,17 +114,17 @@ function create_group() {
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({ 'group_name': document.getElementById('group_name').value, 'photo': document.getElementById('group_photo').src }),
-        // success: function(response) {
-        //     console.log(`success: ${JSON.stringify(response)}`);
-        //     _modal.hide();
-        //     let child = `<div class="card mt-3 text-bg-primary" onClick="selected(${response})">
-        //                     <div class="card-body">
-        //                     ${response["group_name"]}
-        //                     </div>
-        //                 </div>`;
-        //     document.getElementById('add-group-button').insertAdjacentHTML('beforebegin', child);
-        //     selected(response);
-        // },
+        success: function(response) {
+            console.log(`success: ${JSON.stringify(response)}`);
+            _modal.hide();
+            let child = `<div class="card mt-3 text-bg-primary" onClick="selected(${response})">
+                            <div class="card-body">
+                            ${response["group_name"]}
+                            </div>
+                        </div>`;
+            document.getElementById('add-group-button').insertAdjacentHTML('beforebegin', child);
+            selected(response);
+        },
         error: function(error) {
             console.log(error.responseText);
             show("group-taken");

@@ -156,10 +156,10 @@ def join_group(group_name):
             db.execute("DELETE FROM users_groups WHERE user_name = ? AND group_name = ?", session["user_name"], group_name)
 
         group = db.execute(
-            "SELECT * FROM groups WHERE group_name = ?", group_name)
+            "SELECT * FROM groups WHERE groupname = ?", group_name)
 
         session["user_groups"].append(group)
-        logging.warning(session["user_group"][-1]["group_name"])
+        logging.warning(session["user_groups"][-1])
 
         redirect(f"/feed/group/{group_name}")
 

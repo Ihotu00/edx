@@ -103,7 +103,7 @@
                 </div>
                 <div class="offcanvas-body">
                     <div class="d-grid text-start">
-                        <a class="btn btn-dark btn-lg text-start" href="/user/{{session.user_name}}" type="button">
+                        <a class="btn btn-dark btn-lg text-start" href="feed/user/{{session.user_name}}" type="button">
                             <h5><span class="material-icons">home</span>Home</h5>
                         </a>
                         <hr>
@@ -114,7 +114,7 @@
                             <h5><span class="material-icons">add</span>Create Group</h5>
                         </a>
                         {% for group in session["user_groups"] %}
-                        <a class="btn btn-dark btn-lg text-start" href="/group/{{group['groupname']}}" type="button">
+                        <a class="btn btn-dark btn-lg text-start" href="feed/group/{{group['groupname']}}" type="button">
                             <h5 class="text-break"><img src='{{ group["photo"]}}' width="30" height="30" />{{
                                 group["groupname"] }}</h5>
                         </a>

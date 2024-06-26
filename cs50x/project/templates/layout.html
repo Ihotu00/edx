@@ -147,7 +147,10 @@
                                 <label for="upload_group_photo" class="text-bg-dark w-100 p-3" id="group_photo_placeholder">
                                     <p><span class="material-icons">file_upload</span>Upload Photo</p>
                                 </label>
-                                <img class="h-100 w-100 hide" id="group_photo" src/>
+                                <div>
+                                    <img class="h-100 w-100 hide" id="group_photo" src/>
+                                    <button class="btn btn-outline-secondary btn-sm material-icons">delete</button>
+                                </div>
                                 <input type="file" class="hide"onchange="imageUploaded(event, 'group_photo'); show('group_photo'); hide('group_photo_placeholder')" id="upload_group_photo"/>
                             </div>
                             <div class="mb-3">

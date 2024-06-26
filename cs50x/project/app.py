@@ -152,8 +152,8 @@ def join_group(group_name):
             "SELECT * FROM groups WHERE group_name = ?", group_name)
         db.execute("INSERT INTO users_groups(user_id, group_id) VALUES(?,?)",
                    session["user_id"], group[0]["id"])
-        # return group[0], 200
-        redirect("/group/")
+        # return group[0], 200 f'hanning{num}.pdf'
+        redirect(f"/group/{group_name}")
 
 
 @app.route("/login", methods=["GET", "POST"])

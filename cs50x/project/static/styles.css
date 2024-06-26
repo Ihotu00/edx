@@ -60,7 +60,7 @@ a img {
     object-fit: cover;
 }
 
-.img-hover:hover {
+.img-hover:hover img {
     opacity: 0.3;
 
 }

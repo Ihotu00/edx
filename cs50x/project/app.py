@@ -51,9 +51,6 @@ def after_request(response):
 @login_required
 def index(client, client_name):
 
-    groups = db.execute(
-        "SELECT * FROM groups INNER JOIN users_groups on groups.id = users_groups.group_id WHERE users_groups.user_id = ? ORDER BY creation_time DESC", session["user_id"])
-
     if client == "user":
         posts = db.execute("""SELECT post, blog_posts.id AS id, blog_posts.creation_time, group_name, user_name, photo FROM blog_posts
                             INNER JOIN groups on groupname = group_name WHERE user_name = ? OR group_name IN (?)
@@ -66,7 +63,7 @@ def index(client, client_name):
 
     # logging.warning([post["user_name"] for post in posts])
     # logging.warning(posts)
-    return render_template("index.html", posts=posts, groups=groups)
+    return render_template("index.html", posts=posts)
 
 
 @app.route("/post", methods=["GET", "POST"])
@@ -164,6 +161,8 @@ def login():
             session["user_id"] = rows[0]["id"]
             session["user_photo"] = rows[0]["photo"]
             session["user_name"] = rows[0]["username"]
+            session["user_groups"] = db.execute(
+                "SELECT * FROM groups INNER JOIN users_groups on groups.id = users_groups.group_id WHERE users_groups.user_id = ? ORDER BY creation_time DESC", session["user_id"])
 
             return "Login Successful", 200
 

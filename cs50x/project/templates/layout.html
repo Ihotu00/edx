@@ -113,7 +113,7 @@
                         <a class="btn btn-dark btn-lg text-start" href="/" type="button">
                             <h5><span class="material-icons">add</span>Create Group</h5>
                         </a>
-                        {% for group in groups %}
+                        {% for group in session["user_groups"] %}
                         <a class="btn btn-dark btn-lg text-start" href="/group/{{group['groupname']}}" type="button">
                             <h5 class="text-break"><img src='{{ group["photo"]}}' width="30" height="30" />{{
                                 group["groupname"] }}</h5>

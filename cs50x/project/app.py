@@ -63,17 +63,16 @@ def index(client, client_name):
 
     if client == "group":
         header = db.execute("SELECT groupname AS name, photo FROM groups WHERE groupname = ?", client_name)
-        logging.warning(session["user_groups"])
         if header[0]["name"] in [group["groupname"] for group in session["user_groups"]]:
             header[0]["is_member"] = "true"
         else:
             header[0]["is_member"] = "false"
         posts = db.execute("""SELECT post, blog_posts.id AS id, blog_posts.creation_time, user_name, photo FROM blog_posts
                            INNER JOIN users on username = user_name WHERE group_name = ? ORDER BY blog_posts.creation_time DESC""", client_name)
-        logging.warning(header[0]["is_member"])
+        # logging.warning(header[0]["is_member"])
 
     # logging.warning([post["user_name"] for post in posts])
-    logging.warning(posts)
+    # logging.warning(posts)
     return render_template("index.html", posts=posts, header=header)
 
 
@@ -160,7 +159,7 @@ def join_group(group_name):
             db.execute("DELETE FROM users_groups WHERE user_name = ? AND group_name = ?", session["user_name"], group_name)
             session["user_groups"].remove(group[0])
 
-        db.execute("UPDATE groups SET members = ? WHERE groupname = ?", group.members+1, group_name)
+        db.execute("UPDATE groups SET members = ? WHERE groupname = ?", group[0].members+1, group_name)
 
         logging.warning(session["user_groups"][-1])
 

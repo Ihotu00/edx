@@ -5,9 +5,9 @@ Post blogs and join message boards
 {% endblock %}
 
 {% block main %}
-{% if header[0] %}
+{% if header %}
 <div class="card">
-    <img src='header["photo"]' class="card-img-top" style="clip-path: circle();" />
+    <img src='{{ header["photo"] }}' class="card-img-top" style="clip-path: circle();" />
     <h5 class="card-title">{{ header["name"] }}</h5>
 </div>
 {% endif %}

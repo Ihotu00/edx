@@ -72,7 +72,7 @@ def index(client, client_name):
         logging.warning(header[0]["is_member"])
 
     # logging.warning([post["user_name"] for post in posts])
-    # logging.warning(header)
+    logging.warning(posts)
     return render_template("index.html", posts=posts, header=header)
 
 

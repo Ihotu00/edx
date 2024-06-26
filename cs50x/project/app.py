@@ -143,16 +143,17 @@ def create_group():
         return group[0], 200
 
 
-@app.route("/join/<group>", methods=["POST"])
+@app.route("/join/<group_name>", methods=["POST"])
 @login_required
-def join_group(group):
+def join_group(group_name):
 
-    if group:
+    if group_name:
         group = db.execute(
-            "SELECT * FROM groups WHERE group_name = ?", group)
+            "SELECT * FROM groups WHERE group_name = ?", group_name)
         db.execute("INSERT INTO users_groups(user_id, group_id) VALUES(?,?)",
                    session["user_id"], group[0]["id"])
-        return group[0], 200
+        # return group[0], 200
+        redirect("/group/")
 
 
 @app.route("/login", methods=["GET", "POST"])

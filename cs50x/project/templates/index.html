@@ -15,11 +15,9 @@ Post blogs and join message boards
             <div class="card-body">
                 <h1 class="card-title text-start">{{ header[0]["name"] }}
                     {% if header[0]["is_member"] %}
-                    <div>ward</div>
                         {% if header[0]["is_member"] == "true" %}
                         <a class="btn btn-lg btn-outline-light rounded-pill disabled">Joined</a>
                         {% elif header[0]["is_member"] == "false" %}
-                         {% else %}
                         <a class="btn btn-lg btn-outline-light rounded-pill" href="/join/{{header[0]['name']}}">Join</a>
                         {% endif %}
                     {% endif %}

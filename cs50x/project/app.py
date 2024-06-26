@@ -78,7 +78,7 @@ def index(client, client_name):
 
 @app.route("/post/comments/<id>", methods=["POST"])
 @login_required
-def post():
+def post(id):
 
     data = None
     group_id = None

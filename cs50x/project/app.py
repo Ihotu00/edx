@@ -143,17 +143,11 @@ def create_group():
         return group[0], 200
 
 
-@app.route("/join/<group>", methods=["GET", "POST"])
+@app.route("/join/<group>", methods=["POST"])
 @login_required
 def join_group(group):
 
     if group:
-        try:
-            db.execute("INSERT INTO groups(created_by, group_name) VALUES(?,?)",
-                       session["user_id"], group)
-        except (ValueError):
-            return "Sorry that name is unavailbale. Try something else", 400
-
         group = db.execute(
             "SELECT * FROM groups WHERE group_name = ?", group)
         db.execute("INSERT INTO users_groups(user_id, group_id) VALUES(?,?)",

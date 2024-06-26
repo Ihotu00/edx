@@ -146,12 +146,12 @@
                             <!-- <div class="mb-3" src style="height: 150px;">
                                 <img class="hide" id="group_photo"/>
                             </div> -->
-                            <div class="mb-3" style="max-height: 100px; cursor: pointer;">
-                                <label for="upload_group_photo" class="text-bg-dark w-100 p-5" id="group_photo_placeholder">
+                            <div class="mb-3" style="cursor: pointer;">
+                                <label for="upload_group_photo" class="text-bg-dark w-100 p-3" id="group_photo_placeholder">
                                     <p><span class="material-icons">file_upload</span>Upload Photo</p>
                                 </label>
                                 <img class="h-100 w-100 hide" id="group_photo" src/>
-                                <input type="file" class="hide"onchange="imageUploaded(event, 'group_photo')" id="upload_group_photo"/>
+                                <input type="file" class="hide"onchange="imageUploaded(event, 'group_photo'); show('group_photo'); hide('group_photo_placeholder')" id="upload_group_photo"/>
                             </div>
                             <div class="mb-3">
                                 <input autocomplete="off" class="form-control form-control-lg" name="group_name"

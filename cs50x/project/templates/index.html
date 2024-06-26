@@ -15,11 +15,11 @@ Post blogs and join message boards
             <div class="card-body">
                 <h1 class="card-title text-start">{{ header[0]["name"] }}
                     {% if header[0]["is_member"] %}
-                    <form class="form-control w-25" action="/join/{{header[0]['name']}}" method="post">
+                    <form class="w-25" action="/join/{{header[0]['name']}}" method="post">
                         {% if header[0]["is_member"] == "true" %}
-                        <input class="btn btn-lg btn-outline-secondary rounded-pill" type="submit">Joined</button>
+                        <input class="btn btn-lg btn-outline-secondary rounded-pill" type="submit" Placeholder="Joined"/>
                         {% elif header[0]["is_member"] == "false" %}
-                        <input class="btn btn-lg btn-outline-secondary rounded-pill" type="submit">Join</button>
+                        <input class="btn btn-lg btn-outline-secondary rounded-pill" type="submit" Placeholder="Join"/>
                         {% endif %}
                     </form>
                     {% endif %}

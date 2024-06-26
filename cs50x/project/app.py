@@ -76,7 +76,7 @@ def index(client, client_name):
     return render_template("index.html", posts=posts, header=header)
 
 
-@app.route("/post", methods=["POST"])
+@app.route("/post/comments/<id>", methods=["POST"])
 @login_required
 def post():
 
@@ -103,7 +103,7 @@ def post():
         posts = db.execute(
             """SELECT post, blog_posts.id AS id, creation_time, username, photo FROM blog_posts
             INNER JOIN users on users.id = blog_posts.user_id WHERE user_id = ? ORDER BY creation_time DESC""", session["user_id"])
-        
+
         return render_template("post.html", post=post, comments=comments)
 
 

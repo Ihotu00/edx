@@ -47,7 +47,7 @@ def after_request(response):
     return response
 
 
-@app.route("feed/<client>/<client_name>")
+@app.route("/feed/<client>/<client_name>")
 @login_required
 def index(client, client_name):
 
@@ -148,16 +148,18 @@ def create_group():
 def join_group(group_name):
 
     if group_name:
+
+        db.execute("INSERT INTO users_groups(user_name, group_name) VALUES(?,?)",
+                   session["user_name"], group_name)
+
         group = db.execute(
             "SELECT * FROM groups WHERE group_name = ?", group_name)
-        db.execute("INSERT INTO users_groups(user_id, group_id) VALUES(?,?)",
-                   session["user_id"], group[0]["id"])
 
         logging.warning(session["users_group"])
         session["user_groups"].append(group)
         logging.warning(session["users_group"])
 
-        redirect(f"/group/{group_name}")
+        redirect(f"/feed/group/{group_name}")
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -189,7 +191,7 @@ def login():
             session["user_photo"] = rows[0]["photo"]
             session["user_name"] = rows[0]["username"]
             session["user_groups"] = db.execute(
-                "SELECT * FROM groups INNER JOIN users_groups on groups.id = users_groups.group_id WHERE users_groups.user_id = ? ORDER BY creation_time DESC", session["user_id"])
+                "SELECT * FROM groups INNER JOIN users_groups on groups.groupname = users_groups.group_name WHERE users_groups.user_name = ? ORDER BY creation_time DESC", session["user_id"])
 
             return "Login Successful", 200
 

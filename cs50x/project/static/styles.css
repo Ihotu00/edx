@@ -65,6 +65,6 @@ a img {
 
 }
 
-.img-hover.btn {
+.img-hover:hover .btn {
     opacity: 1;
 }

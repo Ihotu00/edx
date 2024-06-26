@@ -61,5 +61,9 @@ a img {
 }
 
 #group_photo:hover {
-    opacity:
+    opacity: 0.3;
+
+    button {
+        opacity: 1;
+    }
 }

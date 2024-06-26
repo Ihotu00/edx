@@ -76,7 +76,7 @@ def index(client, client_name):
     return render_template("index.html", posts=posts, header=header)
 
 
-@app.route("/post", methods=["GET", "POST"])
+@app.route("/post", methods=["POST"])
 @login_required
 def post():
 
@@ -103,25 +103,7 @@ def post():
         posts = db.execute(
             """SELECT post, blog_posts.id AS id, creation_time, username, photo FROM blog_posts
             INNER JOIN users on users.id = blog_posts.user_id WHERE user_id = ? ORDER BY creation_time DESC""", session["user_id"])
-        return posts[0]
-
-    else:
-
-        group_id = request.args.get("group_id")
-        if group_id:
-            posts = db.execute(
-                """SELECT post, blog_posts.id AS id, creation_time, username, photo FROM blog_posts
-                INNER JOIN users on users.id = blog_posts.user_id WHERE group_id = ? ORDER BY creation_time DESC""", group_id)
-
-        else:
-            posts = db.execute(
-                """SELECT post, blog_posts.id AS id, creation_time, username, photo FROM blog_posts
-            INNER JOIN users on users.id = blog_posts.user_id WHERE user_id = ? ORDER BY creation_time DESC""", session["user_id"])
-
-        if not len(posts) > 0:
-            return "No posts in this group yet", 404
-
-        return posts
+        return renderhtm
 
 
 @app.route("/create/group", methods=["POST"])

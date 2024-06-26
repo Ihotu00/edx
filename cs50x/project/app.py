@@ -63,7 +63,7 @@ def index(client, client_name):
 
     if client == "group":
         header = db.execute("SELECT groupname AS name, photo FROM groups WHERE groupname = ?", client_name)
-        if header[0]["name"] in session["user_groups"]["groupname"]:
+        if header[0]["name"] in [group["groupname"] for group in session["user_groups"]]:
             header["has_joined"] = True
         else:
             header["has_joined"] = False

@@ -115,7 +115,7 @@ def create_group():
     if request.get_json():
         data = request.get_json()
 
-        if data["group_name"] != "" :
+        if not re.search("^[a-zA-Z]", data["group_name"]):
             return "Invalid Name", 404
 
         try:

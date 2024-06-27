@@ -170,7 +170,8 @@ function login(event, url) {
         },
         error: function(error) {
             console.log(error)
-            show("error-response")
+            parentId = url == "/register" ? "register-response" : "login-response"
+            create_alert(parentId, `${error.responseText}`, 'danger')
             document.getElementById('error-response').innerHTML = error.responseText
             hide("spinner")
             document.getElementById("submit-form").classList.remove("disabled")

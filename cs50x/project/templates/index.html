@@ -18,7 +18,8 @@ Post blogs and join message boards
                     <button class="w-25 ms-3 btn btn-lg btn-outline-secondary rounded-pill hide" type="button" disabled id="join-group-loader">
                         <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
                       </button>
-                    <form class="w-25 ms-3" action="/join/{{header[0]['name']}}" method="post" id="join-group-form">
+                    <form class="w-25 ms-3" action="/join/{{header[0]['name']}}" method="post" id="join-group-form"
+                    onSubmit="show('join-group-loader') & hide('join-group-form')">
                         {% if header[0]["is_member"] == "true" %}
                         <input class="btn btn-lg btn-outline-secondary rounded-pill" type="submit" value="Joined"/>
                         {% elif header[0]["is_member"] == "false" %}

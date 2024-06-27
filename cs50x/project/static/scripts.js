@@ -125,7 +125,6 @@ function get_group_msg(id, name) {
 }
 
 function create_group() {
-    hide('create-group-response')
     show('create-group-loader')
     hide('submit-new-group')
     group = {
@@ -147,7 +146,6 @@ function create_group() {
             hide('create-group-loader')
             show('submit-new-group')
             console.log(error.responseText);
-            document.getElementById("create-group-response").innerHTML = error.responseText;
             create_alert('create-group-response', `${error.responseText}`, 'danger')
         }
     });

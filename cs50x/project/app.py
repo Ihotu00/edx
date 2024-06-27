@@ -114,27 +114,25 @@ def create_group():
 
     if request.get_json():
         data = request.get_json()
-        group_photo = data["group_photo"]
-
-        if group_photo == None:
-            group_photo = 'DEFAULT'
+        group_photo = data["group_photo"] if data["group_photo"] != None else DEFAULT
 
         if not re.search("^[a-zA-Z]", data["group_name"]):
             return "Invalid Name", 404
 
         logging.warning(data)
-        return "success", 200
+        # return "success", 200
 
-        # try:
-        #     db.execute("INSERT INTO groups(created_by, groupname, photo, accessibility) VALUES(?,?,?,?)", session["user_name"], data["group_name"], data["group_photo"], data["access"])
-        # except (ValueError):
-        #     return "Sorry that name is unavailbale. Try something else", 400
+        try:
+            db.execute("INSERT INTO groups(created_by, groupname, photo, accessibility) VALUES(?,?,?,?)",
+                       session["user_name"], data["group_name"], group_photo, data["access"])
+        except (ValueError):
+            return "Sorry that name is unavailbale. Try something else", 400
 
-        # db.execute("INSERT INTO users_groups(user_name, group_name) VALUES(?,?)", session["user_name"], data["group_name"])
-        # group = db.execute("SELECT * from groups WHERE groupname = ?", data["group_name"])
-        # session["user_groups"].append(group[0])
+        db.execute("INSERT INTO users_groups(user_name, group_name) VALUES(?,?)", session["user_name"], data["group_name"])
+        group = db.execute("SELECT * from groups WHERE groupname = ?", data["group_name"])
+        session["user_groups"].append(group[0])
 
-        # return f"/feed/group/{data["group_name"]}", 200
+        return f"/feed/group/{data["group_name"]}", 200
 
     else: return "ERROR: Could not read data", 400
 

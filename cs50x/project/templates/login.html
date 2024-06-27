@@ -6,8 +6,9 @@ Log In
 
 {% block main %}
 <div class="card-body p-5 col-md-4 mx-auto bg-dark mt-5 rounded">
+    <div class="card-title text-light">Log In</div>
     <form onsubmit="login(event, '/login')" id="login_form">
-        <div class="form-floating mb-3">
+        <div class="form-floating mb-3 mt-5">
             <input autocomplete="off" autofocus class="form-control form-control-lg" name="username" id="username" placeholder="Username"
                 type="text">
             <label for="username">Username</label>

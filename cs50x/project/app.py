@@ -164,6 +164,17 @@ def join_group(group_name):
         return redirect(f"/feed/group/{group_name}")
 
 
+@app.route("/groups")
+@login_required
+def groups():
+
+
+        groups = db.execute("""SELECT groupname AS name, photo FROM groups WHERE accessibility = public""")
+
+
+        return render_template("groups.html", groups=groups)
+
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     """Log user in"""

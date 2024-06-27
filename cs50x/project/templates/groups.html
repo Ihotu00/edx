@@ -12,8 +12,8 @@ Post blogs and join message boards
         <img src='{{ group["photo"] }}' class="img-fluid rounded-start me-3" style="clip-path: circle()" height="50" width="50">
         <div class="d-flex flex-column text-break text-start">
             <h4 class="card-title text-wrap">{{ group["name"] }}</h4>
-            <p>Members: {{ group["members"] }}</p>
-            <p>Posts: {{ group["posts"] }}</p>
+            <div><p>Members: {{ group["members"] }}</p>
+            <p>Posts: {{ group["posts"] }}</p></div>
         </div>
     </div>
     {% endfor %}

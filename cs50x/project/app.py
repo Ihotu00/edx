@@ -72,7 +72,7 @@ def index(client, client_name):
                            INNER JOIN users on username = user_name WHERE group_name = ? ORDER BY blog_posts.creation_time DESC""", client_name)
         # logging.warning(header[0]["is_member"])
 
-    # logging.warning([sess["groupname"] for sess in session["user_groups"]])
+    logging.warning([sess["groupname"] for sess in session["user_groups"]])
     # logging.warning(posts)
     return render_template("index.html", posts=posts, header=header)
 
@@ -142,6 +142,8 @@ def join_group(group_name):
 
         group = db.execute(
             "SELECT * FROM groups WHERE groupname = ?", group_name)
+        logging.warning(group[0])
+        logging.warning("SESSION: " + sess for sess in session["user_groups"] if sess["groupname"] == group[0]["groupname"])
 
         try:
             db.execute("BEGIN")
@@ -154,7 +156,6 @@ def join_group(group_name):
             db.execute("DELETE FROM users_groups WHERE user_name = ? AND group_name = ?", session["user_name"], group_name)
             session["user_groups"].remove(group[0])
             db.execute("COMMIT")
-            logging.warning(group[0]["accessibility"])
             if group[0]["accessibility"] == "private":
                 logging.warning("gothere")
                 return redirect(f"/feed/user/{session["user_name"]}")

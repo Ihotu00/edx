@@ -165,10 +165,12 @@
                                     id="group_name" placeholder="Group Name..." type="text" />
                             </div>
                             <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off"
+                                data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Anyone can see and make posts on this group"
                                 checked>
                             <label class="btn btn-outline-dark" for="option1">Public</label>
 
-                            <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
+                            <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off"
+                                data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Only members can see or make posts on this group">
                             <label class="btn btn-outline-dark" for="option2">Private</label>
                             <p class="hide" style="color: red" id="group-taken">Error Message</p>
                         </div>

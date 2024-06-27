@@ -23,19 +23,18 @@ function show_modal(id) {
 }
 
 // create alerts
-function create_alert(parentId, message, type) {
+function create_alert(parentId, message, type, icon) {
     const alertPlaceholder = document.getElementById(parentId)
-    // const appendAlert = (message, type) => {
     const wrapper = document.createElement('div')
     wrapper.innerHTML = [
         `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+        `   <span class="material-icons-outined">${icon}</span>`
         `   <div>${message}</div>`,
         '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
         '</div>'
     ].join('')
 
     alertPlaceholder.append(wrapper)
-    // }
 }
 
 function send_post(event) {
@@ -146,7 +145,7 @@ function create_group() {
             hide('create-group-loader')
             show('submit-new-group')
             console.log(error.responseText);
-            create_alert('create-group-response', `${error.responseText}`, 'danger')
+            create_alert('create-group-response', `${error.responseText}`, 'danger', 'error')
         }
     });
 }
@@ -170,7 +169,7 @@ function login(event, url) {
         },
         error: function(error) {
             console.log(error)
-            create_alert("login-response", `${error.responseText}`, 'danger')
+            create_alert("login-response", `${error.responseText}`, 'danger', 'error')
             hide("spinner")
             document.getElementById("submit-form").classList.remove("disabled")
         }

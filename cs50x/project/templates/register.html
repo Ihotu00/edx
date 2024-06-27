@@ -12,22 +12,22 @@ Register
             style="clip-path: circle();" width="70" height="70" id="display_profile_picture" name="photo">
     </div>
     <div class="form-floating mb-3">
-        <input type="file" class="form-control form-control-lg mx-auto w-auto" name="profile_picture"
+        <input type="file" class="form-control form-control-lg mx-auto w-auto" name="profile_picture" id="profile_picture"
             onchange="imageUploaded(event, 'display_profile_picture')" accept="image/*">
-        <label for="floatingInput">Profile picture</label>
+        <label for="profile_picture">Profile picture</label>
     </div>
     <div class="form-floating mb-3">
-        <input autocomplete="off" autofocus class="form-control form-control-lg mx-auto w-auto" name="username" placeholder="Username"
+        <input autocomplete="off" autofocus class="form-control form-control-lg mx-auto w-auto" name="username" id="username" placeholder="Username"
             type="text">
-        <label for="floatingInput">Username</label>
+        <label for="username">Username</label>
     </div>
     <div class="form-floating mb-3">
-        <input class="form-control form-control-lg mx-auto w-auto" name="password" placeholder="Password" type="password">
-        <label for="floatingInput">Password</label>
+        <input class="form-control form-control-lg mx-auto w-auto" name="password" id="password" placeholder="Password" type="password">
+        <label for="password">Password</label>
     </div>
     <div class="form-floating mb-3">
-        <input class="form-control form-control-lg mx-auto w-auto" name="confirmation" placeholder="Confrim Password" type="password">
-        <label for="floatingInput">Confirm password</label>
+        <input class="form-control form-control-lg mx-auto w-auto" name="confirmation" id="confirmation" placeholder="Confrim Password" type="password">
+        <label for="confirmation">Confirm password</label>
     </div>
     <p class="text-light">Already have an account? <a class="icon-link icon-link-hover" href="/login">Log In</a></p>
     <button class="btn btn-primary" type="submit" id="submit-form">

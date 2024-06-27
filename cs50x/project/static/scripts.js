@@ -109,6 +109,8 @@ function get_group_msg(id, name) {
 }
 
 function create_group() {
+    hide('create-group-response')
+    show('create-group-loader')
     group = {
         'group_name': document.getElementById('group_name').value,
         'group_photo': document.getElementById('group_photo').src,
@@ -125,8 +127,10 @@ function create_group() {
             location.pathname = response;
         },
         error: function(error) {
+            hide('create-group-loader')
             console.log(error.responseText);
             document.getElementById("create-group-response").innerHTML = error.responseText;
+            show('create-group-response')
         }
     });
 }

@@ -169,7 +169,8 @@ def join_group(group_name):
 def groups():
 
 
-        groups = db.execute("""SELECT groupname AS name, photo FROM groups WHERE accessibility = public""")
+        groups = db.execute("""SELECT groupname, photo, (SELECT COUNT(*) FROM users_groups WHERE group_name = groupname) AS members
+                            FROM groups INNER JOIN users_groups on groups.groupname = users_groups.group_name""")
 
 
         return render_template("groups.html", groups=groups)

@@ -119,7 +119,8 @@
                         {% for group in session["user_groups"] %}
                         <a class="btn btn-dark btn-lg text-start" href="/feed/group/{{group['groupname']}}"
                             type="button">
-                            <h5 class="text-break"><img src='{{ group["photo"]}}' width="30" height="30" style="clip-path: circle()" class="me-1"/>{{
+                            <h5 class="text-break"><img src='{{ group["photo"]}}' width="30" height="30"
+                                    style="clip-path: circle()" class="me-1" />{{
                                 group["groupname"] }}</h5>
                         </a>
                         {% endfor %}
@@ -144,19 +145,38 @@
                         </div>
                         <div class="modal-body">
                             <div class="mb-3" style="cursor: pointer;">
-                                <label for="upload_group_photo" class="text-bg-dark w-100 p-3" id="group_photo_placeholder" style="cursor: pointer;">
+                                <label for="upload_group_photo" class="text-bg-dark w-100 p-3"
+                                    id="group_photo_placeholder" style="cursor: pointer;">
                                     <p><span class="material-icons">file_upload</span>Upload Photo</p>
                                 </label>
                                 <div class="position-relative img-hover">
-                                    <img class="h-100 w-100 hide" id="group_photo" src/>
-                                    <button class="btn btn-outline-dark btn-sm position-absolute bottom-0 end-0 m-2 opacity" onClick="hide('group_photo'); show('group_photo_placeholder')">
+                                    <img class="h-100 w-100 hide" id="group_photo" src />
+                                    <button
+                                        class="btn btn-outline-dark btn-sm position-absolute bottom-0 end-0 m-2 opacity"
+                                        onClick="hide('group_photo'); show('group_photo_placeholder')">
                                         <span class="material-symbols-outlined">delete</span></button>
                                 </div>
-                                <input type="file" class="hide"onchange="imageUploaded(event, 'group_photo'); show('group_photo'); hide('group_photo_placeholder')" id="upload_group_photo"/>
+                                <input type="file" class="hide"
+                                    onchange="imageUploaded(event, 'group_photo'); show('group_photo'); hide('group_photo_placeholder')"
+                                    id="upload_group_photo" />
                             </div>
                             <div class="mb-3">
                                 <input autocomplete="off" class="form-control form-control-lg" name="group_name"
                                     id="group_name" placeholder="Group Name..." type="text" />
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault1" checked>
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Public
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault2">
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Private
+                                </label>
                             </div>
                             <p class="hide" style="color: red" id="group-taken">Error Message</p>
                         </div>

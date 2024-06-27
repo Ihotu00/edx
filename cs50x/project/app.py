@@ -190,9 +190,6 @@ def login():
             session["user_groups"] = db.execute(
                 "SELECT * FROM groups INNER JOIN users_groups on groups.groupname = users_groups.group_name WHERE users_groups.user_name = ? ORDER BY creation_time DESC", session["user_name"])
 
-
-            logging.warning([sess["user_groups"]["groupname"] for sess in session["user_groups"]])
-
             return "Login Successful", 200
 
         else:

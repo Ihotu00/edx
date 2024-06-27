@@ -109,20 +109,26 @@ function get_group_msg(id, name) {
 }
 
 function create_group() {
-    $.ajax({
-        url: '/create/group',
-        type: 'POST',
-        contentType: 'application/json',
-        data: JSON.stringify({ 'group_name': document.getElementById('group_name').value, 'group_photo': document.getElementById('group_photo').src }),
-        success: function(response) {
-            console.log(response)
-            location.pathname = response;
-        },
-        error: function(error) {
-            console.log(error.responseText);
-            document.getElementById("group-taken").innerHTML = error.responseText;
-        }
-    });
+    data = {
+        'group_name': document.getElementById('group_name').value,
+        'group_photo': document.getElementById('group_photo').src,
+        'access': document.getElementById('public-group').checked ? "public" : "private",
+    }
+    console.log(data)
+    // $.ajax({
+    //     url: '/create/group',
+    //     type: 'POST',
+    //     contentType: 'application/json',
+    //     data: JSON.stringify({ 'group_name': document.getElementById('group_name').value, 'group_photo': document.getElementById('group_photo').src }),
+    //     success: function(response) {
+    //         console.log(response)
+    //         location.pathname = response;
+    //     },
+    //     error: function(error) {
+    //         console.log(error.responseText);
+    //         document.getElementById("group-taken").innerHTML = error.responseText;
+    //     }
+    // });
 }
 
 function login(event, url) {

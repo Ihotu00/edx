@@ -72,7 +72,7 @@ def index(client, client_name):
                            INNER JOIN users on username = user_name WHERE group_name = ? ORDER BY blog_posts.creation_time DESC""", client_name)
         # logging.warning(header[0]["is_member"])
 
-    # logging.warning([post["user_name"] for post in posts])
+    logging.warning([sess["user_groups"]["groupname"] for sess in session["user_groups"]])
     # logging.warning(posts)
     return render_template("index.html", posts=posts, header=header)
 
@@ -189,6 +189,9 @@ def login():
             session["user_name"] = rows[0]["username"]
             session["user_groups"] = db.execute(
                 "SELECT * FROM groups INNER JOIN users_groups on groups.groupname = users_groups.group_name WHERE users_groups.user_name = ? ORDER BY creation_time DESC", session["user_id"])
+
+
+            logging.warning([sess["user_groups"]["groupname"] for sess in session["user_groups"]])
 
             return "Login Successful", 200
 

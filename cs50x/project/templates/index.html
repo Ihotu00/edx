@@ -15,7 +15,7 @@ Post blogs and join message boards
             <div class="card-body">
                 <h1 class="card-title text-start d-flex">{{ header[0]["name"] }}
                     {% if header[0]["is_member"] %}
-                    <span class="w-25 ms-3 btn btn-lg btn-outline-secondary rounded-pill"></span>
+                    <span class="w-25 ms-3 btn btn-lg btn-outline-secondary rounded-pill spinning-border"></span>
                     <form class="w-25 ms-3" action="/join/{{header[0]['name']}}" method="post">
                         {% if header[0]["is_member"] == "true" %}
                         <input class="btn btn-lg btn-outline-secondary rounded-pill" type="submit" value="Joined"/>

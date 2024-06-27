@@ -114,7 +114,7 @@ function create_group() {
         'group_photo': document.getElementById('group_photo').src,
         'access': document.getElementById('public-group').checked ? "public" : "private",
     }
-    console.log(data)
+    console.log(group)
     $.ajax({
         url: '/create/group',
         type: 'POST',
@@ -126,7 +126,7 @@ function create_group() {
         },
         error: function(error) {
             console.log(error.responseText);
-            document.getElementById("group-taken").innerHTML = error.responseText;
+            document.getElementById("create-group-response").innerHTML = error.responseText;
         }
     });
 }

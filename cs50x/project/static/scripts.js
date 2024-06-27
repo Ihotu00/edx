@@ -129,7 +129,7 @@ function create_group() {
     hide('submit-new-group')
     group = {
         'group_name': document.getElementById('group_name').value,
-        'group_photo': document.getElementById('group_photo').src != "" ? document.getElementById('group_photo').src : null,
+        'group_photo': document.getElementById('group_photo').src,
         'access': document.getElementById('public-group').checked ? "public" : "private",
     }
     console.log(group)

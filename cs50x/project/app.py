@@ -143,7 +143,8 @@ def join_group(group_name):
         group = db.execute(
             "SELECT * FROM groups WHERE groupname = ?", group_name)
         logging.warning(group[0])
-        logging.warning("SESSION: " + sess for sess in session["user_groups"] if sess["groupname"] == group[0]["groupname"])
+        logging.warning("SESSION: " + sess for sess in session["user_groups"] if sess == group[0])
+        logging.warning(session["user_groups"])
 
         try:
             db.execute("BEGIN")

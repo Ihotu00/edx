@@ -171,9 +171,10 @@ def groups():
         db.execute("BEGIN")
         groups = db.execute("SELECT groupname AS name, photo FROM groups WHERE accessibility = 'public'")
         for group in groups:
-            members = db.execute("SELECT COUNT(*) AS members FROM users_groups WHERE group_name = ?", group["name"])
-            group["members"] = members[0]["members"]
-            group["posts"] = db.execute("SELECT COUNT(*) FROM blog_posts WHERE group_name = ?", group["name"])
+            group_members = db.execute("SELECT COUNT(*) AS members FROM users_groups WHERE group_name = ?", group["name"])
+            group["members"] = group_members[0]["members"]
+            group_posts = db.execute("SELECT COUNT(*) AS posts FROM blog_posts WHERE group_name = ?", group["name"])
+            group["posts"] = group_posts["posts"]
 
         logging.warning([sess["members"] for sess in groups])
 

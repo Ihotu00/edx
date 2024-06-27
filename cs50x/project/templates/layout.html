@@ -164,20 +164,12 @@
                                 <input autocomplete="off" class="form-control form-control-lg" name="group_name"
                                     id="group_name" placeholder="Group Name..." type="text" />
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                    id="flexRadioDefault1" checked>
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                    Public
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                    id="flexRadioDefault2">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Private
-                                </label>
-                            </div>
+                            <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off"
+                                checked>
+                            <label class="btn btn-secondary" for="option1">Public</label>
+
+                            <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
+                            <label class="btn btn-secondary" for="option2">Private</label>
                             <p class="hide" style="color: red" id="group-taken">Error Message</p>
                         </div>
                         <div class="modal-footer"><button class="btn btn-outline-dark" type="submit"

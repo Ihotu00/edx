@@ -30,7 +30,7 @@ function create_alert(parentId, message, type, icon) {
     const wrapper = document.createElement('div')
     wrapper.innerHTML = [
         `<div class="alert alert-${type} alert-dismissible" role="alert">`,
-        `   <div><span class="material-symbols-outlined">${icon}</span> ${message}</div>`,
+        `   <div class="d-flex"><span class="material-symbols-outlined me-1">${icon}</span> ${message}</div>`,
         '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
         '</div>'
     ].join('')

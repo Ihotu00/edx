@@ -176,8 +176,6 @@ def groups():
             group_posts = db.execute("SELECT COUNT(*) AS posts FROM blog_posts WHERE group_name = ?", group["name"])
             group["posts"] = group_posts[0]["posts"]
 
-        logging.warning([sess["members"] for sess in groups])
-
         return render_template("groups.html", groups=groups)
 
 

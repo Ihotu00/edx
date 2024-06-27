@@ -8,17 +8,11 @@ Post blogs and join message boards
 
 <div class="row">
     {% for group in groups %}
-    <div class="col-md-4">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img src='{{ group["photo"] }}' class="img-fluid rounded-start h-100 w-100" style="clip-path: circle()">
-            </div>
-            <div class="col-md-8 d-flex align-self-end">
-                <div class="card-body">
-                    <h1 class="card-title text-start">{{ group["name"] }}</h1>
-                    <p>{{ group["members"] }}</p>
-                </div>
-            </div>
+    <div class="col-md-4 d-flex">
+        <img src='{{ group["photo"] }}' class="img-fluid rounded-start h-100 w-100" style="clip-path: circle()">
+        <div>
+            <h4 class="card-title text-start">{{ group["name"] }}</h4>
+            <p>{{ group["members"] }}</p>
         </div>
     </div>
     {% endfor %}

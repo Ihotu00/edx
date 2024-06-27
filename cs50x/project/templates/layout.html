@@ -119,7 +119,7 @@
                         {% for group in session["user_groups"] %}
                         <a class="btn btn-dark btn-lg text-start" href="/feed/group/{{group['groupname']}}"
                             type="button">
-                            <h5 class="text-break"><img src='{{ group["photo"]}}' width="30" height="30" style="clip-path: circle()"/>{{
+                            <h5 class="text-break"><img src='{{ group["photo"]}}' width="30" height="30" style="clip-path: circle()" class="ms-2"/>{{
                                 group["groupname"] }}</h5>
                         </a>
                         {% endfor %}

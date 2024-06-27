@@ -16,6 +16,7 @@ Post blogs and join message boards
                 <h1 class="card-title text-start d-flex">{{ header[0]["name"] }}
                     {% if header[0]["is_member"] %}
                     <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+                        <span class="visually-hidden">Loading...</span>
                       </div>
                     <form class="w-25 ms-3" action="/join/{{header[0]['name']}}" method="post" id="join-group-form"
                     onSubmit="show('join-group-loader') & hide('join-group-form')">

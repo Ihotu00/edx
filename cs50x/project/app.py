@@ -169,12 +169,12 @@ def join_group(group_name):
 def groups():
 
         db.execute("BEGIN")
-        groups = db.execute("SELECT groupname AS name, photo WHERE accessibilty = public")
+        groups = db.execute("SELECT groupname AS name, photo FROM groups WHERE accessibility = 'public'")
         for group in groups:
             group["members"] = db.execute("SELECT COUNT(*) FROM users_groups WHERE group_name = ?", group["name"])
             group["posts"] = db.execute("SELECT COUNT(*) FROM blog_posts WHERE group_name = ?", group["name"])
 
-        logging.warning()
+        logging.warning([sess["members"] for sess in groups])
 
         return render_template("groups.html", groups=groups)
 

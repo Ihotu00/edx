@@ -150,7 +150,7 @@
                                     <p><span class="material-icons">file_upload</span>Upload Photo</p>
                                 </label>
                                 <div class="position-relative img-hover">
-                                    <img class="h-100 w-100 hide" id="group_photo" src />
+                                    <img class="h-100 w-100 hide" id="group_photo" src="" />
                                     <button
                                         class="btn btn-outline-dark btn-sm position-absolute bottom-0 end-0 m-2 opacity"
                                         onClick="hide('group_photo'); show('group_photo_placeholder')">
@@ -164,14 +164,14 @@
                                 <input autocomplete="off" class="form-control form-control-lg" name="group_name"
                                     id="group_name" placeholder="Group Name..." type="text" />
                             </div>
-                            <input type="radio" class="btn-check" name="public" id="public-group" autocomplete="off"
+                            <input type="radio" class="btn-check" name="acess" id="public-group" autocomplete="off"
                                 data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Anyone can see and make posts on this group"
                                 checked>
                             <label class="btn btn-outline-dark" for="public-group">Public</label>
 
-                            <input type="radio" class="btn-check" name="private" id="private-group" autocomplete="off"
+                            <input type="radio" class="btn-check" name="acess" id="private-group" autocomplete="off"
                                 data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Only members can see or make posts on this group">
-                            <label class="btn btn-outline-dark" for="ptivate-group">Private</label>
+                            <label class="btn btn-outline-dark" for="private-group">Private</label>
                             <p class="hide" style="color: red" id="group-taken">Error Message</p>
                         </div>
                         <div class="modal-footer"><button class="btn btn-outline-dark" type="submit"

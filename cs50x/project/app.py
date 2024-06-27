@@ -72,7 +72,7 @@ def index(client, client_name):
                            INNER JOIN users on username = user_name WHERE group_name = ? ORDER BY blog_posts.creation_time DESC""", client_name)
         # logging.warning(header[0]["is_member"])
 
-    logging.warning([sess["user_groups"]["groupname"] for sess in session["user_groups"]])
+    # logging.warning([sess["groupname"] for sess in session["user_groups"]])
     # logging.warning(posts)
     return render_template("index.html", posts=posts, header=header)
 

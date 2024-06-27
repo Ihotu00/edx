@@ -23,9 +23,9 @@ function show_modal(id) {
 }
 
 // create alerts
-function create_alert(parentId) {
+function create_alert(parentId, message, type) {
     const alertPlaceholder = document.getElementById(parentId)
-    const appendAlert = (message, type) => {
+    // const appendAlert = (message, type) => {
     const wrapper = document.createElement('div')
     wrapper.innerHTML = [
         `<div class="alert alert-${type} alert-dismissible" role="alert">`,
@@ -35,14 +35,7 @@ function create_alert(parentId) {
     ].join('')
 
     alertPlaceholder.append(wrapper)
-    }
-}
-
-const alertTrigger = document.getElementById('liveAlertBtn')
-if (alertTrigger) {
-  alertTrigger.addEventListener('click', () => {
-    appendAlert('Nice, you triggered this alert message!', 'success')
-  })
+    // }
 }
 
 function send_post(event) {
@@ -155,7 +148,7 @@ function create_group() {
             show('submit-new-group')
             console.log(error.responseText);
             document.getElementById("create-group-response").innerHTML = error.responseText;
-            show('create-group-response')
+            create_alert(`${error.responseText}`, 'danger')
         }
     });
 }

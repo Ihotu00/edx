@@ -8,7 +8,7 @@ Post blogs and join message boards
 
 <div class="row">
     {% for group in groups %}
-    <div class="col-md-2 m-2 d-flex card card-body text-bg-dark">
+    <div class="col-md-2 m-2 d-flex flex-md-row card card-body text-bg-dark">
         <img src='{{ group["photo"] }}' class="img-fluid rounded-start" style="clip-path: circle()" height="50" width="50">
         <div>
             <h4 class="card-title text-start">{{ group["name"] }}</h4>

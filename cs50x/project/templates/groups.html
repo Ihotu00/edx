@@ -6,28 +6,32 @@ Post blogs and join message boards
 
 {% block main %}
 
-<div class="card-body mt-5" id="posts">
-    {% if groups | length == 0 %}
-    <div class="center">
-        <h1 class="text-white-50" style="font-size: 15cqb;">Looks there are no groups yet...</h1>
+{% for group in groups %}
+<div class="card text-bg-dark mb-3 mt-5">
+    <div class="row g-0">
+        <div class="col-md-3">
+            <img src='{{ group["photo"] }}' class="img-fluid rounded-start h-100 w-100" style="clip-path: circle()">
+        </div>
+        <div class="col-md-8 d-flex align-self-end">
+            <div class="card-body">
+                <h1 class="card-title text-start d-flex">{{ group["name"] }}
+                    {% if header[0]["is_member"] %}
+                    <div class="spinner-border hide ms-3" style="width: 3rem; height: 3rem;" role="status" id="join-group-loader">
+                    </div>
+                    <form class="w-25 mx-3" action="/join/{{header[0]['name']}}" method="post" id="join-group-form"
+                    onSubmit="show('join-group-loader') & hide('join-group-form')">
+                        {% if header[0]["is_member"] == "true" %}
+                        <input class="btn btn-lg btn-outline-secondary rounded-pill" type="submit" value="Joined"/>
+                        {% elif header[0]["is_member"] == "false" and header[0]["accessibility"] == "public" %}
+                        <input class="btn btn-lg btn-outline-secondary rounded-pill" type="submit" value="Join"/>
+                        {% endif %}
+                    </form>
+                    {% endif %}
+                </h1>
+            </div>
+        </div>
     </div>
-    {% endif %}
-    {% for group in groups %}
-    <div class="card mb-1 text-bg-dark hover">
-        <div class="card-header text-start">
-            <a class="btn btn-sm btn-dark rounded-pill"
-                href="/feed/{{'group/'+post.group_name if post.group_name else 'user/'+post.user_name}}"><img
-                    src='{{ post["photo"]}}' style="clip-path: circle();" width="25" height="25" />
-                {{ post["user_name"] if not post["group_name"] else post["group_name"] }}
-            </a>
-        </div>
-        <div class="card-body overflow-hidden text-start">
-            {{ post["post"] }}
-        </div>
-        <div class="card-footer text-end">
-            {{ post["creation_time"] }}
-        </div>
-    </div>
-    {% endfor %}
 </div>
+{% endfor %}
+
 {% endblock %}

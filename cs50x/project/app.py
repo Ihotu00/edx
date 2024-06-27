@@ -143,22 +143,22 @@ def join_group(group_name):
         group = db.execute(
             "SELECT * FROM groups WHERE groupname = ?", group_name)
 
-        logging.warning([sess for sess in session["user_groups"] if sess["groupname"] == group[0]["groupname"]])
+        logging.warning([sess for sess in session["user_groups"] if sess["groupname"] == group[0]["groupname"]][0])
 
-        # try:
-        #     db.execute("BEGIN")
-        #     db.execute("INSERT INTO users_groups(user_name, group_name) VALUES(?,?)", session["user_name"], group_name)
-        #     session["user_groups"].append({group[0]["groupname"], group[0]["photo"]})
-        #     db.execute("COMMIT")
-        # except(ValueError):
-        #     db.execute("ROLLBACK")
-        #     db.execute("BEGIN")
-        #     db.execute("DELETE FROM users_groups WHERE user_name = ? AND group_name = ?", session["user_name"], group_name)
-        #     session["user_groups"].remove(group[0])
-        #     db.execute("COMMIT")
-        #     if group[0]["accessibility"] == "private":
-        #         logging.warning("gothere")
-        #         return redirect(f"/feed/user/{session["user_name"]}")
+        try:
+            db.execute("BEGIN")
+            db.execute("INSERT INTO users_groups(user_name, group_name) VALUES(?,?)", session["user_name"], group_name)
+            session["user_groups"].append({group[0]["groupname"], group[0]["photo"]})
+            db.execute("COMMIT")
+        except(ValueError):
+            db.execute("ROLLBACK")
+            db.execute("BEGIN")
+            db.execute("DELETE FROM users_groups WHERE user_name = ? AND group_name = ?", session["user_name"], group_name)
+            session["user_groups"].remove([x for x in session["user_groups"] if x["groupname"] == group[0]["groupname"]][0])
+            db.execute("COMMIT")
+            if group[0]["accessibility"] == "private":
+                logging.warning("gothere")
+                return redirect(f"/feed/user/{session["user_name"]}")
 
 
         return redirect(f"/feed/group/{group_name}")

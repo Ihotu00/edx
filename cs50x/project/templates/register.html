@@ -5,7 +5,6 @@ Register
 {% endblock %}
 
 {% block main %}
-<div class="mb-3" id="login-response"></div>
 <div class="card-body p-5 col-md-4 mx-auto">
     <form onsubmit="login(event, '/register')" id="register_form">
         <div class="mb-3">
@@ -29,6 +28,7 @@ Register
             <input class="form-control form-control-lg" name="confirmation" id="confirmation" placeholder="Confrim Password" type="password">
             <label for="confirmation">Confirm password</label>
         </div>
+        <div class="mb-3" id="login-response"></div>
         <p class="text-light">Already have an account? <a class="icon-link icon-link-hover" href="/login">Log In</a></p>
         <button class="btn btn-primary" type="submit" id="submit-form">
             <span class="spinner-border spinner-border-sm hide me-1" role="status" aria-hidden="true"

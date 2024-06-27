@@ -21,7 +21,7 @@ Post blogs and join message boards
                     onSubmit="show('join-group-loader') & hide('join-group-form')">
                         {% if header[0]["is_member"] == "true" %}
                         <input class="btn btn-lg btn-outline-secondary rounded-pill" type="submit" value="Joined"/>
-                        {% elif header[0]["is_member"] == "false" and header[0]["is_public"] %}
+                        {% elif header[0]["is_member"] == "false" and header[0]["is_public"] == "true" %}
                         <input class="btn btn-lg btn-outline-secondary rounded-pill" type="submit" value="Join"/>
                         {% endif %}
                     </form>

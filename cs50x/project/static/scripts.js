@@ -148,7 +148,7 @@ function create_group() {
             show('submit-new-group')
             console.log(error.responseText);
             document.getElementById("create-group-response").innerHTML = error.responseText;
-            create_alert('', `${error.responseText}`, 'danger')
+            create_alert('create-group-response', `${error.responseText}`, 'danger')
         }
     });
 }

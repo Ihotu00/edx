@@ -24,6 +24,7 @@ function show_modal(id) {
 
 // create alerts
 function create_alert(parentId, message, type, icon) {
+    icon = icon == null ?? 'notifications' : icon;
     const alertPlaceholder = document.getElementById(parentId)
     const wrapper = document.createElement('div')
     wrapper.innerHTML = [

@@ -1,6 +1,7 @@
 import os
 import logging
 import datetime
+import re
 
 from cs50 import SQL
 from flask import Flask, redirect, render_template, request, session
@@ -113,6 +114,9 @@ def create_group():
 
     if request.get_json():
         data = request.get_json()
+
+        if data["group_name"] != "" :
+            return "Invalid Name", 404
 
         try:
             db.execute("INSERT INTO groups(created_by, groupname, photo) VALUES(?,?,?)", session["user_name"], data["group_name"], data["group_photo"])

@@ -118,16 +118,19 @@ def create_group():
         if not re.search("^[a-zA-Z]", data["group_name"]):
             return "Invalid Name", 404
 
-        try:
-            db.execute("INSERT INTO groups(created_by, groupname, photo, accessibility) VALUES(?,?,?,?)", session["user_name"], data["group_name"], data["group_photo"], data["access"])
-        except (ValueError):
-            return "Sorry that name is unavailbale. Try something else", 400
+        logging.warning(data)
+        return "success", 200
 
-        db.execute("INSERT INTO users_groups(user_name, group_name) VALUES(?,?)", session["user_name"], data["group_name"])
-        group = db.execute("SELECT * from groups WHERE groupname = ?", data["group_name"])
-        session["user_groups"].append(group[0])
+        # try:
+        #     db.execute("INSERT INTO groups(created_by, groupname, photo, accessibility) VALUES(?,?,?,?)", session["user_name"], data["group_name"], data["group_photo"], data["access"])
+        # except (ValueError):
+        #     return "Sorry that name is unavailbale. Try something else", 400
 
-        return f"/feed/group/{data["group_name"]}", 200
+        # db.execute("INSERT INTO users_groups(user_name, group_name) VALUES(?,?)", session["user_name"], data["group_name"])
+        # group = db.execute("SELECT * from groups WHERE groupname = ?", data["group_name"])
+        # session["user_groups"].append(group[0])
+
+        # return f"/feed/group/{data["group_name"]}", 200
 
     else: return "ERROR: Could not read data", 400
 

@@ -149,7 +149,7 @@ def join_group(group_name):
         try:
             db.execute("BEGIN")
             db.execute("INSERT INTO users_groups(user_name, group_name) VALUES(?,?)", session["user_name"], group_name)
-            session["user_groups"].append(group[0])
+            session["user_groups"].append({group[0]["groupname"], group[0]["photo"]})
             db.execute("COMMIT")
         except(ValueError):
             db.execute("ROLLBACK")
@@ -194,7 +194,7 @@ def login():
             session["user_photo"] = rows[0]["photo"]
             session["user_name"] = rows[0]["username"]
             session["user_groups"] = db.execute(
-                "SELECT groupname, photo FROM groups INNER JOIN users_groups on groups.groupname = users_groups.group_name WHERE users_groups.user_name = ? ORDER BY creation_time DESC", session["user_name"])
+                "SELECT groupname, photo FROM groups INNER JOIN users_groups on groups.groupname = users_groups.group_name WHERE users_groups.user_name = ? ORDER BY users_groups.creation_time DESC", session["user_name"])
 
             return "Login Successful", 200
 

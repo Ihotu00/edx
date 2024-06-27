@@ -119,7 +119,7 @@ def create_group():
             return "Invalid Name", 404
 
         try:
-            db.execute("INSERT INTO groups(created_by, groupname, photo) VALUES(?,?,?)", session["user_name"], data["group_name"], data["group_photo"])
+            db.execute("INSERT INTO groups(created_by, groupname, photo) VALUES(?,?,?,?)", session["user_name"], data["group_name"], data["group_photo"], data["access"])
         except (ValueError):
             return "Sorry that name is unavailbale. Try something else", 400
 

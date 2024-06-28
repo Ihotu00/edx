@@ -11,7 +11,7 @@ Post blogs and join message boards
     <div class="col-2 m-2 d-flex flex-row card card-body text-bg-dark align-items-center">
         <img src='{{ group["photo"] }}' class="img-fluid rounded-start me-3" style="clip-path: circle()" height="50" width="50">
         <div class="d-flex flex-column text-break text-start">
-            <h4 class="card-title text-wrap">{{ group["name"] }}</h4>
+            <a class="btn btn-dark" href="/feed/group/{{group['name']}}"><h5 class="card-title text-wrap">{{ group["name"] }}</h5></a>
             <p>Members: {{ group["members"] }}<br>Posts: {{ group["posts"] }}</p>
         </div>
     </div>

@@ -16,10 +16,6 @@ main {
     display: none;
 }
 
-/* hr{
-    transform: rotate(90deg);
-   } */
-
 ::-webkit-scrollbar {
     width: 0;
     background: transparent;
@@ -72,4 +68,8 @@ a img {
 
 .opacity {
     opacity: 0;
+}
+
+.cursor {
+    cursor: pointer;
 }

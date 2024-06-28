@@ -168,13 +168,20 @@ def join_group(group_name):
 @login_required
 def groups():
 
-        db.execute("BEGIN")
-        groups = db.execute("SELECT groupname AS name, photo FROM groups WHERE accessibility = 'public'")
-        for group in groups:
-            group_members = db.execute("SELECT COUNT(*) AS members FROM users_groups WHERE group_name = ?", group["name"])
-            group["members"] = group_members[0]["members"]
-            group_posts = db.execute("SELECT COUNT(*) AS posts FROM blog_posts WHERE group_name = ?", group["name"])
-            group["posts"] = group_posts[0]["posts"]
+        # db.execute("BEGIN")
+        # groups = db.execute("SELECT groupname AS name, photo FROM groups WHERE accessibility = 'public'")
+        # for group in groups:
+        #     group_members = db.execute("SELECT COUNT(*) AS members FROM users_groups WHERE group_name = ?", group["name"])
+        #     group["members"] = group_members[0]["members"]
+        #     group_posts = db.execute("SELECT COUNT(*) AS posts FROM blog_posts WHERE group_name = ?", group["name"])
+        #     group["posts"] = group_posts[0]["posts"]
+
+        groups = db.execute("""SELECT DISTINCT groupname AS name, photo,
+                            (SELECT COUNT(*) FROM users_groups WHERE group_name = groupname) AS members,
+                            (SELECT COUNT(*) FROM blog_posts WHERE group_name = groupname) AS posts
+                            FROM groups LEFT JOIN users_groups on groups.groupname = users_groups.group_name
+                            LEFT JOIN blog_posts on groups.groupname = blog_posts.group_name
+                            WHERE accessibility = 'public'""")
 
         return render_template("groups.html", groups=groups)
 

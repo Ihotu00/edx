@@ -105,6 +105,9 @@ def post(name, type):
         db.execute("BEGIN")
         db.execute("INSERT INTO blog_posts(user_name, post, group_name, type) VALUES(?,?,?,?)",
                     session["user_name"], data["post_body"], data["group_name"], data["type"])
+
+        if data["group_name"] != None:
+            post = db.execute("""SELECT group_name, photo, created_by FROM blog_posts WHERE id = (SELECT DISTINCT last_insert_rowid())""")
         post = db.execute("SELECT * FROM blog_posts WHERE id = (SELECT DISTINCT last_insert_rowid())")
 
         if type == "comment":

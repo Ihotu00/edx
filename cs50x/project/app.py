@@ -199,6 +199,7 @@ def groups():
         return render_template("groups.html", groups=groups)
 
 
+@app.route("/", methods=["GET", "POST"])
 @app.route("/login", methods=["GET", "POST"])
 def login():
     """Log user in"""

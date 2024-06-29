@@ -38,8 +38,8 @@ function create_alert(parentId, message, type, icon) {
     alertPlaceholder.append(wrapper)
 }
 
-function send_post(event) {
-    event.preventDefault();
+function create_post(event) {
+    // event.preventDefault();
     show("spinner")
     document.getElementById("submit-post").classList.add("disabled")
     group_id;

@@ -11,10 +11,10 @@ Post blogs and join message boards
         <div class="col-md-4" style="max-height: 200px;">
             <img src='{{ header[0]["photo"] }}' class="img-fluid rounded-start h-100 w-100">
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8 align-self-end">
             <div class="card-body">
                 <div class="card-title text-start d-flex align-items-end">
-                    <div class="text-break flex-shrink-1">{{ header[0]["name"] }}</div>
+                    <div class="text-break flex-shrink-1 fs-1">{{ header[0]["name"] }}</div>
                     {% if header[0]["is_member"] %}
                     <div class="spinner-border hide ms-3" style="width: 3rem; height: 3rem;" role="status" id="join-group-loader">
                     </div>

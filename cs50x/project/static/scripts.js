@@ -38,7 +38,7 @@ function create_alert(parentId, message, type, icon) {
     alertPlaceholder.append(wrapper)
 }
 
-function create_post(event) {
+function create_post() {
     // event.preventDefault();
     show("create-post-loader")
     document.getElementById("create-post-button").classList.add("hide")
@@ -47,8 +47,9 @@ function create_post(event) {
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({
-            'group_id': group_id,
-            'message': document.getElementById('post').value
+            'group_name': document.getElementById('post-receiver').value != null ? document.getElementById('post-receiver').value : null,
+            'post_body': document.getElementById('post-body').value,
+            'type': 'new'
         }),
         success: function(response) {
             no_posts_msg = document.getElementById('no_posts_msg');

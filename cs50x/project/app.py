@@ -89,12 +89,12 @@ def post(type):
         else:
             return "Failed to get input.", 400
 
-        if not data["post-body"]:
+        if not data["post_body"]:
             return "Please fill out the post body", 400
 
         db.execute("BEGIN")
         db.execute("INSERT INTO blog_posts(user_name, post, group_name, type) VALUES(?,?,?,?)",
-                    session["user_id"], data["post-body"], data["group_name"], data["type"])
+                    session["user_name"], data["post_body"], data["group_name"], data["type"])
         post = db.execute("SELECT * FROM blog_posts WHERE id = (SELECT last_insert_row_id())")
 
         if type == "comment":

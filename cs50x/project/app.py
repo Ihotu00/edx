@@ -40,10 +40,9 @@ def login_required(f):
 
 @app.template_filter('date')
 def format_days(date, fmt=None):
-    today = datetime.datetime.now
+    today = datetime.datetime.now()
     datetime_object = datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
-    logging.warning(today.datetime)
-    return today - datetime_object
+    return (today - datetime_object).seconds
 
 
 @app.after_request

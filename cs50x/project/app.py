@@ -190,7 +190,7 @@ def groups():
 
         groups = db.execute("""SELECT DISTINCT groupname AS name, photo,
                             (SELECT COUNT(*) FROM users_groups WHERE group_name = groupname) AS members,
-                            (SELECT COUNT(*) FROM blog_posts WHERE group_name = groupname AND type = 'post') AS posts
+                            (SELECT COUNT(*) FROM blog_posts WHERE group_name = groupname AND type = 'new') AS posts
                             FROM groups LEFT JOIN users_groups on groups.groupname = users_groups.group_name
                             LEFT JOIN blog_posts on groups.groupname = blog_posts.group_name
                             WHERE accessibility = 'public'""")

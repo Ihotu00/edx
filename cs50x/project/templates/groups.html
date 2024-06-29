@@ -13,19 +13,12 @@ Post blogs and join message boards
             <span class="px-1 flex-shrink-0">
                 <img src='{{ group["photo"] }}' style="clip-path: circle()" class="object-fit-cover"
             height="50" width="50"></span>
-            <!-- <div class="d-flex flex-column text-break text-start"> -->
-            <!-- <div> -->
-            <!-- <a class="btn btn-sm btn-dark rounded-pill" href="/feed/group/{{group['name']}}">
-                    <h6 class="card-title text-wrap">{{ group["name"] }}</h6>
-                </a> -->
 
             <p class="text-start lh-sm mb-auto text-truncate flex-grow-1">
                 <a class="text-light" href="/feed/group/{{group['name']}}">{{ group["name"] }}
-                    <!-- <p class="text-break mb-auto">{{ group["name"] }}</p> -->
                 </a><br>
                 Members: {{ group["members"] }}<br>Posts: {{ group["posts"] }}
             </p>
-            <!-- </div> -->
         </div>
     </div>
     {% endfor %}

@@ -202,10 +202,10 @@
                         </div>
                         <div class="modal-body">
                             <div class="form-floating mb-3">
-                                <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                                    {% if feed %}<option selected>{{ feed }}</option>{% endif %}
-                                    <option value="1">One</option>
-                                </select>
+                                <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+                                <datalist id="datalistOptions">
+                                    <option value="San Francisco">
+                                </datalist>
                                 <label for="floatingSelect">Works with selects</label>
                             </div>
 

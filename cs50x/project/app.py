@@ -98,7 +98,10 @@ def post(type):
                     session["user_id"], data["message"], group_id)
 
     else:
-        return render_template("post.html", post=post, comments=comments)
+        if request.args.get('id'):
+            post = db.execute("SELECT * FROM blog_posts WHERE id = ?", request.args.get('id'))
+            return render_template("post.html", post=post, comments=comments)
+        else: return "Could not parse request", 400
 
 
 @app.route("/create/group", methods=["POST"])

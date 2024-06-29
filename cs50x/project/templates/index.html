@@ -33,12 +33,14 @@ Post blogs and join message boards
     </div>
 </div>
 {% endif %}
-<div class="row row-cols-lg-4 rol-cols-sm-2 g-2 mt-5" id="posts">
-    {% if posts | length == 0 %}
+
+{% if posts | length == 0 %}
     <div class="center">
-        <h1 class="text-white-50" style="font-size: 15cqb;">Looks like there are no posts yet...</h1>
+        <h1 class="text-white-50 fs-2">Looks like there are no posts yet...</h1>
     </div>
-    {% endif %}
+{% endif %}
+
+<div class="row row-cols-lg-4 rol-cols-sm-2 g-2 mt-5" id="posts">
     {% for post in posts %}
     <div class="col">
         <div class="card text-bg-dark hover">

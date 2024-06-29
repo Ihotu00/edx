@@ -6,15 +6,18 @@ Post blogs and join message boards
 
 {% block main %}
 
-<div class="row mt-5 d-flex row-cols-5">
+<div class="row mt-5 row-cols-5 g-2">
     {% for group in groups %}
-    <div class="col m-2 d-flex flex-row card card-body text-bg-dark align-items-center hover">
-        <img src='{{ group["photo"] }}' class="img-fluid rounded-start me-3" style="clip-path: circle()" height="50" width="50">
-        <div class="d-flex flex-column text-break text-start">
-            <a class="btn btn-sm btn-dark rounded-pill" href="/feed/group/{{group['name']}}">
-                <h6 class="card-title text-wrap" href="/feed/group/{{group['name']}}">{{ group["name"] }}</h6>
-            </a>
-            <p>Members: {{ group["members"] }}<br>Posts: {{ group["posts"] }}</p>
+    <div class="col hover">
+        <div class=" d-flex flex-row card card-body text-bg-dark align-items-center">
+            <img src='{{ group["photo"] }}' class="img-fluid rounded-start me-3" style="clip-path: circle()" height="50"
+                width="50">
+            <div class="d-flex flex-column text-break text-start">
+                <a class="btn btn-sm btn-dark rounded-pill" href="/feed/group/{{group['name']}}">
+                    <h6 class="card-title text-wrap" href="/feed/group/{{group['name']}}">{{ group["name"] }}</h6>
+                </a>
+                <p>Members: {{ group["members"] }}<br>Posts: {{ group["posts"] }}</p>
+            </div>
         </div>
     </div>
     {% endfor %}

@@ -40,8 +40,8 @@ def login_required(f):
 
 @app.template_filter('date')
 def format_days(date, fmt=None):
-    date = datetime.parser.parse(date)
-    native = date.replace(tzinfo=None)
+    date = datetime.strptime(date)
+    today = datetime.now
     format='%b %d, %Y'
     return native.strftime(format)
 

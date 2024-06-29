@@ -99,6 +99,10 @@ def post(type):
                     session["user_id"], data["post-body"], data["group_name"], data["type"])
         if type == "comment":
             
+            if not request.args.get('id'):
+                return "Could not parse request", 400
+
+            db.execute("INSERT INTO comments(post, comment) VALUES(?,?)")
 
     else:
         if not request.args.get('id'):

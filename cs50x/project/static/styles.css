@@ -77,3 +77,7 @@ a img {
 .text-bg-dark ::placeholder {
     color: white
 }
+
+.text-break {
+    word-break: break-word
+}

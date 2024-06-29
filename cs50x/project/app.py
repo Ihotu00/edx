@@ -1,6 +1,6 @@
 import os
 import logging
-import datetime
+from datetime import datetime, timedelta
 import re
 
 from cs50 import SQL
@@ -40,9 +40,9 @@ def login_required(f):
 
 @app.template_filter('date')
 def format_days(date, fmt=None):
-    today = datetime.datetime.now()
-    datetime_object = datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
-    return f"{(today - datetime_object).days} days ago" if {(today - datetime_object).days} > 0 else f"{(today - datetime_object).seconds} seconds ago"
+    today = datetime.now()
+    datetime_object = datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
+    return f"{(today - datetime_object).days} days ago" if {(today - datetime_object).days} > timedelta(days=0) else f"{(today - datetime_object).seconds} seconds ago"
 
 
 @app.after_request

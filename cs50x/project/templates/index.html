@@ -39,19 +39,21 @@ Post blogs and join message boards
     </div>
     {% endif %}
     {% for post in posts %}
-    <div class="col card text-bg-dark hover">
-        <div class="card-header text-start">
-            <a class="btn btn-sm btn-dark rounded-pill"
-                href="/feed/{{'group/'+post.group_name if post.group_name else 'user/'+post.user_name}}"><img
-                    src='{{ post["photo"]}}' style="clip-path: circle();" width="25" height="25" />
-                {{ post["user_name"] if not post["group_name"] else post["group_name"] }}
-            </a>
-        </div>
-        <div class="card-body text-truncate text-start">
-            {{ post["post"] }}
-        </div>
-        <div class="card-footer text-end">
-            {{ post["creation_time"] }}
+    <div class="col">
+        <div class="card text-bg-dark hover">
+            <div class="card-header text-start">
+                <a class="btn btn-sm btn-dark rounded-pill"
+                    href="/feed/{{'group/'+post.group_name if post.group_name else 'user/'+post.user_name}}"><img
+                        src='{{ post["photo"]}}' style="clip-path: circle();" width="25" height="25" />
+                    {{ post["user_name"] if not post["group_name"] else post["group_name"] }}
+                </a>
+            </div>
+            <div class="card-body text-truncate text-start">
+                {{ post["post"] }}
+            </div>
+            <div class="card-footer text-end">
+                {{ post["creation_time"] }}
+            </div>
         </div>
     </div>
     {% endfor %}

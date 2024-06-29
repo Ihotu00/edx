@@ -202,14 +202,14 @@
                         </div>
                         <div class="modal-body">
                             <div class="form-floating mb-3">
-                                <input class="form-control" list="datalistOptions" id="post-body" placeholder="Type to search..."
+                                <input class="form-control" list="datalistOptions" id="post-receiver" placeholder="Type to search..."
                                     value="{{ feed if feed}}">
                                 <datalist id="datalistOptions">
                                     {% for group in session["user_groups"] %}
                                     <option value="{{ group['groupname'] }}">
                                     {% endfor %}
                                 </datalist>
-                                <label for="post-body">Group</label>
+                                <label for="post-receiver">Group</label>
                             </div>
 
                             <div class="form-floating mb-3">

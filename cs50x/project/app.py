@@ -83,6 +83,8 @@ def post(type):
     data = None
     posts = None
 
+    if request.method == "POST":
+
         if request.get_json():
             data = request.get_json()
 
@@ -95,8 +97,8 @@ def post(type):
         db.execute("INSERT INTO blog_posts(user_id, post, group_id) VALUES(?,?,?)",
                     session["user_id"], data["message"], group_id)
 
-
-        # return render_template("post.html", post=post, comments=comments)
+    else:
+        return render_template("post.html", post=post, comments=comments)
 
 
 @app.route("/create/group", methods=["POST"])

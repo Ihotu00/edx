@@ -6,7 +6,7 @@ Post blogs and join message boards
 
 {% block main %}
 
-<div class="row mt-5 row-cols-lg-5 g-2">
+<div class="row mt-5 row-cols-lg-4 g-2">
     {% for group in groups %}
     <div class="col">
         <div class=" d-flex flex-row card card-body text-bg-dark h-100 hover">
@@ -20,7 +20,7 @@ Post blogs and join message boards
 
             <h6 class="text-start">
                 <a class="text-light" href="/feed/group/{{group['name']}}">
-                    <p class="text-wrap">{{ group["name"] }}</p>
+                    <p class="text-break mb-auto">{{ group["name"] }}</p>
                 </a><br>
                 Members: {{ group["members"] }}<br>Posts: {{ group["posts"] }}
             </h6>

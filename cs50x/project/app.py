@@ -98,12 +98,15 @@ def post(type):
         db.execute("INSERT INTO blog_posts(user_name, post, group_name, type) VALUES(?,?,?,?)",
                     session["user_id"], data["post-body"], data["group_name"], data["type"])
         post = db.execute("SELECT * FROM blog_posts WHERE id = (SELECT last_insert_row_id())")
-        if type == "comment":
 
+        if type == "comment":
             if not request.args.get('id'):
                 return "Could not parse request", 400
+            db.execute("INSERT INTO comments(post, comment) VALUES(?,?)" ,request.args.get('id'), post[0]["id"])
+            db.execute("COMMIT")
 
-            db.execute("INSERT INTO comments(post, comment) VALUES(?,?)", post[0]["id"])
+        else:
+            db.execute("COMMIT")
 
     else:
         if not request.args.get('id'):

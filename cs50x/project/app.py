@@ -38,6 +38,13 @@ def login_required(f):
 
     return decorated_function
 
+@app.template_filter('date')
+def format_days(date, fmt=None):
+    date = datetime.parser.parse(date)
+    native = date.replace(tzinfo=None)
+    format='%b %d, %Y'
+    return native.strftime(format)
+
 
 @app.after_request
 def after_request(response):

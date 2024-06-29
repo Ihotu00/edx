@@ -38,17 +38,15 @@ def login_required(f):
 
     return decorated_function
 
-@app.template_filter('date')
+@app.template_filter('time_ago')
 def format_days(date, fmt=None):
     today = datetime.now()
     datetime_object = datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
-    time_passed = today - datetime_object
-    # return f"{time_passed.days} days ago" if time_passed.days > 0 else f"{time_passed.seconds} seconds ago" if time_passed.seconds < 60 else f"{time_passed.seconds / 60} minutes ago"
-    if time_passed.total_seconds < 60: return f"{time_passed.total_seconds} seconds ago"
-    elif (time_passed.total_seconds * 60) < 60: return f"{time_passed.total_seconds} minutes ago"
-    elif (time_passed.total_seconds * 60 * 60) < 24: return f"{time_passed.total_seconds} hours ago"
-    elif time_passed.days > 0: return f"{time_passed.total_seconds} days ago"
-    elif time_passed.days > 30: return f"{time_passed.total_seconds} months ago"
+    return f"{(today.month - datetime_object.month)} months ago" if (today.month - datetime_object.month) > 1 \
+        else f"{(today.day - datetime_object.day)} days ago" if (today.day - datetime_object.day) > 1 \
+        else f"{(today.hour - datetime_object.hour)} hours ago" if (today.hour - datetime_object.hour) > 1 \
+        else f"{(today.minute - datetime_object.minute)} minutes ago" if (today.minute - datetime_object.minute) > 1 \
+        else f"{(today.second - datetime_object.second)} seconds ago"
 
 
 @app.after_request

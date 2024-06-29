@@ -94,8 +94,11 @@ def post(type):
         if not data["post-body"]:
             return "Please fill out the post body", 400
 
+        db.execute("BEGIN")
         db.execute("INSERT INTO blog_posts(user_name, post, group_name, type) VALUES(?,?,?,?)",
                     session["user_id"], data["post-body"], data["group_name"], data["type"])
+        if type == "comment":
+            
 
     else:
         if not request.args.get('id'):

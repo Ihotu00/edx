@@ -42,6 +42,7 @@ def login_required(f):
 def format_days(date, fmt=None):
     today = datetime.datetime.now
     datetime_object = datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
+    logging.warning(today.datetime)
     return today - datetime_object
 
 

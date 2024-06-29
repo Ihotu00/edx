@@ -32,14 +32,14 @@ Post blogs and join message boards
     </div>
 </div>
 {% endif %}
-<div class="row row-cols-3 g-2 card-body mt-5" id="posts">
+<div class="row row-cols-4 g-2 card-body mt-5" id="posts">
     {% if posts | length == 0 %}
     <div class="center">
         <h1 class="text-white-50" style="font-size: 15cqb;">Looks like there are no posts yet...</h1>
     </div>
     {% endif %}
     {% for post in posts %}
-    <div class="col card mb-1 text-bg-dark hover">
+    <div class="col card text-bg-dark hover">
         <div class="card-header text-start">
             <a class="btn btn-sm btn-dark rounded-pill"
                 href="/feed/{{'group/'+post.group_name if post.group_name else 'user/'+post.user_name}}"><img

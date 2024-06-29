@@ -53,6 +53,7 @@ def after_request(response):
 def index(client, client_name):
 
     header= None
+    feed = None
 
     if client == "user":
         if client_name != session["user_name"]:
@@ -63,7 +64,7 @@ def index(client, client_name):
                             INNER JOIN users on username = user_name WHERE user_name = ? and group_name is null ORDER BY blog_posts.creation_time DESC""", client_name, [group["groupname"] for group in session["user_groups"]], client_name)
 
     if client == "group":
-        feed = f"/feed/group/{client_name}"
+        feed = {'link': f"/post/group/{client_name}", 'name': client_name}
         header = db.execute("SELECT groupname AS name, photo, accessibility FROM groups WHERE groupname = ?", client_name)
         if header[0]["name"] in [group["groupname"] for group in session["user_groups"]]:
             header[0]["is_member"] = "true"
@@ -75,7 +76,7 @@ def index(client, client_name):
 
     logging.warning([sess["groupname"] for sess in session["user_groups"]])
     # logging.warning(posts)
-    return render_template("index.html", posts=posts, header=header)
+    return render_template("index.html", posts=posts, header=header, feed=feed)
 
 
 @app.route("/post/comments/<id>", methods=["POST"])

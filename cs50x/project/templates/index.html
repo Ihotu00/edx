@@ -14,11 +14,11 @@ Post blogs and join message boards
         <div class="col-md-8 align-self-end">
             <div class="card-body">
                 <div class="card-title text-start d-flex align-items-end">
-                    <div class="flex-shrink-1"><p class="text-break fs-1 mb-auto">{{ header[0]["name"] }}</p></div>
+                    <div class="flex-fill"><p class="text-break fs-1 mb-auto">{{ header[0]["name"] }}</p></div>
                     {% if header[0]["is_member"] %}
                     <div class="spinner-border hide ms-3" style="width: 3rem; height: 3rem;" role="status" id="join-group-loader">
                     </div>
-                    <form class="w-25 mx-3 flex-grow-1" action="/join/{{header[0]['name']}}" method="post" id="join-group-form"
+                    <form class="w-25 mx-3 flex-fill" action="/join/{{header[0]['name']}}" method="post" id="join-group-form"
                     onSubmit="show('join-group-loader') & hide('join-group-form')">
                         {% if header[0]["is_member"] == "true" %}
                         <input class="btn btn-lg btn-outline-secondary rounded-pill" type="submit" value="Joined"/>

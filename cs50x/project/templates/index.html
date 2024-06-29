@@ -13,7 +13,7 @@ Post blogs and join message boards
         </div>
         <div class="col-md-8 d-flex align-self-end">
             <div class="card-body">
-                <h1 class="card-title text-start d-flex">{{ header[0]["name"] }}
+                <div class="card-title text-start d-flex flex-wrap text-truncate">{{ header[0]["name"] }}
                     {% if header[0]["is_member"] %}
                     <div class="spinner-border hide ms-3" style="width: 3rem; height: 3rem;" role="status" id="join-group-loader">
                     </div>

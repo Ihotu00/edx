@@ -47,7 +47,7 @@ Post blogs and join message boards
                 {{ post["user_name"] if not post["group_name"] else post["group_name"] }}
             </a>
         </div>
-        <div class="card-body overflow-hidden text-start">
+        <div class="card-body text-truncate text-start">
             {{ post["post"] }}
         </div>
         <div class="card-footer text-end">

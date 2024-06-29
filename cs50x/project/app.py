@@ -90,54 +90,55 @@ def index(client, client_name):
 @app.route("/post/<name>/submit/<type>", methods=["POST"])
 @login_required
 def post(name, type):
+    try:
+        if request.method == "POST":
 
-    if request.method == "POST":
+            if request.get_json():
+                data = request.get_json()
 
-        if request.get_json():
-            data = request.get_json()
+            else:
+                return "Failed to get input.", 400
+
+            if not data["post_body"]:
+                return "Please fill out the post body", 400
+
+            db.execute("BEGIN")
+            db.execute("INSERT INTO blog_posts(user_name, post, group_name, type) VALUES(?,?,?,?)",
+                        session["user_name"], data["post_body"], data["group_name"], data["type"])
+
+            if data["group_name"] != None:
+                post = db.execute("""SELECT group_name, photo, user_name, post, blog_posts.creation_time FROM blog_posts
+                                INNER JOIN groups on groupname = group_name WHERE id = (SELECT DISTINCT last_insert_rowid())""")
+
+            else:
+                post = db.execute("""SELECT photo, user_name, post, blog_posts.creation_time FROM blog_posts
+                                INNER JOIN users on username = user_name WHERE id = (SELECT DISTINCT last_insert_rowid())""")
+
+            post = db.execute("SELECT * FROM blog_posts WHERE id = (SELECT DISTINCT last_insert_rowid())")
+
+            if type == "comment":
+                if not request.args.get('id'):
+                    return "Could not parse request", 400
+                db.execute("INSERT INTO comments(post, comment) VALUES(?,?)" ,request.args.get('id'), post[0]["id"])
+                db.execute("COMMIT")
+
+            else:
+                db.execute("COMMIT")
+            return render_template("post.html", post=post, comments=None)
 
         else:
-            return "Failed to get input.", 400
-
-        if not data["post_body"]:
-            return "Please fill out the post body", 400
-
-        db.execute("BEGIN")
-        db.execute("INSERT INTO blog_posts(user_name, post, group_name, type) VALUES(?,?,?,?)",
-                    session["user_name"], data["post_body"], data["group_name"], data["type"])
-
-        if data["group_name"] != None:
-            post = db.execute("""SELECT group_name, photo, user_name, post, blog_posts.creation_time FROM blog_posts
-                              INNER JOIN groups on groupname = group_name WHERE id = (SELECT DISTINCT last_insert_rowid())""")
-
-        else:
-            post = db.execute("""SELECT photo, user_name, post, blog_posts.creation_time FROM blog_posts
-                              INNER JOIN users on username = user_name WHERE id = (SELECT DISTINCT last_insert_rowid())""")
-
-        post = db.execute("SELECT * FROM blog_posts WHERE id = (SELECT DISTINCT last_insert_rowid())")
-
-        if type == "comment":
             if not request.args.get('id'):
                 return "Could not parse request", 400
-            db.execute("INSERT INTO comments(post, comment) VALUES(?,?)" ,request.args.get('id'), post[0]["id"])
-            db.execute("COMMIT")
+            else:
+                post = db.execute("SELECT * FROM blog_posts WHERE id = ?", request.args.get('id'))
 
-        else:
-            db.execute("COMMIT")
-        return render_template("post.html", post=post, comments=None)
+                if not post[0]:
+                    return "Could not find post", 400
 
-    else:
-        if not request.args.get('id'):
-            return "Could not parse request", 400
-        else:
-            post = db.execute("SELECT * FROM blog_posts WHERE id = ?", request.args.get('id'))
-
-            if not post[0]:
-                return "Could not find post", 400
-
-            comments = db.execute("SELECT * FROM blog_posts INNER JOIN comments ON post = id WHERE id = ?", request.args.get('id'))
-            return render_template("post.html", post=post, comments=comments)
-
+                comments = db.execute("SELECT * FROM blog_posts INNER JOIN comments ON post = id WHERE id = ?", request.args.get('id'))
+                return render_template("post.html", post=post, comments=comments)
+    except:
+        return "An unexpected error occured", 500
 
 
 @app.route("/create/group", methods=["POST"])

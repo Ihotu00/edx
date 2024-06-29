@@ -40,18 +40,10 @@ function create_alert(parentId, message, type, icon) {
 
 function create_post(event) {
     // event.preventDefault();
-    show("spinner")
-    document.getElementById("submit-post").classList.add("disabled")
-    group_id;
-    element = "posts";
-    position = "afterbegin"
-    if (document.getElementById('groups-tab-pane').classList.contains("show")) {
-        group_id = document.getElementById('group_id').value
-        position = "afterend";
-        element = "group_header";
-    }
+    show("create-post-loader")
+    document.getElementById("create-post-button").classList.add("hide")
     $.ajax({
-        url: '/post',
+        url: '/post/submit/new',
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({

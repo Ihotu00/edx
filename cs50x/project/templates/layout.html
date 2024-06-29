@@ -219,8 +219,11 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" onClick="create_post()">Create post</button>
+                            <button type="button" class="btn btn-primary" onClick="create_post()" id="create-post-button">Create post</button>
+                            <button class="btn btn-outline-dark spinner-border hide disabled" role="status"
+                                id="create-post-loader">
+                                <span class="visually-hidden">Loading...</span>
+                            </button>
                         </div>
                     </div>
                 </div>

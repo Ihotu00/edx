@@ -6,7 +6,19 @@ Post blogs and join message boards
 
 {% block main %}
 <div class="d-flex flex-column">
-    <div class="p-2 mb-3">Flex item 1</div>
+    <div class="p-2 mb-3">
+        <div class=" d-flex flex-row card card-body text-bg-dark h-auto">
+            <span class="px-1 flex-shrink-0">
+                <img src='{{ group["photo"] }}' style="clip-path: circle()" class="object-fit-cover"
+            height="50" width="50"></span>
+
+            <p class="text-start lh-sm mb-auto text-truncate flex-grow-1">
+                <a class="text-light" href="/feed/group/{{group['name']}}">{{ group["name"] }}
+                </a><br>
+                Members: {{ group["members"] }}<br>Posts: {{ group["posts"] }}
+            </p>
+        </div>
+    </div>
     <div class="p-2">Flex item 2</div>
     <div class="p-2">Flex item 3</div>
 </div>

@@ -76,7 +76,7 @@ def index(client, client_name):
     return render_template("index.html", posts=posts, header=header, feed=feed)
 
 
-@app.route("/submit/<type>", methods=["GET", "POST"])
+@app.route("/post/submit/<type>", methods=["GET", "POST"])
 @login_required
 def post(type):
 

@@ -41,7 +41,7 @@ function create_alert(parentId, message, type, icon) {
 function create_post() {
     // event.preventDefault();
     show("create-post-loader")
-    document.getElementById("create-post-button").classList.add("hide")
+    hide("create-post-button")
     $.ajax({
         url: '/post/submit/new',
         type: 'POST',
@@ -52,29 +52,13 @@ function create_post() {
             'type': 'new'
         }),
         success: function(response) {
-            no_posts_msg = document.getElementById('no_posts_msg');
-            if (no_posts_msg) { no_posts_msg.remove(); }
-            document.getElementById(element).insertAdjacentHTML(position,
-                `<div class="card mt-5 text-bg-primary">
-                    <div class="card-header text-start">
-                        <img src=${response["photo"]} style="clip-path: circle();" width="20" height="20">
-                        ${response["username"]}
-                    </div>
-                    <div class="card-body">
-                        ${response["post"]}
-                    </div>
-                    <div class="card-footer text-end">
-                        ${response["creation_time"]}
-                    </div>
-                </div>`);
-            document.getElementById('post').value = '';
+            console.log(response)
         },
         error: function(error) {
             console.log(error);
-        },
-        complete: function() {
-            hide("spinner")
-            document.getElementById("submit-post").classList.remove("disabled")
+            hide("create-post-loader")
+            show("create-post-button")
+            create_alert('create-post-response', `${error.responseText}`, 'danger', 'error')
         }
     });
 }

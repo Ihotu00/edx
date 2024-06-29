@@ -18,8 +18,8 @@ Post blogs and join message boards
                     <h6 class="card-title text-wrap">{{ group["name"] }}</h6>
                 </a> -->
 
-            <p class="text-start lh-1">
-                <a class="text-light mb-auto" href="/feed/group/{{group['name']}}">{{ group["name"] }}
+            <p class="text-start lh-1 mb-auto text-truncate">
+                <a class="text-light" href="/feed/group/{{group['name']}}">{{ group["name"] }}
                     <!-- <p class="text-break mb-auto">{{ group["name"] }}</p> -->
                 </a><br>
                 Members: {{ group["members"] }}<br>Posts: {{ group["posts"] }}

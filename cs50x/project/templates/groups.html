@@ -6,9 +6,9 @@ Post blogs and join message boards
 
 {% block main %}
 
-<div class="row mt-5 d-flex justify-content-evenly">
+<div class="row mt-5 d-flex row-cols-5">
     {% for group in groups %}
-    <div class="col-2 m-2 d-flex flex-row card card-body text-bg-dark align-items-center hover">
+    <div class="col m-2 d-flex flex-row card card-body text-bg-dark align-items-center hover">
         <img src='{{ group["photo"] }}' class="img-fluid rounded-start me-3" style="clip-path: circle()" height="50" width="50">
         <div class="d-flex flex-column text-break text-start">
             <a class="btn btn-sm btn-dark rounded-pill" href="/feed/group/{{group['name']}}">

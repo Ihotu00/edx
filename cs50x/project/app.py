@@ -100,6 +100,9 @@ def post(type):
     else:
         if request.args.get('id'):
             post = db.execute("SELECT * FROM blog_posts WHERE id = ?", request.args.get('id'))
+            if not post[0]:
+                return "Could not find post", 400
+            comments = db.execute("SELECT * FROM blog_posts INNER JOIN comments ON post = id WHERE id = ?", request.args.get('id'))
             return render_template("post.html", post=post, comments=comments)
         else: return "Could not parse request", 400
 

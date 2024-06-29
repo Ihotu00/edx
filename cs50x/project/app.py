@@ -43,7 +43,12 @@ def format_days(date, fmt=None):
     today = datetime.now()
     datetime_object = datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
     time_passed = today - datetime_object
-    return f"{time_passed.days} days ago" if time_passed.days > 0 else f"{time_passed.seconds} seconds ago" if time_passed.seconds < 60 else f"{time_passed.seconds / 60} minutes ago"
+    # return f"{time_passed.days} days ago" if time_passed.days > 0 else f"{time_passed.seconds} seconds ago" if time_passed.seconds < 60 else f"{time_passed.seconds / 60} minutes ago"
+    if time_passed.total_seconds < 60: return f"{time_passed.total_seconds} seconds ago"
+    elif (time_passed.total_seconds * 60) < 60: return f"{time_passed.total_seconds} minutes ago"
+    elif (time_passed.total_seconds * 60 * 60) < 24: return f"{time_passed.total_seconds} hours ago"
+    elif time_passed.days > 0: return f"{time_passed.total_seconds} days ago"
+    elif time_passed.days > 30: return f"{time_passed.total_seconds} months ago"
 
 
 @app.after_request

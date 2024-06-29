@@ -42,7 +42,7 @@ def login_required(f):
 def format_days(date, fmt=None):
     today = datetime.datetime.now()
     datetime_object = datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
-    return f"{(today - datetime_object).days} days ago"
+    return f"{(today - datetime_object).days} days ago" if {(today - datetime_object).days} > 0 else f"{(today - datetime_object).seconds} seconds ago"
 
 
 @app.after_request

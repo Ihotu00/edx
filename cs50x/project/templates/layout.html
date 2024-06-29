@@ -195,7 +195,7 @@
             <div class="modal fade" id="create-post-modal" tabindex="-1" aria-labelledby="create-post-modal-label"
                 aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-fullscreen-md-down">
-                    <div class="modal-content">
+                    <div class="modal-content text-bg-dark">
                         <div class="modal-header">
                             <h1 class="modal-title fs-5" id="create-post-modal-label">Create post on {{ feed if feed else 'your page'}}</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -207,8 +207,8 @@
                             </div>
 
                             <div class="mb-3">
-                                <textarea class="form-control" id="post-body" name="post-body" placeholder="Write your post here"
-                                style="height: 300px"></textarea>
+                                <textarea class="form-control bg-dark" id="post-body" name="post-body" placeholder="Write your post here"
+                                ></textarea>
                             </div>
                             <div id="create-post-response"></div>
                         </div>

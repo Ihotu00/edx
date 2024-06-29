@@ -42,7 +42,8 @@ def login_required(f):
 def format_days(date, fmt=None):
     today = datetime.now()
     datetime_object = datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
-    return f"{(today - datetime_object).days} days ago" if {(today - datetime_object).days} > timedelta(days=0) else f"{(today - datetime_object).seconds} seconds ago"
+    time_passed = today - datetime_object
+    return f"{time_passed.days} days ago" if time_passed.days > 0 else f"{time_passed.seconds} seconds ago" if time_passed.seconds < 60 else f"{time_passed.seconds / 60} minutes ago"
 
 
 @app.after_request

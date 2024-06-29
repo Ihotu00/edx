@@ -12,9 +12,7 @@ Post blogs and join message boards
             <img src='{{ header[0]["photo"] }}' class="img-fluid rounded-start h-100 w-100">
         </div>
         <div class="col-md-6">
-            <div class="ms-auto card-title text-start row align-items-end">
-                <p class="text-break fs-1 mb-auto">{{ header[0]["name"] }}</p>
-            </div>
+            <div class="ms-auto card-title text-start fs-1 text-break">{{ header[0]["name"] }}</div>
         </div>
         <div class="col-md-2">
             {% if header[0]["is_member"] %}
@@ -30,7 +28,6 @@ Post blogs and join message boards
                 {% endif %}
             </form>
             {% endif %}
-        </div>
         </div>
     </div>
 </div>

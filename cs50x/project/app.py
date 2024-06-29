@@ -80,9 +80,6 @@ def index(client, client_name):
 @login_required
 def post(type):
 
-    data = None
-    posts = None
-
     if request.method == "POST":
 
         if request.get_json():

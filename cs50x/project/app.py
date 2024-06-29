@@ -107,7 +107,8 @@ def post(name, type):
                     session["user_name"], data["post_body"], data["group_name"], data["type"])
 
         if data["group_name"] != None:
-            post = db.execute("""SELECT group_name, photo, user_name, post FROM blog_posts WHERE id = (SELECT DISTINCT last_insert_rowid())""")
+            post = db.execute("""SELECT group_name, photo, user_name, post,  FROM blog_posts
+                              INNER JOIN groups on groupname = group_name WHERE id = (SELECT DISTINCT last_insert_rowid())""")
         post = db.execute("SELECT * FROM blog_posts WHERE id = (SELECT DISTINCT last_insert_rowid())")
 
         if type == "comment":

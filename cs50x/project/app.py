@@ -63,7 +63,7 @@ def index(client, client_name):
                             INNER JOIN users on username = user_name WHERE user_name = ? and group_name is null ORDER BY blog_posts.creation_time DESC""", client_name, [group["groupname"] for group in session["user_groups"]], client_name)
 
     if client == "group":
-        session["feed"] = f"/feed/group/{client_name}"
+        feed = f"/feed/group/{client_name}"
         header = db.execute("SELECT groupname AS name, photo, accessibility FROM groups WHERE groupname = ?", client_name)
         if header[0]["name"] in [group["groupname"] for group in session["user_groups"]]:
             header[0]["is_member"] = "true"

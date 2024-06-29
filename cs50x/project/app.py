@@ -89,22 +89,26 @@ def post(type):
             data = request.get_json()
 
         else:
-            return "Failed to get input.", 200
+            return "Failed to get input.", 400
 
         if not data["post-body"]:
-            return "", 400
+            return "Please fill out the post body", 400
 
-        db.execute("INSERT INTO blog_posts(user_id, post, group_id) VALUES(?,?,?)",
-                    session["user_id"], data["message"], group_id)
+        db.execute("INSERT INTO blog_posts(user_name, post, group_name) VALUES(?,?,?)",
+                    session["user_id"], data["post-body"], data["group_name"])
 
     else:
-        if request.args.get('id'):
+        if not request.args.get('id'):
+            return "Could not parse request", 400
+        else:
             post = db.execute("SELECT * FROM blog_posts WHERE id = ?", request.args.get('id'))
+
             if not post[0]:
                 return "Could not find post", 400
+
             comments = db.execute("SELECT * FROM blog_posts INNER JOIN comments ON post = id WHERE id = ?", request.args.get('id'))
             return render_template("post.html", post=post, comments=comments)
-        else: return "Could not parse request", 400
+
 
 
 @app.route("/create/group", methods=["POST"])

@@ -76,33 +76,25 @@ def index(client, client_name):
     return render_template("index.html", posts=posts, header=header, feed=feed)
 
 
-@app.route("/post/", methods=["POST"])
+@app.route("/submit/<type>", methods=["GET", "POST"])
 @login_required
-def post(id):
+def post(type):
 
     data = None
-    group_id = None
     posts = None
-
-    if request.method == "POST":
 
         if request.get_json():
             data = request.get_json()
-            if data["group_id"]:
-                group_id = data["group_id"]
 
         else:
             return "Failed to get input.", 200
 
-        if not data["message"]:
+        if not data["post-body"]:
             return "", 400
 
         db.execute("INSERT INTO blog_posts(user_id, post, group_id) VALUES(?,?,?)",
-                   session["user_id"], data["message"], group_id)
+                    session["user_id"], data["message"], group_id)
 
-        posts = db.execute(
-            """SELECT post, blog_posts.id AS id, creation_time, username, photo FROM blog_posts
-            INNER JOIN users on users.id = blog_posts.user_id WHERE user_id = ? ORDER BY creation_time DESC""", session["user_id"])
 
         # return render_template("post.html", post=post, comments=comments)
 

@@ -73,3 +73,7 @@ a img {
 .cursor {
     cursor: pointer;
 }
+
+.text-bg-dark ::placeholder {
+    color: white
+}

@@ -86,10 +86,10 @@ def index(client, client_name):
     return render_template("index.html", posts=posts, header=header, feed=feed)
 
 
-@app.route("/post/<client>/<client_name>", defaults={"type": None})
-@app.route("/post/<client>/<client_name>/submit/<type>", methods=["POST"])
+@app.route("/post/<name>", defaults={"type": None})
+@app.route("/post/<name>/submit/<type>", methods=["POST"])
 @login_required
-def post(client, client_name, type):
+def post(name, type):
 
     if request.method == "POST":
 

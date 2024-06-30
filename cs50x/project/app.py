@@ -126,7 +126,7 @@ def post(name, type):
             else:
                 db.execute("COMMIT")
 
-            return render_template("post.html", post=post, comments=None)
+            return render_template("post.html", post=post[0], comments=None)
 
         else:
             if not request.args.get('id'):
@@ -139,8 +139,7 @@ def post(name, type):
 
                 comments = db.execute("SELECT * FROM blog_posts INNER JOIN comments ON post_id = id WHERE id = ?", request.args.get('id'))
 
-                logging.warning(post[0]["creation_time"])
-                return render_template("post.html", post=post, comments=comments)
+                return render_template("post.html", post=post[0], comments=comments)
     except Exception as err:
         logging.error(f"Unexpected {err=}")
         return "An unexpected error occured", 500

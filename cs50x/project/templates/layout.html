@@ -214,7 +214,7 @@
                             <div id="create-post-response"></div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" onClick="create_post()"
+                            <button type="button" class="btn btn-primary" onClick="create_post('{{feed if feed else session.user_name}}')"
                                 id="create-post-button">Create post</button>
                             <button class="btn btn-outline-primary spinner-border hide disabled" role="status"
                                 id="create-post-loader">

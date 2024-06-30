@@ -76,6 +76,7 @@ def index(client, client_name):
     if client == "group":
         feed = client_name
         header = db.execute("SELECT groupname AS name, photo, accessibility FROM groups WHERE groupname = ?", client_name)
+        logging.warning(session["user_groups"])
         if header[0]["name"] in [group["groupname"] for group in session["user_groups"]]:
             header[0]["is_member"] = "true"
         else:

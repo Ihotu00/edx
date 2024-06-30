@@ -52,7 +52,7 @@ Post blogs and join message boards
                     {{ post["user_name"] if not post["group_name"] else post["group_name"] }}
                 </a>
             </div>
-            <a href="/post/{{post.}}"><div class="card-body text-truncate text-start">
+            <a href="/post/{{post.user_name}}?id={{post.id}}"><div class="card-body text-truncate text-start">
                 {{ post["post"] }}
             </div></a>
             <div class="card-footer text-end">

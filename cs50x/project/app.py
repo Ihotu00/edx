@@ -137,7 +137,8 @@ def post(name, type):
 
                 comments = db.execute("SELECT * FROM blog_posts INNER JOIN comments ON post = id WHERE id = ?", request.args.get('id'))
                 return render_template("post.html", post=post, comments=comments)
-    except:
+    except(Exception):
+        logging.error(Exception)
         return "An unexpected error occured", 500
 
 

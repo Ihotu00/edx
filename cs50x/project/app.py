@@ -137,7 +137,7 @@ def post(name, type):
                 if not post[0]:
                     return "Could not find post", 400
 
-                comments = db.execute("SELECT * FROM blog_posts INNER JOIN comments ON post = id WHERE id = ?", request.args.get('id'))
+                comments = db.execute("SELECT * FROM blog_posts INNER JOIN comments ON post_id = id WHERE id = ?", request.args.get('id'))
                 return render_template("post.html", post=post, comments=comments)
     except Exception as err:
         logging.error(f"Unexpected {err=}")

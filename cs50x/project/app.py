@@ -108,7 +108,7 @@ def post(name, type):
 
             if data["group_name"] != None:
                 post = db.execute("""SELECT group_name, photo, user_name, post, blog_posts.creation_time FROM blog_posts
-                                INNER JOIN groups on groupname = group_name WHERE id = (SELECT DISTINCT last_insert_rowid())""")
+                                INNER JOIN groups on groupname = group_name WHERE blog_posts.id = (SELECT DISTINCT last_insert_rowid())""")
 
             else:
                 post = db.execute("""SELECT photo, user_name, post, blog_posts.creation_time FROM blog_posts

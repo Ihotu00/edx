@@ -76,7 +76,7 @@ def index(client, client_name):
     if client == "group":
         feed = client_name
         header = db.execute("SELECT groupname AS name, photo, accessibility FROM groups WHERE groupname = ?", client_name)
-        logging.warning(session["user_groups"])
+        logging.warning(session["user_groups"][-1]["groupname"])
         if header[0]["name"] in [group["groupname"] for group in session["user_groups"]]:
             header[0]["is_member"] = "true"
         else:
@@ -180,7 +180,7 @@ def join_group(group_name):
         try:
             db.execute("BEGIN")
             db.execute("INSERT INTO users_groups(user_name, group_name) VALUES(?,?)", session["user_name"], group_name)
-            session["user_groups"].append({group[0]["groupname"], group[0]["photo"]})
+            session["user_groups"].append({"groupname": group[0]["groupname"], "photo": group[0]["photo"]})
             db.execute("COMMIT")
         except(ValueError):
             db.execute("ROLLBACK")

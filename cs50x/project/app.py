@@ -40,6 +40,7 @@ def login_required(f):
 
 @app.template_filter('time_ago')
 def format_days(date, fmt=None):
+    logging.error(date)
     today = datetime.now()
     datetime_object = datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
     return f"{(today.month - datetime_object.month)} months ago" if (today.month - datetime_object.month) > 1 \
@@ -139,7 +140,7 @@ def post(name, type):
                 comments = db.execute("SELECT * FROM blog_posts INNER JOIN comments ON post = id WHERE id = ?", request.args.get('id'))
                 return render_template("post.html", post=post, comments=comments)
     except Exception as err:
-        print(f"Unexpected {err=}")
+        logging.(f"Unexpected {err=}")
         return "An unexpected error occured", 500
 
 

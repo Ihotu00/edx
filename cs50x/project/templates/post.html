@@ -15,7 +15,7 @@ Post blogs and join message boards
             <p class="text-start lh-sm mb-auto text-truncate flex-grow-1">
                 {{ post["group_name"] if post["group_name"] else post["user_name"] }}<br>{{ post["user_name"] }}
             </p>
-            <p class="text-start lh-sm mb-auto text-truncate flex-grow-1">{{ post["creation_time"] | time_ago}}</p>
+            <p class="text-start lh-sm mb-auto text-truncate flex-grow-1">{{ post["creation_time"]}}</p>
         </div>
     </div>
     <div class="p-2">Flex item 2</div>

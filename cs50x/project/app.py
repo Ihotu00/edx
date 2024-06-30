@@ -87,10 +87,10 @@ def index(client, client_name):
     return render_template("index.html", posts=posts, header=header, feed=feed)
 
 
-@app.route("/post/<name>", defaults={"type": None})
-@app.route("/post/<name>/submit/<type>", methods=["POST"])
+@app.route("/post/<is_group>/name", defaults={"type": None})
+@app.route("/post/<is_group>/name/submit/<type>", methods=["POST"])
 @login_required
-def post(name, type):
+def post(is_group, name, type):
     try:
         if request.method == "POST":
 
@@ -132,7 +132,13 @@ def post(name, type):
             if not request.args.get('id'):
                 return "Could not parse request", 400
             else:
-                post = db.execute("SELECT * FROM blog_posts WHERE id = ?", request.args.get('id'))
+                if is_group == "group":
+                    post = db.execute("""SELECT blog_posts.id AS id, group_name, photo, user_name, post, blog_posts.creation_time AS creation_time FROM blog_posts
+                                    INNER JOIN groups on groupname = group_name WHERE blog_posts.id = ?""", request.args.get('id'))
+
+                else:
+                    post = db.execute("""SELECT blog_posts.id AS id, photo, user_name, post, blog_posts.creation_time AS creation_time FROM blog_posts
+                                    INNER JOIN users on username = user_name WHERE id = ?""", request.args.get('id'))
 
                 if not post[0]:
                     return "Could not find post", 400

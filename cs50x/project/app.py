@@ -108,11 +108,11 @@ def post(name, type):
                         session["user_name"], data["post_body"], data["group_name"], data["type"])
 
             if data["group_name"] != None:
-                post = db.execute("""SELECT group_name, photo, user_name, post, blog_posts.creation_time FROM blog_posts
+                post = db.execute("""SELECT group_name, photo, user_name, post, blog_posts.creation_time AS creation_time FROM blog_posts
                                 INNER JOIN groups on groupname = group_name WHERE blog_posts.id = (SELECT DISTINCT last_insert_rowid())""")
 
             else:
-                post = db.execute("""SELECT photo, user_name, post, blog_posts.creation_time FROM blog_posts
+                post = db.execute("""SELECT photo, user_name, post, blog_posts.creation_time AS creation_time FROM blog_posts
                                 INNER JOIN users on username = user_name WHERE id = (SELECT DISTINCT last_insert_rowid())""")
 
             post = db.execute("SELECT * FROM blog_posts WHERE id = (SELECT DISTINCT last_insert_rowid())")
@@ -126,7 +126,7 @@ def post(name, type):
             else:
                 db.execute("COMMIT")
 
-            return render_template("post.html", post=post, comments=[])
+            return render_template("post.html", post=post, comments=None)
 
         else:
             if not request.args.get('id'):
@@ -140,7 +140,7 @@ def post(name, type):
                 comments = db.execute("SELECT * FROM blog_posts INNER JOIN comments ON post = id WHERE id = ?", request.args.get('id'))
                 return render_template("post.html", post=post, comments=comments)
     except Exception as err:
-        logging.(f"Unexpected {err=}")
+        logging.error(f"Unexpected {err=}")
         return "An unexpected error occured", 500
 
 

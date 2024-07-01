@@ -58,7 +58,7 @@ function create_post() {
         }),
         success: function(response) {
             console.log(response)
-            location.pathname = response;
+            location.pathname = encodeURIComponent(`/post?${response}`);
         },
         error: function(error) {
             console.log(error);

@@ -113,9 +113,9 @@ def post(type):
 
             else:
                 post = db.execute("""SELECT blog_posts.id AS id, photo, user_name, post, blog_posts.creation_time AS creation_time FROM blog_posts
-                                INNER JOIN users on username = user_name WHERE id = (SELECT DISTINCT last_insert_rowid())""")
+                                INNER JOIN users on username = user_name WHERE blog_posts.id = (SELECT DISTINCT last_insert_rowid())""")
 
-            post = db.execute("SELECT * FROM blog_posts WHERE id = (SELECT DISTINCT last_insert_rowid())")
+            # post = db.execute("SELECT * FROM blog_posts WHERE id = (SELECT DISTINCT last_insert_rowid())")
 
             if type == "comment":
                 if not request.args.get('id'):

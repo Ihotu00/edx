@@ -140,14 +140,14 @@ def post(type):
                     return "Could not find post", 400
 
                 if post[0]["group_name"]:
-                    post[0]["photo"] = db.execute("SELECT photo from groups WHERE groupname = ?", post[0]["group_name"])
+                    photo = db.execute("SELECT photo from groups WHERE groupname = ?", post[0]["group_name"])
                 else:
-                    post[0]["photo"] = db.execute("SELECT photo from users WHERE username = ?", post[0]["user_name"])
+                    photo = db.execute("SELECT photo from users WHERE username = ?", post[0]["user_name"])
 
                 comments = db.execute("SELECT * FROM blog_posts INNER JOIN comments ON post_id = id WHERE id = ?", request.args.get('id'))
 
                 print(post[0])
-                return render_template("post.html", post=post[0], comments=comments)
+                return render_template("post.html", photo=photo, post=post[0], comments=comments)
 
     except Exception as err:
         logging.error(f"Unexpected {err=}")

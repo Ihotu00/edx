@@ -131,11 +131,17 @@ def post(type):
         else:
             if not request.args.get('id'):
                 return "Could not parse request", 400
+
             else:
-                    post = db.execute("""SELECT * FROM blog_posts  WHERE id = ?""", request.args.get('id'))
+                post = db.execute("SELECT * FROM blog_posts  WHERE id = ?", request.args.get('id'))
 
                 if not post[0]:
                     return "Could not find post", 400
+
+                if post[0]["group_name"]:
+                    post[0]["photo"] = db.execute("SELECT photo from groups WHERE groupname = ?", post[0]["group_name"])
+                else:
+                    post[0]["photo"] = db.execute("SELECT photo from users WHERE username = ?", post[0]["user_name"])
 
                 comments = db.execute("SELECT * FROM blog_posts INNER JOIN comments ON post_id = id WHERE id = ?", request.args.get('id'))
 

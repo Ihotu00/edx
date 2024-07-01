@@ -38,12 +38,12 @@ function create_alert(parentId, message, type, icon) {
     alertPlaceholder.append(wrapper)
 }
 
-function create_post(name) {
+function create_post() {
     // event.preventDefault();
     show("create-post-loader")
     hide("create-post-button")
     $.ajax({
-        url: `/post/${name}/submit/new`,
+        url: `/post/submit/new`,
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({

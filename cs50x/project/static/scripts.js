@@ -40,8 +40,8 @@ function create_alert(parentId, message, type, icon) {
 
 function create_post() {
     // event.preventDefault();
-    show("create-post-loader")
-    hide("create-post-button")
+    // show("create-post-loader")
+    // hide("create-post-button")
     console.log(JSON.stringify({
         'group_name': document.getElementById('post-receiver').value != null ? document.getElementById('post-receiver').value : null,
         'post_body': document.getElementById('post-body').value,

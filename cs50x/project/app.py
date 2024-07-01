@@ -147,7 +147,7 @@ def post(type):
                 comments = db.execute("SELECT * FROM blog_posts INNER JOIN comments ON post_id = id WHERE id = ?", request.args.get('id'))
 
                 print(post[0])
-                return render_template("post.html", photo=photo, post=post[0], comments=comments)
+                return render_template("post.html", photo=photo, post=post[0])
 
     except Exception as err:
         logging.error(f"Unexpected {err=}")

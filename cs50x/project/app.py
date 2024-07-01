@@ -126,8 +126,8 @@ def post(type):
             else:
                 db.execute("COMMIT")
 
-            return f"{id[0]["id"]}", 200
-            # return redirect("/post", id=id[0["id"]])
+            # return f"{id[0]["id"]}", 200
+            return redirect(f"/post?id={id[0]["id"]}")
 
         else:
             if not request.args.get('id'):

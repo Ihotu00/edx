@@ -8,14 +8,14 @@ Post blogs and join message boards
 <div class="d-flex flex-column">
     <div class="p-2 mb-3">
         <div class=" d-flex flex-row card card-body text-bg-dark h-auto">
-            <span class="px-1 flex-shrink-0">
+            <span class="px-1 me-2">
                 <img src='{{ post["photo"] }}' style="clip-path: circle()" class="object-fit-cover"
             height="50" width="50"></span>
 
-            <p class="text-start lh-sm mb-auto text-truncate flex-grow-1">
+            <p class="text-start lh-sm mb-auto text-truncate me-2">
                 {{ post["group_name"] if post["group_name"] else post["user_name"] }}<br>{{ post["user_name"] }}
             </p>
-            <p class="text-start lh-sm mb-auto text-truncate flex-grow-1">{{ post["creation_time"] | time_ago}}</p>
+            <p class="text-start lh-sm mb-auto text-truncate me-2">{{ post["creation_time"] | time_ago}}</p>
         </div>
     </div>
     <div class="p-2">Flex item 2</div>

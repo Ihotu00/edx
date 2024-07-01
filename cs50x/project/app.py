@@ -115,7 +115,7 @@ def post(type):
                 post = db.execute("""SELECT blog_posts.id AS id, photo, user_name, post, blog_posts.creation_time AS creation_time FROM blog_posts
                                 INNER JOIN users on username = user_name WHERE blog_posts.id = (SELECT DISTINCT last_insert_rowid())""")
 
-            # post = db.execute("SELECT * FROM blog_posts WHERE id = (SELECT DISTINCT last_insert_rowid())")
+            id = db.execute("SELECT DISTINCT last_insert_rowid()")
 
             if type == "comment":
                 if not request.args.get('id'):
@@ -126,7 +126,7 @@ def post(type):
             else:
                 db.execute("COMMIT")
 
-            return render_template("post.html", post=post[0], comments=None)
+            return redirect(f"/post?id={id}")
 
         else:
             if not request.args.get('id'):

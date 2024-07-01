@@ -18,7 +18,9 @@ Post blogs and join message boards
             <p class="text-start lh-sm mb-auto text-truncate me-2">{{ post["creation_time"] | time_ago}}</p>
         </div>
     </div>
-    <div class="p-2">Flex item 2</div>
-    <div class="p-2">Flex item 3</div>
+
+    <div class="p-2 mb-3">
+        <div>{{ post["post"]}}</div>
+    </div>
 </div>
 {% endblock %}

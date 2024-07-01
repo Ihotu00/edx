@@ -12,9 +12,9 @@ Post blogs and join message boards
                 <img src='{{ post["photo"] }}' style="clip-path: circle()" class="object-fit-cover"
             height="50" width="50"></span>
 
-            <p class="text-start lh-sm mb-auto text-truncate me-2">
-                {{ post["group_name"] if post["group_name"] else post["user_name"] }}<br>{{ post["user_name"] }}
-            </p>
+            <div class="text-start lh-sm mb-auto text-truncate me-2">
+                <p class="fs-5">{{ post["group_name"] if post["group_name"] else post["user_name"] }}</p><p class="fs-6">{{ post["user_name"] }}</p>
+            </div>
             <p class="text-start lh-sm mb-auto text-truncate me-2">{{ post["creation_time"] | time_ago}}</p>
         </div>
     </div>

@@ -126,7 +126,7 @@ def post(type):
             else:
                 db.execute("COMMIT")
 
-            return f"/post?id={id[0]["id"]}", 200
+            return f"{id[0]["id"]}", 200
 
         else:
             if not request.args.get('id'):

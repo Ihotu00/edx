@@ -94,18 +94,18 @@ def post(type):
     try:
         if request.method == "POST":
 
-            if request.get_json():
-                data = request.get_json()
+            # if request.get_json():
+                # data = request.get_json()
 
-            else:
-                return "Failed to get input.", 400
+            # else:
+            #     return "Failed to get input.", 400
 
-            if not data["post_body"]:
+            if not request.form.get("post-body"):
                 return "Please fill out the post body", 400
 
             db.execute("BEGIN")
             db.execute("INSERT INTO blog_posts(user_name, post, group_name, type) VALUES(?,?,?,?)",
-                        session["user_name"], data["post_body"], data["group_name"], data["type"])
+                        session["user_name"], request.form.get("post-body"), request.form.get("group_name"), type)
 
             if data["group_name"] != None:
                 post = db.execute("""SELECT blog_posts.id AS id, group_name, photo, user_name, post, blog_posts.creation_time AS creation_time FROM blog_posts

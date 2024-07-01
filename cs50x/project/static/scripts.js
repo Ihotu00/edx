@@ -59,7 +59,7 @@ function create_post() {
         success: function(response) {
             console.log(response)
             console.log(`/post?${response}`)
-            location.pathname = `/post?${response}`;
+            location.pathname = `/post?id=${response}`;
         },
         error: function(error) {
             console.log(error);

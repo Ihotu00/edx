@@ -107,7 +107,7 @@ def post(type):
             db.execute("INSERT INTO blog_posts(user_name, post, group_name, type) VALUES(?,?,?,?)",
                         session["user_name"], request.form.get("post-body"), request.form.get("group_name"), type)
 
-            if data["group_name"] != None:
+            if request.form.get("group_name") != None:
                 post = db.execute("""SELECT blog_posts.id AS id, group_name, photo, user_name, post, blog_posts.creation_time AS creation_time FROM blog_posts
                                 INNER JOIN groups on groupname = group_name WHERE blog_posts.id = (SELECT DISTINCT last_insert_rowid())""")
 

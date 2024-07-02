@@ -43,7 +43,7 @@ function create_post(event, type) {
     show("create-post-loader")
     hide("create-post-button")
     $.ajax({
-        url: `/post/submit/${type}`,
+        url: `/post/${feed}/submit/${type}`,
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({

@@ -5,32 +5,21 @@ Post blogs and join message boards
 {% endblock %}
 
 {% block main %}
+<ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#">Active</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+    </li>
+</ul>
 
-<div class="fs-3 mx-auto my-3">Your posts({{post["post_count"]}})</div>
-    <div class="mx-auto col-md-7">
-        {% for post in posts %}{% if post["type"] != 'comment' %}
-        <hr>
-        <div class="p-3 text-bg-dark border mb-3 hover">
-            <div class="card-header text-start mb-3 d-flex align-items-center">
-                <a class="btn btn-sm btn-dark rounded-pill me-2"
-                    href="/feed/{{'group/'+post.group_name if post.group_name else 'user/'+post.user_name}}"><img
-                        src='{{ session["user_photo"]}}' style="clip-path: circle();" width="25" height="25" />
-                    {{ post["group_name"] if post["group_name"] else post["user_name"]}}
-                </a>
-                <li class="flex-shrink-1">
-                    {{ post["creation_time"] | time }}
-                </li>
-            </div>
-            <div class="card-body text-wrap text-start">
-                {{ post["post"] }}
-            </div>
-            <li class="card-footer text-end">
-                {{ post["creation_time"] | date }}
-            </li>
-        </div>
-        {% endif %}{% endfor %}
-    </div>
-</div>
 
 <div class="row row-cols-lg-4 rol-cols-sm-2 g-2 mt-5" id="posts">
     {% for post in posts %}{% if post["type"] != 'comment' %}
@@ -43,7 +32,7 @@ Post blogs and join message boards
                     {{ post["user_name"] if not post["group_name"] else post["group_name"] }}
                 </a>
             </div>
-            <a href="/post/{{pos[0]['name']}}?id={{post.id}}" class="text-light text-decoration-none">
+            <a href="/post/{{post['group_name'] if post['group_name'] else post['user_name']}}?id={{post.id}}" class="text-light text-decoration-none">
                 <div class="card-body text-truncate text-start">
                 {{ post["post"] }}
             </div></a>

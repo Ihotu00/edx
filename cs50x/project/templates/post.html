@@ -21,13 +21,13 @@ Post blogs and join message boards
     <!-- <form action="" method="post" class="py-3 mx-auto w-75">
         <input placeholder="Add Comment" class="form-control text-bg-dark">
     </form> -->
-    <form action="/post/submit/comment" method="post" onSubmit="show('create-comment-loader')">
+    <form action="/post/submit/comment" method="post" onSubmit="show('create-comment-loader')"  class="py-3 mx-auto w-75">
         <input class="form-control hide" readonly disabled name="group_name"
             placeholder="Type to search..." value="{{ post['group_name'] if post['group_name'] else none}}">
         <div class="input-group position-relative">
             <textarea class="form-control text-bg-dark h-100" name="post-body"
                 placeholder="Write your post here"></textarea>
-            <button class="btn btn-small btn-primary position-absolute bottom-0 end-0" type="submit">Comment</button>
+            <button class="btn btn-small btn-primary position-absolute bottom-0 end-0 ms-2" type="submit">Comment</button>
         </div>
         <div id="create-comment-response"></div>
     </form>

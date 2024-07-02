@@ -18,17 +18,17 @@ Post blogs and join message boards
             <li class="text-start lh-sm mb-auto text-truncate ms-3">{{ post["creation_time"] | time_ago}}</li>
     </div>
     <div class="p-2">{{ post["post"]}}</div>
-    <!-- <form action="" method="post" class="py-3 mx-auto w-75">
+    <div class="py-3 mx-auto w-75" id="comment-button" onClick="show('comment-form'); hide('comment-button')">
         <input placeholder="Add Comment" class="form-control text-bg-dark">
-    </form> -->
-    <form action="/post/submit/comment" method="post" onSubmit="show('create-comment-loader')"  class="py-3 mx-auto w-75" id="comment-form">
+    </div>
+    <form action="/post/submit/comment" method="post" onSubmit="show('create-comment-loader')"  class="py-3 mx-auto w-75 hide" id="comment-form">
         <input class="form-control hide" readonly disabled name="group_name"
             placeholder="Type to search..." value="{{ post['group_name'] if post['group_name'] else none}}">
         <div class="position-relative">
-            <textarea class="form-control text-bg-dark h-100" name="post-body" rows="5"
-                placeholder="Write your post here"></textarea>
+            <textarea class="form-control text-bg-dark h-100" name="post-body" rows="5" autofocus
+                placeholder="Write your comment here"></textarea>
             <div class="m-2 position-absolute bottom-0 end-0">
-                <button class="btn btn-small btn-secondary" onClick="hide('comment-form')">Cancel</button>
+                <button class="btn btn-small btn-secondary" type="button" onClick="hide('comment-form');  show('comment-button')">Cancel</button>
                 <button class="btn btn-small btn-primary" type="submit">Comment</button>
             </div>
         </div>

@@ -87,10 +87,10 @@ def index(client, client_name):
     return render_template("index.html", posts=posts, header=header, feed=feed)
 
 
-@app.route("/post", defaults={"type": None})
-@app.route("/post/submit/<type>", methods=["POST"])
+@app.route("/post/<name>", defaults={"type": None})
+@app.route("/post/<name>/submit/<type>", methods=["POST"])
 @login_required
-def post(type):
+def post(name, type):
     try:
         if request.method == "POST":
 
@@ -109,6 +109,7 @@ def post(type):
                         session["user_name"], data["post_body"], data["group_name"], type)
 
             if data["group_name"] != None:
+                feed = name
                 post = db.execute("""SELECT blog_posts.id AS id, group_name, photo, user_name, post, blog_posts.creation_time AS creation_time FROM blog_posts
                                 INNER JOIN groups on groupname = group_name WHERE blog_posts.id = (SELECT DISTINCT last_insert_rowid())""")
 
@@ -140,6 +141,7 @@ def post(type):
                     return "Could not find post", 400
 
                 if post[0]["group_name"]:
+                    feed = name
                     post[0]["photo"] = (db.execute("SELECT photo from groups WHERE groupname = ?", post[0]["group_name"]))[0]["photo"]
                 else:
                     post[0]["photo"] = (db.execute("SELECT photo from users WHERE username = ?", post[0]["user_name"]))[0]["photo"]
@@ -149,7 +151,7 @@ def post(type):
                 for comment in comments:
                     comment["photo"] = (db.execute("SELECT photo FROM users WHERE username = ?", comment["user_name"]))[0]["photo"]
 
-                return render_template("post.html", post=post[0], comments=comments)
+                return render_template("post.html", post=post[0], comments=comments, feed=feed)
 
     except Exception as err:
         logging.error(f"Unexpected {err=}")

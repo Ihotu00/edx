@@ -51,7 +51,7 @@ function create_post(event, type) {
             'post_body': event.target.post_body.value
         }),
         success: function(response) {
-            location.pathname = `/post`;
+            location.pathname = `/post/${feed}`;
             location.search = `?id=${response}`
         },
         error: function(error) {

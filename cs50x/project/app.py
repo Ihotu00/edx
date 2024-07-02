@@ -115,18 +115,18 @@ def post(type):
                 post = db.execute("""SELECT blog_posts.id AS id, photo, user_name, post, blog_posts.creation_time AS creation_time FROM blog_posts
                                 INNER JOIN users on username = user_name WHERE blog_posts.id = (SELECT DISTINCT last_insert_rowid())""")
 
-            id = db.execute("SELECT DISTINCT last_insert_rowid() AS id")
-
             if type == "comment":
                 if not request.args.get('id'):
                     return "Could not parse request", 400
+
                 db.execute("INSERT INTO comments(post, comment) VALUES(?,?)" ,request.args.get('id'), post[0]["id"])
                 db.execute("COMMIT")
+                return redirect(f"/post?id={request.args.get('id')}"), 200
 
             else:
+                id = db.execute("SELECT DISTINCT last_insert_rowid() AS id")
                 db.execute("COMMIT")
-
-            return redirect(f"/post?id={id[0]["id"]}")
+                return redirect(f"/post?id={id[0]["id"]}"), 200
 
         else:
             if not request.args.get('id'):

@@ -144,13 +144,10 @@ def post(type):
                     post[0]["photo"] = (db.execute("SELECT photo from users WHERE username = ?", post[0]["user_name"]))[0]["photo"]
 
                 comments = db.execute("SELECT * FROM blog_posts INNER JOIN comments ON post_id = id WHERE id = ?", request.args.get('id'))
-                logging.warning(comments)
 
-                # if not comments == []:
-                #     logging.warning("got here")
-                #     for comment in comments:
-                #         logging.warning("tried loop")
-                #         comment["photo"] = db.execute("SELECT photo FROM users WHERE username = ?", comment["user_name"])
+                logging.warning(comments)
+                for comment in comments:
+                    comment["photo"] = db.execute("SELECT photo FROM users WHERE username = ?", comment["user_name"])
 
                 return render_template("post.html", post=post[0], comments=comments)
 

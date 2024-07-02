@@ -39,6 +39,7 @@ function create_alert(parentId, message, type, icon) {
 }
 
 function create_post(event, type) {
+    console.log(event)
     event.preventDefault();
     show("create-post-loader")
     hide("create-post-button")

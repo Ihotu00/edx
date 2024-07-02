@@ -42,8 +42,8 @@ Post blogs and join message boards
         </scrip>
     </form>
     {% for comment in comments %}
-    <div class="card text-bg-dark hover w-50">
-        <div class="card-header text-start">
+    <div class="mx-auto p-3 text-bg-dark hover w-50">
+        <div class="card-header text-start mb-3">
             <a class="btn btn-sm btn-dark rounded-pill"
                 href="/feed/user/{{comment['user_name']}}"><img
                     src='{{ comment["photo"]}}' style="clip-path: circle();" width="25" height="25" />

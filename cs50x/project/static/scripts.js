@@ -38,23 +38,23 @@ function create_alert(parentId, message, type, icon) {
     alertPlaceholder.append(wrapper)
 }
 
-function create_post() {
+function create_post(event, type) {
     event.preventDefault();
     show("create-post-loader")
     hide("create-post-button")
     console.log(JSON.stringify({
-        'group_name': document.getElementById('post-receiver').value != "" ? document.getElementById('post-receiver').value : null,
-        'post_body': document.getElementById('post-body').value,
-        'type': 'new'
+        'group_name': event.target.group_name.value != "" ? event.target.group_name.value : null,
+        'post_body': event.target.post-body.value.value,
+        'type': type
     }))
     $.ajax({
-        url: `/post/submit/new`,
+        url: `/post/submit/${type}`,
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({
-            'group_name': document.getElementById('post-receiver').value != "" ? document.getElementById('post-receiver').value : null,
-            'post_body': document.getElementById('post-body').value,
-            'type': 'new'
+            'group_name': event.target.group_name.value != "" ? event.target.group_name.value : null,
+            'post_body': event.target.post-body.value.value,
+            'type': type
         }),
         success: function(response) {
             location.pathname = `/post`;

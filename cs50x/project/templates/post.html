@@ -56,9 +56,9 @@ Post blogs and join message boards
             <div class="card-body text-wrap text-start">
                 {{ comment["post"] }}
             </div>
-            <div class="card-footer text-end">
+            <li class="card-footer text-end">
                 {{ comment["creation_time"] | time_ago }}
-            </div>
+            </li>
         </div>
         {% endfor %}
     </div>

@@ -8,7 +8,7 @@ Post blogs and join message boards
 
 <div class="fs-3 mx-auto my-3">Your posts({{post["post_count"]}})</div>
     <div class="mx-auto col-md-7">
-        {% for post in posts %}
+        {% for post in posts %}{% if post["type"] != 'comment'}
         <hr>
         <div class="p-3 text-bg-dark border mb-3">
             <div class="card-header text-start mb-3 d-flex align-items-center">

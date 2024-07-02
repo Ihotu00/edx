@@ -135,7 +135,7 @@ def post(name, type):
                 return "Could not parse request", 400
 
             else:
-                post = db.execute("SELECT * FROM blog_posts  WHERE id = ?", request.args.get('id'))
+                post = db.execute("SELECT *, (SELECT COUNT(*) FROM comments WHERE post_id = id) AS comments_count FROM blog_posts  WHERE id = ?", request.args.get('id'))
 
                 if not post[0]:
                     return "Could not find post", 400

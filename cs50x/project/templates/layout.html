@@ -202,7 +202,6 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <div id="create-post-response" name="response"></div>
                             <form onSubmit="create_post(event, 'new')">
                                 <div class="form-floating mb-3">
                                     <input class="form-control hide" readonly disabled id="post-receiver"
@@ -216,6 +215,8 @@
                                 <script>
                                     feed = "{{ feed if feed else session['user_name']}}"
                                 </script>
+                                <div id="create-post-response" name="response"></div>
+                            </form>
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-primary" type="submit" id="create-post-button" name="submit_button">Create post</button>
@@ -224,7 +225,6 @@
                                 <span class="visually-hidden">Loading...</span>
                             </button>
                         </div>
-                        </form>
                     </div>
                 </div>
             </div>

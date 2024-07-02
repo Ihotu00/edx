@@ -41,7 +41,7 @@ function create_alert(parentId, message, type, icon) {
 function create_post(event, type) {
     console.log(event)
     event.preventDefault();
-    console.log(event.target.parentNode.querySelector("#create-post-response").id)
+    console.log(event.target.parentNode.querySelector("[name='response']"))
     // show(event.target.loader_button.id)
     // hide(event.target.submit_button.id)
     // $.ajax({

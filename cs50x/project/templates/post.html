@@ -16,7 +16,7 @@ Post blogs and join message boards
                     <p class="fs-5 mb-auto text-light">{{ post["group_name"] if post["group_name"] else post["user_name"] }}</p></a>
                 <a href="/feed/user/{{post['user_name']}}"><p class="fs-6 mb-auto text-light">{{ post["user_name"] }}</p></a>
             </div>
-            <li class="ms-3" title="{{ post['creation_time'] | time }}">{{ post["creation_time"] | date }}</li>
+            <li class="ms-3" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ post['creation_time'] | time }}">{{ post["creation_time"] | date }}</li>
     </div>
     <div class="p-2 my-3">{{ post["post"]}}</div>
     <div class="py-3 mx-auto col-md-7" id="comment-button" onClick="show('comment-form'); hide('comment-button')">

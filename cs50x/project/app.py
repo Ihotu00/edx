@@ -120,14 +120,14 @@ def post(type):
                 if not request.args.get('id'):
                     return "Could not parse request", 400
 
-                db.execute("INSERT INTO comments(post, comment) VALUES(?,?)" ,request.args.get('id'), post[0]["id"])
+                db.execute("INSERT INTO comments(post_id, comment_id) VALUES(?,?)" ,request.args.get('id'), post[0]["id"])
                 db.execute("COMMIT")
-                return redirect(f"/post?id={request.args.get('id')}"), 200
+                return f"/post?id={request.args.get('id')}", 200
 
             else:
                 id = db.execute("SELECT DISTINCT last_insert_rowid() AS id")
                 db.execute("COMMIT")
-                return redirect(f"/post?id={id[0]["id"]}"), 200
+                return f"/post?id={id[0]["id"]}", 200
 
         else:
             if not request.args.get('id'):

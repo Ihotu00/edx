@@ -23,7 +23,7 @@ Post blogs and join message boards
     </div>
     <form onSubmit="create_post(event, 'comment?id={{post.id}}')"  class="py-3 mx-auto w-75 hide" id="comment-form">
         <input class="form-control hide" readonly disabled name="group_name"
-            placeholder="Type to search..." value="{{ post['group_name'] if post['group_name'] else none}}">
+            placeholder="Type to search..." value="{{ post['group_name'] if post['group_name']}}">
         <div class="position-relative mb-3">
             <textarea class="form-control text-bg-dark h-100" name="post_body" rows="5" autofocus
                 placeholder="Write your comment here"></textarea>

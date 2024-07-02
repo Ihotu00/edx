@@ -42,18 +42,13 @@ function create_post(event, type) {
     event.preventDefault();
     show("create-post-loader")
     hide("create-post-button")
-    console.log(event)
-    console.log(JSON.stringify({
-        'group_name': event.target.group_name.value != "" ? event.target.group_name.value : null,
-        'post_body': event.target.post_body.value.value
-    }))
     $.ajax({
         url: `/post/submit/${type}`,
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({
             'group_name': event.target.group_name.value != "" ? event.target.group_name.value : null,
-            'post_body': event.target.post_body.value.value
+            'post_body': event.target.post_body.value
         }),
         success: function(response) {
             location.pathname = `/post`;

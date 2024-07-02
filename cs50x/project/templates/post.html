@@ -42,23 +42,24 @@ Post blogs and join message boards
         </script>
     </form>
     <div class="fs-3 mx-auto my-3">Comments({{post["comments_count"]}})</div>
-    {% for comment in comments %}
-    <div class="col-md-7"></div>
-    <div class="mx-auto p-3 text-bg-dark border">
-        <div class="card-header text-start mb-3">
-            <a class="btn btn-sm btn-dark rounded-pill"
-                href="/feed/user/{{comment['user_name']}}"><img
-                    src='{{ comment["photo"]}}' style="clip-path: circle();" width="25" height="25" />
-                {{ comment["user_name"]}}
-            </a>
+    <div class="mx-auto col-md-7">
+        {% for comment in comments %}
+        <div class="p-3 text-bg-dark border mb-3">
+            <div class="card-header text-start mb-3">
+                <a class="btn btn-sm btn-dark rounded-pill"
+                    href="/feed/user/{{comment['user_name']}}"><img
+                        src='{{ comment["photo"]}}' style="clip-path: circle();" width="25" height="25" />
+                    {{ comment["user_name"]}}
+                </a>
+            </div>
+            <div class="card-body text-truncate text-start">
+                {{ comment["post"] }}
+            </div>
+            <div class="card-footer text-end">
+                {{ comment["creation_time"] | time_ago }}
+            </div>
         </div>
-        <div class="card-body text-truncate text-start">
-            {{ comment["post"] }}
-        </div>
-        <div class="card-footer text-end">
-            {{ comment["creation_time"] | time_ago }}
-        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 </div>
 {% endblock %}

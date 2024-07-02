@@ -39,35 +39,36 @@ function create_alert(parentId, message, type, icon) {
 }
 
 function create_post() {
+    location.pathname = uriEncoded(`/post?id=77`);
     // event.preventDefault();
-    show("create-post-loader")
-    hide("create-post-button")
-    console.log(JSON.stringify({
-        'group_name': document.getElementById('post-receiver').value != "" ? document.getElementById('post-receiver').value : null,
-        'post_body': document.getElementById('post-body').value,
-        'type': 'new'
-    }))
-    $.ajax({
-        url: `/post/submit/new`,
-        type: 'POST',
-        contentType: 'application/json',
-        data: JSON.stringify({
-            'group_name': document.getElementById('post-receiver').value != "" ? document.getElementById('post-receiver').value : null,
-            'post_body': document.getElementById('post-body').value,
-            'type': 'new'
-        }),
-        success: function(response) {
-            console.log(response)
-            console.log(`/post?${response}`)
-            location.pathname = `/post?id=${response}`;
-        },
-        error: function(error) {
-            console.log(error);
-            hide("create-post-loader")
-            show("create-post-button")
-            create_alert('create-post-response', `${error.responseText}`, 'danger', 'error')
-        }
-    });
+    // show("create-post-loader")
+    // hide("create-post-button")
+    // console.log(JSON.stringify({
+    //     'group_name': document.getElementById('post-receiver').value != "" ? document.getElementById('post-receiver').value : null,
+    //     'post_body': document.getElementById('post-body').value,
+    //     'type': 'new'
+    // }))
+    // $.ajax({
+    //     url: `/post/submit/new`,
+    //     type: 'POST',
+    //     contentType: 'application/json',
+    //     data: JSON.stringify({
+    //         'group_name': document.getElementById('post-receiver').value != "" ? document.getElementById('post-receiver').value : null,
+    //         'post_body': document.getElementById('post-body').value,
+    //         'type': 'new'
+    //     }),
+    //     success: function(response) {
+    //         console.log(response)
+    //         console.log(`/post?${response}`)
+    //         location.pathname = `/post?id=${response}`;
+    //     },
+    //     error: function(error) {
+    //         console.log(error);
+    //         hide("create-post-loader")
+    //         show("create-post-button")
+    //         create_alert('create-post-response', `${error.responseText}`, 'danger', 'error')
+    //     }
+    // });
 }
 
 function get_group_msg(id, name) {

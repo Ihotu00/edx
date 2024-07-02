@@ -12,9 +12,10 @@ Post blogs and join message boards
             height="50" width="50"></span>
 
             <div class="text-start lh-sm mb-auto text-truncate me-2">
-                <p class="fs-5">{{ post["group_name"] if post["group_name"] else post["user_name"] }}</p><p class="fs-6">{{ post["user_name"] }}</p>
+                <p class="fs-5 mb-auto">{{ post["group_name"] if post["group_name"] else post["user_name"] }}</p>
+                <p class="fs-6 mb-auto">{{ post["user_name"] }}</p>
             </div>
-            <p class="text-start lh-sm mb-auto text-truncate me-2">{{ post["creation_time"] | time_ago}}</p>
+            <li class="text-start lh-sm mb-auto text-truncate me-2">{{ post["creation_time"] | time_ago}}</p>
     </div>
     <div class="p-2">{{ post["post"]}}</div>
     <form action="" method="post" class="py-3 mx-auto w-75"><input placeholder="Add Comment" class="form-control text-bg-dark"></form>

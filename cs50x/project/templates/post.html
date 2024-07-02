@@ -16,7 +16,7 @@ Post blogs and join message boards
             </div>
             <p class="text-start lh-sm mb-auto text-truncate me-2">{{ post["creation_time"] | time_ago}}</p>
     </div>
-
     <div class="p-2">{{ post["post"]}}</div>
+    <form action="" method="post"><input placeholder="Add Comment" class="form-control"></form>
 </div>
 {% endblock %}

@@ -39,7 +39,7 @@ function create_alert(parentId, message, type, icon) {
 }
 
 function create_post() {
-    location.pathname = uriEncoded(`/post?id=77`);
+    location.pathname = `/post?id=77`;
     // event.preventDefault();
     // show("create-post-loader")
     // hide("create-post-button")

@@ -119,9 +119,9 @@
                             <h5><span class="material-icons">add</span>Create Group</h5>
                         </a>
                         {% for group in session["user_groups"] %}
-                        <a class="btn btn-dark btn-lg text-start" href="/feed/group/{{group['groupname']}}"
+                        <a class="btn btn-dark btn-lg text-start text-break" href="/feed/group/{{group['groupname']}}"
                             type="button">
-                            <h5 class="text-break"><img src='{{ group["photo"]}}' width="30" height="30"
+                            <h5 class="text-wrap"><img src='{{ group["photo"]}}' width="30" height="30"
                                     style="clip-path: circle()" class="me-1" />{{
                                 group["groupname"] }}</h5>
                         </a>

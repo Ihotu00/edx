@@ -39,7 +39,10 @@ function create_alert(parentId, message, type, icon) {
 }
 
 function create_post() {
-    location.pathname = `/post?id=77`;
+    // location.pathname = `/post?id=77`;
+    url = "/post"
+    url.searchParams.append('id', '77');
+    console.log(url)
     // event.preventDefault();
     // show("create-post-loader")
     // hide("create-post-button")

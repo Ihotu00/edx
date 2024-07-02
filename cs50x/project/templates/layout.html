@@ -212,6 +212,9 @@
                                     <textarea class="form-control text-bg-dark h-100" autofocus id="post_body" name="post-body"
                                         placeholder="Write your post here"></textarea>
                                 </div>
+                                <script>
+                                    feed = "{{ feed if feed else session['user_name']}}"
+                                </script>
                             <div id="create-post-response"></div>
                         </div>
                         <div class="modal-footer">

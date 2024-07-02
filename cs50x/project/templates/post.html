@@ -5,9 +5,6 @@ Post blogs and join message boards
 {% endblock %}
 
 {% block main %}
-<scrip>
-    feed = "{{ feed if feed else session['user_name']}}"
-</scrip>
 <div class="d-flex flex-column text-bg-dark h-auto p-3 mt-5">
         <div class="d-flex flex-row p-2">
             <span class="px-1 me-2">
@@ -40,6 +37,9 @@ Post blogs and join message boards
             </div>
         </div>
         <div id="create-post-response"></div>
+        <scrip>
+            feed = "{{ feed if feed else session['user_name']}}"
+        </scrip>
     </form>
     {% for comment in comments %}
     <div class="card text-bg-dark hover">

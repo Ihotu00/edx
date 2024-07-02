@@ -66,8 +66,8 @@ def index(client, client_name):
     feed = None
 
     if client == "user":
-        if client_name != session["user_name"]:
-            header = db.execute("SELECT username AS name, photo FROM users WHERE username = ?", client_name)
+        # if client_name != session["user_name"]:
+        header = db.execute("SELECT username AS name, photo FROM users WHERE username = ?", client_name)
         posts = db.execute("""SELECT post, blog_posts.id AS id, blog_posts.creation_time, group_name, user_name, photo FROM blog_posts
                             INNER JOIN groups on groupname = group_name WHERE user_name = ? OR group_name IN (?)
                             UNION SELECT post, blog_posts.id AS id, blog_posts.creation_time, group_name, user_name AS name, photo FROM blog_posts

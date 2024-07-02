@@ -41,8 +41,9 @@ Post blogs and join message boards
             feed = "{{ feed if feed else session['user_name']}}"
         </script>
     </form>
+    <div class="fs-3">Comments</div>
     {% for comment in comments %}
-    <div class="mx-auto p-3 text-bg-dark hover w-50">
+    <div class="mx-auto p-3 text-bg-dark w-50 border">
         <div class="card-header text-start mb-3">
             <a class="btn btn-sm btn-dark rounded-pill"
                 href="/feed/user/{{comment['user_name']}}"><img

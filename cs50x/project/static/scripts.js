@@ -48,8 +48,7 @@ function create_post(event, type) {
         contentType: 'application/json',
         data: JSON.stringify({
             'group_name': event.target.group_name.value != "" ? event.target.group_name.value : null,
-            'post_body': event.target.post-body.value.value,
-            'type': type
+            'post_body': event.target.post-body.value.value
         }),
         success: function(response) {
             location.pathname = `/post`;

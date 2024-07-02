@@ -23,12 +23,12 @@ Post blogs and join message boards
     </form> -->
     <form action="/post/submit/comment" method="post" onSubmit="show('create-comment-loader')">
         <input class="form-control hide" readonly disabled name="group_name"
-            placeholder="Type to search..." value="{{ comment['group_name'] if comment['group_name'] else none}}">
+            placeholder="Type to search..." value="{{ post['group_name'] if post['group_name'] else none}}">
         <textarea class="form-control text-bg-dark h-100" name="post-body"
             placeholder="Write your post here"><button class="btn btn-small btn-primary" type="submit">Comment</button></textarea>
         <div id="create-comment-response"></div>
     </form>
-    <!-- {% for comment in comments %}
+    {% for comment in comments %}
     <div class="card text-bg-dark hover">
         <div class="card-header text-start">
             <a class="btn btn-sm btn-dark rounded-pill"
@@ -44,6 +44,6 @@ Post blogs and join message boards
             {{ comment["creation_time"] | time_ago }}
         </div>
     </div>
-    {% endfor %} -->
+    {% endfor %}
 </div>
 {% endblock %}

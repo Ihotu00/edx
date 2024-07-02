@@ -41,28 +41,27 @@ function create_alert(parentId, message, type, icon) {
 function create_post(event, type) {
     console.log(event)
     event.preventDefault();
-    console.log(event.target.parentNode.querySelector("[name='response']"))
-    // show(event.target.loader_button.id)
-    // hide(event.target.submit_button.id)
-    // $.ajax({
-    //     url: `/post/${feed}/submit/${type}`,
-    //     type: 'POST',
-    //     contentType: 'application/json',
-    //     data: JSON.stringify({
-    //         'group_name': event.target.group_name.value != "" ? event.target.group_name.value : null,
-    //         'post_body': event.target.post_body.value
-    //     }),
-    //     success: function(response) {
-    //         location.pathname = `/post/${feed}`;
-    //         location.search = `?id=${response}`
-    //     },
-    //     error: function(error) {
-    //         console.log(error);
-    //         hide(event.target.loader_button.id)
-    //         show(event.target.submit_button.id)
-    //         create_alert(event.target.response.id, `${error.responseText}`, 'danger', 'error')
-    //     }
-    // });
+    show(event.target.loader_button.id)
+    hide(event.target.submit_button.id)
+    $.ajax({
+        url: `/post/${feed}/submit/${type}`,
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            'group_name': event.target.group_name.value != "" ? event.target.group_name.value : null,
+            'post_body': event.target.post_body.value
+        }),
+        success: function(response) {
+            location.pathname = `/post/${feed}`;
+            location.search = `?id=${response}`
+        },
+        error: function(error) {
+            console.log(error);
+            hide(event.target.loader_button.id)
+            show(event.target.submit_button.id)
+            create_alert(event.target.parentNode.querySelector("[name='response']").id, `${error.responseText}`, 'danger', 'error')
+        }
+    });
 }
 
 function get_group_msg(id, name) {

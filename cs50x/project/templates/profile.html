@@ -1,22 +1,33 @@
-<div class="fs-3 mx-auto my-3">Comments({{post["comments_count"]}})</div>
+{% extends "layout.html" %}
+
+{% block title %}
+Post blogs and join message boards
+{% endblock %}
+
+{% block main %}
+
+<div class="fs-3 mx-auto my-3">Your posts({{post["post_count"]}})</div>
     <div class="mx-auto col-md-7">
-        {% for comment in comments %}
+        {% for post in posts %}
         <div class="p-3 text-bg-dark border mb-3">
             <div class="card-header text-start mb-3 d-flex align-items-center">
                 <a class="btn btn-sm btn-dark rounded-pill me-2"
                     href="/feed/user/{{comment['user_name']}}"><img
                         src='{{ comment["photo"]}}' style="clip-path: circle();" width="25" height="25" />
-                    {{ comment["user_name"]}}
+                    {{ post["group_name"]}}
                 </a>
                 <li class="flex-shrink-1">
-                    {{ comment["creation_time"] | time }}
+                    {{ post["creation_time"] | time }}
                 </li>
             </div>
             <div class="card-body text-wrap text-start">
-                {{ comment["post"] }}
+                {{ post["post"] }}
             </div>
             <li class="card-footer text-end">
-                {{ comment["creation_time"] | date }}
+                {{ post["creation_time"] | date }}
             </li>
         </div>
         {% endfor %}
+    </div>
+</div>
+{% endblock %}

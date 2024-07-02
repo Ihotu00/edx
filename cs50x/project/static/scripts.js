@@ -39,7 +39,7 @@ function create_alert(parentId, message, type, icon) {
 }
 
 function create_post() {
-    // event.preventDefault();
+    event.preventDefault();
     show("create-post-loader")
     hide("create-post-button")
     console.log(JSON.stringify({

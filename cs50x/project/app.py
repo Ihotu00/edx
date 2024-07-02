@@ -149,6 +149,8 @@ def post(type):
                 for comment in comments:
                     comment["photo"] = db.execute("SELECT photo FROM users WHERE username = ?", comment["user_name"])
 
+                logging.warning(post[0]["creation_time"], post[0]["id"])
+
                 return render_template("post.html", post=post[0], comments=comments)
 
     except Exception as err:

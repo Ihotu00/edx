@@ -46,18 +46,21 @@ Post blogs and join message boards
     <div class="mx-auto col-md-7">
         {% for comment in comments %}
         <div class="p-3 text-bg-dark border mb-3">
-            <div class="card-header text-start mb-3">
+            <div class="card-header text-start mb-3 d=flex">
                 <a class="btn btn-sm btn-dark rounded-pill"
                     href="/feed/user/{{comment['user_name']}}"><img
                         src='{{ comment["photo"]}}' style="clip-path: circle();" width="25" height="25" />
                     {{ comment["user_name"]}}
                 </a>
+                <li class="text-end">
+                    {{ comment["creation_time"] | date }}
+                </li>
             </div>
             <div class="card-body text-wrap text-start">
                 {{ comment["post"] }}
             </div>
             <li class="card-footer text-end">
-                {{ comment["creation_time"] | date }}
+                {{ comment["creation_time"] | time }}
             </li>
         </div>
         {% endfor %}

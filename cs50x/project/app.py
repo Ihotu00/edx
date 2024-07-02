@@ -38,10 +38,15 @@ def login_required(f):
 
     return decorated_function
 
-@app.template_filter('time_ago')
-def format_days(date, fmt=None):
+@app.template_filter('date')
+def format_date(date, fmt=None):
     datetime_object = datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
     return datetime_object.strftime("%b %d, %Y")
+
+@app.template_filter('time')
+def format_time(date, fmt=None):
+    datetime_object = datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
+    return datetime_object.strftime("%X")
 
 
 @app.after_request

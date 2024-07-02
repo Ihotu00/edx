@@ -40,14 +40,8 @@ def login_required(f):
 
 @app.template_filter('time_ago')
 def format_days(date, fmt=None):
-    # logging.error(date)
-    today = datetime.now()
     datetime_object = datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
-    return f"{(today.month - datetime_object.month)} months ago" if (today.month - datetime_object.month) > 1 \
-        else f"{(today.day - datetime_object.day)} days ago" if (today.day - datetime_object.day) > 1 \
-        else f"{(today.hour - datetime_object.hour)} hours ago" if (today.hour - datetime_object.hour) > 1 \
-        else f"{(today.minute - datetime_object.minute)} minutes ago" if (today.minute - datetime_object.minute) > 1 \
-        else f"{(today.second - datetime_object.second)} seconds ago"
+    return datetime_object.strftime("%b %d, %Y")
 
 
 @app.after_request

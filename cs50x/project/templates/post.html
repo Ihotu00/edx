@@ -24,8 +24,11 @@ Post blogs and join message boards
     <form action="/post/submit/comment" method="post" onSubmit="show('create-comment-loader')">
         <input class="form-control hide" readonly disabled name="group_name"
             placeholder="Type to search..." value="{{ post['group_name'] if post['group_name'] else none}}">
-        <textarea class="form-control text-bg-dark h-100" name="post-body"
-            placeholder="Write your post here"><button class="btn btn-small btn-primary" type="submit">Comment</button></textarea>
+        <div class="input-group">
+            <textarea class="form-control text-bg-dark h-100" name="post-body"
+                placeholder="Write your post here"></textarea>
+            <button class="btn btn-small btn-primary" type="submit">Comment</button>
+        </div>
         <div id="create-comment-response"></div>
     </form>
     {% for comment in comments %}

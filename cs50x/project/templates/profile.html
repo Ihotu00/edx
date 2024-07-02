@@ -13,8 +13,8 @@ Post blogs and join message boards
         <div class="p-3 text-bg-dark border mb-3">
             <div class="card-header text-start mb-3 d-flex align-items-center">
                 <a class="btn btn-sm btn-dark rounded-pill me-2"
-                    href="/feed/user/{{comment['user_name']}}"><img
-                        src='{{ session["photo"]}}' style="clip-path: circle();" width="25" height="25" />
+                    href="/feed/user/{{session['user_name']}}"><img
+                        src='{{ session["user_photo"]}}' style="clip-path: circle();" width="25" height="25" />
                     {{ post["group_name"]}}
                 </a>
                 <li class="flex-shrink-1">

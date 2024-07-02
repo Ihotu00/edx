@@ -5,7 +5,7 @@ Post blogs and join message boards
 {% endblock %}
 
 {% block main %}
-<div class="d-flex flex-column text-bg-dark h-auto">
+<div class="d-flex flex-column text-bg-dark h-auto p-3">
         <div class="d-flex flex-row p-2">
             <span class="px-1 me-2">
                 <img src='{{ post["photo"] }}' style="clip-path: circle()" class="object-fit-cover"
@@ -18,7 +18,9 @@ Post blogs and join message boards
             <li class="text-start lh-sm mb-auto text-truncate ms-3">{{ post["creation_time"] | time_ago}}</li>
     </div>
     <div class="p-2">{{ post["post"]}}</div>
-    <form action="" method="post" class="py-3 mx-auto w-75"><input placeholder="Add Comment" class="form-control text-bg-dark"></form>
+    <form action="" method="post" class="py-3 mx-auto w-75">
+        <input placeholder="Add Comment" class="form-control text-bg-dark">
+    </form>
     {% for comment in comments %}
     <div class="card text-bg-dark hover">
         <div class="card-header text-start">
@@ -32,7 +34,7 @@ Post blogs and join message boards
             {{ comment["post"] }}
         </div>
         <div class="card-footer text-end">
-            {{ post["creation_time"] | time_ago }}
+            {{ comment["creation_time"] | time_ago }}
         </div>
     </div>
     {% endfor %}

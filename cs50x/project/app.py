@@ -145,6 +145,9 @@ def post(type):
 
                 comments = db.execute("SELECT * FROM blog_posts INNER JOIN comments ON post_id = id WHERE id = ?", request.args.get('id'))
 
+                for comment in comments:
+                    comment["photo"] = db.execute("SELECT photo FROM users WHERE username = ?", comment["user_name"])
+
                 return render_template("post.html", post=post[0], comments=comments)
 
     except Exception as err:

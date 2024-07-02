@@ -96,11 +96,12 @@ def post(type):
 
             if request.get_json():
                 data = request.get_json()
+                logging.warning(data)
 
             else:
                 return "Failed to get input.", 400
 
-            if not data["post-body"]:
+            if not data["post_body"]:
                 return "Please fill out the post body", 400
 
             db.execute("BEGIN")

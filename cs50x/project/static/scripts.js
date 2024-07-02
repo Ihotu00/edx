@@ -42,6 +42,11 @@ function create_post(event, type) {
     event.preventDefault();
     show("create-post-loader")
     hide("create-post-button")
+    console.log(event.target)
+    console.log(JSON.stringify({
+        'group_name': event.target.group_name.value != "" ? event.target.group_name.value : null,
+        'post_body': event.target.post_body.value.value
+    }))
     $.ajax({
         url: `/post/submit/${type}`,
         type: 'POST',

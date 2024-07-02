@@ -215,12 +215,12 @@
                                 <script>
                                     feed = "{{ feed if feed else session['user_name']}}"
                                 </script>
-                                <div id="create-post-response"></div>
+                                <div id="create-post-response" name="response"></div>
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-primary" type="submit" id="create_post_button">Create post</button>
+                            <button class="btn btn-primary" type="submit" id="create-post-button" name="submit_button">Create post</button>
                             <button class="btn btn-outline-primary spinner-border hide disabled" role="status"
-                                id="create_post_loader">
+                                id="create-post-loader" name="loader_button">
                                 <span class="visually-hidden">Loading...</span>
                             </button>
                         </div>

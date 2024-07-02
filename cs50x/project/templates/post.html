@@ -30,14 +30,14 @@ Post blogs and join message boards
                 placeholder="Write your comment here"></textarea>
             <div class="m-2 position-absolute bottom-0 end-0">
                 <button class="btn btn-small btn-secondary" type="button" onClick="hide('comment-form');  show('comment-button')">Cancel</button>
-                <button class="btn btn-primary" type="submit" id="create_post_button">Comment</button>
+                <button class="btn btn-primary" type="submit" id="create-comment-button" name="submit_button">Comment</button>
                 <button class="btn btn-outline-primary spinner-border hide disabled" role="status"
-                    id="create_post_loader">
+                    id="create-comment-loader" name="loader_button">
                     <span class="visually-hidden">Loading...</span>
                 </button>
             </div>
         </div>
-        <div id="create-post-response"></div>
+        <div id="create-post-response" name="response"></div>
         <script>
             feed = "{{ feed if feed else session['user_name']}}"
         </script>

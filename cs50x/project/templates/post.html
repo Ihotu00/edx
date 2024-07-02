@@ -21,6 +21,18 @@ Post blogs and join message boards
     <form action="" method="post" class="py-3 mx-auto w-75">
         <input placeholder="Add Comment" class="form-control text-bg-dark">
     </form>
+    <form action="/post/submit/comment" method="post" onSubmit="show('create-comment-loader')">
+        <div class="form-floating mb-3">
+            <input class="form-control hide" readonly disabled id="post-receiver" name="group_name"
+                placeholder="Type to search..." value="{{ feed if feed else none}}">
+        </div>
+
+        <div class="mb-3 h-100">
+            <textarea class="form-control text-bg-dark h-100" autofocus id="post-body" name="post-body"
+                placeholder="Write your post here"></textarea>
+        </div>
+        <div id="create-post-response"></div>
+    </form>
     {% for comment in comments %}
     <div class="card text-bg-dark hover">
         <div class="card-header text-start">

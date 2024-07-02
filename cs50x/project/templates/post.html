@@ -19,5 +19,8 @@ Post blogs and join message boards
     </div>
     <div class="p-2">{{ post["post"]}}</div>
     <form action="" method="post" class="py-3 mx-auto w-75"><input placeholder="Add Comment" class="form-control text-bg-dark"></form>
+    {% for comment in comments %}
+    <div class="card-body text-bg-dark">{{ comment["post"]}}</div>
+    {% endfor %}
 </div>
 {% endblock %}

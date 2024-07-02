@@ -21,7 +21,7 @@ Post blogs and join message boards
     <div class="py-3 mx-auto w-75" id="comment-button" onClick="show('comment-form'); hide('comment-button')">
         <input placeholder="Add Comment" class="form-control text-bg-dark">
     </div>
-    <form action="/post/submit/comment?id={{post.id}}" method="post" onSubmit="create_post(event, 'comment')"  class="py-3 mx-auto w-75 hide" id="comment-form">
+    <form onSubmit="create_post(event, 'comment?id={{post.id}}')"  class="py-3 mx-auto w-75 hide" id="comment-form">
         <input class="form-control hide" readonly disabled name="group_name"
             placeholder="Type to search..." value="{{ post['group_name'] if post['group_name'] else none}}">
         <div class="position-relative">

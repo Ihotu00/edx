@@ -40,7 +40,7 @@ def login_required(f):
 
 @app.template_filter('time_ago')
 def format_days(date, fmt=None):
-    logging.error(date)
+    # logging.error(date)
     today = datetime.now()
     datetime_object = datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
     return f"{(today.month - datetime_object.month)} months ago" if (today.month - datetime_object.month) > 1 \
@@ -147,9 +147,7 @@ def post(type):
                 comments = db.execute("SELECT * FROM blog_posts INNER JOIN comments ON post_id = id WHERE id = ?", request.args.get('id'))
 
                 for comment in comments:
-                    comment["photo"] = db.execute("SELECT photo FROM users WHERE username = ?", comment["user_name"])
-
-                    logging.warning({"time": comment["creation_time"], "id": comment["id"]})
+                    comment["photo"] = (db.execute("SELECT photo FROM users WHERE username = ?", comment["user_name"]))[0]["photo"]
 
                 return render_template("post.html", post=post[0], comments=comments)
 

@@ -204,28 +204,27 @@
                         <div class="modal-body">
                             <form onSubmit="create_post(event, 'new')">
                                 <div class="form-floating mb-3">
-                                    <input class="form-control hide" readonly disabled id="post-receiver" name="group_name"
-                                        placeholder="Type to search..." value="{{ feed if feed}}">
+                                    <input class="form-control hide" readonly disabled id="post-receiver"
+                                        name="group_name" placeholder="Type to search..." value="{{ feed if feed}}">
                                 </div>
 
                                 <div class="mb-3 h-100">
-                                    <textarea class="form-control text-bg-dark h-100" autofocus id="post_body" name="post-body"
-                                        placeholder="Write your post here"></textarea>
+                                    <textarea class="form-control text-bg-dark h-100" autofocus id="post_body"
+                                        name="post-body" placeholder="Write your post here"></textarea>
                                 </div>
                                 <script>
                                     feed = "{{ feed if feed else session['user_name']}}"
                                 </script>
-                            <div id="create-post-response"></div>
+                                <div id="create-post-response"></div>
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-primary" type="submit"
-                                id="create-post-button">Create post</button>
+                            <button class="btn btn-primary" type="submit" id="create-post-button">Create post</button>
                             <button class="btn btn-outline-primary spinner-border hide disabled" role="status"
                                 id="create-post-loader">
                                 <span class="visually-hidden">Loading...</span>
                             </button>
                         </div>
-                    </form>
+                        </form>
                     </div>
                 </div>
             </div>

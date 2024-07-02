@@ -17,7 +17,7 @@ Post blogs and join message boards
             </div>
             <li class="text-start lh-sm mb-auto text-truncate ms-3">{{ post["creation_time"] | time_ago}}</li>
     </div>
-    <div class="p-2">{{ post["post"]}}</div>
+    <div class="p-2 my-5">{{ post["post"]}}</div>
     <div class="py-3 mx-auto w-75" id="comment-button" onClick="show('comment-form'); hide('comment-button')">
         <input placeholder="Add Comment" class="form-control text-bg-dark">
     </div>
@@ -52,7 +52,7 @@ Post blogs and join message boards
                     {{ comment["user_name"]}}
                 </a>
             </div>
-            <div class="card-body text-truncate text-start">
+            <div class="card-body text-wrap text-start">
                 {{ comment["post"] }}
             </div>
             <div class="card-footer text-end">

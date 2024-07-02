@@ -43,7 +43,8 @@ Post blogs and join message boards
     </form>
     <div class="fs-3 mx-auto my-3">Comments({{post["comments_count"]}})</div>
     {% for comment in comments %}
-    <div class="mx-auto p-3 text-bg-dark w-50 border">
+    <div class="col-md-7"></div>
+    <div class="mx-auto p-3 text-bg-dark border">
         <div class="card-header text-start mb-3">
             <a class="btn btn-sm btn-dark rounded-pill"
                 href="/feed/user/{{comment['user_name']}}"><img

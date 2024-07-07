@@ -91,9 +91,9 @@ def profile(username):
                         INNER JOIN users on username = created_by WHERE created_by IN = ? ORDER BY posts.creation_time DESC""",
                         username)
     header = {"name": username, "photo": posts[0]["photo"]}
-    header["is_follower"] = "true" if header["name"] in [following["user"] for following in session["user_following"]] else "false"
+    header["is_followed"] = "true" if header["name"] in [following["user"] for following in session["user_following"]] else "false"
 
-    return render_template("index.html", posts=posts, header=True)
+    return render_template("index.html", posts=posts, header=header)
 
 
 

@@ -63,7 +63,7 @@ def after_request(response):
 @login_required
 def index():
 
-    followingList = [following["user"] for following in session["user_following"]]
+    followingList = [following["username"] for following in session["user_following"]]
     followingList.append(session["user_name"])
     logging.warning(followingList)
 
@@ -91,7 +91,7 @@ def profile(username):
                         INNER JOIN users on username = created_by WHERE created_by = ? ORDER BY posts.creation_time DESC""",
                         username)
     header = {"name": username, "photo": posts[0]["photo"]}
-    header["is_followed"] = "true" if header["name"] in [following["user"] for following in session["user_following"]] else "false"
+    header["is_followed"] = "true" if header["name"] in [following["username"] for following in session["user_following"]] else "false"
 
     return render_template("index.html", posts=posts, header=header)
 
@@ -165,13 +165,13 @@ def follow(username):
         try:
             db.execute("BEGIN")
             db.execute("INSERT INTO users_followers(user, follower) VALUES(?,?)", username, session["user_name"])
-            session["user_following"].append({"user": user[0]["username"], "photo": user[0]["photo"]})
+            session["user_following"].append({"username": user[0]["username"], "photo": user[0]["photo"]})
             db.execute("COMMIT")
         except(ValueError):
             db.execute("ROLLBACK")
             db.execute("BEGIN")
             db.execute("DELETE FROM users_followers WHERE user = ? AND follower = ?", username, session["user_name"])
-            session["user_following"].remove([x for x in session["user_following"] if x["user"] == user[0]["username"]][0])
+            session["user_following"].remove([x for x in session["user_following"] if x["username"] == user[0]["username"]][0])
             db.execute("COMMIT")
 
         return redirect(f"/profile/{username}")
@@ -206,10 +206,10 @@ def login():
             session["user_photo"] = rows[0]["photo"]
             session["user_name"] = rows[0]["username"]
             session["user_following"] = db.execute(
-                """SELECT user, photo FROM users INNER JOIN users_followers on username = user WHERE follower = ?
+                """SELECT user AS username, photo FROM users INNER JOIN users_followers on username = user WHERE follower = ?
                 ORDER BY users_followers.creation_time DESC""", session["user_name"])
             session["user_followers"] = db.execute(
-                """SELECT follower, photo FROM users INNER JOIN users_followers on username = follower WHERE user = ?
+                """SELECT follower AS username, photo FROM users INNER JOIN users_followers on username = follower WHERE user = ?
                 ORDER BY users_followers.creation_time DESC""", session["user_name"])
 
             return "Login Successful", 200

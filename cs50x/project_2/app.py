@@ -145,7 +145,7 @@ def post():
             return "Could not find post", 400
 
         comments = db.execute("SELECT *, (SELECT COUNT(*)) AS count FROM posts INNER JOIN comments ON comment_id = id WHERE post_id = ?", request.args.get('id'))
-
+        hash = None
 
 
         if post[0]["type"] == 'comment_post':
@@ -157,12 +157,12 @@ def post():
 
 
         comments = db.execute("SELECT *, (SELECT COUNT(*)) AS count FROM posts INNER JOIN comments ON comment_id = id WHERE post_id = ?", post[0]["id"])
-
+        hash =f"#{post[0]['id']}"
 
 
         for comment in comments:
             comment["photo"] = (db.execute("SELECT photo FROM users WHERE username = ?", comment["created_by"]))[0]["photo"]
-        return render_template("post.html", post=post[0], comments=comments)
+        return render_template("post.html", post=post[0], comments=comments, hash=hash)
 
 
 @app.route("/follow/<username>", methods=["POST"])

@@ -184,7 +184,7 @@ def follow(username):
 @login_required
 def vote():
 
-        return redirect(f"/profile/{username}")
+        return "Success", 200
 
 
 @app.route("/login", methods=["GET", "POST"])

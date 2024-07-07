@@ -152,7 +152,7 @@ def post():
             post = db.execute("""SELECT posts.id, posts.created_by, post, posts.creation_time AS creation_time, photo,
                           (SELECT sum(vote) FROM votes WHERE post_id = posts.id) AS votes,
                           (SELECT COUNT(*) FROM comments WHERE post_id = posts.id) AS comments_count FROM posts
-                          INNER JOIN comments on post_id = 
+                          INNER JOIN comments on comment_id = ?
                           INNER JOIN users on username = created_by WHERE posts.id = post_id""")
 
 

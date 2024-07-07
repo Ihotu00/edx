@@ -21,14 +21,13 @@ Post blogs and join message boards
     <div class="d-flex p-2 justify-content-end align-items-center mb-3" id="vote-buttons">
         <button class="btn btn-sm btn-outline-success material-symbols-outlined fs-1" onClick="vote_on_post(1)">
             arrow_circle_up</button>
-        <p class="mb-0 fs-3 mx-2">{{ post["votes"]}}</p>
+        <p class="mb-0 fs-3 mx-2">{{ post["votes"] if post["votes"]}}</p>
         <button class="btn btn-sm btn-outline-danger material-symbols-outlined fs-1" onClick="vote_on_post(-1)">
             arrow_circle_down</button>
     </div>
     <div class="p-2 justify-content-end align-items-center mb-3 hide" id="vote-loader">
-        <button class="btn btn-primary" type="button" disabled>
-            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-            <span class="visually-hidden">Loading...</span>
+        <button class="btn btn-outlne-light" type="button" disabled>
+            <span class="spinner-border" role="status" aria-hidden="true"></span>
           </button>
     </div>
     <div class="fs-3 mx-auto">Comments({{post["comments_count"]}})</div>

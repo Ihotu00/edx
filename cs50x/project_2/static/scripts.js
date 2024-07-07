@@ -68,6 +68,7 @@ function vote_on_post(vote) {
     console.log(vote)
     const params = new URLSearchParams(location.search)
     console.log(params.get('id'))
+    document.getElementById("vote-loader").classList.add('d-flex')
     show("vote-loader")
     document.getElementById("vote-buttons").classList.remove('d-flex')
     hide("vote-buttons")

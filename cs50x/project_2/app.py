@@ -180,6 +180,12 @@ def follow(username):
 
         return redirect(f"/profile/{username}")
 
+@app.route("/vote", methods=["POST"])
+@login_required
+def vote():
+
+        return redirect(f"/profile/{username}")
+
 
 @app.route("/login", methods=["GET", "POST"])
 def login():

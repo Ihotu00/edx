@@ -186,7 +186,7 @@ def vote():
 
         try:
             db.execute("INSERT INTO votes(username, post_id, vote), VALUES(?,?,?)", session["user_name"], request.args.get("id"),
-                       request.args.get("vote"))
+                       request.values.get("vote"))
         except:
             print(session["user_name"], request.args.get("id"), request.values.get("vote"))
             return "An error occurred", 400

@@ -67,7 +67,7 @@ def index():
     followingList.append(session["user_name"])
     logging.warning(followingList)
 
-    posts = db.execute("""SELECT post, posts.id AS id, posts.creation_time, created_by, photo, title, FROM posts
+    posts = db.execute("""SELECT post, posts.id AS id, posts.creation_time, created_by, photo, title FROM posts
                         INNER JOIN users on username = created_by WHERE created_by IN (?) AND type != 'comment_post'
                         ORDER BY posts.creation_time DESC""",
                         followingList)

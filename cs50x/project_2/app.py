@@ -138,9 +138,12 @@ def follow(username):
         user = db.execute(
             "SELECT * FROM groups WHERE groupname = ?", username)
 
+        if not user:
+            return "Could not find user", 400
+
         try:
             db.execute("BEGIN")
-            db.execute("INSERT INTO users_followers(user, follower) VALUES(?,?)", session["user_name"], group_name)
+            db.execute("INSERT INTO users_followers(user, follower) VALUES(?,?)", username, session["user_name"])
             session["user_groups"].append({"groupname": group[0]["groupname"], "photo": group[0]["photo"]})
             db.execute("COMMIT")
         except(ValueError):

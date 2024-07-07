@@ -135,11 +135,11 @@ def follow(username):
 
     if username:
 
-        user = db.execute(
-            "SELECT * FROM groups WHERE groupname = ?", username)
+        # user = db.execute(
+        #     "SELECT * FROM groups WHERE groupname = ?", username)
 
-        if not user:
-            return "Could not find user", 400
+        # if not user:
+        #     return "Could not find user", 400
 
         try:
             db.execute("BEGIN")
@@ -149,8 +149,8 @@ def follow(username):
         except(ValueError):
             db.execute("ROLLBACK")
             db.execute("BEGIN")
-            db.execute("DELETE FROM users_groups WHERE user_name = ? AND group_name = ?", session["user_name"], group_name)
-            session["user_groups"].remove([x for x in session["user_groups"] if x["groupname"] == group[0]["groupname"]][0])
+            db.execute("DELETE FROM users_followers WHERE user = ? AND follower = ?", username, session["user_name"])
+            session["user_following"].remove([x for x in session["user_following"] if x["user"] == group[0]["groupname"]][0])
             db.execute("COMMIT")
             if group[0]["accessibility"] == "private":
                 return redirect(f"/feed/user/{session["user_name"]}")

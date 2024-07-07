@@ -78,6 +78,11 @@ function vote_on_post(vote) {
         data: {'vote': vote},
         success: function(response) {
             console.log(response)
+            document.getElementById("vote-loader").classList.remove('d-flex')
+            hide("vote-loader")
+            document.getElementById("vote-buttons").classList.add('d-flex')
+            show("vote-buttons")
+            document.getElementById("total-votes").innerHTML = response
         },
         error: function(error) {
             console.log(error);

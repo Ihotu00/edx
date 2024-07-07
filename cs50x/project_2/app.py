@@ -187,10 +187,11 @@ def vote():
         try:
             db.execute("INSERT INTO votes(username, post_id, vote) VALUES(?,?,?)", session["user_name"], request.args.get("id"),
                        request.form.get("vote"))
+            votes = db.execute("SELECT sum(vote) FROM votes WHERE post_id = ?", request.args.get("id"))
         except:
             print(session["user_name"], request.args.get("id"), request.form.get("vote"))
             return "An error occurred", 400
-        return "Success", 200
+        return votes, 200
 
 
 @app.route("/login", methods=["GET", "POST"])

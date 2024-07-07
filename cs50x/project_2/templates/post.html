@@ -19,9 +19,11 @@ Post blogs and join message boards
     </div>
     <div class="p-2 mt-3">{{ post["post"]}}</div>
     <div class="d-flex p-2 justify-content-end align-items-center mb-3">
-        <button class="btn btn-sm btn-outline-success material-symbols-outlined fs-1">arrow_circle_up</button>
-        <p class="mb-0 fs-3 mx-2">{{ post["rating"]}}</p>
-        <button class="btn btn-sm btn-outline-danger material-symbols-outlined fs-1">arrow_circle_down</button>
+        <button class="btn btn-sm btn-outline-success material-symbols-outlined fs-1" onClick="vote_on_post(1)">
+            arrow_circle_up</button>
+        <p class="mb-0 fs-3 mx-2">{{ post["votes"]}}</p>
+        <button class="btn btn-sm btn-outline-danger material-symbols-outlined fs-1" onClick="vote_on_post(-1)">
+            arrow_circle_down</button>
     </div>
     <div class="fs-3 mx-auto">Comments({{post["comments_count"]}})</div>
     <div class="py-3 mx-auto col-md-7 my-3" id="comment-button" onClick="show('comment-form'); hide('comment-button')">

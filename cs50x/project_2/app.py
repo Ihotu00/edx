@@ -88,7 +88,7 @@ def home():
 def profile(username):
 
     posts = db.execute("""SELECT post, posts.id AS id, posts.creation_time, created_by, photo, title, rating FROM posts
-                        INNER JOIN users on username = created_by WHERE created_by IN = ? ORDER BY posts.creation_time DESC""",
+                        INNER JOIN users on username = created_by WHERE created_by = ? ORDER BY posts.creation_time DESC""",
                         username)
     header = {"name": username, "photo": posts[0]["photo"]}
     header["is_followed"] = "true" if header["name"] in [following["user"] for following in session["user_following"]] else "false"

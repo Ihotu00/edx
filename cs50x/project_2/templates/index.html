@@ -17,7 +17,7 @@ Post blogs and join message boards
             </div>
         </div>
         <div class="col-md-2 my-3 d-flex align-items-end justify-content-center">
-            {% if header["is_followed"] %}
+            {% if header["is_followed"] and header["name"] != session["user_name"] %}
             <div class="spinner-border hide" style="width: 3rem; height: 3rem;" role="status"
                 id="join-group-loader">
             </div>

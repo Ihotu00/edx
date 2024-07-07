@@ -188,7 +188,7 @@ def vote():
             db.execute("INSERT INTO votes(username, post_id, vote), VALUES(?,?,?)", session["user_name"], request.args.get("id"),
                        request.form.get("vote"))
         except:
-            logging.warning(session["user_name"], request.args.get("id"), request.form.get("vote"))
+            print(session["user_name"], request.args.get("id"), request.form.get("vote"))
             return "An error occurred", 400
         return "Success", 200
 

@@ -65,13 +65,29 @@ function create_post(event, type, id) {
 }
 
 function vote_on_post(vote) {
-    console.log(vote)
     const params = new URLSearchParams(location.search)
-    console.log(params.get('id'))
+    id = params.get('id')
     document.getElementById("vote-loader").classList.add('d-flex')
     show("vote-loader")
     document.getElementById("vote-buttons").classList.remove('d-flex')
     hide("vote-buttons")
+    $.ajax({
+        url: id != null ? `/post/submit?id=${id}` : `/post/submit`,
+        type: 'POST',
+        contentType: 'application/json',
+        data: vote,
+        success: function(response) {
+            console.log(response)
+        },
+        error: function(error) {
+            console.log(error);
+            document.getElementById("vote-loader").classList.remove('d-flex')
+            hide("vote-loader")
+            document.getElementById("vote-buttons").classList.add('d-flex')
+            show("vote-buttons")
+            create_alert("vote-response", `${error.responseText}`, 'danger', 'error')
+        }
+    });
 }
 
 function login(event, url) {

@@ -137,7 +137,7 @@ def post():
                 return f"{id}", 200
 
     else:
-        post = db.execute("""SELECT posts.id, posts.created_by, post, posts.creation_time AS creation_time, photo,
+        post = db.execute("""SELECT posts.id AS id, posts.created_by, post, posts.creation_time AS creation_time, photo,
                           (SELECT sum(vote) FROM votes WHERE post_id = posts.id) AS votes, type,
                           (SELECT COUNT(*) FROM comments WHERE post_id = posts.id) AS comments_count FROM posts
                           INNER JOIN users on username = created_by WHERE posts.id = ?""", request.args.get('id'))
@@ -149,11 +149,15 @@ def post():
 
 
         if post[0]["type"] == 'comment_post':
-            post = db.execute("""SELECT posts.id, posts.created_by, post, posts.creation_time AS creation_time, photo,
+            post = db.execute("""SELECT posts.id AS id, posts.created_by, post, posts.creation_time AS creation_time, photo,
                           (SELECT sum(vote) FROM votes WHERE post_id = posts.id) AS votes,
                           (SELECT COUNT(*) FROM comments WHERE post_id = posts.id) AS comments_count FROM posts
                           INNER JOIN comments on comment_id = ?
                           INNER JOIN users on username = created_by WHERE posts.id = post_id""", request.args.get('id'))
+
+
+        comments = db.execute("SELECT *, (SELECT COUNT(*)) AS count FROM posts INNER JOIN comments ON comment_id = id WHERE post_id = ?", post[0["id"]])
+
 
 
         for comment in comments:

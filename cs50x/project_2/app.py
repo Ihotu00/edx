@@ -148,8 +148,8 @@ def login():
             session["user_id"] = rows[0]["id"]
             session["user_photo"] = rows[0]["photo"]
             session["user_name"] = rows[0]["username"]
-            session["user_groups"] = db.execute(
-                "SELECT groupname, photo FROM groups INNER JOIN users_groups on groups.groupname = users_groups.group_name WHERE users_groups.user_name = ? ORDER BY users_groups.creation_time DESC", session["user_name"])
+            # session["user_groups"] = db.execute(
+            #     "SELECT groupname, photo FROM groups INNER JOIN users_groups on groups.groupname = users_groups.group_name WHERE users_groups.user_name = ? ORDER BY users_groups.creation_time DESC", session["user_name"])
 
             return "Login Successful", 200
 

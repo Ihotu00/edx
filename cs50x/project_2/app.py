@@ -144,7 +144,7 @@ def follow(username):
         try:
             db.execute("BEGIN")
             db.execute("INSERT INTO users_followers(user, follower) VALUES(?,?)", username, session["user_name"])
-            session["user_groups"].append({"user": user[0]["username"], "photo": user[0]["photo"]})
+            session["user_following"].append({"user": user[0]["username"], "photo": user[0]["photo"]})
             db.execute("COMMIT")
         except(ValueError):
             db.execute("ROLLBACK")

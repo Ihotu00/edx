@@ -64,10 +64,10 @@ function create_post(event, type, id) {
     });
 }
 
-function vote_on_post(vote) {
+function vote_on_post(vote, id) {
     console.log(vote)
-    const params = new URLSearchParams(location.search)
-    id = params.get('id')
+    // const params = new URLSearchParams(location.search)
+    // id = params.get('id')
     document.getElementById("vote-loader").classList.add('d-flex')
     show("vote-loader")
     document.getElementById("vote-buttons").classList.remove('d-flex')

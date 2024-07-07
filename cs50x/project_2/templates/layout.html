@@ -114,11 +114,18 @@
                         <div class="card-header">
                             <h5 class="text-white-50">FOLLOWING</h5>
                         </div>
-                        <a class="btn btn-dark btn-lg text-start" type="button" data-bs-toggle="modal"
-                            data-bs-target="#add-group-modal" aria-controls="add-group-label">
-                            <h5><span class="material-icons">add</span>Create Group</h5>
-                        </a>
                         {% for following in session["user_following"] %}
+                        <a class="btn btn-dark btn-lg text-start text-break" href="/profile/{{following['username']}}"
+                            type="button">
+                            <h5 class="text-wrap"><img src='{{ following["photo"]}}' width="30" height="30"
+                                    style="clip-path: circle()" class="me-1" />{{
+                                following["username"] }}</h5>
+                        </a>
+                        <hr>
+                        <div class="card-header">
+                            <h5 class="text-white-50">FOLLOWERS</h5>
+                        </div>
+                        {% for followers in session["user_followers"] %}
                         <a class="btn btn-dark btn-lg text-start text-break" href="/profile/{{following['username']}}"
                             type="button">
                             <h5 class="text-wrap"><img src='{{ following["photo"]}}' width="30" height="30"

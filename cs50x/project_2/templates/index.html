@@ -5,6 +5,36 @@ Post blogs and join message boards
 {% endblock %}
 
 {% block main %}
+{% if header %}
+<div class="card text-bg-dark mb-3 mt-5">
+    <div class="row g-0">
+        <div class="col-md-4" style="max-height: 200px;">
+            <img src='{{ header[0]["photo"] }}' class="img-fluid rounded-start h-100 w-100">
+        </div>
+        <div class="col-md-6 mt-3 d-flex align-items-end mt-3">
+            <div class="mb-0 card-title text-start fs-1 text-break">
+                <p class="text-wrap fs-1 mb-auto">{{ header[0]["name"] }}</p>
+            </div>
+        </div>
+        <div class="col-md-2 my-3 d-flex align-items-end justify-content-center">
+            {% if header[0]["is_member"] %}
+            <div class="spinner-border hide" style="width: 3rem; height: 3rem;" role="status"
+                id="join-group-loader">
+            </div>
+            <form action="/join/{{header[0]['name']}}" method="post" id="join-group-form"
+                onSubmit="show('join-group-loader') & hide('join-group-form')">
+                {% if header[0]["is_member"] == "true" %}
+                <input class="btn btn-lg btn-outline-secondary rounded-pill" type="submit" value="Joined" />
+                {% elif header[0]["is_member"] == "false" and header[0]["accessibility"] == "public" %}
+                <input class="btn btn-lg btn-outline-secondary rounded-pill" type="submit" value="Join" />
+                {% endif %}
+            </form>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endif %}
+
 {% if posts | length == 0 %}
 <div class="center mt-5">
     <h1 class="text-white-50" style="font-size: 15cqb;">Looks like there are no posts yet...</h1>

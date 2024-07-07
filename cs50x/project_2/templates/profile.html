@@ -47,7 +47,7 @@ Post blogs and join message boards
                     <div class="card-header text-start">
                         <p class="mb-0 text-truncate">{{ post["title"] if post["title"] }}</p>
                     </div>
-                    <a href="/post/{{post['group_name'] if post['group_name'] else post['user_name']}}?id={{post.id}}" class="text-light text-decoration-none">
+                    <a href="/post?id={{post.id}}" class="text-light text-decoration-none">
                         <div class="card-body text-truncate text-start">
                         {{ post["post"] }}
                     </div></a>

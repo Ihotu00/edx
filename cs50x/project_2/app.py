@@ -63,9 +63,11 @@ def after_request(response):
 @login_required
 def index(client, client_name):
 
-    posts = db.execute("""SELECT post, posts.id AS id, posts.creation_time, created_by, photo FROM posts
-                        INNER JOIN users on username = created_by WHERE (created_by = ? OR created_by IN (?)) AND type != 'comment_post'""",
-                        client_name, [following["user"] for following in session["user_following"]])
+    # posts = db.execute("""SELECT post, posts.id AS id, posts.creation_time, created_by, photo FROM posts
+    #                     INNER JOIN users on username = created_by WHERE created_by IN ? AND type != 'comment_post'""",
+    #                     ([following["user"] for following in session["user_following"]], session["user_name"]))
+
+    logging.warning(([following["user"] for following in session["user_following"]], session["user_name"]))
 
     return render_template("index.html", posts=posts)
 

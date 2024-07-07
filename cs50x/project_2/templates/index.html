@@ -15,9 +15,9 @@ Post blogs and join message boards
     {% for post in posts %}
     <div class="col">
         <div class="card text-bg-dark hover">
-            <div class="card-header text-start d-flex flex-row">
-                <p>{{ post["title"] if post["title"] }}</p>
-                <a class="btn btn-sm btn-dark rounded-pill"
+            <div class="card-header text-start d-flex flex-row align-items-center">
+                <p class="mb-0">{{ post["title"] if post["title"] }}</p>
+                <a class="btn btn-sm btn-dark rounded-pill ms-auto"
                     href="/feed/{{post['created_by']}}"><img
                         src='{{ post["photo"]}}' style="clip-path: circle();" width="25" height="25" />
                     {{ post["created_by"] }}

@@ -135,28 +135,25 @@ def follow(username):
 
     if username:
 
-        # user = db.execute(
-        #     "SELECT * FROM groups WHERE groupname = ?", username)
+        user = db.execute(
+            "SELECT * FROM users WHERE username = ?", username)
 
-        # if not user:
-        #     return "Could not find user", 400
+        if not user:
+            return "Could not find user", 400
 
         try:
             db.execute("BEGIN")
             db.execute("INSERT INTO users_followers(user, follower) VALUES(?,?)", username, session["user_name"])
-            session["user_groups"].append({"groupname": group[0]["groupname"], "photo": group[0]["photo"]})
+            session["user_groups"].append({"user": user[0]["username"], "photo": user[0]["photo"]})
             db.execute("COMMIT")
         except(ValueError):
             db.execute("ROLLBACK")
             db.execute("BEGIN")
             db.execute("DELETE FROM users_followers WHERE user = ? AND follower = ?", username, session["user_name"])
-            session["user_following"].remove([x for x in session["user_following"] if x["user"] == group[0]["groupname"]][0])
+            session["user_following"].remove([x for x in session["user_following"] if x["user"] == user[0]["username"]][0])
             db.execute("COMMIT")
-            if group[0]["accessibility"] == "private":
-                return redirect(f"/feed/user/{session["user_name"]}")
 
-
-        return redirect(f"/feed/group/{group_name}")
+        return redirect(f"/feed/{username}")
 
 
 @app.route("/login", methods=["GET", "POST"])

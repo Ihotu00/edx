@@ -83,6 +83,19 @@ def home():
     return render_template("index.html", posts=posts)
 
 
+@app.route("/profile/<username>")
+@login_required
+def profile(username):
+
+    posts = db.execute("""SELECT post, posts.id AS id, posts.creation_time, created_by, photo, title, rating FROM posts
+                        INNER JOIN users on username = created_by WHERE created_by IN (?) AND type != 'comment_post'
+                        ORDER BY posts.creation_time DESC""",
+                        username)
+
+    return render_template("index.html", posts=posts)
+
+
+
 @app.route("/post")
 @app.route("/post/submit", methods=["POST"])
 @login_required

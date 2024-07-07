@@ -75,7 +75,6 @@ function vote_on_post(vote) {
     $.ajax({
         url: `/vote?id=${id}`,
         type: 'POST',
-        contentType: 'text',
         data: {'vote': vote},
         success: function(response) {
             console.log(response)

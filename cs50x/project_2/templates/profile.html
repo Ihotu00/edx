@@ -43,7 +43,7 @@ Post blogs and join message boards
         <div class="row row-cols-lg-4 rol-cols-sm-2 g-2 mt-5" id="posts">
             {% for post in posts %}{% if post["type"] == 'original_post' %}
             <div class="col">
-                <div class="card text-bg-dark hover">
+                <div class="card text-bg-dark hover h-100">
                     <div class="card-header text-start">
                         <p class="mb-0 text-truncate">{{ post["title"] if post["title"] }}</p>
                     </div>
@@ -59,6 +59,27 @@ Post blogs and join message boards
             {% endif %}{% endfor %}
         </div>
     </div>
-    <div class="tab-pane fade" id="commentd" role="tabpanel" aria-labelledby="comments-tab" tabindex="0">...</div>
+    <div class="tab-pane fade" id="commentd" role="tabpanel" aria-labelledby="comments-tab" tabindex="0">
+        <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab" tabindex="0">
+            <div class="row row-cols-lg-4 rol-cols-sm-2 g-2 mt-5" id="posts">
+                {% for post in posts %}{% if post["type"] == 'comment_post' %}
+                <div class="col">
+                    <div class="card text-bg-dark hover h-100">
+                        <div class="card-header text-start">
+                            <p class="mb-0 text-truncate">{{ post["title"] if post["title"] }}</p>
+                        </div>
+                        <a href="/post?id={{post.id}}" class="text-light text-decoration-none">
+                            <div class="card-body text-truncate text-start">
+                            {{ post["post"] }}
+                        </div></a>
+                        <div class="card-footer text-end" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ post['creation_time'] | time}}" >
+                            {{ post["creation_time"] | date }}
+                        </div>
+                    </div>
+                </div>
+                {% endif %}{% endfor %}
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

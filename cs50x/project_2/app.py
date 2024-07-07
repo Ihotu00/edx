@@ -64,10 +64,10 @@ def after_request(response):
 def index(client, client_name):
 
     posts = db.execute("""SELECT post, posts.id AS id, posts.creation_time, created_by, photo FROM posts
-                        INNER JOIN users on username = group_name WHERE (user_name = ? OR group_name IN (?)) AND type != 'comment_post'""",
+                        INNER JOIN users on username = created_by WHERE (created_by = ? OR group_name IN (?)) AND type != 'comment_post'""",
                         client_name, [following["user"] for following in session["user_following"]])
 
-    return render_template("index.html")
+    return render_template("index.html", posts=posts)
 
 
 

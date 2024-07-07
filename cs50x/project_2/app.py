@@ -91,7 +91,7 @@ def profile(username):
                         INNER JOIN users on username = created_by WHERE created_by IN = ? ORDER BY posts.creation_time DESC""",
                         username)
 
-    return render_template("index.html", posts=posts)
+    return render_template("index.html", posts=posts, header=True)
 
 
 

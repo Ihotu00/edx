@@ -68,7 +68,8 @@ def index():
     logging.warning(followingList)
 
     posts = db.execute("""SELECT post, posts.id AS id, posts.creation_time, created_by, photo FROM posts
-                        INNER JOIN users on username = created_by WHERE created_by IN (?) AND type != 'comment_post'""",
+                        INNER JOIN users on username = created_by WHERE created_by IN (?) AND type != 'comment_post'
+                        ORDER BY posts.creation_time DESC""",
                         followingList)
 
     return render_template("index.html", posts=posts)

@@ -67,9 +67,9 @@ def index(client, client_name):
     #                     INNER JOIN users on username = created_by WHERE created_by IN ? AND type != 'comment_post'""",
     #                     ([following["user"] for following in session["user_following"]], session["user_name"]))
 
-    logging.warning(([following["user"] for following in session["user_following"]], session["user_name"]))
+    logging.warning([following["user"] for following in session["user_following"]].append(session["user_name"]))
 
-    return render_template("index.html", posts=posts)
+    return render_template("index.html")
 
 
 

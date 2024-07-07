@@ -74,6 +74,14 @@ def index():
 
     return render_template("index.html", posts=posts)
 
+@app.route("/home")
+@login_required
+def home():
+
+    posts = db.execute("""SELECT post, posts.id AS id, posts.creation_time, created_by, photo, title, rating FROM posts
+                        INNER JOIN users on username = created_by WHERE type != 'comment_post' ORDER BY rating DESC""")
+
+    return render_template("index.html", posts=posts)
 
 
 @app.route("/post")

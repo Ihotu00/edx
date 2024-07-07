@@ -152,7 +152,7 @@ def login():
                 """SELECT username, photo FROM users INNER JOIN users_followers on username = user WHERE follower = ?
                 ORDER BY users_followers.creation_time DESC""", session["user_name"])
             session["user_followers"] = db.execute(
-                """SELECT username, photo FROM users INNER JOIN users_followers on username = folower WHERE user = ?
+                """SELECT username, photo FROM users INNER JOIN users_followers on username = follower WHERE user = ?
                 ORDER BY users_followers.creation_time DESC""", session["user_name"])
 
             return "Login Successful", 200

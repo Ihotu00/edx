@@ -52,12 +52,12 @@ Post blogs and join message boards
                     {{ post["user_name"] if not post["group_name"] else post["group_name"] }}
                 </a>
             </div>
-            <a href="/post/{{post['user_name'] if not post['group_name'] else post['group_name']}}?id={{post.id}}" class="text-light text-decoration-none">
+            <a href="/post?id={{post.id}}" class="text-light text-decoration-none">
                 <div class="card-body text-truncate text-start">
                 {{ post["post"] }}
             </div></a>
-            <div class="card-footer text-end" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ post['creation_time'] | time}}" >
-                {{ post["creation_time"] | date }}
+            <div class="card-footer text-end">
+                {{ post["creation_time"] | time_ago }}
             </div>
         </div>
     </div>

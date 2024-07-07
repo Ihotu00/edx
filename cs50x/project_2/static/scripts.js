@@ -75,7 +75,6 @@ function vote_on_post(vote) {
     $.ajax({
         url: `/vote?id=${id}`,
         type: 'POST',
-        dataType: int,
         data: {'vote': vote},
         success: function(response) {
             document.getElementById("vote-loader").classList.remove('d-flex')

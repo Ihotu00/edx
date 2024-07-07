@@ -59,9 +59,9 @@ def after_request(response):
     return response
 
 
-@app.route("/feed/<client>/<client_name>")
+@app.route("/")
 @login_required
-def index(client, client_name):
+def index():
 
     followingList = [following["user"] for following in session["user_following"]]
     followingList.append(session["user_name"])
@@ -128,7 +128,6 @@ def post():
         return render_template("post.html", post=post[0], comments=comments)
 
 
-@app.route("/", methods=["GET", "POST"])
 @app.route("/login", methods=["GET", "POST"])
 def login():
     """Log user in"""

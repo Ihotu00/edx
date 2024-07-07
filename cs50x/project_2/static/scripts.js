@@ -75,7 +75,7 @@ function vote_on_post(vote) {
         url: `/vote?id=${id}`,
         type: 'POST',
         contentType: 'application/json',
-        data: vote,
+        data: {'vote': vote},
         success: function(response) {
             console.log(response)
         },

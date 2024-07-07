@@ -157,7 +157,7 @@ def post():
 
 
         comments = db.execute("SELECT *, (SELECT COUNT(*)) AS count FROM posts INNER JOIN comments ON comment_id = id WHERE post_id = ?", post[0]["id"])
-        hash =f"{post[0]['id']}"
+        hash =f"{request.args.get('id')}"
 
 
         for comment in comments:

@@ -67,7 +67,8 @@ def index():
     followingList.append(session["user_name"])
     logging.warning(followingList)
 
-    posts = db.execute("""SELECT post, posts.id AS id, posts.creation_time, created_by, photo, title, rating FROM posts
+    posts = db.execute("""SELECT post, posts.id AS id, posts.creation_time, created_by, photo, title,
+                       (SELECT sum(vote) FROM votes) AS rating FROM posts INNER JOIN votes on post_id = posts.id FROM posts
                         INNER JOIN users on username = created_by WHERE created_by IN (?) AND type != 'comment_post'
                         ORDER BY posts.creation_time DESC""",
                         followingList)
@@ -77,7 +78,8 @@ def index():
 @app.route("/homepage")
 def home():
 
-    posts = db.execute("""SELECT post, posts.id AS id, posts.creation_time, created_by, photo, title, rating FROM posts
+    posts = db.execute("""SELECT post, posts.id AS id, posts.creation_time, created_by, photo, title,
+                       (SELECT sum(vote) FROM votes) AS rating FROM posts INNER JOIN votes on post_id = posts.id FROM posts
                         INNER JOIN users on username = created_by WHERE type != 'comment_post' ORDER BY rating DESC""")
 
     return render_template("index.html", posts=posts)
@@ -87,7 +89,8 @@ def home():
 @login_required
 def profile(username):
 
-    posts = db.execute("""SELECT post, posts.id AS id, posts.creation_time, created_by, photo, title, rating FROM posts
+    posts = db.execute("""SELECT post, posts.id AS id, posts.creation_time, created_by, photo, title,
+                       (SELECT sum(vote) FROM votes) AS rating FROM posts INNER JOIN votes on post_id = posts.id
                         INNER JOIN users on username = created_by WHERE created_by = ? ORDER BY posts.creation_time DESC""",
                         username)
     header = {"name": username, "photo": posts[0]["photo"]}
@@ -136,7 +139,8 @@ def post():
                 return f"{id}", 200
 
     else:
-        post = db.execute("""SELECT posts.id, posts.created_by, post, posts.creation_time AS creation_time, photo, rating,
+        post = db.execute("""SELECT posts.id, posts.created_by, post, posts.creation_time AS creation_time, photo,
+                          (SELECT sum(vote) FROM votes) AS rating FROM posts INNER JOIN votes on post_id = posts.id,
                           (SELECT COUNT(*) FROM comments WHERE post_id = posts.id) AS comments_count FROM posts
                           INNER JOIN users on username = created_by WHERE posts.id = ?""", request.args.get('id'))
 

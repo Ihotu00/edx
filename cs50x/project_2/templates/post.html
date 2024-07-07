@@ -12,7 +12,7 @@ Post blogs and join message boards
             height="50" width="50"></span>
 
             <div class="text-start lh-sm mb-auto text-break me-2">
-                <a href="/feed/{{ post['created_by'] }}">
+                <a href="/profile/{{ post['created_by'] }}">
                     <p class="fs-5 mb-auto text-light text-wrap">{{ post["created_by"] }}</p></a>
             </div>
             <li class="ms-3 text-end" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ post['creation_time'] | time }}">{{ post["creation_time"] | date }}</li>

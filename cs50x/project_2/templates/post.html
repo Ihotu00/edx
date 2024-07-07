@@ -52,7 +52,7 @@ Post blogs and join message boards
     </form>
     <div class="mx-auto col-md-7">
         {% for comment in comments %}
-        <div class="p-3 text-bg-dark border mb-3">
+        <div class="p-3 text-bg-dark border mb-3" id="{{ comment['id']}}">
             <div class="card-header text-start mb-3 d-flex align-items-center">
                 <a class="btn btn-sm btn-dark rounded-pill me-2"
                     href="/feed/user/{{comment['created_by']}}"><img class="me-2"

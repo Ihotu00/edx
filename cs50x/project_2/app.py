@@ -185,7 +185,7 @@ def follow(username):
 def vote():
 
         try:
-            db.execute("INSERT INTO votes(username, post_id, vote), VALUES(?,?,?)", session["user_name"], request.args.get("id"),
+            db.execute("INSERT INTO votes(username, post_id, vote) VALUES(?,?,?)", session["user_name"], request.args.get("id"),
                        request.form.get("vote"))
         except:
             print(session["user_name"], request.args.get("id"), request.form.get("vote"))

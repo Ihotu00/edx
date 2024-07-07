@@ -141,6 +141,11 @@ def post():
                           (SELECT sum(vote) FROM votes WHERE post_id = posts.id) AS votes,
                           (SELECT COUNT(*) FROM comments WHERE post_id = posts.id) AS comments_count FROM posts
                           INNER JOIN users on username = created_by WHERE posts.id = ?""", request.args.get('id'))
+        if not post:
+            return "Could not find post", 400
+
+        comments = db.execute("SELECT *, (SELECT COUNT(*)) AS count FROM posts INNER JOIN comments ON comment_id = id WHERE post_id = ?", request.args.get('id'))
+
 
         if post[0]["type"] == 'comment_post':
             post = db.execute("""SELECT posts.id, posts.created_by, post, posts.creation_time AS creation_time, photo,
@@ -148,10 +153,6 @@ def post():
                           (SELECT COUNT(*) FROM comments WHERE post_id = posts.id) AS comments_count FROM posts
                           INNER JOIN users on username = created_by WHERE posts.id = ?""")
 
-        if not post:
-            return "Could not find post", 400
-
-        comments = db.execute("SELECT *, (SELECT COUNT(*)) AS count FROM posts INNER JOIN comments ON comment_id = id WHERE post_id = ?", request.args.get('id'))
 
         for comment in comments:
             comment["photo"] = (db.execute("SELECT photo FROM users WHERE username = ?", comment["created_by"]))[0]["photo"]

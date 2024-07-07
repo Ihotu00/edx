@@ -18,8 +18,9 @@ Post blogs and join message boards
             <li class="ms-3 text-end" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ post['creation_time'] | time }}">{{ post["creation_time"] | date }}</li>
     </div>
     <div class="p-2 mt-3">{{ post["post"]}}</div>
-    <div class="d-flex p-2 justify-content-end me-5">
+    <div class="d-flex p-2 justify-content-end mb-3">
         <span class="material-symbols-outlined fs-1 me-1">arrow_circle_up</span>
+        <p>{{ post["rating"]}}</p>
         <span class="material-symbols-outlined fs-1">arrow_circle_down</span>
     </div>
     <div class="fs-3 mx-auto">Comments({{post["comments_count"]}})</div>

@@ -68,7 +68,7 @@ def index():
     logging.warning(followingList)
 
     posts = db.execute("""SELECT post, posts.id AS id, posts.creation_time, created_by, photo, title,
-                       (SELECT sum(vote) FROM votes WHERE post_id = posts.id) AS votes, FROM posts
+                       (SELECT sum(vote) FROM votes WHERE post_id = posts.id) AS votes FROM posts
                         INNER JOIN users on username = created_by WHERE created_by IN (?) AND type != 'comment_post'
                         ORDER BY posts.creation_time DESC""",
                         followingList)
@@ -79,7 +79,7 @@ def index():
 def home():
 
     posts = db.execute("""SELECT post, posts.id AS id, posts.creation_time, created_by, photo, title,
-                       (SELECT sum(vote) FROM votes WHERE post_id = posts.id) AS votes, FROM posts
+                       (SELECT sum(vote) FROM votes WHERE post_id = posts.id) AS votes FROM posts
                         INNER JOIN users on username = created_by WHERE type != 'comment_post' ORDER BY votes DESC""")
 
     return render_template("index.html", posts=posts)
@@ -90,7 +90,7 @@ def home():
 def profile(username):
 
     posts = db.execute("""SELECT post, posts.id AS id, posts.creation_time, created_by, photo, title,
-                       (SELECT sum(vote) FROM votes WHERE post_id = posts.id) AS votes, FROM posts
+                       (SELECT sum(vote) FROM votes WHERE post_id = posts.id) AS votes FROM posts
                         INNER JOIN users on username = created_by WHERE created_by = ? ORDER BY posts.creation_time DESC""",
                         username)
     header = {"name": username, "photo": posts[0]["photo"]}

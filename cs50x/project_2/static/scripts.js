@@ -66,8 +66,9 @@ function create_post(event, type, id) {
 
 function vote_on_post(vote) {
     console.log(vote)
-    post_id = location.search.substring(1);
-    console.log(post_id)
+    const params = new URLSearchParams(location.search)
+
+    console.log(params.get('id'))
 }
 
 function login(event, url) {

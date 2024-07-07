@@ -174,7 +174,7 @@ def follow(username):
             session["user_following"].remove([x for x in session["user_following"] if x["user"] == user[0]["username"]][0])
             db.execute("COMMIT")
 
-        return redirect(f"/feed/{username}")
+        return redirect(f"/profile/{username}")
 
 
 @app.route("/login", methods=["GET", "POST"])

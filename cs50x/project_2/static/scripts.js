@@ -72,7 +72,7 @@ function vote_on_post(vote) {
     document.getElementById("vote-buttons").classList.remove('d-flex')
     hide("vote-buttons")
     $.ajax({
-        url: id != null ? `/post/submit?id=${id}` : `/post/submit`,
+        url: `/vote?id=${id}`,
         type: 'POST',
         contentType: 'application/json',
         data: {'vote': vote},

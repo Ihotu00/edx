@@ -41,7 +41,7 @@ Post blogs and join message boards
 <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab" tabindex="0">
         <div class="row row-cols-lg-4 rol-cols-sm-2 g-2 mt-5" id="posts">
-            {% for post in posts %}
+            {% for post in posts %}{% if post["type"] == 'original_post' %}
             <div class="col">
                 <div class="card text-bg-dark hover">
                     <div class="card-header text-start">
@@ -56,7 +56,7 @@ Post blogs and join message boards
                     </div>
                 </div>
             </div>
-            {% endfor %}
+            {% endif %}{% endfor %}
         </div>
     </div>
     <div class="tab-pane fade" id="commentd" role="tabpanel" aria-labelledby="comments-tab" tabindex="0">...</div>

@@ -156,7 +156,7 @@ def post():
                           INNER JOIN users on username = created_by WHERE posts.id = post_id""", request.args.get('id'))
 
 
-        comments = db.execute("SELECT *, (SELECT COUNT(*)) AS count FROM posts INNER JOIN comments ON comment_id = id WHERE post_id = ?", post[0["id"]])
+        comments = db.execute("SELECT *, (SELECT COUNT(*)) AS count FROM posts INNER JOIN comments ON comment_id = id WHERE post_id = ?", post[0]["id"])
 
 
 

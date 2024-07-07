@@ -129,6 +129,33 @@ def post():
         return render_template("post.html", post=post[0], comments=comments)
 
 
+@app.route("/follow/<username>", methods=["POST"])
+@login_required
+def follow(username):
+
+    if username:
+
+        user = db.execute(
+            "SELECT * FROM groups WHERE groupname = ?", username)
+
+        try:
+            db.execute("BEGIN")
+            db.execute("INSERT INTO users_followers(user, follower) VALUES(?,?)", session["user_name"], group_name)
+            session["user_groups"].append({"groupname": group[0]["groupname"], "photo": group[0]["photo"]})
+            db.execute("COMMIT")
+        except(ValueError):
+            db.execute("ROLLBACK")
+            db.execute("BEGIN")
+            db.execute("DELETE FROM users_groups WHERE user_name = ? AND group_name = ?", session["user_name"], group_name)
+            session["user_groups"].remove([x for x in session["user_groups"] if x["groupname"] == group[0]["groupname"]][0])
+            db.execute("COMMIT")
+            if group[0]["accessibility"] == "private":
+                return redirect(f"/feed/user/{session["user_name"]}")
+
+
+        return redirect(f"/feed/group/{group_name}")
+
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     """Log user in"""

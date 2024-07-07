@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Post blogs and join message boards
+{% endblock %}
+
+{% block main %}
+
+<div class="row mt-5 row-cols-lg-4 row-cols-sm-2 g-2">
+    {% for group in groups %}
+    <div class="col">
+        <div class=" d-flex flex-row card card-body text-bg-dark h-auto hover">
+            <span class="px-1 flex-shrink-0">
+                <img src='{{ group["photo"] }}' style="clip-path: circle()" class="object-fit-cover"
+            height="50" width="50"></span>
+
+            <p class="text-start lh-sm mb-auto text-truncate flex-grow-1">
+                <a class="text-light" href="/feed/group/{{group['name']}}">{{ group["name"] }}
+                </a><br>
+                Members: {{ group["members"] }}<br>Posts: {{ group["posts"] }}
+            </p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

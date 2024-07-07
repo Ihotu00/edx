@@ -71,8 +71,7 @@ def index(client, client_name):
                         INNER JOIN users on username = created_by WHERE created_by IN (?) AND type != 'comment_post'""",
                         followingList)
 
-
-    return render_template("index.html")
+    return render_template("index.html", posts=posts)
 
 
 

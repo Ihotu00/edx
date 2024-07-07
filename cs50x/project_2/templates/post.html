@@ -19,8 +19,9 @@ Post blogs and join message boards
             <li class="ms-3" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ post['creation_time'] | time }}">{{ post["creation_time"] | date }}</li>
     </div>
     <div class="p-2 my-3">{{ post["post"]}}</div>
+    <div class="fs-3 mx-auto my-3">Comments({{post["comments_count"]}})</div>
     <div class="py-3 mx-auto col-md-7" id="comment-button" onClick="show('comment-form'); hide('comment-button')">
-        <input placeholder="Add Comment" class="form-control text-bg-dark">
+        <input placeholder="Add Comment" class="form-control text-bg-dark" name="add-comment-placeholder">
     </div>
     <form onSubmit="create_post(event, 'comment_post','{{post.id}}')"  class="py-3 mx-auto w-75 hide" id="comment-form">
         <div class="position-relative mb-3">
@@ -37,7 +38,6 @@ Post blogs and join message boards
         </div>
         <div id="create-comment-response" name="response"></div>
     </form>
-    <div class="fs-3 mx-auto my-3">Comments({{post["comments_count"]}})</div>
     <div class="mx-auto col-md-7">
         {% for comment in comments %}
         <div class="p-3 text-bg-dark border mb-3">

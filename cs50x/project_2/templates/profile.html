@@ -41,15 +41,11 @@ Post blogs and join message boards
 <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab" tabindex="0">
         <div class="row row-cols-lg-4 rol-cols-sm-2 g-2 mt-5" id="posts">
-            {% for post in posts %}{% if post["type"] != 'comment' %}
+            {% for post in posts %}{% if post["type"] == 'original_post' %}
             <div class="col">
                 <div class="card text-bg-dark hover">
                     <div class="card-header text-start">
-                        <a class="btn btn-sm btn-dark rounded-pill"
-                            href="/feed/{{'group/'+post.group_name if post.group_name else 'user/'+post.user_name}}"><img
-                                src='{{ post["photo"]}}' style="clip-path: circle();" width="25" height="25" />
-                            {{ post["user_name"] if not post["group_name"] else post["group_name"] }}
-                        </a>
+                        <p class="mb-0 text-truncate">{{ post["title"] if post["title"] }}</p>
                     </div>
                     <a href="/post/{{post['group_name'] if post['group_name'] else post['user_name']}}?id={{post.id}}" class="text-light text-decoration-none">
                         <div class="card-body text-truncate text-start">

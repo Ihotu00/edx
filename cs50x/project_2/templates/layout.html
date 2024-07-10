@@ -144,8 +144,12 @@
                         <form onSubmit="create_post(event, 'original_post', null)">
                             <div class="modal-body">
                                 <div id="create-post-response" name="response"></div>
+                                <div class="mb-3">
+                                    <input class="form-control text-bg-dark h-100" autofocus id="post_title"
+                                        name="post-title" placeholder="Title"></input>
+                                </div>
                                 <div class="mb-3 h-100">
-                                    <textarea class="form-control text-bg-dark h-100" autofocus id="post_body" rows="15"
+                                    <textarea class="form-control text-bg-dark h-100" id="post_body" rows="15"
                                         name="post-body" placeholder="Write your post here"></textarea>
                                 </div>
                             </div>

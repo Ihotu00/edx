@@ -138,6 +138,7 @@ Post blogs and join message boards
                         <a href="/post?id={{post.id}}" class="text-light text-decoration-none">
                             <div class="card-body text-truncate text-start">
                             {{ post["post"] }}
+                            {{post}}
                         </div></a>
                         <div class="card-footer text-end" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ post['creation_time']}}" >
                             {{ post["creation_time"] }}

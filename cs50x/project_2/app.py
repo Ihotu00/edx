@@ -140,7 +140,7 @@ def post():
 
                 db.execute("INSERT INTO comments(post_id, comment_id) VALUES(?,?)", request.args.get('id'), id)
                 db.execute("COMMIT")
-                return f"{request.args.get('id')}", 200
+                return f"{id}", 200
 
             else:
                 db.execute("COMMIT")

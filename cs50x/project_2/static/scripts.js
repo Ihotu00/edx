@@ -41,28 +41,28 @@ function create_alert(parentId, message, type, icon) {
 function create_post(event, type, id) {
     console.log(event)
     event.preventDefault();
-    // show(event.target.loader_button.id)
-    // hide(event.target.submit_button.id)
-    // $.ajax({
-    //     url: id != null ? `/post/submit?id=${id}` : `/post/submit`,
-    //     type: 'POST',
-    //     contentType: 'application/json',
-    //     data: JSON.stringify({
-    //         'post_body': event.target.post_body.value,
-    //         'title': event.target.post_title.value
-    //         'type': type
-    //     }),
-    //     success: function(response) {
-    //         location.pathname = `/post`;
-    //         location.search = `?id=${response}`
-    //     },
-    //     error: function(error) {
-    //         console.log(error);
-    //         hide(event.target.loader_button.id)
-    //         show(event.target.submit_button.id)
-    //         create_alert(event.target.parentNode.querySelector("[name='response']").id, `${error.responseText}`, 'danger', 'error')
-    //     }
-    // });
+    show(event.target.loader_button.id)
+    hide(event.target.submit_button.id)
+    $.ajax({
+        url: id != null ? `/post/submit?id=${id}` : `/post/submit`,
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            'post_body': event.target.post_body.value,
+            'title': event.target.post_title.value
+            'type': type
+        }),
+        success: function(response) {
+            location.pathname = `/post`;
+            location.search = `?id=${response}`
+        },
+        error: function(error) {
+            console.log(error);
+            hide(event.target.loader_button.id)
+            show(event.target.submit_button.id)
+            create_alert(event.target.parentNode.querySelector("[name='response']").id, `${error.responseText}`, 'danger', 'error')
+        }
+    });
 }
 
 function vote_on_post(vote, id) {

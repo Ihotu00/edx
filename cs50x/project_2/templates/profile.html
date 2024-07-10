@@ -51,6 +51,11 @@ Post blogs and join message boards
     </ul>
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab" tabindex="0">
+            {% if posts | length == 0 %}
+            <div class="center mt-5">
+                <h1 class="text-white-50" style="font-size: 15cqb;">Looks like there are no posts yet...</h1>
+            </div>
+            {% endif %}
             <div class="row row-cols-lg-4 rol-cols-sm-2 g-2 mt-5" id="posts">
                 {% for post in posts %}{% if post["type"] == 'original_post' %}
                 <div class="col">
@@ -71,6 +76,11 @@ Post blogs and join message boards
             </div>
         </div>
         <div class="tab-pane fade" id="comments" role="tabpanel" aria-labelledby="comments-tab" tabindex="0">
+            {% if posts | length == 0 %}
+            <div class="center mt-5">
+                <h1 class="text-white-50" style="font-size: 15cqb;">Looks like there are no posts yet...</h1>
+            </div>
+            {% endif %}
             <div class="row row-cols-lg-4 rol-cols-sm-2 g-2 mt-5" id="posts">
                 {% for post in posts %}{% if post["type"] == 'comment_post' %}
                 <div class="col">

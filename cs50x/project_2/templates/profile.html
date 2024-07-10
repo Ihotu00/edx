@@ -49,7 +49,7 @@ Post blogs and join message boards
                         </div>
                         <a href="/post?id={{post.id}}" class="card-body text-light text-decoration-none">
                             <div class="text-truncate text-start">
-                            {{ post["post"] }}
+                            {{ post["post"] if post.post else "The title" }}
                         </div></a>
                         <div class="card-footer text-end" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ post['creation_time'] | time}}" >
                             {{ post["creation_time"] | date }}

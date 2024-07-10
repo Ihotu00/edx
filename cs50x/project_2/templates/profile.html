@@ -102,7 +102,7 @@ Post blogs and join message boards
                 {% endfor %}
             </div>
         </div>
-        <div class="tab-pane fade" id="upvoted" role="tabpanel" aria-labelledby="followers-tab" tabindex="0">
+        <div class="tab-pane fade" id="upvoted" role="tabpanel" aria-labelledby="upvoted-tab" tabindex="0">
             <div class="row row-cols-lg-4 rol-cols-sm-2 g-2 mt-5" id="posts">
                 {% for post in votes %}{% if post["vote"] == 1 %}
                 <div class="col">
@@ -122,7 +122,7 @@ Post blogs and join message boards
                 {% endif %}{% endfor %}
             </div>
         </div>
-        <div class="tab-pane fade" id="downvoted" role="tabpanel" aria-labelledby="followers-tab" tabindex="0">
+        <div class="tab-pane fade" id="downvoted" role="tabpanel" aria-labelledby="downvoted-tab" tabindex="0">
             <div class="row row-cols-lg-4 rol-cols-sm-2 g-2 mt-5" id="posts">
                 {% for post in votes %}{% if post["vote"] == -1 %}
                 <div class="col">

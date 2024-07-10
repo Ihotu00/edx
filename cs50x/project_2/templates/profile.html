@@ -124,6 +124,11 @@ Post blogs and join message boards
                 <div class="card text-bg-dark hover h-100">
                     <div class="card-header text-start">
                         <p class="mb-0 text-truncate">{{ post["title"] if post["title"] }}</p>
+                        <a class="btn btn-sm btn-dark rounded-pill ms-auto"
+                            href="/profile/{{post['created_by']}}"><img
+                                src='{{ post["photo"]}}' style="clip-path: circle();" width="25" height="25" />
+                            {{ post["created_by"] }}
+                        </a>
                     </div>
                     <a href="/post?id={{post.id}}" class="text-light text-decoration-none">
                         <div class="card-body text-truncate text-start">

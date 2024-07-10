@@ -100,52 +100,52 @@ Post blogs and join message boards
                         src='{{ follower["photo"]}}' style="clip-path: circle();" width="25" height="25" /></span>
                 </a>
                 {% endfor %}
-              </div>
+            </div>
         </div>
-    </div>
-    <div class="tab-pane fade" id="upvoted" role="tabpanel" aria-labelledby="followers-tab" tabindex="0">
-        <div class="row row-cols-lg-4 rol-cols-sm-2 g-2 mt-5" id="posts">
-            {% for post in votes %}{% if post["vote"] == 1 %}
-            <div class="col">
-                <div class="card text-bg-dark hover h-100">
-                    <div class="card-header text-start">
-                        <p class="mb-0 text-truncate">{{ post["title"] if post["title"] }}</p>
-                    </div>
-                    <a href="/post?id={{post.id}}" class="text-light text-decoration-none">
-                        <div class="card-body text-truncate text-start">
-                        {{ post["post"] }}
-                    </div></a>
-                    <div class="card-footer text-end" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ post['creation_time'] | time}}" >
-                        {{ post["creation_time"] | date }}
+        <div class="tab-pane fade" id="upvoted" role="tabpanel" aria-labelledby="followers-tab" tabindex="0">
+            <div class="row row-cols-lg-4 rol-cols-sm-2 g-2 mt-5" id="posts">
+                {% for post in votes %}{% if post["vote"] == 1 %}
+                <div class="col">
+                    <div class="card text-bg-dark hover h-100">
+                        <div class="card-header text-start">
+                            <p class="mb-0 text-truncate">{{ post["title"] if post["title"] }}</p>
+                        </div>
+                        <a href="/post?id={{post.id}}" class="text-light text-decoration-none">
+                            <div class="card-body text-truncate text-start">
+                            {{ post["post"] }}
+                        </div></a>
+                        <div class="card-footer text-end" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ post['creation_time'] | time}}" >
+                            {{ post["creation_time"] | date }}
+                        </div>
                     </div>
                 </div>
+                {% endif %}{% endfor %}
             </div>
-            {% endif %}{% endfor %}
         </div>
-    </div>
-    <div class="tab-pane fade" id="downvoted" role="tabpanel" aria-labelledby="followers-tab" tabindex="0">
-        <div class="row row-cols-lg-4 rol-cols-sm-2 g-2 mt-5" id="posts">
-            {% for post in votes %}{% if post["vote"] == -1 %}
-            <div class="col">
-                <div class="card text-bg-dark hover h-100">
-                    <div class="card-header text-start d-flex flex-row align-items-center">
-                        <p class="mb-0 text-truncate">{{ post["title"] if post["title"] }}</p>
-                        <a class="btn btn-sm btn-dark rounded-pill ms-auto"
-                            href="/profile/{{post['created_by']}}"><img
-                                src='{{ post["photo"]}}' style="clip-path: circle();" width="25" height="25" />
-                            {{ post["created_by"] }}
-                        </a>
-                    </div>
-                    <a href="/post?id={{post.id}}" class="text-light text-decoration-none">
-                        <div class="card-body text-truncate text-start">
-                        {{ post["post"] }}
-                    </div></a>
-                    <div class="card-footer text-end" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ post['creation_time'] | time}}" >
-                        {{ post["creation_time"] | date }}
+        <div class="tab-pane fade" id="downvoted" role="tabpanel" aria-labelledby="followers-tab" tabindex="0">
+            <div class="row row-cols-lg-4 rol-cols-sm-2 g-2 mt-5" id="posts">
+                {% for post in votes %}{% if post["vote"] == -1 %}
+                <div class="col">
+                    <div class="card text-bg-dark hover h-100">
+                        <div class="card-header text-start d-flex flex-row align-items-center">
+                            <p class="mb-0 text-truncate">{{ post["title"] if post["title"] }}</p>
+                            <a class="btn btn-sm btn-dark rounded-pill ms-auto"
+                                href="/profile/{{post['created_by']}}"><img
+                                    src='{{ post["photo"]}}' style="clip-path: circle();" width="25" height="25" />
+                                {{ post["created_by"] }}
+                            </a>
+                        </div>
+                        <a href="/post?id={{post.id}}" class="text-light text-decoration-none">
+                            <div class="card-body text-truncate text-start">
+                            {{ post["post"] }}
+                        </div></a>
+                        <div class="card-footer text-end" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ post['creation_time'] | time}}" >
+                            {{ post["creation_time"] | date }}
+                        </div>
                     </div>
                 </div>
+                {% endif %}{% endfor %}
             </div>
-            {% endif %}{% endfor %}
         </div>
     </div>
 </div>

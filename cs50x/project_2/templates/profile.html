@@ -45,11 +45,11 @@ Post blogs and join message boards
                 <div class="col">
                     <div class="card text-bg-dark hover h-100">
                         <div class="card-header text-start">
-                            <p class="mb-0 text-truncate">{{ post["title"] if post["title"] }}</p>
+                            <p class="mb-0 text-truncate">{{ post["title"] if post["title"] else "The" }}</p>
                         </div>
                         <a href="/post?id={{post.id}}" class="card-body text-light text-decoration-none">
                             <div class="text-truncate text-start">
-                            {{ post["post"] if post.post else "The title" }}
+                            {{ post["post"] }}
                         </div></a>
                         <div class="card-footer text-end" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ post['creation_time'] | time}}" >
                             {{ post["creation_time"] | date }}

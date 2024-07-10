@@ -94,13 +94,14 @@ def profile(username):
     followers = db.execute(
         """SELECT follower AS username, photo FROM users INNER JOIN users_followers on username = follower WHERE user = ?
         ORDER BY users_followers.creation_time DESC""", session["user_name"])
+    votes = None
     if username == session["user_name"]:
-        votes = db.execute("""SELECT post, post.id AS id, posts.creation_time, created_by, photo, title, type FROM posts
-                       INNER JOIN votes on post_id = """)
+        votes = db.execute("""SELECT post,  id, posts.creation_time, created_by, photo, title, type FROM posts
+                       INNER JOIN votes on post_id = id WHERE username = ?""", username)
     header = {"name": username, "photo": posts[0]["photo"]}
     header["is_followed"] = "true" if header["name"] in [following["username"] for following in session["user_following"]] else "false"
 
-    return render_template("profile.html", posts=posts, header=header, followers=followers)
+    return render_template("profile.html", posts=posts, header=header, followers=followers, votes=votes)
 
 
 

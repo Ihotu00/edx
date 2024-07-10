@@ -88,7 +88,7 @@ Post blogs and join message boards
             <div class="list-group w-25">
                 {% for follower in followers %}
                 <a href="/profile/{{follower['username']}}" class="list-group-item list-group-item-action
-                    text-bg-dark d-flex justify-content-between align-items-center border-3">
+                    text-bg-dark d-flex justify-content-between align-items-center border-1">
                     {{ follower["username"] }}
                     <span class="badge rounded-pill"><img class="object-fit-fill"
                         src='{{ follower["photo"]}}' style="clip-path: circle();" width="25" height="25" /></span>

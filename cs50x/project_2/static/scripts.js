@@ -49,7 +49,7 @@ function create_post(event, type, id) {
         contentType: 'application/json',
         data: JSON.stringify({
             'post_body': event.target.post_body.value,
-            'title': event.target.post_title.value ?? null,
+            'title': event.target.post_title ? event.target.post_title.value : null,
             'type': type
         }),
         success: function(response) {

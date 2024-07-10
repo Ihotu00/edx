@@ -115,6 +115,7 @@ def post():
             if not data["type"]:
                 return "Couldn't parse type", 400
             title = data["title"] if data["title"] else None
+            logging.warning(title)
 
             id = f"{uuid4()}"
             db.execute("BEGIN")

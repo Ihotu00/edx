@@ -91,6 +91,9 @@ def profile(username):
     posts = db.execute("""SELECT post, posts.id AS id, posts.creation_time, created_by, photo, title, type FROM posts
                         INNER JOIN users on username = created_by WHERE created_by = ? ORDER BY posts.creation_time DESC""",
                         username)
+    followers = db.execute(
+        """SELECT follower AS username, photo FROM users INNER JOIN users_followers on username = follower WHERE user = ?
+        ORDER BY users_followers.creation_time DESC""", session["user_name"])
     header = {"name": username, "photo": posts[0]["photo"]}
     header["is_followed"] = "true" if header["name"] in [following["username"] for following in session["user_following"]] else "false"
 
@@ -237,9 +240,6 @@ def login():
             session["user_name"] = rows[0]["username"]
             session["user_following"] = db.execute(
                 """SELECT user AS username, photo FROM users INNER JOIN users_followers on username = user WHERE follower = ?
-                ORDER BY users_followers.creation_time DESC""", session["user_name"])
-            session["user_followers"] = db.execute(
-                """SELECT follower AS username, photo FROM users INNER JOIN users_followers on username = follower WHERE user = ?
                 ORDER BY users_followers.creation_time DESC""", session["user_name"])
 
             return "Login Successful", 200

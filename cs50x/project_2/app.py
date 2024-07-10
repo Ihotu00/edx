@@ -96,8 +96,9 @@ def profile(username):
         ORDER BY users_followers.creation_time DESC""", session["user_name"])
     votes = None
     if username == session["user_name"]:
-        votes = db.execute("""SELECT post,  id, posts.creation_time, created_by, photo, title, type FROM posts
-                       INNER JOIN votes on post_id = id WHERE username = ?""", username)
+        votes = db.execute("""SELECT post, posts.id AS id, posts.creation_time, created_by, photo, title, type FROM posts
+                       INNER JOIN votes on post_id = posts.id INNER JOIN users on users.username = created_by
+                       WHERE votes.username = ?""", username)
     header = {"name": username, "photo": posts[0]["photo"]}
     header["is_followed"] = "true" if header["name"] in [following["username"] for following in session["user_following"]] else "false"
 

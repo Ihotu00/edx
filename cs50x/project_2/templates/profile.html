@@ -41,6 +41,12 @@ Post blogs and join message boards
         <li class="nav-item" role="presentation">
         <button class="nav-link" id="followers-tab" data-bs-toggle="pill" data-bs-target="#followers" type="button" role="tab" aria-controls="followers" aria-selected="false">Followers</button>
         </li>
+        <li class="nav-item" role="presentation">
+        <button class="nav-link" id="upvotes-tab" data-bs-toggle="pill" data-bs-target="#upvotes" type="button" role="tab" aria-controls="upvotes" aria-selected="false">Upvotes</button>
+        </li>
+        <li class="nav-item" role="presentation">
+        <button class="nav-link" id="downvotes-tab" data-bs-toggle="pill" data-bs-target="#downvotes" type="button" role="tab" aria-controls="downvotes" aria-selected="false">Downvotes</button>
+        </li>
         {% endif %}
     </ul>
     <div class="tab-content" id="pills-tabContent">
@@ -122,7 +128,7 @@ Post blogs and join message boards
             {% for post in votes %}{% if post["vote"] == -1 %}
             <div class="col">
                 <div class="card text-bg-dark hover h-100">
-                    <div class="card-header text-start">
+                    <div class="card-header text-start d-flex flex-row align-items-center">
                         <p class="mb-0 text-truncate">{{ post["title"] if post["title"] }}</p>
                         <a class="btn btn-sm btn-dark rounded-pill ms-auto"
                             href="/profile/{{post['created_by']}}"><img

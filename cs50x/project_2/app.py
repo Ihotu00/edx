@@ -307,6 +307,7 @@ def register():
             session["user_id"] = rows[0]["id"]
             session["user_photo"] = rows[0]["photo"]
             session["user_name"] = rows[0]["username"]
+            session["user_following"] = []
 
             return "Registration Successful", 200
 

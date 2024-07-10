@@ -114,11 +114,12 @@ def post():
                 return "Please fill out the post body", 400
             if not data["type"]:
                 return "Couldn't parse type", 400
+            title = data["title"] if data["title"] else None
 
             id = f"{uuid4()}"
             db.execute("BEGIN")
-            db.execute("INSERT INTO posts(id, created_by, post, type) VALUES(?,?,?,?)",
-                        id, session["user_name"], data["post_body"], data["type"])
+            db.execute("INSERT INTO posts(id, created_by, post, type, title) VALUES(?,?,?,?,?)",
+                        id, session["user_name"], data["post_body"], data["type"], title)
 
             if data["type"] == "comment_post":
                 if not request.args.get('id'):

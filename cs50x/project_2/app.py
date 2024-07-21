@@ -102,7 +102,6 @@ def profile(username):
     header = {"name": username, "photo": posts[0]["photo"]}
     header["is_followed"] = "true" if header["name"] in [following["username"] for following in session["user_following"]] else "false"
 
-    logging.warning(posts[0]["post"])
     return render_template("profile.html", posts=posts, header=header, followers=followers, votes=votes)
 
 

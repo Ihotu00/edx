@@ -61,7 +61,7 @@ Post blogs and join message boards
             </div>
             {% endif %}
             <!-- <p class="text-light">{{ [posts | selectattr("type", "original_post")] | length }}</p> -->
-            <p class="text-light">{{ [posts | selectattr("type", "original_post")] | length }}</p>
+            <p class="text-light">{{ [posts | selectattr("type")] }}</p>
             <!-- [post["post"] for post in posts if post["type"] == 'comment_post'] -->
             <div class="row row-cols-lg-4 rol-cols-sm-2 g-2 mt-5" id="posts">
                 {% for post in posts %}{% if post["type"] == 'original_post' %}

@@ -32,7 +32,6 @@ function scrol(direction) {
     if (direction == 'left') {
         container.scrollLeft -= 50;
     }
-    console.log(container.scrollLeft);
 }
 
 // create alerts

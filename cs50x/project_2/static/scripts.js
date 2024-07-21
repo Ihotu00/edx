@@ -23,16 +23,17 @@ function show_modal(id) {
 }
 
 function scrol(direction) {
-    container = document.getElementById('pills-tab').scrollLeft;
+    container = document.getElementById('pills-tab');
     scroll_right = document.getElementById('scroll-right');
     scroll_left = document.getElementById('scroll-left');
     if (direction == 'right') {
-        container += 20;
+        container.scrollLeft += 20;
     }
     if (direction == 'left') {
-        container -= 20;
+        container.scrollLeft -= 20;
     }
     console.log(container);
+    console.log(container.scrollLeft);
 }
 
 // create alerts

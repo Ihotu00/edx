@@ -16,10 +16,10 @@ main {
     display: none;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
     width: 0;
     background: transparent;
-}
+} */
 
 .material-icons {
     font-size: inherit;

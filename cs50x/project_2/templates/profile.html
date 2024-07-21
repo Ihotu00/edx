@@ -60,8 +60,8 @@ Post blogs and join message boards
                 <h1 class="text-white-50" style="font-size: 10cqb;">Looks like you have no posts yet...</h1>
             </div>
             {% endif %}
-            <!-- <p class="text-light">{{ [posts | selectattr("type", "equalto", "original_post")] | length }}</p> -->
-            <p class="text-light">{{ posts | selectattr("type", "equalto", "original_post") | list }}</p>
+            <p class="text-light">{{ [posts | selectattr("type", "equalto", "original_post")] | length }}</p>
+            <p class="text-light">{{ posts | selectattr("type", "equalto", "comment_post") | list }}</p>
             <!-- [post["post"] for post in posts if post["type"] == 'comment_post'] -->
             <div class="row row-cols-lg-4 rol-cols-sm-2 g-2 mt-5" id="posts">
                 {% for post in posts %}{% if post["type"] == 'original_post' %}

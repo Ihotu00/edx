@@ -22,7 +22,7 @@ function show_modal(id) {
     _modal.show();
 }
 
-function scroll(direction) {
+function scrol(direction) {
     container = document.getElementById('pills-tab').scrollLeft;
     scroll_right = document.getElementById('scroll-right');
     scroll_left = document.getElementById('scroll-left');

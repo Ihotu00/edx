@@ -32,6 +32,7 @@ function scroll(direction) {
     if (direction == 'left') {
         container -= 20;
     }
+    console.log(container);
 }
 
 // create alerts

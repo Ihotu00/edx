@@ -214,6 +214,11 @@ def vote():
             return "An error occurred", 400
         return f"{votes[0]["votes"]}", 200
 
+@app.route("/settings")
+@login_required
+def settings():
+
+    return render_template("settings.html")
 
 @app.route("/login", methods=["GET", "POST"])
 def login():

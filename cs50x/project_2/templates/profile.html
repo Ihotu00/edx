@@ -55,14 +55,11 @@ Post blogs and join message boards
     </div>
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab" tabindex="0">
-            {% if [posts | selectattr("type", "equalto", "original_post")] | length == 0 %}
+            {% if posts | selectattr("type", "equalto", "original_post") | list | length == 0 %}
             <div class="center mt-5">
                 <h1 class="text-white-50" style="font-size: 10cqb;">Looks like you have no posts yet...</h1>
             </div>
             {% endif %}
-            <p class="text-light">{{ posts | selectattr("type", "equalto", "original_post") | | length }}</p>
-            <p class="text-light">{{ posts | selectattr("type", "equalto", "original_post") | list }}</p>
-            <!-- [post["post"] for post in posts if post["type"] == 'comment_post'] -->
             <div class="row row-cols-lg-4 rol-cols-sm-2 g-2 mt-5" id="posts">
                 {% for post in posts %}{% if post["type"] == 'original_post' %}
                 <div class="col">
@@ -83,7 +80,7 @@ Post blogs and join message boards
             </div>
         </div>
         <div class="tab-pane fade" id="comments" role="tabpanel" aria-labelledby="comments-tab" tabindex="0">
-            {% if [posts | selectattr("type", "comment_post")] | length == 0 %}
+            {% if posts | selectattr("type", "equalto", "comment_post") | list | length == 0 %}
             <div class="center mt-5">
                 <h1 class="text-white-50" style="font-size: 10cqb;">Looks like you have no comments yet...</h1>
             </div>
@@ -125,7 +122,7 @@ Post blogs and join message boards
             </div>
         </div>
         <div class="tab-pane fade" id="upvotes" role="tabpanel" aria-labelledby="upvotes-tab" tabindex="0">
-            {% if [votes | selectattr("vote", 1)] | length == 0 %}
+            {% if votes | selectattr("vote", "equalto", 1) | list | length == 0 %}
             <div class="center mt-5">
                 <h1 class="text-white-50" style="font-size: 10cqb;">Looks you haven't upvoted anything yet...</h1>
             </div>
@@ -156,7 +153,7 @@ Post blogs and join message boards
             </div>
         </div>
         <div class="tab-pane fade" id="downvotes" role="tabpanel" aria-labelledby="downvotes-tab" tabindex="0">
-            {% if [votes | selectattr("vote", -1)] | length == 0 %}
+            {% if votes | selectattr("vote", "equalto", -1) | list | length == 0 %}
             <div class="center mt-5">
                 <h1 class="text-white-50" style="font-size: 10cqb;">Looks you haven't downvoted anything yet...</h1>
             </div>

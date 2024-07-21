@@ -27,12 +27,11 @@ function scrol(direction) {
     scroll_right = document.getElementById('scroll-right');
     scroll_left = document.getElementById('scroll-left');
     if (direction == 'right') {
-        container.scrollLeft += 20;
+        container.scrollLeft += 50;
     }
     if (direction == 'left') {
-        container.scrollLeft -= 20;
+        container.scrollLeft -= 50;
     }
-    console.log(container);
     console.log(container.scrollLeft);
 }
 

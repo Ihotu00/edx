@@ -61,7 +61,7 @@ Post blogs and join message boards
             </div>
             {% endif %}
             <div class="row row-cols-lg-4 rol-cols-sm-2 g-2 mt-5" id="posts">
-                {% for posts | selectattr("type", "equalto", "original_post") | list %}
+                {% for post in posts | selectattr("type", "equalto", "original_post") | list %}
                 <div class="col">
                     <div class="card text-bg-dark hover h-100">
                         <div class="card-header text-start">
@@ -86,7 +86,7 @@ Post blogs and join message boards
             </div>
             {% endif %}
             <div class="row row-cols-lg-4 rol-cols-sm-2 g-2 mt-5" id="posts">
-                {% for posts | selectattr("type", "equalto", "comment_post") | list %}
+                {% for post in posts | selectattr("type", "equalto", "comment_post") | list %}
                 <div class="col">
                     <div class="card text-bg-dark hover h-100">
                         <div class="card-header text-start">
@@ -128,7 +128,7 @@ Post blogs and join message boards
             </div>
             {% endif %}
             <div class="row row-cols-lg-4 rol-cols-sm-2 g-2 mt-5" id="posts">
-                {% for votes | selectattr("vote", "equalto", 1) | list %}
+                {% for post in votes | selectattr("vote", "equalto", 1) | list %}
                 <div class="col">
                     <div class="card text-bg-dark hover h-100">
                         <div class="card-header text-start d-flex flex-row align-items-center">
@@ -158,7 +158,7 @@ Post blogs and join message boards
             </div>
             {% endif %}
             <div class="row row-cols-lg-4 rol-cols-sm-2 g-2 mt-5" id="posts">
-                {% for votes | selectattr("vote", "equalto", -1) | list %}
+                {% for post in votes | selectattr("vote", "equalto", -1) | list %}
                 <div class="col">
                     <div class="card text-bg-dark hover h-100">
                         <div class="card-header text-start d-flex flex-row align-items-center">

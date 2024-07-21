@@ -61,7 +61,7 @@ Post blogs and join message boards
             </div>
             {% endif %}
             <div class="row row-cols-lg-4 rol-cols-sm-2 g-2 mt-5" id="posts">
-                {% for post in posts %}{% if post["type"] == 'original_post' %}
+                {% for posts | selectattr("type", "equalto", "original_post") | list %}
                 <div class="col">
                     <div class="card text-bg-dark hover h-100">
                         <div class="card-header text-start">
@@ -76,7 +76,7 @@ Post blogs and join message boards
                         </div>
                     </div>
                 </div>
-                {% endif %}{% endfor %}
+                {% endfor %}
             </div>
         </div>
         <div class="tab-pane fade" id="comments" role="tabpanel" aria-labelledby="comments-tab" tabindex="0">
@@ -86,7 +86,7 @@ Post blogs and join message boards
             </div>
             {% endif %}
             <div class="row row-cols-lg-4 rol-cols-sm-2 g-2 mt-5" id="posts">
-                {% for post in posts %}{% if post["type"] == 'comment_post' %}
+                {% for posts | selectattr("type", "equalto", "comment_post") | list %}
                 <div class="col">
                     <div class="card text-bg-dark hover h-100">
                         <div class="card-header text-start">
@@ -101,7 +101,7 @@ Post blogs and join message boards
                         </div>
                     </div>
                 </div>
-                {% endif %}{% endfor %}
+                {% endfor %}
             </div>
         </div>
         <div class="tab-pane fade" id="followers" role="tabpanel" aria-labelledby="followers-tab" tabindex="0">
@@ -127,9 +127,8 @@ Post blogs and join message boards
                 <h1 class="text-white-50" style="font-size: 10cqb;">Looks you haven't upvoted anything yet...</h1>
             </div>
             {% endif %}
-            <p>{{ [votes | selectattr("vote", 1)] | length }}</p>
             <div class="row row-cols-lg-4 rol-cols-sm-2 g-2 mt-5" id="posts">
-                <!-- {% for post in votes %}{% if post["vote"] == 1 %} -->
+                {% for votes | selectattr("vote", "equalto", 1) | list %}
                 <div class="col">
                     <div class="card text-bg-dark hover h-100">
                         <div class="card-header text-start d-flex flex-row align-items-center">
@@ -149,7 +148,7 @@ Post blogs and join message boards
                         </div>
                     </div>
                 </div>
-                {% endif %}{% endfor %}
+                {% endfor %}
             </div>
         </div>
         <div class="tab-pane fade" id="downvotes" role="tabpanel" aria-labelledby="downvotes-tab" tabindex="0">
@@ -158,9 +157,8 @@ Post blogs and join message boards
                 <h1 class="text-white-50" style="font-size: 10cqb;">Looks you haven't downvoted anything yet...</h1>
             </div>
             {% endif %}
-            <!-- <p>{{ [votes | selectattr("vote", -1)] | length }}</p> -->
             <div class="row row-cols-lg-4 rol-cols-sm-2 g-2 mt-5" id="posts">
-                {% for post in votes %}{% if post["vote"] == -1 %}
+                {% for votes | selectattr("vote", "equalto", -1) | list %}
                 <div class="col">
                     <div class="card text-bg-dark hover h-100">
                         <div class="card-header text-start d-flex flex-row align-items-center">
@@ -180,7 +178,7 @@ Post blogs and join message boards
                         </div>
                     </div>
                 </div>
-                {% endif %}{% endfor %}
+                {% endfor %}
             </div>
         </div>
     </div>

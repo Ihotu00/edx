@@ -22,6 +22,16 @@ function show_modal(id) {
     _modal.show();
 }
 
+function scroll(direction) {
+    container = document.getElementById('pills-tab')
+    if (direction == 'right') {
+        container.scrollLeft += 20;
+    }
+    if (direction == 'left') {
+        container.scrollLeft -= 20;
+    }
+}
+
 // create alerts
 function create_alert(parentId, message, type, icon) {
     icon = !icon ? 'notifications' : icon

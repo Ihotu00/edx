@@ -32,10 +32,6 @@ function scroll(direction) {
     if (direction == 'left') {
         container -= 20;
     }
-    if (container == 0) {
-        scroll_left.classList.add('hide')
-    }
-    if (container )
 }
 
 // create alerts

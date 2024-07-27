@@ -220,7 +220,7 @@ def settings():
 
     return render_template("settings.html")
 
-@app.route("/settings/change-password")
+@app.route("/settings/change-password", methods=["POST"])
 @login_required
 def change_password():
         data = request.get_json()
@@ -246,6 +246,7 @@ def change_password():
         password_hash = generate_password_hash(data["new_password"])
 
         db.execute("UPDATE users SET password = ? WHERE username = ?", password_hash, session["user_name"])
+        return "Password changed successfully", 200
 
 @app.route("/login", methods=["GET", "POST"])
 def login():

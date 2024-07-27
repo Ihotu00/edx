@@ -243,6 +243,8 @@ def change_password():
         ):
             return "Invalid username/password", 400
 
+        password_hash = generate_password_hash(data["new_password"])
+
         db.execute("UPDATE ")
 
 @app.route("/login", methods=["GET", "POST"])

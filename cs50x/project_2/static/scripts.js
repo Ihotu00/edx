@@ -135,7 +135,6 @@ function login(event, url) {
 function change_profile(event) {
     event.preventDefault();
     show("spinner")
-    document.getElementById("submit-form").classList.add("disabled")
     $.ajax({
         url: url,
         type: 'POST',

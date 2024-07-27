@@ -132,6 +132,32 @@ function login(event, url) {
     });
 }
 
+function change_profile(event) {
+    event.preventDefault();
+    show("spinner")
+    document.getElementById("submit-form").classList.add("disabled")
+    $.ajax({
+        url: url,
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            'username': event.target.username.value,
+            'password': event.target.password.value,
+            'confirmation': url == "/register" ? event.target.confirmation.value : "",
+            'photo': url == "/register" ? event.target.photo.src : ""
+        }),
+        success: function(response) {
+            location.pathname = url == "/register" ? `/homepage` : '/';
+        },
+        error: function(error) {
+            console.log(error)
+            create_alert("login-response", `${error.responseText}`, 'danger', 'error')
+            hide("spinner")
+            document.getElementById("submit-form").classList.remove("disabled")
+        }
+    });
+}
+
 function imageUploaded(event) {
     const file = event.target.files[0];
     const reader = new FileReader();

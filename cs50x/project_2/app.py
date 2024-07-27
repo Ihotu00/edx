@@ -258,6 +258,7 @@ def change_profile():
         return "Please provide picture", 400
 
     db.execute("UPDATE users SET password = ? WHERE username = ?", data["picture"], session["user_name"])
+    session["user_photo"] = data["picture"]
     return "Profile changed successfully", 200
 
 @app.route("/login", methods=["GET", "POST"])

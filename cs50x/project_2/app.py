@@ -220,6 +220,11 @@ def settings():
 
     return render_template("settings.html")
 
+@app.route("/settings/change-password")
+@login_required
+def change_password():
+    d = 1
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     """Log user in"""

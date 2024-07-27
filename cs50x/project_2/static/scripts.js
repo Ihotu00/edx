@@ -132,12 +132,12 @@ function login(event, url) {
     });
 }
 
-function imageUploaded(event, id) {
+function imageUploaded(event) {
     const file = event.target.files[0];
     const reader = new FileReader();
     reader.readAsDataURL(file)
     reader.onloadend = () => {
-        document.getElementById(id).src = reader.result
+        document.getElementById("display_picture").src = reader.result
     };
 }
 

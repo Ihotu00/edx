@@ -7,4 +7,26 @@
     <button class="btn btn-dark">Change Profile Picture</button>
     <button class="btn btn-dark">Delete Account</button>
 </div>
+
+<div class="modal fade" id="change-password-modal" tabindex="-1" aria-labelledby="change-password-modal-label"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-fullscreen-md-down">
+        <div class="modal-content text-bg-dark">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="change-password-label">Create post</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="submit" id="change-password-button" name="submit_button">Create post</button>
+                    <button class="btn btn-outline-primary spinner-border hide disabled" role="status"
+                        id="change-password-loader" name="loader_button">
+                        <span class="visually-hidden">Loading...</span>
+                    </button>
+                </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

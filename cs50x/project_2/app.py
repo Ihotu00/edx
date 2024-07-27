@@ -248,6 +248,17 @@ def change_password():
         db.execute("UPDATE users SET password = ? WHERE username = ?", password_hash, session["user_name"])
         return "Password changed successfully", 200
 
+@app.route("/settings/change-profile", methods=["POST"])
+@login_required
+def change_profile():
+    data = request.get_json()
+
+    if not data["picture"]:
+        return "Please provide picture", 400
+
+    db.execute("UPDATE users SET password = ? WHERE username = ?", data["picture"], session["user_name"])
+    return "Password changed successfully", 200
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     """Log user in"""

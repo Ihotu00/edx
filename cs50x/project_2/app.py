@@ -223,7 +223,27 @@ def settings():
 @app.route("/settings/change-password")
 @login_required
 def change_password():
-    d = 1
+        data = request.get_json()
+
+        if not data["password"]:
+            return "Please provide Password", 400
+
+        if not data["new_password"]:
+            return "Please provide Password", 400
+
+        elif data["confirm_new_password"] != data["confirmation"]:
+            return "Passwords do not match", 400
+
+        rows = db.execute(
+            "SELECT * FROM users WHERE username = ?",  session["user_name"]
+        )
+
+        if len(rows) != 1 or not check_password_hash(
+            rows[0]["password"],  data["password"]
+        ):
+            return "Invalid username/password", 400
+
+        
 
 @app.route("/login", methods=["GET", "POST"])
 def login():

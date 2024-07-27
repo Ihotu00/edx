@@ -147,7 +147,7 @@ function change_profile() {
         },
         error: function(error) {
             console.log(error);
-            create_alert("login-response", `${error.responseText}`, 'danger', 'error');
+            create_alert("error-response", `${error.responseText}`, 'danger', 'error');
             hide("change-profile-loader");
             show("change-profile-button");
         }

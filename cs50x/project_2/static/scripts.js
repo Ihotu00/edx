@@ -132,8 +132,7 @@ function login(event, url) {
     });
 }
 
-function change_profile(event) {
-    event.preventDefault();
+function change_profile() {
     hide("change-profile-button")
     show("change-profile-loader")
     $.ajax({

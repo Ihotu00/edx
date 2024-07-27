@@ -257,7 +257,7 @@ def change_profile():
     if not data["photo"]:
         return "Please provide picture", 400
 
-    db.execute("UPDATE users SET password = ? WHERE username = ?", data["photo"], session["user_name"])
+    db.execute("UPDATE users SET photo = ? WHERE username = ?", data["photo"], session["user_name"])
     session["user_photo"] = data["photo"]
     return "Profile changed successfully", 200
 

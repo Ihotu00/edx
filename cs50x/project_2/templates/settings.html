@@ -17,7 +17,14 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
                 <div class="modal-body">
-
+                    <div class="mb-3">
+                        <img src="{{ session['user_photo'] }}"
+                            style="clip-path: circle();" width="70" height="70" id="display_profile_picture" name="photo">
+                    </div>
+                    <div class="mb-3">
+                        <input type="file" class="form-control form-control-lg" name="profile_picture" id="profile_picture"
+                            onchange="imageUploaded(event, 'display_profile_picture')" accept="image/*">
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-primary" type="submit" id="change-profile-button" name="submit_button">Create post</button>

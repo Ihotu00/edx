@@ -243,7 +243,7 @@ def change_password():
         ):
             return "Invalid username/password", 400
 
-        
+        db.execute("UPDATE ")
 
 @app.route("/login", methods=["GET", "POST"])
 def login():

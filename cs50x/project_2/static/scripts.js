@@ -134,25 +134,24 @@ function login(event, url) {
 
 function change_profile(event) {
     event.preventDefault();
-    show("spinner")
+    hide("change-profile-button")
+    show("change-profile-loader")
     $.ajax({
-        url: url,
+        url: "settings/change-profile",
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({
-            'username': event.target.username.value,
-            'password': event.target.password.value,
-            'confirmation': url == "/register" ? event.target.confirmation.value : "",
-            'photo': url == "/register" ? event.target.photo.src : ""
+            'photo': event.target.photo.src
         }),
         success: function(response) {
-            location.pathname = url == "/register" ? `/homepage` : '/';
+            hide("change-profile-loader")
+            show("change-profile-button")
         },
         error: function(error) {
             console.log(error)
             create_alert("login-response", `${error.responseText}`, 'danger', 'error')
-            hide("spinner")
-            document.getElementById("submit-form").classList.remove("disabled")
+            hide("change-profile-loader")
+            show("change-profile-button")
         }
     });
 }

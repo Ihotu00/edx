@@ -144,14 +144,13 @@ function change_profile(event) {
             'photo': document.getElementById("display_picture").src
         }),
         success: function(response) {
-            hide("change-profile-loader")
-            show("change-profile-button")
+            location.reload();
         },
         error: function(error) {
-            console.log(error)
-            create_alert("login-response", `${error.responseText}`, 'danger', 'error')
-            hide("change-profile-loader")
-            show("change-profile-button")
+            console.log(error);
+            create_alert("login-response", `${error.responseText}`, 'danger', 'error');
+            hide("change-profile-loader");
+            show("change-profile-button");
         }
     });
 }

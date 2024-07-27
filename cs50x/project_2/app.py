@@ -82,7 +82,7 @@ def home():
                        (SELECT sum(vote) FROM votes WHERE post_id = posts.id) AS votes FROM posts
                         INNER JOIN users on username = created_by WHERE type != 'comment_post' ORDER BY votes DESC""")
 
-    return render_template("index.html", posts=posts)
+    return render_template("index.html", posts=posts, homepage=True)
 
 
 @app.route("/profile/<username>")

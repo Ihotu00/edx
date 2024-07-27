@@ -11,6 +11,14 @@ Post blogs and join message boards
 </div>
 {% endif %}
 
+{% if homepage %}
+<div class="fs-3">
+    <span class="text-danger">W</span><span class="text-warning">E</span><span class="text-success">L</span>
+    <span class="text-primary">C</span><span class="text-danger">O</span><span class="text-warning">M</span>
+    <span class="text-success">E</span>
+</div>
+{% endif %}
+
 <div class="row row-cols-lg-2 rol-cols-sm-2 g-2 mt-5" id="posts">
     {% for post in posts %}
     <div class="col">

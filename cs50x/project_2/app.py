@@ -245,7 +245,7 @@ def change_password():
 
         password_hash = generate_password_hash(data["new_password"])
 
-        db.execute("UPDATE users SET password")
+        db.execute("UPDATE users SET password = ? WHERE username = ?", password_hash, session["user_name"])
 
 @app.route("/login", methods=["GET", "POST"])
 def login():

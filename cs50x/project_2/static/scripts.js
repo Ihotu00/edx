@@ -141,7 +141,7 @@ function change_profile(event) {
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({
-            'photo': event.target.photo.src
+            'photo': document.getElementById("display_picture").src
         }),
         success: function(response) {
             hide("change-profile-loader")

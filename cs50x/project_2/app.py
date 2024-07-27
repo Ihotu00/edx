@@ -254,11 +254,11 @@ def change_password():
 def change_profile():
     data = request.get_json()
 
-    if not data["picture"]:
+    if not data["photo"]:
         return "Please provide picture", 400
 
-    db.execute("UPDATE users SET password = ? WHERE username = ?", data["picture"], session["user_name"])
-    session["user_photo"] = data["picture"]
+    db.execute("UPDATE users SET password = ? WHERE username = ?", data["photo"], session["user_name"])
+    session["user_photo"] = data["photo"]
     return "Profile changed successfully", 200
 
 @app.route("/login", methods=["GET", "POST"])

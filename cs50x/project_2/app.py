@@ -80,9 +80,13 @@ def home():
 
     posts = db.execute("""SELECT post, posts.id AS id, posts.creation_time, created_by, photo, title,
                        (SELECT IFNULL(SUM(vote), 0) FROM votes WHERE post_id = posts.id) AS votes FROM posts
-                        INNER JOIN users on username = created_by WHERE type != 'comment_post' ORDER BY votes DESC""")
+                        INNER JOIN users on username = created_by WHERE type != 'comment_post' LIMIT = 3 ORDER BY votes DESC""")
 
-    return render_template("index.html", posts=posts, homepage=True)
+    totalUsers = db.execute("SELECT SUM(id) FROM users")
+    totalPosts = db.execute("SELECT SUM(id) FROM posts WHERE type != 'comment_post'")
+    homepage = {"totalUsers": totalUsers, "totalPosts": totalPosts}
+
+    return render_template("index.html", posts=posts, homepage=homepage)
 
 
 @app.route("/profile/<username>")

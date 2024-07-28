@@ -81,7 +81,3 @@ a img {
 .text-break {
     word-break: break-word
 }
-
-.disabled {
-    cursor: not-allowed !important;
-}

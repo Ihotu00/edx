@@ -80,7 +80,7 @@ def home():
 
     posts = db.execute("""SELECT post, posts.id AS id, posts.creation_time, created_by, photo, title,
                        (SELECT IFNULL(SUM(vote), 0) FROM votes WHERE post_id = posts.id) AS votes FROM posts
-                        INNER JOIN users on username = created_by WHERE type != 'comment_post' ORDER BY votes DESC LIMIT 3""")
+                        INNER JOIN users on username = created_by WHERE type != 'comment_post' ORDER BY votes DESC""")
 
     totalUsers = db.execute("SELECT COUNT(*)  AS total FROM users")
     totalPosts = db.execute("SELECT COUNT(*) AS total FROM posts WHERE type != 'comment_post'")

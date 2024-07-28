@@ -82,9 +82,9 @@ def home():
                        (SELECT IFNULL(SUM(vote), 0) FROM votes WHERE post_id = posts.id) AS votes FROM posts
                         INNER JOIN users on username = created_by WHERE type != 'comment_post' ORDER BY votes DESC LIMIT 3""")
 
-    totalUsers = db.execute("SELECT SUM(id) FROM users")
-    totalPosts = db.execute("SELECT SUM(id) FROM posts WHERE type != 'comment_post'")
-    homepage = {"totalUsers": totalUsers, "totalPosts": totalPosts}
+    totalUsers = db.execute("SELECT SUM(id)  AS total FROM users")
+    totalPosts = db.execute("SELECT SUM(id) AS total FROM posts WHERE type != 'comment_post'")
+    homepage = {"totalUsers": totalUsers[0]["total"], "totalPosts": totalPosts[0]["total"]}
 
     return render_template("index.html", posts=posts, homepage=homepage)
 

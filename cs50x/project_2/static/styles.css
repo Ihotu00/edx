@@ -82,7 +82,7 @@ a img {
     word-break: break-word
 }
 
-.text-truncate {
+.truncate {
     --max-lines: 3;
     --lh: 1.4rem;
     -webkit-box-orient: vertical;

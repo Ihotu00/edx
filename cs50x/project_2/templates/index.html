@@ -43,9 +43,9 @@ Post blogs and join message boards
                     <button class="btn btn-sm btn-outline-danger material-symbols-outlined fs-6" onClick="vote_on_post(-1, '{{post.id}}')">
                         arrow_circle_down</button>
                 </div>
-                <div class="p-2 justify-content-end align-items-center mb-3 hide" id="vote-loader">
-                    <button class="btn btn-outlne-light" type="button" disabled>
-                        <span class="spinner-border" role="status" aria-hidden="true"></span>
+                <div class="justify-content-end align-items-center hide" id="vote-loader">
+                    <button class="btn btn-outlne-light btn-sm" type="button" disabled>
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                       </button>
                 </div>
                 <p class="mb-0 ms-auto">{{ post["creation_time"] | date }}</p>

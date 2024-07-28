@@ -84,5 +84,6 @@ a img {
 
 .text-truncate {
     --max-lines: 3;
+    --lh: 1.4rem;
     max-height: calc(var(--lh) * var(--max-lines));
 }

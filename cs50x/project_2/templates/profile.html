@@ -7,13 +7,13 @@ Post blogs and join message boards
 {% block main %}
 <div class="card text-bg-dark mb-3 mt-5">
     <div class="d-flex g-0">
-        <div class="" style="max-height: 200px;">
+        <div class="" style="max-height: 200px; max-width: 300px;">
             <img src='{{ header["photo"] }}' class="img-fluid rounded-start h-100 w-100">
         </div>
         <div class="p-1 card-title text-start text-break align-self-end">
             <p class="text-wrap fs-1 mb-auto">{{ header["name"] }}</p>
         </div>
-        <div class="ms-auto p-1 align-self-end">
+        <div class="ms-auto p-1 align-self-end mb-2">
             {% if header["name"] != session["user_name"] %}
             <div class="spinner-border spinner-border-sm hide" style="width: 3rem; height: 3rem;" role="status"
                 id="join-group-loader">

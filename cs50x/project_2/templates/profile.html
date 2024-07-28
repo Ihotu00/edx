@@ -10,14 +10,12 @@ Post blogs and join message boards
         <div class="" style="max-height: 200px;">
             <img src='{{ header["photo"] }}' class="img-fluid rounded-start h-100 w-100">
         </div>
-        <div class="mt-3 ps-1">
-            <div class="mb-0 card-title text-start fs-1 text-break">
-                <p class="text-wrap fs-1 mb-auto">{{ header["name"] }}</p>
-            </div>
+        <div class="ps-1 card-title text-start text-break">
+            <p class="text-wrap fs-1 mb-auto">{{ header["name"] }}</p>
         </div>
-        <div class="ms-auto my-3">
+        <div class="ms-auto">
             {% if header["is_followed"] and header["name"] != session["user_name"] %}
-            <div class="spinner-border hide" style="width: 3rem; height: 3rem;" role="status"
+            <div class="spinner-border spinner-border-sm hide" style="width: 3rem; height: 3rem;" role="status"
                 id="join-group-loader">
             </div>
             <form action="/follow/{{header['name']}}" method="post" id="join-group-form"

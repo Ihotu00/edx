@@ -27,12 +27,14 @@ Post blogs and join message boards
             </div>
         </a>
     </div>
-    <div class="d-inline-flex rounded-pill border p-1" id="vote-buttons">
-        <p class="mb-0 fs-6 me-2">{{ post["votes"] }}</p>
-        {% if post["votes"] > 0 %}<span class="text-success material-symbols-outlined fs-6">
-            arrow_upward</span>
-        {% elif post["votes"] < 0 %}<span class="text-danger material-symbols-outlined fs-6">
-            arrow_downward</span>{% endif %}
+    <div>
+        <div class="d-inline-flex rounded-pill border p-1" id="vote-buttons">
+            <p class="mb-0 fs-6 me-2">{{ post["votes"] }}</p>
+            {% if post["votes"] > 0 %}<span class="text-success material-symbols-outlined fs-6">
+                arrow_upward</span>
+            {% elif post["votes"] < 0 %}<span class="text-danger material-symbols-outlined fs-6">
+                arrow_downward</span>{% endif %}
+        </div>
     </div>
 </div>
 <hr class="border">

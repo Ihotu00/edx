@@ -20,13 +20,13 @@ Post blogs and join message boards
         </a>
         <li class="mb-0 ms-auto">{{ post["creation_time"] | date }}</li>
     </div>
-    <div style="max-height: 100px;" class="text-wrap text-truncate">
-        <a href="/post?id={{post.id}}" class="text-light text-decoration-none">
-            <div class="card-body text-start">
-                {{ post["post"] }}
-            </div>
-        </a>
-    </div>
+    <!-- <div class=""> -->
+    <a href="/post?id={{post.id}}" class="text-light text-decoration-none">
+        <div class="card-body text-wrap text-truncate text-start" style="max-height: 100px;">
+            {{ post["post"] }}
+        </div>
+    </a>
+    <!-- </div> -->
     <div class="d-flex align-items-center p-1">
         <p class="mb-0 fs-5 me-1">{{ post["votes"] }}</p>
         {% if post["votes"] > 0 %}<span class="text-success material-symbols-outlined fs-4">

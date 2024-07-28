@@ -11,7 +11,7 @@ Post blogs and join message boards
 </div>
 {% endif %}
 {% for post in posts %}
-<div class="d-flex flex-column gap-1 rounded text-light">
+<div class="d-flex flex-column gap-1 rounded text-light border-bottom border-dark">
     <div class="d-flex">
         <a class="text-light rounded-pill" title="{{ post['created_by']}}"
             href="/profile/{{post['created_by']}}"><img
@@ -35,7 +35,7 @@ Post blogs and join message boards
             arrow_downward</span>{% endif %}
     </div>
 </div>
-<hr>
+<!-- <hr> -->
 {% endfor %}
 <!-- <div class="row row-cols-lg-3 rol-cols-sm-2 g-2" id="posts">
     {% for post in posts %}

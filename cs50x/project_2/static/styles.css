@@ -83,13 +83,7 @@ a img {
 }
 
 .truncate {
-    /* --max-lines: 3;
-    --lh: 1.4rem;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    max-height: calc(var(--lh) * var(--max-lines));
-    overflow: hidden; */
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 5;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;

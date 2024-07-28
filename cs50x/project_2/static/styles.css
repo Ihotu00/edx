@@ -81,3 +81,8 @@ a img {
 .text-break {
     word-break: break-word
 }
+
+.text-truncate {
+    --max-lines: 3;
+    max-height: calc(var(--lh) * var(--max-lines));
+}

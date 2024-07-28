@@ -10,7 +10,11 @@ Post blogs and join message boards
     <h1 class="text-white-50" style="font-size: 15cqb;">Looks like there are no posts yet...</h1>
 </div>
 {% endif %}
-{%%}
+{% for post in posts %}
+<div class="d-flex flex-column gap-1">
+    <div></div>
+</div>
+{% endfor %}
 <!-- <div class="row row-cols-lg-3 rol-cols-sm-2 g-2" id="posts">
     {% for post in posts %}
     <div class="col">

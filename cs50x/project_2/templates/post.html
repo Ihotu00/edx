@@ -32,8 +32,8 @@ Post blogs and join message boards
     </div>
     <div id="vote-response"></div>
     <div class="fs-3 mx-auto">Comments({{post["comments_count"]}})</div>
-    <div class="text-bg-dark py-3 mx-auto col-md-7 my-3" id="comment-button" onClick="show('comment-form'); hide('comment-button')">
-        <input placeholder="Add Comment" class="form-control" name="add-comment-placeholder">
+    <div class="py-3 mx-auto col-md-7 my-3" id="comment-button" onClick="show('comment-form'); hide('comment-button')">
+        <input placeholder="Add Comment" class="text-bg-dark form-control" name="add-comment-placeholder">
     </div>
     <form onSubmit="create_post(event, 'comment_post','{{post.id}}')"  class="py-3 mx-auto w-75 hide" id="comment-form">
         <div class="position-relative mb-3">

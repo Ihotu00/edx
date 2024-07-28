@@ -10,8 +10,8 @@ Post blogs and join message boards
         <div class="col-md-4" style="max-height: 200px;">
             <img src='{{ header["photo"] }}' class="img-fluid h-100 w-100">
         </div>
-        <div class="p-2 text-break align-self-end">
-            <p class="text-wrap fs-1 mb-auto">{{ header["name"] }}</p>
+        <div class="p-2 flex-grow-1 align-self-end text-start">
+            <p class="fs-1 mb-auto">{{ header["name"] }}</p>
         </div>
         <div class="ms-auto p-2 align-self-end">
             {% if header["name"] != session["user_name"] %}

@@ -12,7 +12,13 @@ Post blogs and join message boards
 {% endif %}
 {% for post in posts %}
 <div class="d-flex flex-column gap-1">
-    <div></div>
+    <div>
+        <a class="btn btn-sm btn-dark rounded-pill"
+            href="/profile/{{post['created_by']}}"><img
+                src='{{ post["photo"]}}' style="clip-path: circle();" width="25" height="25" />
+            {{ post["created_by"] }}
+        </a>
+    </div>
 </div>
 {% endfor %}
 <!-- <div class="row row-cols-lg-3 rol-cols-sm-2 g-2" id="posts">

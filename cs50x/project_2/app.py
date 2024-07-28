@@ -72,7 +72,7 @@ def index():
                         INNER JOIN users on username = created_by WHERE created_by IN (?) AND type != 'comment_post'
                         ORDER BY posts.creation_time DESC""",
                         followingList)
-# ISNULL(SUM(c.Logged), 0)
+
     return render_template("index.html", posts=posts)
 
 @app.route("/homepage")
@@ -149,7 +149,7 @@ def post():
 
     else:
         post = db.execute("""SELECT posts.id AS id, posts.created_by, post, posts.creation_time AS creation_time, photo,
-                          (SELECT sum(vote) FROM votes WHERE post_id = posts.id) AS votes, type,
+                          (SELECT IFNULL(SUM(vote), 0) FROM votes WHERE post_id = posts.id) AS votes, type,
                           (SELECT COUNT(*) FROM comments WHERE post_id = posts.id) AS comments_count FROM posts
                           INNER JOIN users on username = created_by WHERE posts.id = ?""", request.args.get('id'))
         if not post:
@@ -161,7 +161,7 @@ def post():
 
         if post[0]["type"] == 'comment_post':
             post = db.execute("""SELECT posts.id AS id, posts.created_by, post, posts.creation_time AS creation_time, photo,
-                          (SELECT sum(vote) FROM votes WHERE post_id = posts.id) AS votes, type,
+                          (SELECT IFNULL(SUM(vote), 0) FROM votes WHERE post_id = posts.id) AS votes, type,
                           (SELECT COUNT(*) FROM comments WHERE post_id = posts.id) AS comments_count FROM posts
                           INNER JOIN comments on comment_id = ?
                           INNER JOIN users on username = created_by WHERE posts.id = post_id""", request.args.get('id'))
@@ -209,7 +209,7 @@ def vote():
         try:
             db.execute("INSERT INTO votes(username, post_id, vote) VALUES(?,?,?)", session["user_name"], request.args.get("id"),
                        request.form.get("vote"))
-            votes = db.execute("SELECT sum(vote) AS votes FROM votes WHERE post_id = ?", request.args.get("id"))
+            votes = db.execute("SELECT IFNULL(SUM(vote), 0) AS votes FROM votes WHERE post_id = ?", request.args.get("id"))
         except:
             print(session["user_name"], request.args.get("id"), request.form.get("vote"))
             return "An error occurred", 400

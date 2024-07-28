@@ -85,5 +85,7 @@ a img {
 .text-truncate {
     --max-lines: 3;
     --lh: 1.4rem;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
     max-height: calc(var(--lh) * var(--max-lines));
 }

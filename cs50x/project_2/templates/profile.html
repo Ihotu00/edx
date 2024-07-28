@@ -59,7 +59,7 @@ Post blogs and join message boards
             <div class="row row-cols-lg-4 rol-cols-sm-2 g-2 mt-5" id="posts">
                 {% for post in posts | selectattr("type", "equalto", "original_post") | list %}
                 <div class="col">
-                    <div class="card text-bg-dark hover h-100">
+                    <div class="card hover h-100">
                         <div class="card-header text-start">
                             <p class="mb-0 text-truncate">{{ post["title"] }}</p>
                         </div>
@@ -84,7 +84,7 @@ Post blogs and join message boards
             <div class="row row-cols-lg-4 rol-cols-sm-2 g-2 mt-5" id="posts">
                 {% for post in posts | selectattr("type", "equalto", "comment_post") | list %}
                 <div class="col">
-                    <div class="card text-bg-dark hover h-100">
+                    <div class="card hover h-100">
                         <div class="card-header text-start">
                             <p class="mb-0 text-truncate">{{ post["title"] if post["title"] }}</p>
                         </div>
@@ -109,7 +109,7 @@ Post blogs and join message boards
             <div class="list-group w-25 mt-5">
                 {% for follower in followers %}
                 <a href="/profile/{{follower['username']}}" class="list-group-item list-group-item-action
-                    text-bg-dark d-flex justify-content-between align-items-center border-1">
+                    d-flex justify-content-between align-items-center border-1">
                     {{ follower["username"] }}
                     <span class="badge rounded-pill"><img class="object-fit-fill"
                         src='{{ follower["photo"]}}' style="clip-path: circle();" width="25" height="25" /></span>
@@ -126,7 +126,7 @@ Post blogs and join message boards
             <div class="row row-cols-lg-4 rol-cols-sm-2 g-2 mt-5" id="posts">
                 {% for post in votes | selectattr("vote", "equalto", 1) | list %}
                 <div class="col">
-                    <div class="card text-bg-dark hover h-100">
+                    <div class="card hover h-100">
                         <div class="card-header text-start d-flex flex-row align-items-center">
                             <p class="mb-0 text-truncate">{{ post["title"] if post["title"] }}</p>
                             <a class="btn btn-sm btn-dark rounded-pill ms-auto"
@@ -156,7 +156,7 @@ Post blogs and join message boards
             <div class="row row-cols-lg-4 rol-cols-sm-2 g-2 mt-5" id="posts">
                 {% for post in votes | selectattr("vote", "equalto", -1) | list %}
                 <div class="col">
-                    <div class="card text-bg-dark hover h-100">
+                    <div class="card hover h-100">
                         <div class="card-header text-start d-flex flex-row align-items-center">
                             <p class="mb-0 text-truncate">{{ post["title"] if post["title"] }}</p>
                             <a class="btn btn-sm btn-dark rounded-pill ms-auto"

@@ -15,7 +15,7 @@ Post blogs and join message boards
         </div>
         <div class="ms-auto p-2 align-self-end">
             {% if header["name"] != session["user_name"] %}
-            <div class="spinner-border spinner-border-sm hide" style="width: 3rem; height: 3rem;" role="status"
+            <div class="spinner-border spinner-border-sm hide" style="width: 2rem; height: 2rem;" role="status"
                 id="join-group-loader">
             </div>
             <form action="/follow/{{header['name']}}" method="post" id="join-group-form"

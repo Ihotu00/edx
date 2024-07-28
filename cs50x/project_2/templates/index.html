@@ -12,18 +12,18 @@ Post blogs and join message boards
 {% endif %}
 <div class="mt-5 d-flex flex-column gap-3">
     {% if homepage %}
-    <div class="fs-3">
+    <div class="fs-3 p-3 rounded text-bg-dark">
         <span class="text-danger">W</span><span class="text-warning">E</span><span class="text-success">L</span>
         <span class="text-primary">C</span><span class="text-danger">O</span><span class="text-warning">M</span>
         <span class="text-success">E</span>
         <p class="text-light">You can create your own posts,  see other users posts, as well as vote and comment on their posts </p>
     </div>
-    <div class="text-light d-flex gap-3 justify-content-center">
-        <span class="border-1">
+    <div class="text-bg-dark d-flex gap-3 justify-content-center">
+        <span class="border">
             <h1>{{ homepage["totalUsers"] }}</h1>
             <p>Total Users</p>
         </span>
-        <span class="border-1">
+        <span class="border">
             <h1>{{ homepage["totalPosts"] }}</h1>
             <p>Total Posts</p>
         </span>

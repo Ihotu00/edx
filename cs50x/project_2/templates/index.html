@@ -11,9 +11,9 @@ Post blogs and join message boards
 </div>
 {% endif %}
 {% for post in posts %}
-<div class="d-flex flex-column gap-1 rounded">
+<div class="d-flex flex-column gap-1 rounded text-light">
     <div class="d-flex">
-        <a class="btn btn-sm btn-dark rounded-pill"
+        <a class="btn btn-sm rounded-pill"
             href="/profile/{{post['created_by']}}"><img
                 src='{{ post["photo"]}}' style="clip-path: circle();" width="25" height="25" />
             {{ post["created_by"] }}

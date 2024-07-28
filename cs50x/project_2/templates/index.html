@@ -20,9 +20,9 @@ Post blogs and join message boards
         </a>
         <p class="mb-0 ms-auto">{{ post["creation_time"] | date }}</p>
     </div>
-    <div style="max-height: 100px;">
+    <div style="max-height: 100px;" class="text-wrap">
         <a href="/post?id={{post.id}}" class="text-light text-decoration-none">
-            <div class="card-body text-truncate text-start">
+            <div class="card-body text-start">
                 {{ post["post"] }}
             </div>
         </a>

@@ -149,7 +149,7 @@ def post():
 
     else:
         post = db.execute("""SELECT posts.id AS id, posts.created_by, post, posts.creation_time AS creation_time, photo,
-                          (SELECT SUM(vote) FROM votes WHERE post_id = posts.id) AS votes, type,
+                          (SELECT IFNULL(SUM(vote), 0) FROM votes WHERE post_id = posts.id) AS votes, type,
                           (SELECT COUNT(*) FROM comments WHERE post_id = posts.id) AS comments_count FROM posts
                           INNER JOIN users on username = created_by WHERE posts.id = ?""", request.args.get('id'))
         if not post:
@@ -161,7 +161,7 @@ def post():
 
         if post[0]["type"] == 'comment_post':
             post = db.execute("""SELECT posts.id AS id, posts.created_by, post, posts.creation_time AS creation_time, photo,
-                          (SELECT SUM(vote) FROM votes WHERE post_id = posts.id) AS votes, type,
+                          (SELECT IFNULL(SUM(vote), 0) FROM votes WHERE post_id = posts.id) AS votes, type,
                           (SELECT COUNT(*) FROM comments WHERE post_id = posts.id) AS comments_count FROM posts
                           INNER JOIN comments on comment_id = ?
                           INNER JOIN users on username = created_by WHERE posts.id = post_id""", request.args.get('id'))

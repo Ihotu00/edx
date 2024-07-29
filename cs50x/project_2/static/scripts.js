@@ -23,7 +23,7 @@ function show_modal(id) {
     _modal.show();
 }
 
-function theme() {
+function toggle_theme() {
     document.body.removeAttribute('class')
     if (theme == "dark") {
         document.body.classList.add("text-bg-light");

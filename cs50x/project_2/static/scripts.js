@@ -107,7 +107,8 @@ function vote_on_post(vote, id) {
 }
 
 function theme(theme) {
-    document.
+    document.body.removeAttribute('class')
+    document.body.classList.add(`text-bg-${theme}`)
 }
 
 function login(event, url) {

@@ -39,13 +39,8 @@
 }
 
 .hover:hover {
-    box-shadow: inset 5000px 5000px var(--hover-light);
+    box-shadow: inset 5000px 5000px rgba(255, 255, 255, 0.1);
     cursor: pointer;
-}
-
-:root{
-    --hover-light: rgba(255, 255, 255, 0.1);
-    --hover-dark: rgba(0, 0, 0, 0.1);
 }
 
 a {

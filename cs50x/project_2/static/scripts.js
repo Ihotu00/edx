@@ -1,6 +1,7 @@
 var _modal;
 var _canvas;
 var is_canvas = false;
+var theme = "dark";
 
 // initialize tootips
 document.addEventListener('DOMContentLoaded', function() {
@@ -20,6 +21,18 @@ function show(id) {
 function show_modal(id) {
     _modal = new bootstrap.Modal(document.getElementById(id))
     _modal.show();
+}
+
+function theme() {
+    document.body.removeAttribute('class')
+    if (theme == "dark") {
+        document.body.classList.add("text-bg-light");
+        theme = "light";
+    }
+    else if (theme == "light") {
+        document.body.classList.add("text-bg-dark");
+        theme = "dark";
+    }
 }
 
 function scrol(direction) {
@@ -104,11 +117,6 @@ function vote_on_post(vote, id) {
             create_alert("vote-response", `${error.responseText}`, 'danger', 'error')
         }
     });
-}
-
-function theme(theme) {
-    document.body.removeAttribute('class')
-    document.body.classList.add(`text-bg-${theme}`)
 }
 
 function login(event, url) {

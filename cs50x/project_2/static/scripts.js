@@ -106,6 +106,10 @@ function vote_on_post(vote, id) {
     });
 }
 
+function theme(theme) {
+    document.
+}
+
 function login(event, url) {
     event.preventDefault();
     show("spinner")

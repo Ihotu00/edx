@@ -13,14 +13,14 @@ Post blogs and join message boards
 {% for post in posts %}
 <div class="d-flex flex-column gap-1 rounded  p-3 hover">
     <div class="d-flex">
-        <a class="text-light rounded-pill" title="{{ post['created_by']}}"
+        <a class="text-reset rounded-pill" title="{{ post['created_by']}}"
             href="/profile/{{post['created_by']}}"><img
                 src='{{ post["photo"]}}' style="clip-path: circle();" width="25" height="25" />
             {{ post["created_by"] }}
         </a>
         <li class="mb-0 ms-auto">{{ post["creation_time"] | date }}</li>
     </div>
-    <a href="/post?id={{post.id}}" class="text-light text-decoration-none truncate">
+    <a href="/post?id={{post.id}}" class="text-reset text-decoration-none truncate">
         <div class="card-body text-start">
             {{ post["post"] }}
         </div>

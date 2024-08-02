@@ -117,51 +117,21 @@ Post blogs and join message boards
                 <h1 class="text-white-50" style="font-size: 10cqb;">Looks you haven't upvoted anything yet...</h1>
             </div>
             {% endif %}
-            <div class="row row-cols-lg-4 rol-cols-sm-2 g-2 mt-5" id="posts">
-                {% for post in votes | selectattr("vote", "equalto", 1) | list %}
-                <div class="col">
-                    <div class="card hover h-100">
-                        <div class="card-header text-start d-flex flex-row align-items-center">
-                            <p class="mb-0 text-truncate">{{ post["title"] if post["title"] }}</p>
-                            <a class="btn btn-sm btn-dark rounded-pill ms-auto"
-                                href="/profile/{{post['created_by']}}"><img
-                                    src='{{ post["photo"]}}' style="clip-path: circle();" width="25" height="25" />
-                                {{ post["created_by"] }}
-                            </a>
-                        </div>
-                        <a href="/post?id={{post.id}}" class="text-light text-decoration-none">
-                            <div class="card-body text-truncate text-start">
-                            {{ post["post"] }}
-                        </div></a>
-                        <div class="card-footer text-end" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ post['creation_time'] | time}}" >
-                            {{ post["creation_time"] | date }}
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-            {% for post in posts %}
+            {% for post in votes | selectattr("vote", "equalto", 1) | list %}
             <div class="d-flex flex-column gap-1 rounded  p-3 hover">
                 <div class="d-flex">
-                    <a class="text-reset rounded-pill" title="{{ post['created_by']}}"
+                    <p class="mb-0 text-truncate">{{ post["title"] if post["title"] }}</p>
+                    <a class="text-reset rounded-pill ms-auto" title="{{ post['created_by']}}"
                         href="/profile/{{post['created_by']}}"><img
                             src='{{ post["photo"]}}' style="clip-path: circle();" width="25" height="25" />
                         {{ post["created_by"] }}
                     </a>
-                    <li class="mb-0 ms-auto">{{ post["creation_time"] | date }}</li>
                 </div>
                 <a href="/post?id={{post.id}}" class="text-reset text-decoration-none truncate">
                     <div class="card-body text-start">
                         {{ post["post"] }}
                     </div>
                 </a>
-                <div class="d-flex align-items-center p-1">
-                    <p class="mb-0 fs-5 me-1">{{ post["votes"] }}</p>
-                    {% if post["votes"] > 0 %}<span class="text-success material-symbols-outlined fs-4">
-                        arrow_upward</span>
-                    {% elif post["votes"] < 0 %}<span class="text-danger material-symbols-outlined fs-4">
-                        arrow_downward</span>{% endif %}
-                </div>
             </div>
             <hr class="border">
             {% endfor %}
@@ -172,29 +142,24 @@ Post blogs and join message boards
                 <h1 class="text-white-50" style="font-size: 10cqb;">Looks you haven't downvoted anything yet...</h1>
             </div>
             {% endif %}
-            <div class="row row-cols-lg-4 rol-cols-sm-2 g-2 mt-5" id="posts">
-                {% for post in votes | selectattr("vote", "equalto", -1) | list %}
-                <div class="col">
-                    <div class="card hover h-100">
-                        <div class="card-header text-start d-flex flex-row align-items-center">
-                            <p class="mb-0 text-truncate">{{ post["title"] if post["title"] }}</p>
-                            <a class="btn btn-sm btn-dark rounded-pill ms-auto"
-                                href="/profile/{{post['created_by']}}"><img
-                                    src='{{ post["photo"]}}' style="clip-path: circle();" width="25" height="25" />
-                                {{ post["created_by"] }}
-                            </a>
-                        </div>
-                        <a href="/post?id={{post.id}}" class="text-light text-decoration-none">
-                            <div class="card-body text-truncate text-start">
-                            {{ post["post"] }}
-                        </div></a>
-                        <div class="card-footer text-end" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ post['creation_time'] | time}}" >
-                            {{ post["creation_time"] | date }}
-                        </div>
-                    </div>
+            {% for post in votes | selectattr("vote", "equalto", -1) | list %}
+            <div class="d-flex flex-column gap-1 rounded  p-3 hover">
+                <div class="d-flex">
+                    <p class="mb-0 text-truncate">{{ post["title"] if post["title"] }}</p>
+                    <a class="text-reset rounded-pill ms-auto" title="{{ post['created_by']}}"
+                        href="/profile/{{post['created_by']}}"><img
+                            src='{{ post["photo"]}}' style="clip-path: circle();" width="25" height="25" />
+                        {{ post["created_by"] }}
+                    </a>
                 </div>
-                {% endfor %}
+                <a href="/post?id={{post.id}}" class="text-reset text-decoration-none truncate">
+                    <div class="card-body text-start">
+                        {{ post["post"] }}
+                    </div>
+                </a>
             </div>
+            <hr class="border">
+            {% endfor %}
         </div>
     </div>
 </div>

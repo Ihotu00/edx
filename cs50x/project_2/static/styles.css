@@ -83,8 +83,8 @@ a img {
 }
 
 .rainbow-text {
-    /* background-image: linear-gradient(to left, green, yellow, orange, red); */
-    background-image: linear-gradient(to left, #ef9007)
+    /* background-image: linear-gradient(to left, green, yellow, orange, red);*/
+    background-image: linear-gradient(to left, #ef9007, #f6d317, #ffffff, #45bcee, #1e3f54)
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;

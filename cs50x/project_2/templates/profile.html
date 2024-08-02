@@ -111,6 +111,11 @@ Post blogs and join message boards
                 </a>
                 {% endfor %}
             </div>
+            <div class="d-grid text-start">
+                <div class="card-header">
+                    <h5 class="text-white-50">FOLLOWING</h5>
+                </div>
+            </div>
         </div>
         <div class="tab-pane fade" id="upvotes" role="tabpanel" aria-labelledby="upvotes-tab" tabindex="0">
             {% if votes | selectattr("vote", "equalto", 1) | list | length == 0 %}

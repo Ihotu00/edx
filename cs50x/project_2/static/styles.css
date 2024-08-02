@@ -84,8 +84,8 @@ a img {
 
 .rainbow-text {
     /* background-image: linear-gradient(to left, green, yellow, orange, red);*/
-    background-image: linear-gradient(to left, rgba(239,144,7,1), rgba(246,211,23,1), rgba(255,255,255,1), rgba(69,188,238,1), (30,63,84,1));
-    /* background-image: linear-gradient(to left, green, yellow, orange, red) */
+    /* background-image: linear-gradient(to left, rgba(239,144,7,1), rgba(246,211,23,1), rgba(255,255,255,1), rgba(69,188,238,1), (30,63,84,1)); */
+    background-image: linear-gradient(to left, blue, white, yellow, orange);
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;

@@ -77,7 +77,7 @@ Post blogs and join message boards
             {% if posts | selectattr("type", "equalto", "comment_post") | list | length == 0 %}
             <hr class="border">
             <div class="center mt-5">
-                <h1 class="text-white-50" style="font-size: 10cqb;">Looks like you have no comments yet...</h1>
+                <h1 class="text-white-50" style="font-size: 10cqb;">Looks like there are no comments here...</h1>
             </div>
             {% endif %}
             {% for post in posts | selectattr("type", "equalto", "comment_post") | list %}

@@ -94,5 +94,6 @@ a img {
 
 :root {
     --ace: linear-gradient(to left, blue, white, yellow, orange);
-    --gay: linear-gradient(to left, green, yellow, orange, red)
+    --gay: linear-gradient(to left, green, yellow, orange, red);
+    --bi: linear-gradient(to left, green, yellow, orange, red)
 }

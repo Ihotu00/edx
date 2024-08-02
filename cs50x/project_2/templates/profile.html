@@ -102,9 +102,10 @@ Post blogs and join message boards
                 <h1 class="text-white-50" style="font-size: 10cqb;">Looks like you have no followers yet...</h1>
             </div>
             {% endif %}
-            <div class="d-grid text-start">
+            -- <div class="row row-cols-lg-3 rol-cols-sm-2 g-2">
                 {% for follower in followers %}
                 <hr class="border">
+                --     <div class="col">
                 <a class="btn btn-dark btn-lg text-start text-break" href="/profile/{{follower['username']}}"
                     type="button">
                     <h5 class="text-wrap"><img src='{{ follower["photo"]}}' width="30" height="30"

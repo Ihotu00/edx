@@ -95,5 +95,19 @@ a img {
 :root {
     --ace: linear-gradient(to left, blue, white, yellow, orange);
     --gay: linear-gradient(to left, green, yellow, orange, red);
-    --bi: linear-gradient(to left, green, yellow, orange, red)
+    --bi: linear-gradient(to right, orange, white, pink)
+}
+
+@keyframes rainbow-text {
+    0%{color: var(--ace);}
+    10%{color: var(--gay);}
+    20%{color: red;}
+    30%{color: CadetBlue;}
+    40%{color: yellow;}
+    50%{color: coral;}
+    60%{color: green;}
+    70%{color: cyan;}
+    80%{color: DeepPink;}
+    90%{color: DodgerBlue;}
+    100%{color: orange;}
 }

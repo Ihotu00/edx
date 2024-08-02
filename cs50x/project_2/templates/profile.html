@@ -85,13 +85,6 @@ Post blogs and join message boards
                         {{ post["post"] }}
                     </div>
                 </a>
-                <div class="d-flex align-items-center p-1">
-                    <p class="mb-0 fs-5 me-1">{{ post["votes"] }}</p>
-                    {% if post["votes"] > 0 %}<span class="text-success material-symbols-outlined fs-4">
-                        arrow_upward</span>
-                    {% elif post["votes"] < 0 %}<span class="text-danger material-symbols-outlined fs-4">
-                        arrow_downward</span>{% endif %}
-                </div>
             </div>
             <hr class="border">
             {% endfor %}

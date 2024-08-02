@@ -56,29 +56,12 @@ Post blogs and join message boards
                 <h1 class="text-white-50" style="font-size: 10cqb;">Looks like you have no posts yet...</h1>
             </div>
             {% endif %}
-            <div class="row row-cols-lg-4 rol-cols-sm-2 g-2 mt-5" id="posts">
-                {% for post in posts | selectattr("type", "equalto", "original_post") | list %}
-                <div class="col">
-                    <div class="card hover h-100">
-                        <div class="card-header text-start">
-                            <p class="mb-0 text-truncate">{{ post["title"] }}</p>
-                        </div>
-                        <a href="/post?id={{post.id}}" class="card-body text-light text-decoration-none">
-                            <div class="text-truncate text-start">
-                            {{ post["post"] }}
-                        </div></a>
-                        <div class="card-footer text-end" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ post['creation_time'] | time}}" >
-                            {{ post["creation_time"] | date }}
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
             {% for post in posts | selectattr("type", "equalto", "original_post") | list %}
             <div class="d-flex flex-column gap-1 rounded  p-3 hover">
                 <div class="d-flex">
                     <p class="mb-0 text-truncate">{{ post["title"] }}</p>
-                    <li class="mb-0 ms-auto">{{ post["creation_time"] | date }}</li>
+                    <li class="mb-0 ms-auto" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ post['creation_time'] | time}}">
+                        {{ post["creation_time"] | date }}</li>
                 </div>
                 <a href="/post?id={{post.id}}" class="text-reset text-decoration-none truncate">
                     <div class="card-body text-start">

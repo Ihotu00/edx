@@ -35,34 +35,4 @@ Post blogs and join message boards
 </div>
 <hr class="border">
 {% endfor %}
-<!-- <div class="row row-cols-lg-3 rol-cols-sm-2 g-2" id="posts">
-    {% for post in posts %}
-    <div class="col">
-        <div class="card text-bg-dark hover">
-            <div class="card-header text-start d-flex flex-row align-items-center">
-                <p class="mb-0 text-truncate">{{ post["title"] if post["title"] }}</p>
-                <a class="btn btn-sm btn-dark rounded-pill ms-auto flex-shrink-0"
-                    href="/profile/{{post['created_by']}}"><img
-                        src='{{ post["photo"]}}' style="clip-path: circle();" width="25" height="25" />
-                    {{ post["created_by"] }}
-                </a>
-            </div>
-            <a href="/post?id={{post.id}}" class="text-light text-decoration-none">
-                <div class="card-body text-truncate text-start">
-                {{ post["post"] }}
-            </div></a>
-            <div class="card-footer d-flex">
-                <div class="d-flex justify-content-end align-items-center" id="vote-buttons">
-                    <p class="mb-0 fs-6 mx-2">{{ post["votes"] }}</p>
-                    {% if post["votes"] > 0 %}<span class="text-success material-symbols-outlined fs-6">
-                        arrow_upward</span>
-                    {% elif post["votes"] < 0 %}<span class="text-danger material-symbols-outlined fs-6">
-                        arrow_downward</span>{% endif %}
-                </div>
-                <p class="mb-0 ms-auto">{{ post["creation_time"] | date }}</p>
-            </div>
-        </div>
-    </div>
-    {% endfor %}
-</div> -->
 {% endblock %}

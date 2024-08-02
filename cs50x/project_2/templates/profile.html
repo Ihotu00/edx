@@ -52,11 +52,13 @@ Post blogs and join message boards
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab" tabindex="0">
             {% if posts | selectattr("type", "equalto", "original_post") | list | length == 0 %}
+            <hr class="border">
             <div class="center mt-5">
                 <h1 class="text-white-50" style="font-size: 10cqb;">Looks like you have no posts yet...</h1>
             </div>
             {% endif %}
             {% for post in posts | selectattr("type", "equalto", "original_post") | list %}
+            <hr class="border">
             <div class="d-flex flex-column gap-1 rounded  p-3 hover">
                 <div class="d-flex">
                     <p class="mb-0 text-truncate">{{ post["title"] }}</p>
@@ -69,16 +71,17 @@ Post blogs and join message boards
                     </div>
                 </a>
             </div>
-            <hr class="border">
             {% endfor %}
         </div>
         <div class="tab-pane fade" id="comments" role="tabpanel" aria-labelledby="comments-tab" tabindex="0">
             {% if posts | selectattr("type", "equalto", "comment_post") | list | length == 0 %}
+            <hr class="border">
             <div class="center mt-5">
                 <h1 class="text-white-50" style="font-size: 10cqb;">Looks like you have no comments yet...</h1>
             </div>
             {% endif %}
             {% for post in posts | selectattr("type", "equalto", "comment_post") | list %}
+            <hr class="border">
             <div class="d-flex flex-column gap-1 rounded  p-3 hover">
                 <div class="d-flex">
                     <p class="mb-0 text-truncate">{{ post["title"] }}</p>
@@ -91,7 +94,6 @@ Post blogs and join message boards
                     </div>
                 </a>
             </div>
-            <hr class="border">
             {% endfor %}
         </div>
         <div class="tab-pane fade" id="followers" role="tabpanel" aria-labelledby="followers-tab" tabindex="0">
@@ -113,11 +115,13 @@ Post blogs and join message boards
         </div>
         <div class="tab-pane fade" id="upvotes" role="tabpanel" aria-labelledby="upvotes-tab" tabindex="0">
             {% if votes | selectattr("vote", "equalto", 1) | list | length == 0 %}
+            <hr class="border">
             <div class="center mt-5">
                 <h1 class="text-white-50" style="font-size: 10cqb;">Looks you haven't upvoted anything yet...</h1>
             </div>
             {% endif %}
             {% for post in votes | selectattr("vote", "equalto", 1) | list %}
+            <hr class="border">
             <div class="d-flex flex-column gap-1 rounded  p-3 hover">
                 <div class="d-flex">
                     <p class="mb-0 text-truncate">{{ post["title"] if post["title"] }}</p>
@@ -133,16 +137,17 @@ Post blogs and join message boards
                     </div>
                 </a>
             </div>
-            <hr class="border">
             {% endfor %}
         </div>
         <div class="tab-pane fade" id="downvotes" role="tabpanel" aria-labelledby="downvotes-tab" tabindex="0">
             {% if votes | selectattr("vote", "equalto", -1) | list | length == 0 %}
+            <hr class="border">
             <div class="center mt-5">
                 <h1 class="text-white-50" style="font-size: 10cqb;">Looks you haven't downvoted anything yet...</h1>
             </div>
             {% endif %}
             {% for post in votes | selectattr("vote", "equalto", -1) | list %}
+            <hr class="border">
             <div class="d-flex flex-column gap-1 rounded  p-3 hover">
                 <div class="d-flex">
                     <p class="mb-0 text-truncate">{{ post["title"] if post["title"] }}</p>
@@ -158,7 +163,6 @@ Post blogs and join message boards
                     </div>
                 </a>
             </div>
-            <hr class="border">
             {% endfor %}
         </div>
     </div>

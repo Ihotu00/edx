@@ -61,7 +61,7 @@ Post blogs and join message boards
             <hr class="border">
             <div class="d-flex flex-column gap-1 rounded  p-3 hover">
                 <div class="d-flex">
-                    <p class="mb-0 text-truncate card-title">{{ post["title"] }}</p>
+                    <h4 class="mb-0 text-truncate">{{ post["title"] }}</h4>
                     <li class="mb-0 ms-auto" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{{ post['creation_time'] | time}}">
                         {{ post["creation_time"] | date }}</li>
                 </div>

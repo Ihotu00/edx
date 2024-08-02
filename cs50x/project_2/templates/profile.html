@@ -104,13 +104,11 @@ Post blogs and join message boards
             {% endif %}
             <div class="row row-cols-lg-3 rol-cols-sm-2 g-2">
                 {% for follower in followers %}
-                <div class="col">
-                    <a class="btn btn-dark btn-lg text-start text-break" href="/profile/{{follower['username']}}"
-                        type="button">
-                        <h5 class="text-wrap"><img src='{{ follower["photo"]}}' width="30" height="30"
-                            style="clip-path: circle()" class="me-1" />{{follower["username"] }}</h5>
-                    </a>
-                </div>
+                <a class="btn btn-dark btn-lg text-start text-break" href="/profile/{{follower['username']}}"
+                    type="button">
+                    <h5 class="text-wrap"><img src='{{ follower["photo"]}}' width="30" height="30"
+                        style="clip-path: circle()" class="me-1" />{{follower["username"] }}</h5>
+                </a>
                 {% endfor %}
             </div>
         </div>

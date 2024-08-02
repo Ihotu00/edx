@@ -74,6 +74,31 @@ Post blogs and join message boards
                 </div>
                 {% endfor %}
             </div>
+            {% for post in posts %}
+            <div class="d-flex flex-column gap-1 rounded  p-3 hover">
+                <div class="d-flex">
+                    <a class="text-reset rounded-pill" title="{{ post['created_by']}}"
+                        href="/profile/{{post['created_by']}}"><img
+                            src='{{ post["photo"]}}' style="clip-path: circle();" width="25" height="25" />
+                        {{ post["created_by"] }}
+                    </a>
+                    <li class="mb-0 ms-auto">{{ post["creation_time"] | date }}</li>
+                </div>
+                <a href="/post?id={{post.id}}" class="text-reset text-decoration-none truncate">
+                    <div class="card-body text-start">
+                        {{ post["post"] }}
+                    </div>
+                </a>
+                <div class="d-flex align-items-center p-1">
+                    <p class="mb-0 fs-5 me-1">{{ post["votes"] }}</p>
+                    {% if post["votes"] > 0 %}<span class="text-success material-symbols-outlined fs-4">
+                        arrow_upward</span>
+                    {% elif post["votes"] < 0 %}<span class="text-danger material-symbols-outlined fs-4">
+                        arrow_downward</span>{% endif %}
+                </div>
+            </div>
+            <hr class="border">
+            {% endfor %}
         </div>
         <div class="tab-pane fade" id="comments" role="tabpanel" aria-labelledby="comments-tab" tabindex="0">
             {% if posts | selectattr("type", "equalto", "comment_post") | list | length == 0 %}

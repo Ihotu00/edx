@@ -74,7 +74,7 @@ Post blogs and join message boards
                 </div>
                 {% endfor %}
             </div>
-            {% for post in posts %}
+            {% for post in posts | selectattr("type", "equalto", "original_post") | list %}
             <div class="d-flex flex-column gap-1 rounded  p-3 hover">
                 <div class="d-flex">
                     <a class="text-reset rounded-pill" title="{{ post['created_by']}}"

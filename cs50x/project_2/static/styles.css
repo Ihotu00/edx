@@ -83,23 +83,8 @@ a img {
 }
 
 .rainbow-text {
-    /* background-image: linear-gradient(to left, green, yellow, orange, red); */
-    /* background-image: linear-gradient(to left, #ef9007, #f6d317, #ffffff, #45bcee, #1e3f54);
-    background-image: linear-gradient(to left, rgba(239,144,7,1), rgba(246,211,23,1), rgba(255,255,255,1), rgba(69,188,238,1), (30,63,84,1)); */
-    /* background-image: linear-gradient(to left, blue, white, yellow, orange); */
+    background-image: linear-gradient(to left, green, yellow, orange, red);
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
-}
-
-:root {
-    --ace: linear-gradient(to left, blue, white, yellow, orange);
-    --gay: linear-gradient(to left, green, yellow, orange, red);
-    --bi: linear-gradient(to right, orange, white, pink)
-}
-
-@keyframes rainbow-text {
-    0%{background-image: var(--ace);}
-    50%{background-image: var(--gay);}
-    100%{background-image: var(--bi);}
 }

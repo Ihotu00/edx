@@ -2,6 +2,7 @@ import os
 import logging
 from datetime import datetime, timedelta
 import re
+from uuid import uuid4
 
 from cs50 import SQL
 from flask import Flask, redirect, render_template, request, session
@@ -20,7 +21,7 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 # Configure CS50 Library to use SQLite database
-db = SQL("sqlite:///tunglr.db")
+db = SQL("sqlite:///blog.db")
 
 
 def login_required(f):
@@ -58,181 +59,216 @@ def after_request(response):
     return response
 
 
-@app.route("/feed/<client>/<client_name>")
+@app.route("/")
 @login_required
-def index(client, client_name):
+def index():
 
-    header= None
-    feed = None
+    followingList = [following["username"] for following in session["user_following"]]
+    followingList.append(session["user_name"])
+    logging.warning(followingList)
 
-    if client == "user":
-        # if client_name != session["user_name"]:
-        header = db.execute("SELECT username AS name, photo FROM users WHERE username = ?", client_name)
-        posts = db.execute("""SELECT post, blog_posts.id AS id, blog_posts.creation_time, group_name, user_name, photo FROM blog_posts
-                            INNER JOIN groups on groupname = group_name WHERE (user_name = ? OR group_name IN (?)) AND type != 'comment'
-                            UNION SELECT post, blog_posts.id AS id, blog_posts.creation_time, group_name, user_name AS name, photo FROM blog_posts
-                            INNER JOIN users on username = user_name WHERE (user_name = ? and group_name is null) AND type != 'comment' ORDER BY blog_posts.creation_time DESC""", client_name, [group["groupname"] for group in session["user_groups"]], client_name)
+    posts = db.execute("""SELECT post, posts.id AS id, posts.creation_time, created_by, photo, title,
+                       (SELECT IFNULL(SUM(vote), 0) FROM votes WHERE post_id = posts.id) AS votes FROM posts
+                        INNER JOIN users on username = created_by WHERE created_by IN (?) AND type != 'comment_post'
+                        ORDER BY posts.creation_time DESC""",
+                        followingList)
 
-    if client == "group":
-        feed = client_name
-        header = db.execute("SELECT groupname AS name, photo, accessibility FROM groups WHERE groupname = ?", client_name)
-        if header[0]["name"] in [group["groupname"] for group in session["user_groups"]]:
-            header[0]["is_member"] = "true"
-        else:
-            header[0]["is_member"] = "false"
-        posts = db.execute("""SELECT post, blog_posts.id AS id, blog_posts.creation_time, user_name, photo FROM blog_posts
-                           INNER JOIN users on username = user_name WHERE group_name = ? AND type != 'comment' ORDER BY blog_posts.creation_time DESC""", client_name)
+    return render_template("index.html", posts=posts)
 
-    return render_template("index.html", posts=posts, header=header, feed=feed)
+@app.route("/homepage")
+def home():
+
+    posts = db.execute("""SELECT post, posts.id AS id, posts.creation_time, created_by, photo, title,
+                       (SELECT IFNULL(SUM(vote), 0) FROM votes WHERE post_id = posts.id) AS votes FROM posts
+                        INNER JOIN users on username = created_by WHERE type != 'comment_post' ORDER BY votes DESC""")
+
+    totalUsers = db.execute("SELECT COUNT(*)  AS total FROM users")
+    totalPosts = db.execute("SELECT COUNT(*) AS total FROM posts WHERE type != 'comment_post'")
+    homepage = {"totalUsers": totalUsers[0]["total"], "totalPosts": totalPosts[0]["total"]}
+
+    return render_template("index.html", posts=posts, homepage=homepage)
 
 
-@app.route("/post/<name>", defaults={"type": None})
-@app.route("/post/<name>/submit/<type>", methods=["POST"])
+@app.route("/profile/<username>")
 @login_required
-def post(name, type):
-    try:
-        if request.method == "POST":
+def profile(username):
+
+    posts = db.execute("""SELECT post, posts.id AS id, posts.creation_time, created_by, photo, title, type FROM posts
+                        INNER JOIN users on username = created_by WHERE created_by = ? ORDER BY posts.creation_time DESC""",
+                        username)
+    followers = db.execute(
+        """SELECT follower AS username, photo FROM users INNER JOIN users_followers on username = follower WHERE user = ?
+        ORDER BY users_followers.creation_time DESC""", session["user_name"])
+    votes = []
+    if username == session["user_name"]:
+        votes = db.execute("""SELECT post, posts.id AS id, posts.creation_time, created_by, photo, title, type, vote FROM posts
+                       INNER JOIN votes on post_id = posts.id INNER JOIN users on users.username = created_by
+                       WHERE votes.username = ?""", username)
+    header = {"name": username, "photo": posts[0]["photo"]}
+    header["is_followed"] = "true" if header["name"] in [following["username"] for following in session["user_following"]] else "false"
+
+    return render_template("profile.html", posts=posts, header=header, followers=followers, votes=votes)
+
+
+
+@app.route("/post")
+@app.route("/post/submit", methods=["POST"])
+@login_required
+def post():
+    if request.method == "POST":
 
             if request.get_json():
                 data = request.get_json()
-                logging.warning(data)
 
             else:
                 return "Failed to get input.", 400
 
             if not data["post_body"]:
                 return "Please fill out the post body", 400
+            if not data["type"]:
+                return "Couldn't parse type", 400
+            title = data["title"] if data["title"] else None
+            logging.warning(title)
 
+            id = f"{uuid4()}"
             db.execute("BEGIN")
-            db.execute("INSERT INTO blog_posts(user_name, post, group_name, type) VALUES(?,?,?,?)",
-                        session["user_name"], data["post_body"], data["group_name"], type)
+            db.execute("INSERT INTO posts(id, created_by, post, type, title) VALUES(?,?,?,?,?)",
+                        id, session["user_name"], data["post_body"], data["type"], title)
 
-            if data["group_name"] != None:
-                feed = name
-                post = db.execute("""SELECT blog_posts.id AS id, group_name, photo, user_name, post, blog_posts.creation_time AS creation_time FROM blog_posts
-                                INNER JOIN groups on groupname = group_name WHERE blog_posts.id = (SELECT DISTINCT last_insert_rowid())""")
-
-            else:
-                post = db.execute("""SELECT blog_posts.id AS id, photo, user_name, post, blog_posts.creation_time AS creation_time FROM blog_posts
-                                INNER JOIN users on username = user_name WHERE blog_posts.id = (SELECT DISTINCT last_insert_rowid())""")
-
-            if type == "comment":
+            if data["type"] == "comment_post":
                 if not request.args.get('id'):
                     return "Could not parse request", 400
 
-                db.execute("INSERT INTO comments(post_id, comment_id) VALUES(?,?)" ,request.args.get('id'), post[0]["id"])
-                db.execute("COMMIT")
-                return f"{request.args.get('id')}", 200
-
-            else:
-                id = db.execute("SELECT DISTINCT last_insert_rowid() AS id")
-                db.execute("COMMIT")
-                return f"{id[0]["id"]}", 200
-
-        else:
-            if not request.args.get('id'):
-                return "Could not parse request", 400
-
-            else:
-                post = db.execute("SELECT *, (SELECT COUNT(*) FROM comments WHERE post_id = id) AS comments_count FROM blog_posts  WHERE id = ?", request.args.get('id'))
-
-                if not post[0]:
+                og_post = db.execute("SELECT * FROM posts WHERE id = ?", request.args.get('id'))
+                if not og_post:
                     return "Could not find post", 400
 
-                if post[0]["group_name"]:
-                    feed = name
-                    post[0]["photo"] = (db.execute("SELECT photo from groups WHERE groupname = ?", post[0]["group_name"]))[0]["photo"]
-                else:
-                    post[0]["photo"] = (db.execute("SELECT photo from users WHERE username = ?", post[0]["user_name"]))[0]["photo"]
+                db.execute("INSERT INTO comments(post_id, comment_id) VALUES(?,?)", request.args.get('id'), id)
+                db.execute("COMMIT")
+                return f"{id}", 200
 
-                comments = db.execute("SELECT *, (SELECT COUNT(*)) AS count FROM blog_posts INNER JOIN comments ON comment_id = id WHERE post_id = ?", request.args.get('id'))
+            else:
+                db.execute("COMMIT")
+                return f"{id}", 200
 
-                for comment in comments:
-                    comment["photo"] = (db.execute("SELECT photo FROM users WHERE username = ?", comment["user_name"]))[0]["photo"]
+    else:
+        post = db.execute("""SELECT posts.id AS id, posts.created_by, post, posts.creation_time AS creation_time, photo, title,
+                          (SELECT IFNULL(SUM(vote), 0) FROM votes WHERE post_id = posts.id) AS votes, type,
+                          (SELECT COUNT(*) FROM comments WHERE post_id = posts.id) AS comments_count FROM posts
+                          INNER JOIN users on username = created_by WHERE posts.id = ?""", request.args.get('id'))
+        if not post:
+            return "Could not find post", 400
 
-                return render_template("post.html", post=post[0], comments=comments, feed=feed)
-
-    except Exception as err:
-        logging.error(f"Unexpected {err=}")
-        return "An unexpected error occured", 500
+        comments = db.execute("SELECT *, (SELECT COUNT(*)) AS count FROM posts INNER JOIN comments ON comment_id = id WHERE post_id = ?", request.args.get('id'))
+        hash = None
 
 
-@app.route("/create/group", methods=["POST"])
+        if post[0]["type"] == 'comment_post':
+            post = db.execute("""SELECT posts.id AS id, posts.created_by, post, posts.creation_time AS creation_time, photo, title,
+                          (SELECT IFNULL(SUM(vote), 0) FROM votes WHERE post_id = posts.id) AS votes, type,
+                          (SELECT COUNT(*) FROM comments WHERE post_id = posts.id) AS comments_count FROM posts
+                          INNER JOIN comments on comment_id = ?
+                          INNER JOIN users on username = created_by WHERE posts.id = post_id""", request.args.get('id'))
+
+
+            comments = db.execute("SELECT *, (SELECT COUNT(*)) AS count FROM posts INNER JOIN comments ON comment_id = id WHERE post_id = ?", post[0]["id"])
+            hash =f"{request.args.get('id')}"
+
+
+        for comment in comments:
+            comment["photo"] = (db.execute("SELECT photo FROM users WHERE username = ?", comment["created_by"]))[0]["photo"]
+        return render_template("post.html", post=post[0], comments=comments, hash=hash)
+
+
+@app.route("/follow/<username>", methods=["POST"])
 @login_required
-def create_group():
+def follow(username):
 
-    if request.get_json():
-        data = request.get_json()
+    if username:
 
-        if not re.search("^[a-zA-Z]", data["group_name"]):
-            return "Invalid Name", 404
+        user = db.execute(
+            "SELECT * FROM users WHERE username = ?", username)
 
-        logging.warning(data)
-
-        try:
-            db.execute("INSERT INTO groups(created_by, groupname, photo, accessibility) VALUES(?,?,?,?)", session["user_name"], data["group_name"], data["group_photo"], data["access"])
-        except (ValueError):
-            return "Sorry that name is unavailbale. Try something else", 400
-
-        db.execute("INSERT INTO users_groups(user_name, group_name) VALUES(?,?)", session["user_name"], data["group_name"])
-        group = db.execute("SELECT * from groups WHERE groupname = ?", data["group_name"])
-        session["user_groups"].append(group[0])
-
-        return f"/feed/group/{data["group_name"]}", 200
-
-    else: return "ERROR: Could not read data", 400
-
-
-@app.route("/join/<group_name>", methods=["POST"])
-@login_required
-def join_group(group_name):
-
-    if group_name:
-
-        group = db.execute(
-            "SELECT * FROM groups WHERE groupname = ?", group_name)
+        if not user:
+            return "Could not find user", 400
 
         try:
             db.execute("BEGIN")
-            db.execute("INSERT INTO users_groups(user_name, group_name) VALUES(?,?)", session["user_name"], group_name)
-            session["user_groups"].append({"groupname": group[0]["groupname"], "photo": group[0]["photo"]})
+            db.execute("INSERT INTO users_followers(user, follower) VALUES(?,?)", username, session["user_name"])
+            session["user_following"].append({"username": user[0]["username"], "photo": user[0]["photo"]})
             db.execute("COMMIT")
         except(ValueError):
             db.execute("ROLLBACK")
             db.execute("BEGIN")
-            db.execute("DELETE FROM users_groups WHERE user_name = ? AND group_name = ?", session["user_name"], group_name)
-            session["user_groups"].remove([x for x in session["user_groups"] if x["groupname"] == group[0]["groupname"]][0])
+            db.execute("DELETE FROM users_followers WHERE user = ? AND follower = ?", username, session["user_name"])
+            session["user_following"].remove([x for x in session["user_following"] if x["username"] == user[0]["username"]][0])
             db.execute("COMMIT")
-            if group[0]["accessibility"] == "private":
-                return redirect(f"/feed/user/{session["user_name"]}")
 
+        return redirect(f"/profile/{username}")
 
-        return redirect(f"/feed/group/{group_name}")
-
-
-@app.route("/groups")
+@app.route("/vote", methods=["POST"])
 @login_required
-def groups():
+def vote():
 
-        # db.execute("BEGIN")
-        # groups = db.execute("SELECT groupname AS name, photo FROM groups WHERE accessibility = 'public'")
-        # for group in groups:
-        #     group_members = db.execute("SELECT COUNT(*) AS members FROM users_groups WHERE group_name = ?", group["name"])
-        #     group["members"] = group_members[0]["members"]
-        #     group_posts = db.execute("SELECT COUNT(*) AS posts FROM blog_posts WHERE group_name = ?", group["name"])
-        #     group["posts"] = group_posts[0]["posts"]
+        try:
+            db.execute("INSERT INTO votes(username, post_id, vote) VALUES(?,?,?)", session["user_name"], request.args.get("id"),
+                       request.form.get("vote"))
+            votes = db.execute("SELECT IFNULL(SUM(vote), 0) AS votes FROM votes WHERE post_id = ?", request.args.get("id"))
+        except:
+            print(session["user_name"], request.args.get("id"), request.form.get("vote"))
+            return "An error occurred", 400
+        return f"{votes[0]["votes"]}", 200
 
-        groups = db.execute("""SELECT DISTINCT groupname AS name, photo,
-                            (SELECT COUNT(*) FROM users_groups WHERE group_name = groupname) AS members,
-                            (SELECT COUNT(*) FROM blog_posts WHERE group_name = groupname AND type = 'new') AS posts
-                            FROM groups LEFT JOIN users_groups on groups.groupname = users_groups.group_name
-                            LEFT JOIN blog_posts on groups.groupname = blog_posts.group_name
-                            WHERE accessibility = 'public'""")
+@app.route("/settings")
+@login_required
+def settings():
 
-        return render_template("groups.html", groups=groups)
+    return render_template("settings.html")
 
+@app.route("/about")
+def about():
+    return render_template("about.html")
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/settings/change-password", methods=["POST"])
+@login_required
+def change_password():
+        data = request.get_json()
+
+        if not data["password"]:
+            return "Please provide Password", 400
+
+        if not data["new_password"]:
+            return "Please provide Password", 400
+
+        elif data["confirm_new_password"] != data["confirmation"]:
+            return "Passwords do not match", 400
+
+        rows = db.execute(
+            "SELECT * FROM users WHERE username = ?",  session["user_name"]
+        )
+
+        if len(rows) != 1 or not check_password_hash(
+            rows[0]["password"],  data["password"]
+        ):
+            return "Invalid username/password", 400
+
+        password_hash = generate_password_hash(data["new_password"])
+
+        db.execute("UPDATE users SET password = ? WHERE username = ?", password_hash, session["user_name"])
+        return "Password changed successfully", 200
+
+@app.route("/settings/change-profile", methods=["POST"])
+@login_required
+def change_profile():
+    data = request.get_json()
+
+    if not data["photo"]:
+        return "Please provide picture", 400
+
+    db.execute("UPDATE users SET photo = ? WHERE username = ?", data["photo"], session["user_name"])
+    session["user_photo"] = data["photo"]
+    return "Profile changed successfully", 200
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     """Log user in"""
@@ -261,8 +297,9 @@ def login():
             session["user_id"] = rows[0]["id"]
             session["user_photo"] = rows[0]["photo"]
             session["user_name"] = rows[0]["username"]
-            session["user_groups"] = db.execute(
-                "SELECT groupname, photo FROM groups INNER JOIN users_groups on groups.groupname = users_groups.group_name WHERE users_groups.user_name = ? ORDER BY users_groups.creation_time DESC", session["user_name"])
+            session["user_following"] = db.execute(
+                """SELECT user AS username, photo FROM users INNER JOIN users_followers on username = user WHERE follower = ?
+                ORDER BY users_followers.creation_time DESC""", session["user_name"])
 
             return "Login Successful", 200
 
@@ -309,10 +346,12 @@ def register():
                 return "Photo is null", 400
 
             password_hash = generate_password_hash(data["password"])
+            id = f"{uuid4()}"
 
             try:
                 db.execute(
-                    "INSERT INTO users (username, password, photo) VALUES(?,?,?)",
+                    "INSERT INTO users (id, username, password, photo) VALUES(?,?,?, ?)",
+                    id,
                     data["username"],
                     password_hash,
                     data["photo"]
@@ -327,6 +366,7 @@ def register():
             session["user_id"] = rows[0]["id"]
             session["user_photo"] = rows[0]["photo"]
             session["user_name"] = rows[0]["username"]
+            session["user_following"] = []
 
             return "Registration Successful", 200
 

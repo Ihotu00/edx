@@ -40,5 +40,5 @@ while running:
 
     # calculate delta time (dt) to make the movement frame-rate independent
     dt = clock.tick(60) / 1000  # 60 FPS limit
-
+    
 pygame.quit()

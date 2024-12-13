@@ -1,9 +1,9 @@
-import pygame
-# pygame.display.init()
+import os
+os.environ["LIBGL_ALWAYS_SOFTWARE"] = "1"  # Force software rendering
 
+import pygame
 
 # pygame setup
-pygame.display.init()
 screen = pygame.display.set_mode((1280, 720))
 clock = pygame.time.Clock()
 running = True
